@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xenon Studious | Next-Gen Digital Foundry</title>
+    <link rel="icon" href="xenon-mini-logo.png" type="image/x-icon">
+
+    <!-- CSS & Font Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Background Elements -->
+    <div class="grid-bg"></div>
+    <div class="glow bg-[#00F2FF] top-[-10%] left-[-10%]"></div>
+    <div class="glow bg-[#7000FF] bottom-[10%] right-[-10%]"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
+        <div class="glass rounded-full px-8 py-4 flex items-center justify-between border-white/10">
+            <div class="text-xl font-extrabold tracking-tighter italic"><img src="logo.png" alt="logo" class="h-10">
+            </div>
+            <div class="hidden md:flex gap-8 font-medium text-white/70">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+            <a href="#contact"
+                class="bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-[#00F2FF] transition-colors">
+                Start Project
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen pt-40 pb-20 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+            <div
+                class="inline-block px-4 py-1.5 mb-6 glass rounded-full border-white/10 text-[10px] uppercase tracking-[0.2em] font-mono text-[#00F2FF]">
+                System Status: indefatigable
+            </div>
+            <h1
+                class="hero-title text-6xl md:text-8xl font-extrabold mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
+                From Thought <br> To Thrill.
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg text-white/60 mb-10 leading-relaxed">
+                Xenon Studious delivers high-performance web systems and cinematic digital identities for the next
+                generation of SaaS.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#about"
+                    class="bg-[#00F2FF] text-black px-8 py-4 rounded-xl font-bold shadow-[0_0_20px_rgba(0,242,255,0.3)] hover:scale-105 transition-transform">
+                    Explore Artifacts
+                </a>
+                <a href="#services" class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/5 transition-colors">
+                    View Services
+                </a>
+            </div>
+        </div>
+
+        <!-- Floating UI Cards -->
+        <div class="hero-visuals mt-20 relative max-w-5xl mx-auto h-[400px]">
+            <div class="floating-card glass absolute left-0 top-10 w-64 p-6 rounded-2xl border-white/10 z-20 floating">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                    <span class="text-xs font-mono opacity-50">Live Traffic</span>
+                </div>
+                <div class="h-20 flex items-end gap-1">
+                    <div class="bg-[#00F2FF] w-full h-[40%] rounded-t-sm"></div>
+                    <div class="bg-[#00F2FF] w-full h-[70%] rounded-t-sm"></div>
+                    <div class="bg-[#00F2FF] w-full h-[50%] rounded-t-sm"></div>
+                    <div class="bg-[#00F2FF] w-full h-[90%] rounded-t-sm"></div>
+                </div>
+            </div>
+
+            <div class="floating-card glass absolute right-0 bottom-10 w-72 p-6 rounded-2xl border-white/10 z-20 floating"
+                style="animation-delay: 1s;">
+                <div class="text-xs font-mono text-[#7000FF] mb-2">DEPLOYMENT_LOG</div>
+                <div class="text-[10px] font-mono opacity-40 leading-tight">
+                    > Initializing Xenon Engine...<br>
+                    > Optimizing Node Clusters...<br>
+                    > System.status: Optimal<br>
+                    > Domain: xenonstudious.bd
+                </div>
+            </div>
+
+            <!-- Central Mockup Frame -->
+            <div
+                class="absolute left-1/2 top-0 -translate-x-1/2 w-full max-w-3xl h-[450px] glass rounded-3xl border-white/10 overflow-hidden shadow-2xl">
+                <div class="w-full h-8 bg-white/5 flex items-center px-4 gap-2">
+                    <div class="w-2 h-2 rounded-full bg-white/10"></div>
+                    <div class="w-2 h-2 rounded-full bg-white/10"></div>
+                </div>
+                <div class="p-8">
+                    <div
+                        class="w-full h-64 rounded-xl bg-gradient-to-br from-white/5 to-transparent border border-white/5 animate-pulse">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-24">
+                <span class="section-label text-[10px] uppercase font-bold mb-4 block">Our Foundation</span>
+                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6">Who We Are</h2>
+                <div class="w-12 h-[1px] bg-white/10 mx-auto mb-6"></div>
+                <p class="max-w-xl mx-auto text-zinc-500 text-sm md:text-base leading-relaxed">
+                    A collective of digital architects and cinematic designers building the future of web experiences.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Mission Card -->
+                <div class="about-card p-8 rounded-2xl glass ">
+                    <h2 class="text-2xl font-bold mb-6 text-white">Our Mission</h2>
+                    <p class="mb-6 text-zinc-400">We are a passionate team dedicated to creating innovative solutions
+                        that make a difference. Our approach combines cutting-edge technology with human-centered design
+                        to deliver exceptional results.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center group cursor-pointer">
+                            <div
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-bullseye text-white"></i>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-semibold text-white group-hover:text-[#00F2FF] transition-colors duration-300">
+                                    Precision & Excellence</h3>
+                                <p class="text-sm text-zinc-400">We pursue excellence in every detail of our work.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center group cursor-pointer">
+                            <div
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-lightbulb text-white"></i>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-semibold text-white group-hover:text-[#00F2FF] transition-colors duration-300">
+                                    Innovation & Creativity</h3>
+                                <p class="text-sm text-zinc-400">We embrace creative thinking and novel approaches.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Card -->
+                <div class="about-card p-8 rounded-2xl glass">
+                    <h2 class="text-2xl font-bold mb-6 text-white">Our Impact</h2>
+
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div
+                            class="text-center p-4 rounded-xl bg-white/5 hover:shadow-lg transition-shadow duration-300">
+                            <div class="text-4xl font-bold text-white mb-2" data-count="150">0+</div>
+                            <div class="text-zinc-400">Projects Completed</div>
+                        </div>
+
+                        <div
+                            class="text-center p-4 rounded-xl bg-white/5 hover:shadow-lg transition-shadow duration-300">
+                            <div class="text-4xl font-bold text-white mb-2" data-count="2">0+</div>
+                            <div class="text-zinc-400">Years Experience</div>
+                        </div>
+
+                        <div
+                            class="text-center p-4 rounded-xl bg-white/5 hover:shadow-lg transition-shadow duration-300">
+                            <div class="text-4xl font-bold text-white mb-2" data-count="5">0+</div>
+                            <div class="text-zinc-400">Countries Served</div>
+                        </div>
+
+                        <div
+                            class="text-center p-4 rounded-xl bg-white/5 hover:shadow-lg transition-shadow duration-300">
+                            <div class="text-4xl font-bold text-white mb-2" data-count="97">0%</div>
+                            <div class="text-zinc-400">Client Satisfaction</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <h3 class="font-semibold text-white mb-4">Core Values</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-[#00F2FF] mr-3"></div>
+                                <span class="text-zinc-400">Integrity in all our actions</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-[#7000FF] mr-3"></div>
+                                <span class="text-zinc-400">Innovation as our driving force</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 rounded-full bg-[#9D174D] mr-3"></div>
+                                <span class="text-zinc-400">Client success as our priority</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 px-6 bg-[#0A0A0C]">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-24">
+                <span class="section-label text-[10px] uppercase font-bold mb-4 block">Deployment Modules</span>
+                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6">Our Expertise</h2>
+                <div class="w-12 h-[1px] bg-white/10 mx-auto mb-6"></div>
+                <p class="max-w-xl mx-auto text-zinc-500 text-sm md:text-base leading-relaxed">
+                    Engineering elite digital solutions for brands that demand performance, security, and cinematic
+                    visual integrity.
+                </p>
+            </div>
+
+            <!-- Service Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
+
+                <!-- AL Automation -->
+                <div class="service-card relative p-10 rounded-xl group overflow-hidden animate-fade-in"
+                    style="animation-delay: 0.1s">
+                    <div class="card-accent-line"></div>
+                    <div class="icon-box mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 8V4H8" />
+                            <rect width="16" height="12" x="4" y="8" rx="2" />
+                            <path d="M2 14h2" />
+                            <path d="M20 14h2" />
+                            <path d="M15 13v2" />
+                            <path d="M9 13v2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">AL Automation</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Intelligent workflow automation and process
+                        optimization using AI-driven solutions.</p>
+                </div>
+
+                <!-- Web Development -->
+                <div class="service-card relative p-10 rounded-xl group overflow-hidden animate-fade-in"
+                    style="animation-delay: 0.2s">
+                    <div class="card-accent-line"></div>
+                    <div class="icon-box mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m18 16 4-4-4-4" />
+                            <path d="m6 8-4 4 4 4" />
+                            <path d="m14.5 4-5 16" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">Web Development</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Modern, responsive web applications built with
+                        cutting-edge frameworks and technologies.</p>
+                </div>
+
+                <!-- Visual Designs -->
+                <div class="service-card relative p-10 rounded-xl group overflow-hidden animate-fade-in"
+                    style="animation-delay: 0.3s">
+                    <div class="card-accent-line"></div>
+                    <div class="icon-box mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="13.5" cy="6.5" r=".5" />
+                            <circle cx="17.5" cy="10.5" r=".5" />
+                            <circle cx="8.5" cy="7.5" r=".5" />
+                            <circle cx="6.5" cy="12.5" r=".5" />
+                            <path
+                                d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">Visual Designs</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Stunning visual identities and brand systems that
+                        communicate your unique story.</p>
+                </div>
+
+                <!-- VFX & Animation -->
+                <div class="service-card relative p-10 rounded-xl group overflow-hidden animate-fade-in"
+                    style="animation-delay: 0.4s">
+                    <div class="card-accent-line"></div>
+                    <div class="icon-box mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m14.5 12-6-4v8l6-4z" />
+                            <rect width="20" height="14" x="2" y="5" rx="2" />
+                            <path d="M12 19v2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">VFX & Animation</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Cinematic visual effects and immersive animation
+                        for film, games, and digital experiences.</p>
+                </div>
+
+                <!-- Motion Graphics -->
+                <div class="service-card relative p-10 rounded-xl group overflow-hidden animate-fade-in"
+                    style="animation-delay: 0.5s">
+                    <div class="card-accent-line"></div>
+                    <div class="icon-box mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                            <path d="M4 6.5V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-1.5" />
+                            <path d="M8 18v-1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" />
+                            <path d="M10 18h4" />
+                            <path d="M3 12h1" />
+                            <path d="M3 16h1" />
+                            <path d="M3 20h1" />
+                            <path d="M16 12h3" />
+                            <path d="M16 16h3" />
+                            <path d="M16 20h3" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">Motion Graphics</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Dynamic motion design and animated storytelling for
+                        engaging multimedia content.</p>
+                </div>
+
+                <!-- Cybersecurity -->
+                <div class="service-card relative p-10 rounded-xl group overflow-hidden animate-fade-in"
+                    style="animation-delay: 0.6s">
+                    <div class="card-accent-line"></div>
+                    <div class="icon-box mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">Cybersecurity</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Comprehensive protection strategies and threat
+                        mitigation for digital assets.</p>
+                </div>
+
+                <!-- Video Editing -->
+                <div class="service-card relative p-10 rounded-xl group overflow-hidden animate-fade-in"
+                    style="animation-delay: 0.7s">
+                    <div class="card-accent-line"></div>
+                    <div class="icon-box mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 8V6a2 2 0 0 1 2-2h2" />
+                            <path d="M4 16v2a2 2 0 0 0 2 2h2" />
+                            <path d="M16 4h2a2 2 0 0 1 2 2v2" />
+                            <path d="M16 20h2a2 2 0 0 0 2-2v-2" />
+                            <rect width="8" height="8" x="8" y="8" rx="1" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">Video Editing</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Professional post-production and seamless video
+                        storytelling for all platforms.</p>
+                </div>
+
+                <!-- Digital Marketing -->
+                <div class="service-card relative p-10 rounded-xl group overflow-hidden animate-fade-in"
+                    style="animation-delay: 0.8s">
+                    <div class="card-accent-line"></div>
+                    <div class="icon-box mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 3v18h18" />
+                            <path d="m19 9-5 5-4-4-3 3" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">Digital Marketing</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Data-driven campaigns and strategic outreach across
+                        digital channels.</p>
+                </div>
+
+                <!-- E-commerce Scaling -->
+                <div class="service-card relative p-10 rounded-xl group overflow-hidden animate-fade-in"
+                    style="animation-delay: 0.9s">
+                    <div class="card-accent-line"></div>
+                    <div class="icon-box mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="8" cy="21" r="1" />
+                            <circle cx="19" cy="21" r="1" />
+                            <path
+                                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-3">E-commerce Scaling</h3>
+                    <p class="text-zinc-500 text-sm leading-relaxed">Growth-focused strategies and infrastructure for
+                        expanding online retail operations.</p>
+                </div>
+            </div>
+            <div class="grid justify-items-center p-10">
+                <button class="servise-btn"> View all services
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Demo & FAQ Section -->
+    <section id="demo" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24">
+                <span class="section-label text-[10px] uppercase font-bold mb-4 block">Interactive Experience</span>
+                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6">See It In Action</h2>
+                <div class="w-12 h-[1px] bg-white/10 mx-auto mb-6"></div>
+                <p class="max-w-xl mx-auto text-zinc-500 text-sm md:text-base leading-relaxed">
+                    Experience our futuristic interface components and discover answers to common questions.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Demo Visual -->
+                <div class="demo-visual relative h-[400px] glass rounded-3xl border-white/10 overflow-hidden">
+                    <div class="demo-screen w-full h-full">
+                        <div class="w-full h-8 bg-white/5 flex items-center px-4 gap-2">
+                            <div class="w-2 h-2 rounded-full bg-[#ff5f56]"></div>
+                            <div class="w-2 h-2 rounded-full bg-[#ffbd2e]"></div>
+                            <div class="w-2 h-2 rounded-full bg-[#27ca3f]"></div>
+                        </div>
+                        <div class="p-8">
+                            <div
+                                class="w-full h-64 rounded-xl bg-gradient-to-br from-white/5 to-transparent border border-white/5 flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-[#00F2FF] mb-4">XENON INTERFACE</div>
+                                    <div class="text-sm text-zinc-400">System Status: Active</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo Features -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Experience the Future Today</h3>
+                    <p class="text-zinc-400 mb-8">Our demos showcase the cutting-edge interfaces and interactions we
+                        create. Each element is designed with precision, motion, and purpose.</p>
+
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] flex items-center justify-center">
+                                <i class="fas fa-bolt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-2">Lightning Performance</h4>
+                                <p class="text-zinc-400 text-sm">Optimized for speed and efficiency across all devices.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] flex items-center justify-center">
+                                <i class="fas fa-eye text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-2">Immersive Visuals</h4>
+                                <p class="text-zinc-400 text-sm">Cinematic depth and engaging animations that captivate
+                                    users.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] flex items-center justify-center">
+                                <i class="fas fa-shield-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-2">Advanced Security</h4>
+                                <p class="text-zinc-400 text-sm">Enterprise-grade security protocols and data
+                                    protection.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="learn-more mt-8">
+                        <span class="circle" aria-hidden="true">
+                            <span class="icon arrow"></span>
+                        </span>
+                        <span class="button-text">View demos</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-32 px-6 bg-[#0A0A0C]">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="section-label text-[10px] uppercase font-bold mb-4 block">Support</span>
+                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6">Frequently Asked Questions
+                </h2>
+                <div class="w-12 h-[1px] bg-white/10 mx-auto mb-6"></div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="faq-item glass p-6 rounded-xl">
+                    <div class="faq-question flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold text-white">What makes Xenon Studious different from other
+                            agencies?</h3>
+                        <div class="faq-toggle text-[#00F2FF] text-xl">+</div>
+                    </div>
+                    <div class="faq-answer text-zinc-400 mt-4 hidden">
+                        We specialize in creating truly futuristic digital experiences that go beyond conventional web
+                        design. Our focus is on immersive interactions, cutting-edge technology, and visionary design
+                        that prepares your business for tomorrow's digital landscape.
+                    </div>
+                </div>
+
+                <div class="faq-item glass p-6 rounded-xl">
+                    <div class="faq-question flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold text-white">What technologies do you work with?</h3>
+                        <div class="faq-toggle text-[#00F2FF] text-xl">+</div>
+                    </div>
+                    <div class="faq-answer text-zinc-400 mt-4 hidden">
+                        We leverage a modern tech stack including React, Vue.js, Three.js for 3D graphics, WebGL, GSAP
+                        for animations, and cutting-edge CSS features. We also specialize in headless CMS architectures
+                        and scalable cloud infrastructure.
+                    </div>
+                </div>
+
+                <div class="faq-item glass p-6 rounded-xl">
+                    <div class="faq-question flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold text-white">How long does a typical project take?</h3>
+                        <div class="faq-toggle text-[#00F2FF] text-xl">+</div>
+                    </div>
+                    <div class="faq-answer text-zinc-400 mt-4 hidden">
+                        Project timelines vary based on complexity. A standard website takes 4-8 weeks, while
+                        comprehensive web applications can take 3-6 months. We provide detailed timelines during our
+                        discovery phase.
+                    </div>
+                </div>
+
+                <div class="faq-item glass p-6 rounded-xl">
+                    <div class="faq-question flex justify-between items-center cursor-pointer">
+                        <h3 class="text-lg font-semibold text-white">Do you offer ongoing support and maintenance?</h3>
+                        <div class="faq-toggle text-[#00F2FF] text-xl">+</div>
+                    </div>
+                    <div class="faq-answer text-zinc-400 mt-4 hidden">
+                        Yes, we offer flexible support packages to ensure your digital solution remains secure,
+                        up-to-date, and performs optimally. Our maintenance plans include security updates, performance
+                        optimization, and feature enhancements.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-extrabold tracking-tighter italic mb-6 md:mb-0">XENON<span
+                        class="text-[#00F2FF]">.</span></div>
+                <div class="flex gap-6 text-sm text-zinc-400">
+                    <a href="#home" class="hover:text-[#00F2FF] transition-colors">Home</a>
+                    <a href="#about" class="hover:text-[#00F2FF] transition-colors">About</a>
+                    <a href="#services" class="hover:text-[#00F2FF] transition-colors">Services</a>
+                    <a href="#demo" class="hover:text-[#00F2FF] transition-colors">Demo</a>
+                    <a href="#faq" class="hover:text-[#00F2FF] transition-colors">FAQ</a>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <div class="text-[#00F2FF] font-mono mb-2">xenonstudious.bd</div>
+                <p class="text-zinc-500 text-sm max-w-2xl mx-auto">
+                    Xenon Studious is a futuristic web services agency specializing in cutting-edge digital experiences.
+                </p>
+                <p class="text-zinc-600 text-xs mt-4">
+                    © 2024 Xenon Studious. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
