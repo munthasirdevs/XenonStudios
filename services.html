@@ -10,621 +10,695 @@
     <!-- CSS & Font Libraries -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Custom Service Card Styles */
+        .service-card-3d {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .service-card-3d:hover {
+            transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 242, 255, 0.2);
+        }
+        
+        .service-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-glow::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(0,242,255,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .service-glow:hover::after {
+            opacity: 1;
+        }
+        
+        .service-icon-3d {
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card-3d:hover .service-icon-3d {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .gradient-border-hover {
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .gradient-border-hover:hover {
+            border-color: #00F2FF;
+            box-shadow: 0 0 30px rgba(0,242,255,0.2);
+        }
+        
+        .floating-badge {
+            animation: floatBadge 4s ease-in-out infinite;
+        }
+        
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-5px) rotate(2deg); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+    </style>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
 
-    <!-- Background Elements -->
+    <!-- Advanced Background Elements -->
     <div class="grid-bg"></div>
     <div class="glow bg-[#00F2FF] top-[-10%] left-[-10%]"></div>
     <div class="glow bg-[#7000FF] bottom-[10%] right-[-10%]"></div>
+    
+    <!-- Matrix Rain Background (Light) -->
+    <div id="matrixBg" class="fixed inset-0 -z-5 opacity-10 pointer-events-none"></div>
 
     <!-- Navigation -->
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
-        <div class="glass rounded-full px-8 py-4 flex items-center justify-between border-white/10">
-            <div class="text-xl font-extrabold tracking-tighter italic"><img src="./assets/images/logo.png" alt="logo" class="h-10">
+        <div class="glass rounded-full px-8 py-4 flex items-center justify-between border-white/10 backdrop-blur-xl">
+            <div class="text-xl font-extrabold tracking-tighter italic">
+                <a href="index.html" class="block hover:scale-105 transition-transform">
+                    <img src="./assets/images/logo.png" alt="logo" class="h-10">
+                </a>
             </div>
             <div class="hidden md:flex gap-8 font-medium text-white/70">
-                <a href="./index.html" class="nav-link">Home</a>
-                <a href="./about.html" class="nav-link">About</a>
-                <a href="./services.html" class="nav-link">Services</a>
-                <a href="./demo.html" class="nav-link">Demo</a>
+                <a href="index.html" class="nav-link hover:text-[#00F2FF] transition-colors">Home</a>
+                <a href="about.html" class="nav-link hover:text-[#00F2FF] transition-colors">About</a>
+                <a href="services.html" class="nav-link text-[#00F2FF]">Services</a>
+                <a href="demo.html" class="nav-link hover:text-[#00F2FF] transition-colors">Demo</a>
             </div>
-            <a href="./contact.html" class="bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-[#00F2FF] transition-colors">
+            <a href="contact.html"
+                class="bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-[#00F2FF] transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,242,255,0.3)]">
                 Start Project
             </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen pt-40 pb-20 px-6 overflow-hidden">
+    <section class="relative pt-40 pb-20 px-6 overflow-hidden">
         <div class="max-w-6xl mx-auto text-center relative z-10">
             <div
-                class="inline-block px-4 py-1.5 mb-6 glass rounded-full border-white/10 text-[10px] uppercase tracking-[0.2em] font-mono text-[#00F2FF]">
-                System Status: indefatigable
+                class="inline-block px-4 py-1.5 mb-6 glass rounded-full border-white/10 text-[10px] uppercase tracking-[0.3em] font-mono text-[#00F2FF] floating-badge">
+                <i class="fas fa-cog fa-spin mr-2"></i> DEPLOYMENT MODULES
             </div>
-            <h1
-                class="hero-title text-6xl md:text-8xl font-extrabold mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
-                From Thought <br> To Thrill.
+            <h1 class="text-6xl md:text-7xl font-extrabold mb-8">
+                <span class="bg-gradient-to-r from-white via-[#00F2FF] to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                    Our Expertise
+                </span>
+                <span class="block mt-4 text-2xl md:text-3xl font-light text-white/40">
+                    Engineering elite digital solutions for brands that demand performance, security, and cinematic visual integrity.
+                </span>
             </h1>
-            <p class="max-w-2xl mx-auto text-lg text-white/60 mb-10 leading-relaxed">
-                Xenon Studious delivers high-performance web systems and cinematic digital identities for the next
-                generation of SaaS.
-            </p>
+        </div>
+    </section>
 
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="./demo.html"
-                    class="bg-[#00F2FF] text-black px-8 py-4 rounded-xl font-bold shadow-[0_0_20px_rgba(0,242,255,0.3)] hover:scale-105 transition-transform">
-                    Explore Artifacts
+    <!-- Services Grid Section -->
+    <section class="py-20 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section header -->
+            <div class="text-center mb-16">
+                <span class="text-[#00F2FF] font-mono text-sm tracking-widest">// WHAT WE OFFER</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Comprehensive Digital Solutions</h2>
+                <p class="max-w-2xl mx-auto text-white/50">From AI-driven automation to cinematic visuals — we craft experiences that define the future.</p>
+            </div>
+            
+            <!-- Service Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- 1. AL Automation -->
+                <div class="service-card-3d group relative animate-fade-in-up" data-delay="0.1">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-[#00F2FF] to-[#7000FF] rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
+                    <div class="relative glass p-8 rounded-2xl h-full flex flex-col service-glow">
+                        <div class="service-icon-3d mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#00F2FF] to-[#7000FF] flex items-center justify-center shadow-lg">
+                                <i class="fas fa-microchip text-3xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">AL Automation</h3>
+                        <p class="text-white/60 mb-6">Intelligent workflow automation and process optimization using AI-driven solutions.</p>
+                        <ul class="space-y-3 mt-auto">
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Workflow Automation
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> AI-Powered Analytics
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Process Optimization
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Smart Integration
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Predictive Modeling
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-white/10">
+                            <a href="#" class="text-[#00F2FF] hover:text-white transition-colors flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Web Development -->
+                <div class="service-card-3d group relative animate-fade-in-up" data-delay="0.2">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-[#7000FF] to-[#9D174D] rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
+                    <div class="relative glass p-8 rounded-2xl h-full flex flex-col service-glow">
+                        <div class="service-icon-3d mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#7000FF] to-[#9D174D] flex items-center justify-center shadow-lg">
+                                <i class="fas fa-code text-3xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Web Development</h3>
+                        <p class="text-white/60 mb-6">Modern, responsive web applications built with cutting-edge frameworks and technologies.</p>
+                        <ul class="space-y-3 mt-auto">
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> Responsive Design
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> Custom CMS Solutions
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> E-commerce Platforms
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> Progressive Web Apps
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> API Integration
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-white/10">
+                            <a href="#" class="text-[#7000FF] hover:text-white transition-colors flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Visual Designs -->
+                <div class="service-card-3d group relative animate-fade-in-up" data-delay="0.3">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-[#00F2FF] to-[#9D174D] rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
+                    <div class="relative glass p-8 rounded-2xl h-full flex flex-col service-glow">
+                        <div class="service-icon-3d mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#00F2FF] to-[#9D174D] flex items-center justify-center shadow-lg">
+                                <i class="fas fa-paint-brush text-3xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Visual Designs</h3>
+                        <p class="text-white/60 mb-6">Stunning visual identities and brand systems that communicate your unique story.</p>
+                        <ul class="space-y-3 mt-auto">
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Brand Identity
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> UI/UX Design
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Print Design
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Digital Illustrations
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Marketing Materials
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-white/10">
+                            <a href="#" class="text-[#00F2FF] hover:text-white transition-colors flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. VFX & Animation -->
+                <div class="service-card-3d group relative animate-fade-in-up" data-delay="0.4">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-[#9D174D] to-[#7000FF] rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
+                    <div class="relative glass p-8 rounded-2xl h-full flex flex-col service-glow">
+                        <div class="service-icon-3d mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#9D174D] to-[#7000FF] flex items-center justify-center shadow-lg">
+                                <i class="fas fa-film text-3xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">VFX & Animation</h3>
+                        <p class="text-white/60 mb-6">Cinematic visual effects and immersive animation for film, games, and digital experiences.</p>
+                        <ul class="space-y-3 mt-auto">
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#9D174D] mr-3 text-sm"></i> 3D Modeling
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#9D174D] mr-3 text-sm"></i> Visual Effects
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#9D174D] mr-3 text-sm"></i> Character Animation
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#9D174D] mr-3 text-sm"></i> Motion Capture
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#9D174D] mr-3 text-sm"></i> Compositing
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-white/10">
+                            <a href="#" class="text-[#9D174D] hover:text-white transition-colors flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Motion Graphics -->
+                <div class="service-card-3d group relative animate-fade-in-up" data-delay="0.5">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-[#00F2FF] to-[#7000FF] rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
+                    <div class="relative glass p-8 rounded-2xl h-full flex flex-col service-glow">
+                        <div class="service-icon-3d mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#00F2FF] to-[#7000FF] flex items-center justify-center shadow-lg">
+                                <i class="fas fa-play-circle text-3xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Motion Graphics</h3>
+                        <p class="text-white/60 mb-6">Dynamic motion design and animated storytelling for engaging multimedia content.</p>
+                        <ul class="space-y-3 mt-auto">
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Animated Logos
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Explainer Videos
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Title Sequences
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Infographic Animation
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Social Media Content
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-white/10">
+                            <a href="#" class="text-[#00F2FF] hover:text-white transition-colors flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Cybersecurity -->
+                <div class="service-card-3d group relative animate-fade-in-up" data-delay="0.6">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-[#7000FF] to-[#9D174D] rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
+                    <div class="relative glass p-8 rounded-2xl h-full flex flex-col service-glow">
+                        <div class="service-icon-3d mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#7000FF] to-[#9D174D] flex items-center justify-center shadow-lg">
+                                <i class="fas fa-shield-alt text-3xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Cybersecurity</h3>
+                        <p class="text-white/60 mb-6">Comprehensive protection strategies and threat mitigation for digital assets and infrastructure.</p>
+                        <ul class="space-y-3 mt-auto">
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> Threat Detection
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> Vulnerability Assessment
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> Data Encryption
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> Network Security
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> Compliance Auditing
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-white/10">
+                            <a href="#" class="text-[#7000FF] hover:text-white transition-colors flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Video Editing -->
+                <div class="service-card-3d group relative animate-fade-in-up" data-delay="0.7">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-[#00F2FF] to-[#9D174D] rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
+                    <div class="relative glass p-8 rounded-2xl h-full flex flex-col service-glow">
+                        <div class="service-icon-3d mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#00F2FF] to-[#9D174D] flex items-center justify-center shadow-lg">
+                                <i class="fas fa-video text-3xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Video Editing</h3>
+                        <p class="text-white/60 mb-6">Professional post-production and seamless video storytelling for all platforms and formats.</p>
+                        <ul class="space-y-3 mt-auto">
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Color Grading
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Audio Enhancement
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Multi-camera Editing
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Special Effects
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#00F2FF] mr-3 text-sm"></i> Format Optimization
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-white/10">
+                            <a href="#" class="text-[#00F2FF] hover:text-white transition-colors flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Digital Marketing -->
+                <div class="service-card-3d group relative animate-fade-in-up" data-delay="0.8">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-[#7000FF] to-[#00F2FF] rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
+                    <div class="relative glass p-8 rounded-2xl h-full flex flex-col service-glow">
+                        <div class="service-icon-3d mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#7000FF] to-[#00F2FF] flex items-center justify-center shadow-lg">
+                                <i class="fas fa-chart-line text-3xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Digital Marketing</h3>
+                        <p class="text-white/60 mb-6">Data-driven campaigns and strategic outreach across digital channels for maximum ROI.</p>
+                        <ul class="space-y-3 mt-auto">
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> SEO Optimization
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> Social Media Management
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> Content Marketing
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> PPC Advertising
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#7000FF] mr-3 text-sm"></i> Analytics & Reporting
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-white/10">
+                            <a href="#" class="text-[#7000FF] hover:text-white transition-colors flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. E-commerce Scaling -->
+                <div class="service-card-3d group relative animate-fade-in-up" data-delay="0.9">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-[#9D174D] to-[#00F2FF] rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-500"></div>
+                    <div class="relative glass p-8 rounded-2xl h-full flex flex-col service-glow">
+                        <div class="service-icon-3d mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#9D174D] to-[#00F2FF] flex items-center justify-center shadow-lg">
+                                <i class="fas fa-shopping-cart text-3xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">E-commerce Scaling</h3>
+                        <p class="text-white/60 mb-6">Growth-focused strategies and infrastructure for expanding online retail operations globally.</p>
+                        <ul class="space-y-3 mt-auto">
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#9D174D] mr-3 text-sm"></i> Platform Migration
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#9D174D] mr-3 text-sm"></i> Performance Optimization
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#9D174D] mr-3 text-sm"></i> Inventory Management
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#9D174D] mr-3 text-sm"></i> Multi-channel Selling
+                            </li>
+                            <li class="flex items-center text-white/80">
+                                <i class="fas fa-check-circle text-[#9D174D] mr-3 text-sm"></i> Conversion Optimization
+                            </li>
+                        </ul>
+                        <div class="mt-8 pt-4 border-t border-white/10">
+                            <a href="#" class="text-[#9D174D] hover:text-white transition-colors flex items-center">
+                                Learn more <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View All Services CTA -->
+            <div class="text-center mt-20">
+                <a href="contact.html" class="inline-flex items-center gap-3 bg-gradient-to-r from-[#00F2FF] to-[#7000FF] px-8 py-4 rounded-xl text-black font-bold text-lg hover:scale-105 transition-transform shadow-[0_0_30px_rgba(0,242,255,0.3)] group">
+                    <span>Start Your Project</span>
+                    <i class="fas fa-paper-plane group-hover:translate-x-1 transition-transform"></i>
                 </a>
-                <a href="./contact.html" class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/5 transition-colors">
-                    Get In Touch
+                <p class="text-white/40 text-sm mt-6">Need a custom solution? <a href="contact.html" class="text-[#00F2FF] hover:underline">Contact our team</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section class="py-20 px-6 bg-[#0A0A0C]/80 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-[#00F2FF] font-mono text-sm tracking-widest">// OUR STACK</span>
+                <h2 class="text-4xl font-bold text-white mt-4">Built With Modern Technologies</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-[#00F2FF] to-[#7000FF] mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 items-center">
+                <div class="glass p-4 rounded-xl flex justify-center hover:scale-110 transition-transform">
+                    <i class="fab fa-react text-4xl text-[#00F2FF]"></i>
+                </div>
+                <div class="glass p-4 rounded-xl flex justify-center hover:scale-110 transition-transform">
+                    <i class="fab fa-vuejs text-4xl text-[#42b883]"></i>
+                </div>
+                <div class="glass p-4 rounded-xl flex justify-center hover:scale-110 transition-transform">
+                    <i class="fab fa-node text-4xl text-[#8cc84b]"></i>
+                </div>
+                <div class="glass p-4 rounded-xl flex justify-center hover:scale-110 transition-transform">
+                    <i class="fab fa-python text-4xl text-[#3776ab]"></i>
+                </div>
+                <div class="glass p-4 rounded-xl flex justify-center hover:scale-110 transition-transform">
+                    <i class="fab fa-aws text-4xl text-[#ff9900]"></i>
+                </div>
+                <div class="glass p-4 rounded-xl flex justify-center hover:scale-110 transition-transform">
+                    <i class="fab fa-docker text-4xl text-[#2496ed]"></i>
+                </div>
+                <div class="glass p-4 rounded-xl flex justify-center hover:scale-110 transition-transform">
+                    <i class="fab fa-figma text-4xl text-[#f24e1e]"></i>
+                </div>
+                <div class="glass p-4 rounded-xl flex justify-center hover:scale-110 transition-transform">
+                    <i class="fab fa-unity text-4xl text-white"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-[#00F2FF] font-mono text-sm tracking-widest">// OUR PROCESS</span>
+                <h2 class="text-4xl font-bold text-white mt-4">From Concept to Launch</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-[#00F2FF] via-[#7000FF] to-[#9D174D] hidden md:block transform -translate-y-1/2"></div>
+                
+                <div class="relative glass p-6 rounded-xl text-center z-10">
+                    <div class="w-16 h-16 rounded-full bg-[#00F2FF] flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-black">1</div>
+                    <h3 class="text-white font-bold mb-2">Discovery</h3>
+                    <p class="text-white/50 text-sm">Understanding your vision, goals, and requirements.</p>
+                </div>
+                <div class="relative glass p-6 rounded-xl text-center z-10">
+                    <div class="w-16 h-16 rounded-full bg-[#7000FF] flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-white">2</div>
+                    <h3 class="text-white font-bold mb-2">Strategy</h3>
+                    <p class="text-white/50 text-sm">Architecting solutions and crafting project roadmap.</p>
+                </div>
+                <div class="relative glass p-6 rounded-xl text-center z-10">
+                    <div class="w-16 h-16 rounded-full bg-[#9D174D] flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-white">3</div>
+                    <h3 class="text-white font-bold mb-2">Execution</h3>
+                    <p class="text-white/50 text-sm">Agile development with continuous feedback.</p>
+                </div>
+                <div class="relative glass p-6 rounded-xl text-center z-10">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-black">4</div>
+                    <h3 class="text-white font-bold mb-2">Launch & Scale</h3>
+                    <p class="text-white/50 text-sm">Deployment, optimization, and ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto glass rounded-3xl p-12 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#00F2FF]/10 to-[#7000FF]/10"></div>
+            <div class="relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Build the Future?</h2>
+                <p class="text-white/70 text-lg mb-8 max-w-2xl mx-auto">Partner with Xenon Studious and transform your digital vision into reality.</p>
+                <a href="contact.html" class="inline-flex items-center gap-3 bg-white text-black px-10 py-5 rounded-xl font-bold text-lg hover:bg-[#00F2FF] transition-colors shadow-[0_0_40px_rgba(0,242,255,0.3)]">
+                    <span>Contact Us Today</span>
+                    <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- AL Automation -->
-        <div class="animate-fade-in" style="animation-delay: 0.1s">
-            <div
-                class="service-card detailed bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 h-full border border-gray-800 hover:border-blue-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/10">
-                <div class="service-icon mb-6">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">AL Automation</h3>
-                <p class="text-gray-400 mb-6">
-                    Intelligent process automation and AI-driven workflow optimization for business efficiency.
-                </p>
-                <ul class="space-y-3">
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Workflow Automation
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        AI-Powered Analytics
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Process Optimization
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Smart Integration
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Predictive Modeling
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Web Development -->
-        <div class="animate-fade-in" style="animation-delay: 0.2s">
-            <div
-                class="service-card detailed bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 h-full border border-gray-800 hover:border-purple-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/10">
-                <div class="service-icon mb-6">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Web Development</h3>
-                <p class="text-gray-400 mb-6">
-                    Custom websites and web applications built with modern technologies for optimal performance.
-                </p>
-                <ul class="space-y-3">
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Responsive Design
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Custom CMS Solutions
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        E-commerce Platforms
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Progressive Web Apps
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        API Integration
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Visual Designs -->
-        <div class="animate-fade-in" style="animation-delay: 0.3s">
-            <div
-                class="service-card detailed bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 h-full border border-gray-800 hover:border-pink-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-pink-900/10">
-                <div class="service-icon mb-6">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-gradient-to-r from-pink-500 to-pink-600 flex items-center justify-center text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                        </svg>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Visual Designs</h3>
-                <p class="text-gray-400 mb-6">
-                    Creative visual solutions that communicate your brand identity and engage your audience.
-                </p>
-                <ul class="space-y-3">
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Brand Identity
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        UI/UX Design
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Print Design
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Digital Illustrations
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Marketing Materials
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- VFX & Animation -->
-        <div class="animate-fade-in" style="animation-delay: 0.4s">
-            <div
-                class="service-card detailed bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 h-full border border-gray-800 hover:border-yellow-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-yellow-900/10">
-                <div class="service-icon mb-6">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-gradient-to-r from-yellow-500 to-yellow-600 flex items-center justify-center text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">VFX & Animation</h3>
-                <p class="text-gray-400 mb-6">
-                    Cinematic visual effects and immersive animation for film, games, and digital experiences.
-                </p>
-                <ul class="space-y-3">
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        3D Modeling
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Visual Effects
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Character Animation
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Motion Capture
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Compositing
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Motion Graphics -->
-        <div class="animate-fade-in" style="animation-delay: 0.5s">
-            <div
-                class="service-card detailed bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 h-full border border-gray-800 hover:border-red-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-red-900/10">
-                <div class="service-icon mb-6">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Motion Graphics</h3>
-                <p class="text-gray-400 mb-6">
-                    Dynamic motion design and animated storytelling for engaging multimedia content.
-                </p>
-                <ul class="space-y-3">
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Animated Logos
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Explainer Videos
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Title Sequences
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Infographic Animation
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Social Media Content
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Cybersecurity -->
-        <div class="animate-fade-in" style="animation-delay: 0.6s">
-            <div
-                class="service-card detailed bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 h-full border border-gray-800 hover:border-green-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-green-900/10">
-                <div class="service-icon mb-6">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Cybersecurity</h3>
-                <p class="text-gray-400 mb-6">
-                    Comprehensive protection strategies and threat mitigation for digital assets and infrastructure.
-                </p>
-                <ul class="space-y-3">
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Threat Detection
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Vulnerability Assessment
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Data Encryption
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Network Security
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Compliance Auditing
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Video Editing -->
-        <div class="animate-fade-in" style="animation-delay: 0.7s">
-            <div
-                class="service-card detailed bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 h-full border border-gray-800 hover:border-orange-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-orange-900/10">
-                <div class="service-icon mb-6">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Video Editing</h3>
-                <p class="text-gray-400 mb-6">
-                    Professional post-production and seamless video storytelling for all platforms and formats.
-                </p>
-                <ul class="space-y-3">
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Color Grading
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Audio Enhancement
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Multi-camera Editing
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Special Effects
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Format Optimization
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Digital Marketing -->
-        <div class="animate-fade-in" style="animation-delay: 0.8s">
-            <div
-                class="service-card detailed bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 h-full border border-gray-800 hover:border-teal-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-teal-900/10">
-                <div class="service-icon mb-6">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-gradient-to-r from-teal-500 to-teal-600 flex items-center justify-center text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                        </svg>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Digital Marketing</h3>
-                <p class="text-gray-400 mb-6">
-                    Data-driven campaigns and strategic outreach across digital channels for maximum ROI.
-                </p>
-                <ul class="space-y-3">
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        SEO Optimization
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Social Media Management
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Content Marketing
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        PPC Advertising
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Analytics & Reporting
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- E-commerce Scaling -->
-        <div class="animate-fade-in" style="animation-delay: 0.9s">
-            <div
-                class="service-card detailed bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 h-full border border-gray-800 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-900/10">
-                <div class="service-icon mb-6">
-                    <div
-                        class="w-14 h-14 rounded-lg bg-gradient-to-r from-indigo-500 to-indigo-600 flex items-center justify-center text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                        </svg>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">E-commerce Scaling</h3>
-                <p class="text-gray-400 mb-6">
-                    Growth-focused strategies and infrastructure for expanding online retail operations globally.
-                </p>
-                <ul class="space-y-3">
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Platform Migration
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Performance Optimization
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Inventory Management
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Multi-channel Selling
-                    </li>
-                    <li class="flex items-center text-gray-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-3" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Conversion Optimization
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    
     <!-- Footer -->
-    <footer class="py-12 px-6 border-t border-white/10">
+    <footer class="py-16 px-6 border-t border-white/10 bg-black/50 backdrop-blur-xl">
         <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="text-2xl font-extrabold tracking-tighter italic mb-6 md:mb-0">XENON<span
-                        class="text-[#00F2FF]">.</span></div>
-                <div class="flex gap-6 text-sm text-zinc-400">
-                    <a href="#home" class="hover:text-[#00F2FF] transition-colors">Home</a>
-                    <a href="#about" class="hover:text-[#00F2FF] transition-colors">About</a>
-                    <a href="#services" class="hover:text-[#00F2FF] transition-colors">Services</a>
-                    <a href="#demo" class="hover:text-[#00F2FF] transition-colors">Demo</a>
-                    <a href="#faq" class="hover:text-[#00F2FF] transition-colors">FAQ</a>
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="text-3xl font-extrabold tracking-tighter italic mb-8 md:mb-0">
+                    <a href="index.html" class="block hover:scale-105 transition-transform">
+                        <span class="bg-gradient-to-r from-white to-[#00F2FF] bg-clip-text text-transparent">XENON</span>
+                        <span class="text-[#00F2FF]">.</span>
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8 text-base">
+                    <a href="index.html" class="text-white/70 hover:text-[#00F2FF] transition-colors">Home</a>
+                    <a href="about.html" class="text-white/70 hover:text-[#7000FF] transition-colors">About</a>
+                    <a href="services.html" class="text-[#00F2FF]">Services</a>
+                    <a href="demo.html" class="text-white/70 hover:text-[#00F2FF] transition-colors">Demo</a>
                 </div>
             </div>
-            <div class="text-center mt-8">
-                <div class="text-[#00F2FF] font-mono mb-2">xenonstudious.bd</div>
-                <p class="text-zinc-500 text-sm max-w-2xl mx-auto">
-                    Xenon Studious is a futuristic web services agency specializing in cutting-edge digital
-                    experiences.
+            
+            <div class="text-center">
+                <div class="text-[#00F2FF] font-mono text-lg mb-6 tracking-widest">XENONSTUDIOS.BD</div>
+                <p class="text-white/50 text-sm max-w-2xl mx-auto leading-relaxed mb-8">
+                    Engineering elite digital solutions for the next generation of SaaS. We turn thought into thrill.
                 </p>
-                <p class="text-zinc-600 text-xs mt-4">
-                    © 2024 Xenon Studious. All rights reserved.
+                
+                <div class="flex justify-center space-x-8 mb-8">
+                    <a href="#" class="text-white/50 hover:text-[#00F2FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white/50 hover:text-[#7000FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white/50 hover:text-[#00F2FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white/50 hover:text-[#7000FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-dribbble text-xl"></i>
+                    </a>
+                </div>
+                
+                <p class="text-white/30 text-xs mt-8">
+                    © 2026 Xenon Studious. All rights reserved. | Services Page v2.0
                 </p>
             </div>
         </div>
     </footer>
 
-    <script src="./assets/js/script.js"></script>
+    <script>
+        // GSAP Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate service cards on scroll
+            gsap.utils.toArray('.animate-fade-in-up').forEach((card, i) => {
+                const delay = card.dataset.delay || 0;
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top bottom-=50',
+                        toggleActions: 'play none none reverse'
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: parseFloat(delay),
+                    ease: 'back.out(1.2)'
+                });
+            });
+            
+            // Stagger animation for tech stack
+            gsap.from('.grid-cols-8 .glass', {
+                scrollTrigger: {
+                    trigger: '.grid-cols-8',
+                    start: 'top bottom-=50',
+                    toggleActions: 'play none none reverse'
+                },
+                scale: 0,
+                opacity: 0,
+                duration: 0.5,
+                stagger: 0.1,
+                ease: 'back.out(1.2)'
+            });
+            
+            // Process steps animation
+            gsap.from('.process-grid .glass', {
+                scrollTrigger: {
+                    trigger: '.process-grid',
+                    start: 'top bottom-=50',
+                    toggleActions: 'play none none reverse'
+                },
+                x: -50,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.2,
+                ease: 'power2.out'
+            });
+        });
+        
+        // jQuery for smooth scrolling and active link
+        $(document).ready(function() {
+            // Smooth scrolling
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 100
+                    }, 1000, 'swing');
+                }
+            });
+            
+            // Active link highlighting (optional)
+            $(window).scroll(function() {
+                var scrollPos = $(document).scrollTop() + 200;
+                $('.nav-link').each(function() {
+                    var currLink = $(this);
+                    var refElement = $(currLink.attr('href'));
+                    if (refElement.length && refElement.position().top <= scrollPos && 
+                        refElement.position().top + refElement.height() > scrollPos) {
+                        $('.nav-link').removeClass('text-[#00F2FF]');
+                        currLink.addClass('text-[#00F2FF]');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
