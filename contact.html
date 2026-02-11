@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Xenon Studious | Get In Touch</title>
+    <link rel="icon" href="./assets/images/xenon-mini-logo.png" type="image/x-icon">
+
+    <!-- CSS & Font Libraries -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-input {
+            background: rgba(10, 10, 12, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-input:focus {
+            border-color: #00F2FF;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+            background: rgba(10, 10, 12, 0.5);
+        }
+
+        .contact-input:hover {
+            border-color: rgba(0, 242, 255, 0.3);
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-label {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus+.form-label,
+        .form-input:not(:placeholder-shown)+.form-label {
+            top: 0;
+            font-size: 0.75rem;
+            color: #00F2FF;
+            background: #0A0A0C;
+            padding: 0 0.5rem;
+            transform: translateY(-50%);
+        }
+
+        .contact-card {
+            background: rgba(10, 10, 12, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-card:hover {
+            border-color: rgba(0, 242, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 242, 255, 0.1);
+        }
+
+        .pulse-dot {
+            position: relative;
+        }
+
+        .pulse-dot::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: currentColor;
+            animation: pulse 2s infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            70% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .network-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, #00F2FF, transparent);
+            height: 1px;
+            width: 100%;
+            opacity: 0.3;
+            animation: scanline 8s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .message-sent {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: messageAppear 0.5s ease forwards;
+        }
+
+        @keyframes messageAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .holographic-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .holographic-effect::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right,
+                    rgba(0, 242, 255, 0) 0%,
+                    rgba(0, 242, 255, 0.1) 50%,
+                    rgba(0, 242, 255, 0) 100%);
+            transform: rotate(30deg);
+            animation: hologram 3s infinite;
+        }
+
+        @keyframes hologram {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(30deg);
+            }
+
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(30deg);
+            }
+        }
+
+        .typing-indicator {
+            display: inline-block;
+            position: relative;
+        }
+
+        .typing-indicator span {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background: #00F2FF;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .gradient-button {
+            background: linear-gradient(135deg, #00F2FF 0%, #7000FF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .gradient-button:hover::before {
+            left: 100%;
+        }
+
+        .neon-glow {
+            text-shadow:
+                0 0 10px rgba(0, 242, 255, 0.7),
+                0 0 20px rgba(0, 242, 255, 0.5),
+                0 0 30px rgba(0, 242, 255, 0.3);
+        }
+
+        .form-field {
+            position: relative;
+        }
+
+        .form-field::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00F2FF, #7000FF);
+            transition: width 0.3s ease;
+        }
+
+        .form-field:focus-within::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <!-- Background Elements -->
+    <div class="grid-bg"></div>
+    <div class="glow bg-[#00F2FF] top-[-10%] left-[-10%]"></div>
+    <div class="glow bg-[#7000FF] bottom-[10%] right-[-10%]"></div>
+
+    <!-- Animated Network Lines -->
+    <div class="network-line top-1/4" style="animation-delay: 0s"></div>
+    <div class="network-line top-1/2" style="animation-delay: 2s"></div>
+    <div class="network-line top-3/4" style="animation-delay: 4s"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
+        <div class="glass rounded-full px-8 py-4 flex items-center justify-between border-white/10 backdrop-blur-xl">
+            <div class="text-xl font-extrabold tracking-tighter italic">
+                <a href="index.html" class="block hover:scale-105 transition-transform">
+                    <img src="./assets/images/logo.png" alt="logo" class="h-10">
+                </a>
+            </div>
+            <div class="hidden md:flex gap-8 font-medium text-white/70">
+                <a href="index.html" class="nav-link hover:text-[#00F2FF] transition-colors">Home</a>
+                <a href="about.html" class="nav-link hover:text-[#00F2FF] transition-colors">About</a>
+                <a href="index.html#services" class="nav-link hover:text-[#00F2FF] transition-colors">Services</a>
+                <a href="index.html#demo" class="nav-link hover:text-[#00F2FF] transition-colors">Demo</a>
+                <a href="#contact" class="nav-link text-[#00F2FF]">Contact</a>
+            </div>
+            <a href="#contact-form"
+                class="bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-[#00F2FF] transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,242,255,0.3)]">
+                Send Message
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-40 pb-20 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <div
+                class="inline-block px-4 py-1.5 mb-6 glass rounded-full border-white/10 text-xs uppercase tracking-[0.3em] font-mono text-[#00F2FF]">
+                <span class="typing-indicator">
+                    <span></span><span></span><span></span>
+                </span>
+                CONNECTION ESTABLISHED
+            </div>
+
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-8">
+                <span
+                    class="block bg-gradient-to-r from-white via-[#00F2FF] to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                    Let's Build
+                </span>
+                <span
+                    class="block mt-4 bg-gradient-to-r from-[#7000FF] via-white to-[#7000FF] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient"
+                    style="animation-delay: 1s">
+                    The Future
+                </span>
+                <span class="block mt-4 text-4xl md:text-5xl text-white/50 font-normal">Together</span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-xl text-white/60 mb-12 leading-relaxed">
+                Ready to transform your digital vision into reality? Connect with our team of architects and let's
+                create something extraordinary.
+            </p>
+
+            <!-- Contact Status -->
+            <div class="flex flex-wrap justify-center gap-6 mb-20">
+                <div class="flex items-center gap-3 glass px-6 py-3 rounded-full">
+                    <div class="pulse-dot w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="text-sm font-mono text-white/70">Systems: Online</span>
+                </div>
+                <div class="flex items-center gap-3 glass px-6 py-3 rounded-full">
+                    <div class="w-3 h-3 rounded-full bg-[#00F2FF]"></div>
+                    <span class="text-sm font-mono text-white/70">Response: 24h</span>
+                </div>
+                <div class="flex items-center gap-3 glass px-6 py-3 rounded-full">
+                    <div class="w-3 h-3 rounded-full bg-[#7000FF]"></div>
+                    <span class="text-sm font-mono text-white/70">Support: 24/7</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form" class="py-32 px-6 bg-gradient-to-b from-transparent to-[#0A0A0C]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <span
+                    class="section-label text-xs uppercase font-bold mb-4 block tracking-widest text-[#00F2FF]">Initiate
+                    Project</span>
+                <h2 class="text-5xl md:text-6xl font-bold text-white mb-8">
+                    <span class="neon-glow">Start Your Journey</span>
+                </h2>
+                <p class="max-w-2xl mx-auto text-white/60 text-lg">
+                    Fill out the form below and our team will contact you within 24 hours to discuss your project.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="contact-card p-10 rounded-3xl">
+                    <h3 class="text-2xl font-bold text-white mb-2">Project Inquiry Form</h3>
+                    <p class="text-white/50 mb-8">All fields are required for optimal consultation</p>
+
+                    <form id="contactForm" class="space-y-8">
+                        <!-- Two Column Layout for Name -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="form-field">
+                                <input type="text" id="firstName" required
+                                    class="form-input w-full px-6 py-4 rounded-xl contact-input text-white placeholder-transparent"
+                                    placeholder="First Name">
+                                <label for="firstName" class="form-label">First Name</label>
+                            </div>
+                            <div class="form-field">
+                                <input type="text" id="lastName" required
+                                    class="form-input w-full px-6 py-4 rounded-xl contact-input text-white placeholder-transparent"
+                                    placeholder="Last Name">
+                                <label for="lastName" class="form-label">Last Name</label>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-field">
+                            <input type="email" id="email" required
+                                class="form-input w-full px-6 py-4 rounded-xl contact-input text-white placeholder-transparent"
+                                placeholder="Email Address">
+                            <label for="email" class="form-label">Email Address</label>
+                        </div>
+
+                        <!-- Company -->
+                        <div class="form-field">
+                            <input type="text" id="company"
+                                class="form-input w-full px-6 py-4 rounded-xl contact-input text-white placeholder-transparent"
+                                placeholder="Company (Optional)">
+                            <label for="company" class="form-label">Company (Optional)</label>
+                        </div>
+
+                        <!-- Project Type Dropdown -->
+                        <div class="form-field">
+                            <select id="projectType" required
+                                class="form-input w-full px-6 py-4 rounded-xl contact-input text-white appearance-none bg-[#0A0A0C]">
+                                <option value="" disabled selected>Select Project Type</option>
+                                <option value="web">Web Development</option>
+                                <option value="ai">AI Automation</option>
+                                <option value="design">UI/UX Design</option>
+                                <option value="vfx">VFX & Animation</option>
+                                <option value="marketing">Digital Marketing</option>
+                                <option value="security">Cybersecurity</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label for="projectType" class="form-label absolute top-0">Project Type</label>
+                        </div>
+
+                        <!-- Budget Range -->
+                        <div class="space-y-4">
+                            <label class="text-white/70">Project Budget Range</label>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <button type="button"
+                                    class="budget-option glass px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-all"
+                                    data-budget="5-10k">
+                                    $5K - $10K
+                                </button>
+                                <button type="button"
+                                    class="budget-option glass px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-all"
+                                    data-budget="10-25k">
+                                    $10K - $25K
+                                </button>
+                                <button type="button"
+                                    class="budget-option glass px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-all"
+                                    data-budget="25-50k">
+                                    $25K - $50K
+                                </button>
+                                <button type="button"
+                                    class="budget-option glass px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-all"
+                                    data-budget="50k+">
+                                    $50K+
+                                </button>
+                            </div>
+                            <input type="hidden" id="selectedBudget" name="budget">
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-field">
+                            <textarea id="message" required rows="5"
+                                class="form-input w-full px-6 py-4 rounded-xl contact-input text-white placeholder-transparent resize-none"
+                                placeholder="Project Details"></textarea>
+                            <label for="message" class="form-label">Project Details</label>
+                        </div>
+
+                        <!-- Timeline -->
+                        <div class="space-y-4">
+                            <label class="text-white/70">Project Timeline</label>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                <button type="button"
+                                    class="timeline-option glass px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-all"
+                                    data-timeline="1-2">
+                                    1-2 Months
+                                </button>
+                                <button type="button"
+                                    class="timeline-option glass px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-all"
+                                    data-timeline="3-4">
+                                    3-4 Months
+                                </button>
+                                <button type="button"
+                                    class="timeline-option glass px-4 py-3 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-all"
+                                    data-timeline="5+">
+                                    5+ Months
+                                </button>
+                            </div>
+                            <input type="hidden" id="selectedTimeline" name="timeline">
+                        </div>
+
+                        <!-- File Upload -->
+                        <div class="space-y-4">
+                            <label class="text-white/70">Attach Files (Optional)</label>
+                            <div
+                                class="relative border-2 border-dashed border-white/20 rounded-xl p-8 text-center hover:border-[#00F2FF]/40 transition-colors">
+                                <i class="fas fa-cloud-upload-alt text-3xl text-white/30 mb-4"></i>
+                                <p class="text-white/50 mb-2">Drag & drop files here or</p>
+                                <label for="fileUpload"
+                                    class="cursor-pointer text-[#00F2FF] hover:text-white transition-colors">
+                                    Browse Files
+                                </label>
+                                <input type="file" id="fileUpload" class="hidden" multiple>
+                                <p class="text-white/30 text-sm mt-2">Max file size: 10MB</p>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit"
+                            class="gradient-button w-full py-5 rounded-xl text-black font-bold text-lg hover:scale-[1.02] transition-transform relative overflow-hidden group">
+                            <span class="relative z-10 flex items-center justify-center gap-3">
+                                <span>Launch Project</span>
+                                <i class="fas fa-paper-plane group-hover:translate-x-1 transition-transform"></i>
+                            </span>
+                        </button>
+
+                        <p class="text-white/30 text-sm text-center">
+                            By submitting, you agree to our
+                            <a href="#" class="text-[#00F2FF] hover:text-white transition-colors">Privacy Policy</a>
+                        </p>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div id="successMessage"
+                        class="message-sent hidden mt-8 p-6 rounded-xl bg-gradient-to-r from-[#00F2FF]/10 to-[#7000FF]/10 border border-[#00F2FF]/30">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
+                                <i class="fas fa-check text-green-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Message Sent Successfully!</h4>
+                                <p class="text-white/70">Our team will contact you within 24 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="space-y-10">
+                    <!-- Quick Response -->
+                    <div class="contact-card p-8 rounded-3xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#00F2FF] to-[#7000FF] flex items-center justify-center">
+                                <i class="fas fa-bolt text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Quick Response</h3>
+                                <p class="text-white/50">We typically respond within 2 hours</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between py-3 border-b border-white/10">
+                                <span class="text-white/70">Initial Response</span>
+                                <span class="text-[#00F2FF] font-mono">≤ 2 Hours</span>
+                            </div>
+                            <div class="flex items-center justify-between py-3 border-b border-white/10">
+                                <span class="text-white/70">Proposal Delivery</span>
+                                <span class="text-[#7000FF] font-mono">24-48 Hours</span>
+                            </div>
+                            <div class="flex items-center justify-between py-3">
+                                <span class="text-white/70">Project Kickoff</span>
+                                <span class="text-[#00F2FF] font-mono">3-5 Days</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Process Timeline -->
+                    <div class="contact-card p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold text-white mb-6">Our Process</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-[#00F2FF] flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-bold">1</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-1">Discovery Call</h4>
+                                    <p class="text-white/50 text-sm">30-minute consultation to understand your vision
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-[#7000FF] flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold">2</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-1">Strategy & Proposal</h4>
+                                    <p class="text-white/50 text-sm">Detailed project roadmap and cost estimation</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-[#9D174D] flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-bold">3</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-1">Development Phase</h4>
+                                    <p class="text-white/50 text-sm">Agile development with regular updates</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-[#00F2FF] flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-bold">4</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold mb-1">Launch & Support</h4>
+                                    <p class="text-white/50 text-sm">Deployment and ongoing maintenance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Chat -->
+                    <div class="contact-card p-8 rounded-3xl">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold text-white">Live Chat Support</h3>
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                                <span class="text-green-400 text-sm font-mono">Online</span>
+                            </div>
+                        </div>
+                        <p class="text-white/50 mb-6">Chat with our AI assistant or connect with a human expert</p>
+                        <button
+                            class="w-full py-3 rounded-xl bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-black font-bold hover:opacity-90 transition-opacity">
+                            Start Live Chat
+                        </button>
+                        <p class="text-white/30 text-sm mt-4 text-center">Average wait time: <span
+                                class="text-[#00F2FF]">45 seconds</span></p>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="contact-card p-8 rounded-3xl">
+                        <h3 class="text-xl font-bold text-white mb-6">Connect With Us</h3>
+                        <div class="grid grid-cols-4 gap-4">
+                            <a href="#"
+                                class="social-link group p-4 rounded-xl bg-white/5 hover:bg-[#00F2FF]/20 transition-all flex flex-col items-center justify-center">
+                                <i
+                                    class="fab fa-twitter text-2xl text-[#00F2FF] mb-2 group-hover:text-white transition-colors"></i>
+                                <span class="text-white/70 text-sm group-hover:text-white">Twitter</span>
+                            </a>
+                            <a href="#"
+                                class="social-link group p-4 rounded-xl bg-white/5 hover:bg-[#7000FF]/20 transition-all flex flex-col items-center justify-center">
+                                <i
+                                    class="fab fa-linkedin text-2xl text-[#7000FF] mb-2 group-hover:text-white transition-colors"></i>
+                                <span class="text-white/70 text-sm group-hover:text-white">LinkedIn</span>
+                            </a>
+                            <a href="#"
+                                class="social-link group p-4 rounded-xl bg-white/5 hover:bg-[#00F2FF]/20 transition-all flex flex-col items-center justify-center">
+                                <i
+                                    class="fab fa-github text-2xl text-white/70 mb-2 group-hover:text-white transition-colors"></i>
+                                <span class="text-white/70 text-sm group-hover:text-white">GitHub</span>
+                            </a>
+                            <a href="#"
+                                class="social-link group p-4 rounded-xl bg-white/5 hover:bg-[#9D174D]/20 transition-all flex flex-col items-center justify-center">
+                                <i
+                                    class="fab fa-dribbble text-2xl text-[#9D174D] mb-2 group-hover:text-white transition-colors"></i>
+                                <span class="text-white/70 text-sm group-hover:text-white">Dribbble</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-32 px-6 bg-[#0A0A0C]">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span
+                    class="section-label text-xs uppercase font-bold mb-4 block tracking-widest text-[#00F2FF]">Support</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+                <p class="text-white/60 max-w-2xl mx-auto">Find quick answers to common questions about working with us
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="faq-item glass p-6 rounded-2xl cursor-pointer group">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-white group-hover:text-[#00F2FF] transition-colors">
+                            What happens after I submit the form?
+                        </h3>
+                        <div
+                            class="faq-toggle text-[#00F2FF] text-xl transform group-hover:rotate-45 transition-transform">
+                            +</div>
+                    </div>
+                    <div class="faq-answer text-white/60 mt-4 hidden">
+                        Our team reviews your submission within 2 hours. You'll receive an initial confirmation email,
+                        followed by a calendar invite for a discovery call within 24 hours. We'll prepare a preliminary
+                        strategy based on your requirements.
+                    </div>
+                </div>
+
+                <div class="faq-item glass p-6 rounded-2xl cursor-pointer group">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-white group-hover:text-[#7000FF] transition-colors">
+                            What's your typical project timeline?
+                        </h3>
+                        <div
+                            class="faq-toggle text-[#7000FF] text-xl transform group-hover:rotate-45 transition-transform">
+                            +</div>
+                    </div>
+                    <div class="faq-answer text-white/60 mt-4 hidden">
+                        Most web projects take 4-8 weeks from kickoff to launch. Complex applications can take 3-6
+                        months. We provide detailed timelines in our proposal and maintain transparent communication
+                        throughout the project.
+                    </div>
+                </div>
+
+                <div class="faq-item glass p-6 rounded-2xl cursor-pointer group">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-white group-hover:text-[#00F2FF] transition-colors">
+                            Do you work with startups?
+                        </h3>
+                        <div
+                            class="faq-toggle text-[#00F2FF] text-xl transform group-hover:rotate-45 transition-transform">
+                            +</div>
+                    </div>
+                    <div class="faq-answer text-white/60 mt-4 hidden">
+                        Absolutely! We specialize in helping startups build MVPs and scalable platforms. We offer
+                        flexible engagement models and have experience working with seed to series C companies across
+                        various industries.
+                    </div>
+                </div>
+
+                <div class="faq-item glass p-6 rounded-2xl cursor-pointer group">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-white group-hover:text-[#7000FF] transition-colors">
+                            What if I need changes during development?
+                        </h3>
+                        <div
+                            class="faq-toggle text-[#7000FF] text-xl transform group-hover:rotate-45 transition-transform">
+                            +</div>
+                    </div>
+                    <div class="faq-answer text-white/60 mt-4 hidden">
+                        We follow agile methodology, allowing for flexible scope adjustments. We prioritize changes
+                        based on impact and provide transparent quotes for any additional work. Regular check-ins ensure
+                        we stay aligned with your evolving needs.
+                    </div>
+                </div>
+
+                <div class="faq-item glass p-6 rounded-2xl cursor-pointer group">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-white group-hover:text-[#00F2FF] transition-colors">
+                            What support do you provide after launch?
+                        </h3>
+                        <div
+                            class="faq-toggle text-[#00F2FF] text-xl transform group-hover:rotate-45 transition-transform">
+                            +</div>
+                    </div>
+                    <div class="faq-answer text-white/60 mt-4 hidden">
+                        We offer comprehensive post-launch support packages including hosting, security updates,
+                        performance optimization, and feature enhancements. Our support plans are customizable based on
+                        your specific needs.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Still have questions? -->
+            <div class="text-center mt-16">
+                <p class="text-white/70 mb-6">Still have questions?</p>
+                <a href="mailto:support@xenonstudious.bd"
+                    class="inline-flex items-center gap-3 glass px-8 py-4 rounded-xl text-white hover:text-[#00F2FF] transition-colors">
+                    <i class="fas fa-envelope"></i>
+                    Email our support team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="holographic-effect glass p-12 rounded-3xl">
+                <h2 class="text-3xl font-bold text-white mb-4">Stay Updated</h2>
+                <p class="text-white/60 mb-8 max-w-2xl mx-auto">
+                    Subscribe to our newsletter for the latest in digital innovation, case studies, and industry
+                    insights.
+                </p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email"
+                        class="flex-1 px-6 py-4 rounded-xl contact-input text-white placeholder-white/30">
+                    <button type="submit"
+                        class="px-8 py-4 rounded-xl bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-black font-bold hover:opacity-90 transition-opacity">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="text-white/30 text-sm mt-6">No spam. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 border-t border-white/10 bg-black/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="text-3xl font-extrabold tracking-tighter italic mb-8 md:mb-0">
+                    <a href="index.html" class="block hover:scale-105 transition-transform">
+                        <span
+                            class="bg-gradient-to-r from-white to-[#00F2FF] bg-clip-text text-transparent">XENON</span>
+                        <span class="text-[#00F2FF]">.</span>
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8 text-base">
+                    <a href="index.html" class="text-white/70 hover:text-[#00F2FF] transition-colors">Home</a>
+                    <a href="about.html" class="text-white/70 hover:text-[#7000FF] transition-colors">About</a>
+                    <a href="#contact-form" class="text-[#00F2FF]">Contact</a>
+                    <a href="index.html#services"
+                        class="text-white/70 hover:text-[#00F2FF] transition-colors">Services</a>
+                    <a href="index.html#faq" class="text-white/70 hover:text-[#7000FF] transition-colors">FAQ</a>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="text-[#00F2FF] font-mono text-lg mb-6 tracking-widest">XENONSTUDIOUS.BD</div>
+                <p class="text-white/50 text-sm max-w-2xl mx-auto leading-relaxed mb-8">
+                    Redefining digital experiences through innovation, precision, and visionary design. Let's build the
+                    future together.
+                </p>
+
+                <div class="flex justify-center space-x-8 mb-8">
+                    <a href="#"
+                        class="text-white/50 hover:text-[#00F2FF] transition-colors transform hover:scale-125 duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="text-white/50 hover:text-[#7000FF] transition-colors transform hover:scale-125 duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="text-white/50 hover:text-[#00F2FF] transition-colors transform hover:scale-125 duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="text-white/50 hover:text-[#7000FF] transition-colors transform hover:scale-125 duration-300">
+                        <i class="fab fa-dribbble text-xl"></i>
+                    </a>
+                </div>
+
+                <div class="text-white/30 text-xs space-y-2">
+                    <p>© 2024 Xenon Studious. All rights reserved.</p>
+                    <p class="text-white/20">Contact Page v2.0 | Last Updated: Today</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="./assets/js/script.js"></script>
+
+    <script>
+        // Form Interactions
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize GSAP
+            gsap.registerPlugin(ScrollTrigger);
+
+
+            // Form label animation
+            const formInputs = document.querySelectorAll('.form-input');
+            formInputs.forEach(input => {
+                // Set initial state
+                if (input.value) {
+                    const label = input.nextElementSibling;
+                    label.style.top = '0';
+                    label.style.fontSize = '0.75rem';
+                    label.style.color = '#00F2FF';
+                    label.style.background = '#0A0A0C';
+                    label.style.padding = '0 0.5rem';
+                    label.style.transform = 'translateY(-50%)';
+                }
+
+                input.addEventListener('focus', function () {
+                    const label = this.nextElementSibling;
+                    label.style.top = '0';
+                    label.style.fontSize = '0.75rem';
+                    label.style.color = '#00F2FF';
+                    label.style.background = '#0A0A0C';
+                    label.style.padding = '0 0.5rem';
+                    label.style.transform = 'translateY(-50%)';
+                });
+
+                input.addEventListener('blur', function () {
+                    if (!this.value) {
+                        const label = this.nextElementSibling;
+                        label.style.top = '50%';
+                        label.style.fontSize = '1rem';
+                        label.style.color = 'rgba(255, 255, 255, 0.5)';
+                        label.style.background = 'transparent';
+                        label.style.padding = '0';
+                        label.style.transform = 'translateY(-50%)';
+                    }
+                });
+            });
+
+            // Budget selection
+            const budgetOptions = document.querySelectorAll('.budget-option');
+            const budgetInput = document.getElementById('selectedBudget');
+
+            budgetOptions.forEach(option => {
+                option.addEventListener('click', function () {
+                    // Remove active class from all options
+                    budgetOptions.forEach(opt => {
+                        opt.classList.remove('bg-[#00F2FF]/20', 'text-white', 'border-[#00F2FF]');
+                        opt.classList.add('text-white/70');
+                    });
+
+                    // Add active class to clicked option
+                    this.classList.remove('text-white/70');
+                    this.classList.add('bg-[#00F2FF]/20', 'text-white', 'border', 'border-[#00F2FF]');
+
+                    // Update hidden input
+                    budgetInput.value = this.dataset.budget;
+                });
+            });
+
+            // Timeline selection
+            const timelineOptions = document.querySelectorAll('.timeline-option');
+            const timelineInput = document.getElementById('selectedTimeline');
+
+            timelineOptions.forEach(option => {
+                option.addEventListener('click', function () {
+                    // Remove active class from all options
+                    timelineOptions.forEach(opt => {
+                        opt.classList.remove('bg-[#7000FF]/20', 'text-white', 'border-[#7000FF]');
+                        opt.classList.add('text-white/70');
+                    });
+
+                    // Add active class to clicked option
+                    this.classList.remove('text-white/70');
+                    this.classList.add('bg-[#7000FF]/20', 'text-white', 'border', 'border-[#7000FF]');
+
+                    // Update hidden input
+                    timelineInput.value = this.dataset.timeline;
+                });
+            });
+
+            // File upload interaction
+            const fileUpload = document.getElementById('fileUpload');
+            const uploadArea = fileUpload.parentElement;
+
+            uploadArea.addEventListener('click', () => fileUpload.click());
+
+            fileUpload.addEventListener('change', function () {
+                if (this.files.length > 0) {
+                    uploadArea.innerHTML = `
+                        <i class="fas fa-check text-green-400 text-3xl mb-4"></i>
+                        <p class="text-white mb-2">${this.files.length} file(s) selected</p>
+                        <p class="text-white/50 text-sm">Click to change files</p>
+                    `;
+                    uploadArea.classList.add('border-green-500/30');
+                }
+            });
+
+            // Drag and drop for files
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, highlight, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                uploadArea.addEventListener(eventName, unhighlight, false);
+            });
+
+            function highlight() {
+                uploadArea.classList.add('border-[#00F2FF]', 'bg-white/5');
+            }
+
+            function unhighlight() {
+                uploadArea.classList.remove('border-[#00F2FF]', 'bg-white/5');
+            }
+
+            uploadArea.addEventListener('drop', handleDrop, false);
+
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                fileUpload.files = files;
+
+                // Trigger change event
+                const event = new Event('change');
+                fileUpload.dispatchEvent(event);
+            }
+
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form data
+                const formData = new FormData(this);
+                const formObject = {};
+                formData.forEach((value, key) => {
+                    formObject[key] = value;
+                });
+
+                // Here you would typically send the data to your server
+                console.log('Form submitted:', formObject);
+
+                // Show success message
+                successMessage.classList.remove('hidden');
+
+                // Reset form (optional)
+                // this.reset();
+
+                // Reset active states
+                budgetOptions.forEach(opt => {
+                    opt.classList.remove('bg-[#00F2FF]/20', 'text-white', 'border-[#00F2FF]');
+                    opt.classList.add('text-white/70');
+                });
+
+                timelineOptions.forEach(opt => {
+                    opt.classList.remove('bg-[#7000FF]/20', 'text-white', 'border-[#7000FF]');
+                    opt.classList.add('text-white/70');
+                });
+
+                // Reset file upload
+                uploadArea.innerHTML = `
+                    <i class="fas fa-cloud-upload-alt text-3xl text-white/30 mb-4"></i>
+                    <p class="text-white/50 mb-2">Drag & drop files here or</p>
+                    <label for="fileUpload" class="cursor-pointer text-[#00F2FF] hover:text-white transition-colors">
+                        Browse Files
+                    </label>
+                    <input type="file" id="fileUpload" class="hidden" multiple>
+                    <p class="text-white/30 text-sm mt-2">Max file size: 10MB</p>
+                `;
+                uploadArea.classList.remove('border-green-500/30');
+
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Animate success message
+                gsap.fromTo(successMessage,
+                    { opacity: 0, y: 20 },
+                    { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
+                );
+            });
+
+            // FAQ Toggle
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const toggle = item.querySelector('.faq-toggle');
+                const answer = item.querySelector('.faq-answer');
+
+                item.addEventListener('click', function () {
+                    const isActive = answer.classList.contains('hidden');
+
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.querySelector('.faq-answer').classList.add('hidden');
+                            otherItem.querySelector('.faq-toggle').style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    // Toggle current item
+                    if (isActive) {
+                        answer.classList.remove('hidden');
+                        gsap.fromTo(answer,
+                            { opacity: 0, height: 0 },
+                            { opacity: 1, height: 'auto', duration: 0.3 }
+                        );
+                        toggle.style.transform = 'rotate(45deg)';
+                    } else {
+                        answer.classList.add('hidden');
+                        toggle.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+
+            // Live Chat Button
+            const liveChatButton = document.querySelector('button:contains("Start Live Chat")');
+            if (liveChatButton) {
+                liveChatButton.addEventListener('click', function () {
+                    // Create chat modal
+                    const chatModal = document.createElement('div');
+                    chatModal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80';
+                    chatModal.innerHTML = `
+                        <div class="glass rounded-3xl w-full max-w-md p-8">
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="text-xl font-bold text-white">Live Chat</h3>
+                                <button class="close-chat text-white/50 hover:text-white text-2xl">&times;</button>
+                            </div>
+                            <div class="space-y-4 mb-6">
+                                <div class="bg-white/5 p-4 rounded-xl">
+                                    <p class="text-white">Hello! I'm Nova, your AI assistant. How can I help you today?</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <input type="text" placeholder="Type your message..." 
+                                    class="flex-1 px-4 py-3 rounded-xl contact-input text-white">
+                                <button class="px-6 py-3 rounded-xl bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-black font-bold">
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                    `;
+
+                    document.body.appendChild(chatModal);
+
+                    // Close modal
+                    chatModal.querySelector('.close-chat').addEventListener('click', () => {
+                        document.body.removeChild(chatModal);
+                    });
+
+                    // Close on background click
+                    chatModal.addEventListener('click', (e) => {
+                        if (e.target === chatModal) {
+                            document.body.removeChild(chatModal);
+                        }
+                    });
+                });
+            }
+
+            // Social link hover effects
+            const socialLinks = document.querySelectorAll('.social-link');
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', function () {
+                    const icon = this.querySelector('i');
+                    gsap.to(icon, {
+                        y: -5,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+
+                link.addEventListener('mouseleave', function () {
+                    const icon = this.querySelector('i');
+                    gsap.to(icon, {
+                        y: 0,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+
+            // Form field focus effects
+            const formFields = document.querySelectorAll('.form-field');
+            formFields.forEach(field => {
+                const input = field.querySelector('input, textarea, select');
+                if (input) {
+                    input.addEventListener('focus', () => {
+                        field.classList.add('focused');
+                    });
+
+                    input.addEventListener('blur', () => {
+                        if (!input.value) {
+                            field.classList.remove('focused');
+                        }
+                    });
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
