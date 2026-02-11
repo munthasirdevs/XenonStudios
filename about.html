@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Xenon Studious | Digital Innovation Foundry</title>
+    <link rel="icon" href="./assets/images/xenon-mini-logo.png" type="image/x-icon">
+
+    <!-- CSS & Font Libraries -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="overflow-x-hidden">
+
+    <!-- Advanced Background Elements -->
+    <div class="matrix-bg" id="matrixBg"></div>
+    <div class="grid-bg"></div>
+
+    <!-- Animated Orbs -->
+    <div class="floating-orb bg-[#00F2FF] w-96 h-96 top-20 left-20" style="animation-delay: 0s"></div>
+    <div class="floating-orb bg-[#7000FF] w-80 h-80 bottom-32 right-32" style="animation-delay: 5s"></div>
+    <div class="floating-orb bg-[#9D174D] w-64 h-64 top-1/2 left-1/4" style="animation-delay: 10s"></div>
+
+    <!-- Scanline Effect -->
+    <div class="scanline" style="animation-delay: 1s"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
+        <div class="glass rounded-full px-8 py-4 flex items-center justify-between border-white/10 backdrop-blur-xl">
+            <div class="text-xl font-extrabold tracking-tighter italic magnetic">
+                <a href="index.html" class="block hover-3d">
+                    <img src="./assets/images/logo.png" alt="logo" class="h-10">
+                </a>
+            </div>
+            <div class="hidden md:flex gap-8 font-medium text-white/70">
+                <a href="index.html" class="nav-link magnetic">Home</a>
+                <a href="#story" class="nav-link magnetic active text-[#00F2FF]">About</a>
+                <a href="services.html" class="nav-link magnetic">Services</a>
+                <a href="demo.html" class="nav-link magnetic">Demo</a>
+            </div>
+            <a href="index.html#contact"
+                class="magnetic bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-[#00F2FF] transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,242,255,0.3)]">
+                Start Project
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-40 pb-20 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+            <div
+                class="inline-block px-4 py-1.5 mb-6 glass rounded-full border-white/10 text-[10px] uppercase tracking-[0.2em] font-mono text-gradient-animate shimmer">
+                Genesis Protocol v2.0
+            </div>
+
+            <h1 class="hero-title text-6xl md:text-8xl font-extrabold mb-8 relative">
+                <span
+                    class="block bg-gradient-to-r from-white via-[#00F2FF] to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                    Digital Architects
+                </span>
+                <span
+                    class="block mt-4 bg-gradient-to-r from-[#7000FF] via-white to-[#7000FF] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient"
+                    style="animation-delay: 1s">
+                    Of Tomorrow.
+                </span>
+            </h1>
+
+            <div class="relative max-w-2xl mx-auto">
+                <p class="text-lg text-white/60 mb-10 leading-relaxed opacity-0" id="heroText">
+                    We are Xenon Studious—where cutting-edge technology meets visionary design. A collective of digital
+                    architects pushing the boundaries of what's possible on the web.
+                </p>
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-transparent via-[#00F2FF]/5 to-transparent animate-shimmer hidden">
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 mt-12">
+                <a href="#story"
+                    class="group relative overflow-hidden bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-black px-10 py-5 rounded-xl font-bold shadow-[0_0_40px_rgba(0,242,255,0.5)] hover:shadow-[0_0_60px_rgba(112,0,255,0.6)] transition-all duration-300 hover:scale-105">
+                    <span class="relative z-10">Explore Our Journey</span>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-[#7000FF] to-[#00F2FF] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                </a>
+
+                <a href="#team"
+                    class="group gradient-border px-10 py-5 rounded-xl font-bold hover:scale-105 transition-all duration-300">
+                    <span class="text-white group-hover:text-gradient-animate transition-colors duration-300">Meet The
+                        Visionaries</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Floating UI Cards with Advanced Effects -->
+        <div class="hero-visuals mt-32 relative max-w-6xl mx-auto h-[500px]">
+            <!-- Animated Orbital Rings -->
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]">
+                <div class="absolute inset-0 border border-[#00F2FF]/20 rounded-full animate-spin-slow"
+                    style="animation-duration: 20s"></div>
+                <div class="absolute inset-8 border border-[#7000FF]/20 rounded-full animate-spin-slow reverse"
+                    style="animation-duration: 15s"></div>
+            </div>
+
+            <!-- Floating Card 1 -->
+            <div
+                class="floating-card glass absolute left-[10%] top-[20%] w-72 p-8 rounded-2xl border-white/10 z-20 hover-3d">
+                <div class="pulse-ring absolute -inset-1 rounded-2xl"></div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-3 h-3 rounded-full bg-[#00F2FF] animate-pulse"></div>
+                    <span class="text-xs font-mono opacity-50">Core Values</span>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center group">
+                        <div class="w-2 h-2 rounded-full bg-[#00F2FF] mr-3 group-hover:scale-150 transition-transform">
+                        </div>
+                        <span
+                            class="text-sm font-mono text-white/70 group-hover:text-white transition-colors">Innovation
+                            First</span>
+                    </div>
+                    <div class="flex items-center group">
+                        <div class="w-2 h-2 rounded-full bg-[#7000FF] mr-3 group-hover:scale-150 transition-transform">
+                        </div>
+                        <span class="text-sm font-mono text-white/70 group-hover:text-white transition-colors">Pixel
+                            Perfection</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Card 2 -->
+            <div class="floating-card glass absolute right-[10%] bottom-[20%] w-80 p-8 rounded-2xl border-white/10 z-20 hover-3d"
+                style="animation-delay: 1s;">
+                <div class="text-xs font-mono text-[#00F2FF] mb-3">FOUNDATION_LOG</div>
+                <div class="text-[11px] font-mono opacity-40 leading-tight space-y-1">
+                    <div class="flex items-center">
+                        <span class="text-[#00F2FF] mr-2">></span>
+                        <span class="typing-text">Established: 2022</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-[#00F2FF] mr-2">></span>
+                        <span class="typing-text" style="animation-delay: 0.5s">Projects: 150+</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-[#00F2FF] mr-2">></span>
+                        <span class="typing-text" style="animation-delay: 1s">Mission: Redefine Digital</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Central Holographic Display -->
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl">
+                <div class="relative">
+                    <div class="glass rounded-3xl border border-white/10 overflow-hidden backdrop-blur-xl">
+                        <div
+                            class="w-full h-10 bg-gradient-to-r from-[#00F2FF]/10 to-[#7000FF]/10 flex items-center px-6 gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#27ca3f]"></div>
+                        </div>
+                        <div class="p-10">
+                            <div class="relative">
+                                <div
+                                    class="h-64 rounded-xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <div class="text-4xl font-bold neon-glow mb-4">XENON FOUNDRY</div>
+                                        <div class="text-sm text-[#00F2FF] font-mono">WHERE IDEAS BECOME REALITY</div>
+                                    </div>
+                                </div>
+                                <!-- Floating Particles -->
+                                <div class="absolute inset-0 overflow-hidden rounded-xl">
+                                    <div class="particle absolute w-1 h-1 bg-[#00F2FF] rounded-full"
+                                        style="top: 20%; left: 30%"></div>
+                                    <div class="particle absolute w-1 h-1 bg-[#7000FF] rounded-full"
+                                        style="top: 60%; left: 70%"></div>
+                                    <div class="particle absolute w-1 h-1 bg-[#00F2FF] rounded-full"
+                                        style="top: 80%; left: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Glow Effect -->
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-r from-[#00F2FF]/20 to-[#7000FF]/20 blur-2xl -z-10 opacity-50">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="py-32 px-6 relative">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-32">
+                <span class="section-label text-[10px] uppercase font-bold mb-4 block tracking-widest">Timeline</span>
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                    <span
+                        class="bg-gradient-to-r from-white via-[#00F2FF] to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                        Our Journey
+                    </span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-[#00F2FF] to-[#7000FF] mx-auto mb-8"></div>
+                <p class="max-w-2xl mx-auto text-lg text-white/50 leading-relaxed">
+                    From visionary beginnings to industry leadership—our evolution in shaping digital experiences.
+                </p>
+            </div>
+
+            <!-- Animated Timeline -->
+            <div class="relative">
+                <!-- Animated Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-[#00F2FF] via-[#7000FF] to-transparent animate-pulse">
+                    </div>
+                </div>
+
+                <!-- Timeline Items -->
+                <div class="space-y-40">
+                    <!-- Item 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-center gap-12">
+                        <div class="md:w-1/2 md:pr-16 md:text-right">
+                            <div class="timeline-card glass p-10 rounded-3xl hover-3d">
+                                <div class="text-[#00F2FF] font-mono text-sm mb-3 tracking-wider">Q1 2022</div>
+                                <h3 class="text-2xl font-bold text-white mb-4">The Genesis</h3>
+                                <p class="text-white/60 leading-relaxed">Three digital architects united with a singular
+                                    vision: to merge cinematic design with cutting-edge web technology, creating
+                                    experiences that transcend convention.</p>
+                                <div class="mt-6 flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-[#00F2FF]/10 text-[#00F2FF] text-xs rounded-full">Vision</span>
+                                    <span
+                                        class="px-3 py-1 bg-[#7000FF]/10 text-[#7000FF] text-xs rounded-full">Innovation</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6">
+                            <div
+                                class="w-full h-full rounded-full bg-black border-4 border-[#00F2FF] animate-ping absolute">
+                            </div>
+                            <div class="w-full h-full rounded-full bg-[#00F2FF] border-4 border-black relative"></div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <!-- Empty for spacing -->
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-center gap-12">
+                        <div class="md:w-1/2 md:pr-16">
+                            <!-- Empty for spacing -->
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6">
+                            <div class="w-full h-full rounded-full bg-black border-4 border-[#7000FF] animate-ping absolute"
+                                style="animation-delay: 0.5s"></div>
+                            <div class="w-full h-full rounded-full bg-[#7000FF] border-4 border-black relative"></div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <div class="timeline-card glass p-10 rounded-3xl hover-3d">
+                                <div class="text-[#7000FF] font-mono text-sm mb-3 tracking-wider">Q3 2022</div>
+                                <h3 class="text-2xl font-bold text-white mb-4">First Milestone</h3>
+                                <p class="text-white/60 leading-relaxed">Delivered groundbreaking projects for tech
+                                    startups, establishing our reputation for futuristic design and robust engineering.
+                                    The Xenon engine was born.</p>
+                                <div class="mt-6 flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-[#00F2FF]/10 text-[#00F2FF] text-xs rounded-full">Growth</span>
+                                    <span
+                                        class="px-3 py-1 bg-[#7000FF]/10 text-[#7000FF] text-xs rounded-full">Technology</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-center gap-12">
+                        <div class="md:w-1/2 md:pr-16 md:text-right">
+                            <div class="timeline-card glass p-10 rounded-3xl hover-3d">
+                                <div class="text-[#00F2FF] font-mono text-sm mb-3 tracking-wider">Q1 2023</div>
+                                <h3 class="text-2xl font-bold text-white mb-4">Global Expansion</h3>
+                                <p class="text-white/60 leading-relaxed">Expanded to 25+ specialists across 5 countries,
+                                    introducing AI automation and cybersecurity divisions. Became a certified partner
+                                    for major tech platforms.</p>
+                                <div class="mt-6 flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-[#00F2FF]/10 text-[#00F2FF] text-xs rounded-full">Scale</span>
+                                    <span
+                                        class="px-3 py-1 bg-[#7000FF]/10 text-[#7000FF] text-xs rounded-full">AI</span>
+                                    <span
+                                        class="px-3 py-1 bg-[#9D174D]/10 text-[#9D174D] text-xs rounded-full">Security</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6">
+                            <div class="w-full h-full rounded-full bg-black border-4 border-[#00F2FF] animate-ping absolute"
+                                style="animation-delay: 1s"></div>
+                            <div class="w-full h-full rounded-full bg-[#00F2FF] border-4 border-black relative"></div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <!-- Empty for spacing -->
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative flex flex-col md:flex-row items-center justify-center gap-12">
+                        <div class="md:w-1/2 md:pr-16">
+                            <!-- Empty for spacing -->
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6">
+                            <div class="w-full h-full rounded-full bg-black border-4 border-[#7000FF] animate-ping absolute"
+                                style="animation-delay: 1.5s"></div>
+                            <div class="w-full h-full rounded-full bg-[#7000FF] border-4 border-black relative"></div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16">
+                            <div class="timeline-card glass p-10 rounded-3xl hover-3d">
+                                <div class="text-[#7000FF] font-mono text-sm mb-3 tracking-wider">2024 & Beyond</div>
+                                <h3 class="text-2xl font-bold text-white mb-4">Future Vision</h3>
+                                <p class="text-white/60 leading-relaxed">Pioneering Web3 integration, immersive AR/VR
+                                    experiences, and sustainable digital solutions. Shaping the next generation of
+                                    internet experiences.</p>
+                                <div class="mt-6 flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-[#00F2FF]/10 text-[#00F2FF] text-xs rounded-full">Web3</span>
+                                    <span
+                                        class="px-3 py-1 bg-[#7000FF]/10 text-[#7000FF] text-xs rounded-full">Metaverse</span>
+                                    <span
+                                        class="px-3 py-1 bg-[#9D174D]/10 text-[#9D174D] text-xs rounded-full">Innovation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 -z-10 overflow-hidden">
+            <div class="floating-orb bg-[#00F2FF]/10 w-[800px] h-[800px] top-1/4 -left-64"
+                style="animation-duration: 25s"></div>
+            <div class="floating-orb bg-[#7000FF]/10 w-[600px] h-[600px] bottom-1/4 -right-48"
+                style="animation-duration: 20s"></div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-32 px-6 bg-gradient-to-b from-[#0A0A0C] to-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-32">
+                <span class="section-label text-[10px] uppercase font-bold mb-4 block tracking-widest">Architects</span>
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                    <span
+                        class="bg-gradient-to-r from-white via-[#7000FF] to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                        The Visionaries
+                    </span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-[#7000FF] to-[#00F2FF] mx-auto mb-8"></div>
+                <p class="max-w-2xl mx-auto text-lg text-white/50 leading-relaxed">
+                    Meet the brilliant minds behind Xenon Studious—experts in technology, design, and innovation.
+                </p>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-card group relative">
+                    <div
+                        class="absolute -inset-0.5 bg-gradient-to-r from-[#00F2FF] to-[#7000FF] rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500">
+                    </div>
+                    <div class="relative glass p-8 rounded-3xl hover-3d">
+                        <div
+                            class="relative w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden border-4 border-white/10">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#00F2FF] to-[#7000FF] flex items-center justify-center">
+                                <span class="text-5xl font-bold text-white">AR</span>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white text-center mb-2">Alex Rivera</h3>
+                        <div class="text-gradient-animate font-mono text-sm text-center mb-6">Chief Architect</div>
+                        <p class="text-white/60 text-sm text-center mb-8 leading-relaxed">Former lead engineer at tech
+                            unicorns. Specializes in scalable systems, AI integration, and futuristic architecture.</p>
+                        <div class="flex justify-center space-x-6">
+                            <a href="#"
+                                class="social-icon text-white/50 hover:text-[#00F2FF] transform hover:scale-125 transition-all duration-300">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#"
+                                class="social-icon text-white/50 hover:text-[#7000FF] transform hover:scale-125 transition-all duration-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card group relative">
+                    <div
+                        class="absolute -inset-0.5 bg-gradient-to-r from-[#7000FF] to-[#9D174D] rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500">
+                    </div>
+                    <div class="relative glass p-8 rounded-3xl hover-3d">
+                        <div
+                            class="relative w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden border-4 border-white/10">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#7000FF] to-[#9D174D] flex items-center justify-center">
+                                <span class="text-5xl font-bold text-white">MK</span>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white text-center mb-2">Maya Chen</h3>
+                        <div class="text-gradient-animate font-mono text-sm text-center mb-6">Creative Director</div>
+                        <p class="text-white/60 text-sm text-center mb-8 leading-relaxed">Award-winning designer with
+                            background in film VFX. Creates immersive visual experiences that tell compelling stories.
+                        </p>
+                        <div class="flex justify-center space-x-6">
+                            <a href="#"
+                                class="social-icon text-white/50 hover:text-[#7000FF] transform hover:scale-125 transition-all duration-300">
+                                <i class="fab fa-behance text-xl"></i>
+                            </a>
+                            <a href="#"
+                                class="social-icon text-white/50 hover:text-[#9D174D] transform hover:scale-125 transition-all duration-300">
+                                <i class="fab fa-dribbble text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card group relative">
+                    <div
+                        class="absolute -inset-0.5 bg-gradient-to-r from-[#00F2FF] to-[#9D174D] rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500">
+                    </div>
+                    <div class="relative glass p-8 rounded-3xl hover-3d">
+                        <div
+                            class="relative w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden border-4 border-white/10">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#00F2FF] to-[#9D174D] flex items-center justify-center">
+                                <span class="text-5xl font-bold text-white">TK</span>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white text-center mb-2">Tariq Khan</h3>
+                        <div class="text-gradient-animate font-mono text-sm text-center mb-6">Tech Lead</div>
+                        <p class="text-white/60 text-sm text-center mb-8 leading-relaxed">Full-stack developer expert in
+                            WebGL, real-time applications, and cybersecurity. Builds robust, scalable systems.</p>
+                        <div class="flex justify-center space-x-6">
+                            <a href="#"
+                                class="social-icon text-white/50 hover:text-[#00F2FF] transform hover:scale-125 transition-all duration-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#"
+                                class="social-icon text-white/50 hover:text-[#9D174D] transform hover:scale-125 transition-all duration-300">
+                                <i class="fab fa-stack-overflow text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card group relative">
+                    <div
+                        class="absolute -inset-0.5 bg-gradient-to-r from-[#7000FF] to-[#00F2FF] rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500">
+                    </div>
+                    <div class="relative glass p-8 rounded-3xl hover-3d">
+                        <div
+                            class="relative w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden border-4 border-white/10">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#7000FF] to-[#00F2FF] flex items-center justify-center">
+                                <span class="text-5xl font-bold text-white">SR</span>
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white text-center mb-2">Samira Roy</h3>
+                        <div class="text-gradient-animate font-mono text-sm text-center mb-6">Strategy Lead</div>
+                        <p class="text-white/60 text-sm text-center mb-8 leading-relaxed">Digital transformation expert
+                            with decade of experience. Crafts strategies that scale tech businesses globally.</p>
+                        <div class="flex justify-center space-x-6">
+                            <a href="#"
+                                class="social-icon text-white/50 hover:text-[#7000FF] transform hover:scale-125 transition-all duration-300">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#"
+                                class="social-icon text-white/50 hover:text-[#00F2FF] transform hover:scale-125 transition-all duration-300">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Stats with Animation -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-32">
+                <div class="stat-card glass p-8 rounded-3xl text-center hover-3d">
+                    <div class="text-5xl font-bold text-white mb-4 count-up" data-count="15">0</div>
+                    <div class="text-gradient-animate font-mono text-sm">Team Members</div>
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-[#00F2FF] to-transparent mx-auto mt-4"></div>
+                </div>
+                <div class="stat-card glass p-8 rounded-3xl text-center hover-3d">
+                    <div class="text-5xl font-bold text-white mb-4 count-up" data-count="5">0</div>
+                    <div class="text-gradient-animate font-mono text-sm">Countries</div>
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-[#7000FF] to-transparent mx-auto mt-4"></div>
+                </div>
+                <div class="stat-card glass p-8 rounded-3xl text-center hover-3d">
+                    <div class="text-5xl font-bold text-white mb-4 count-up" data-count="16000">0</div>
+                    <div class="text-gradient-animate font-mono text-sm">Code Commits</div>
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-[#00F2FF] to-transparent mx-auto mt-4"></div>
+                </div>
+                <div class="stat-card glass p-8 rounded-3xl text-center hover-3d">
+                    <div class="text-5xl font-bold text-white mb-4">
+                        <span class="neon-glow">24/7</span>
+                    </div>
+                    <div class="text-gradient-animate font-mono text-sm">Innovation</div>
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-[#7000FF] to-transparent mx-auto mt-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-32 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-32">
+                <span class="section-label text-[10px] uppercase font-bold mb-4 block tracking-widest">Philosophy</span>
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                    <span
+                        class="bg-gradient-to-r from-white via-[#00F2FF] to-[#7000FF] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                        Our Principles
+                    </span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-[#00F2FF] via-[#7000FF] to-[#9D174D] mx-auto mb-8"></div>
+                <p class="max-w-2xl mx-auto text-lg text-white/50 leading-relaxed">
+                    The foundation of everything we create at Xenon Studious—guiding every decision and innovation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Value 1 -->
+                <div class="value-card group relative">
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-[#00F2FF] to-transparent rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500">
+                    </div>
+                    <div class="relative glass p-10 rounded-3xl hover-3d h-full">
+                        <div
+                            class="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-[#00F2FF] to-[#7000FF] flex items-center justify-center mb-8 transform group-hover:rotate-12 transition-transform duration-300">
+                            <i class="fas fa-bolt text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-6">Radical Innovation</h3>
+                        <p class="text-white/60 mb-8 leading-relaxed">We don't follow trends—we create them. Every
+                            project is an opportunity to push technological boundaries and redefine what's possible in
+                            digital experiences.</p>
+                        <div class="flex items-center">
+                            <div class="w-8 h-0.5 bg-[#00F2FF] mr-4"></div>
+                            <span class="text-[#00F2FF] font-mono text-sm tracking-widest">#FutureFirst</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="value-card group relative">
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-[#7000FF] to-transparent rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500">
+                    </div>
+                    <div class="relative glass p-10 rounded-3xl hover-3d h-full">
+                        <div
+                            class="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-[#7000FF] to-[#9D174D] flex items-center justify-center mb-8 transform group-hover:rotate-12 transition-transform duration-300">
+                            <i class="fas fa-gem text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-6">Pixel Perfection</h3>
+                        <p class="text-white/60 mb-8 leading-relaxed">From code architecture to visual details, we
+                            obsess over precision. Every pixel, every line of code is crafted with intention and
+                            technical excellence.</p>
+                        <div class="flex items-center">
+                            <div class="w-8 h-0.5 bg-[#7000FF] mr-4"></div>
+                            <span class="text-[#7000FF] font-mono text-sm tracking-widest">#Craftsmanship</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="value-card group relative">
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-[#9D174D] to-transparent rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500">
+                    </div>
+                    <div class="relative glass p-10 rounded-3xl hover-3d h-full">
+                        <div
+                            class="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-[#00F2FF] to-[#9D174D] flex items-center justify-center mb-8 transform group-hover:rotate-12 transition-transform duration-300">
+                            <i class="fas fa-users text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-6">Collaborative Excellence</h3>
+                        <p class="text-white/60 mb-8 leading-relaxed">The best solutions emerge from diverse
+                            perspectives working in harmony. We foster a culture of open collaboration, mutual respect,
+                            and shared success.</p>
+                        <div class="flex items-center">
+                            <div class="w-8 h-0.5 bg-[#9D174D] mr-4"></div>
+                            <span class="text-[#9D174D] font-mono text-sm tracking-widest">#OneTeam</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-40 px-6 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+            <!-- Animated Rings -->
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]">
+                <div class="absolute inset-0 border border-[#00F2FF]/10 rounded-full animate-spin-slow"
+                    style="animation-duration: 30s"></div>
+                <div class="absolute inset-16 border border-[#7000FF]/10 rounded-full animate-spin-slow reverse"
+                    style="animation-duration: 25s"></div>
+                <div class="absolute inset-32 border border-[#00F2FF]/10 rounded-full animate-spin-slow"
+                    style="animation-duration: 20s"></div>
+            </div>
+
+            <div
+                class="inline-block px-6 py-3 mb-8 glass rounded-full border-white/10 text-sm uppercase tracking-[0.3em] font-mono text-gradient-animate">
+                Ready to Build Tomorrow?
+            </div>
+
+            <h2 class="text-5xl md:text-7xl font-bold mb-12">
+                <span
+                    class="block bg-gradient-to-r from-white via-[#00F2FF] to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                    Let's Create
+                </span>
+                <span
+                    class="block mt-4 bg-gradient-to-r from-[#7000FF] via-white to-[#7000FF] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient"
+                    style="animation-delay: 1s">
+                    Extraordinary
+                </span>
+            </h2>
+
+            <p class="text-xl text-white/50 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Join the ranks of forward-thinking brands who trust Xenon Studious to build their digital future.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-8">
+                <a href="index.html#contact"
+                    class="group relative overflow-hidden bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-black px-12 py-6 rounded-2xl font-bold text-lg shadow-[0_0_60px_rgba(0,242,255,0.5)] hover:shadow-[0_0_100px_rgba(112,0,255,0.7)] transition-all duration-500 hover:scale-105 transform">
+                    <span class="relative z-10">Start Your Project</span>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-[#7000FF] to-[#00F2FF] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 animate-pulse"></div>
+                </a>
+
+                <a href="index.html#services"
+                    class="group gradient-border px-12 py-6 rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-500 backdrop-blur-xl">
+                    <span class="text-white group-hover:text-gradient-animate transition-colors duration-500">Explore
+                        Services</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 border-t border-white/10 bg-black/50 backdrop-blur-xl">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="text-3xl font-extrabold tracking-tighter italic mb-8 md:mb-0">
+                    <a href="index.html" class="block hover-3d">
+                        <span
+                            class="bg-gradient-to-r from-white to-[#00F2FF] bg-clip-text text-transparent">XENON</span>
+                        <span class="text-[#00F2FF]">.</span>
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8 text-base">
+                    <a href="index.html"
+                        class="magnetic text-white/70 hover:text-[#00F2FF] transition-colors font-medium">Home</a>
+                    <a href="#story" class="magnetic text-[#00F2FF] hover:text-white transition-colors font-medium">Our
+                        Story</a>
+                    <a href="#team"
+                        class="magnetic text-white/70 hover:text-[#7000FF] transition-colors font-medium">Team</a>
+                    <a href="index.html#services"
+                        class="magnetic text-white/70 hover:text-[#00F2FF] transition-colors font-medium">Services</a>
+                    <a href="index.html#faq"
+                        class="magnetic text-white/70 hover:text-[#7000FF] transition-colors font-medium">FAQ</a>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="text-[#00F2FF] font-mono text-lg mb-6 tracking-widest">XENONSTUDIOUS.BD</div>
+                <p class="text-white/50 text-sm max-w-2xl mx-auto leading-relaxed mb-8">
+                    Architects of the digital frontier. Building tomorrow's experiences today with cutting-edge
+                    technology, visionary design, and relentless innovation.
+                </p>
+
+                <div class="flex justify-center space-x-8 mb-8">
+                    <a href="#"
+                        class="social-icon text-white/50 hover:text-[#00F2FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="social-icon text-white/50 hover:text-[#7000FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="social-icon text-white/50 hover:text-[#00F2FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#"
+                        class="social-icon text-white/50 hover:text-[#7000FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-dribbble text-xl"></i>
+                    </a>
+                </div>
+
+                <p class="text-white/30 text-xs mt-8">
+                    © 2024 Xenon Studious. All rights reserved. | Version 2.0
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Matrix Background
+        function createMatrixEffect() {
+            const matrixBg = document.getElementById('matrixBg');
+            const columns = Math.floor(window.innerWidth / 20);
+
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.classList.add('matrix-column');
+                column.style.left = `${i * 20}px`;
+                column.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                column.style.animationDelay = `${Math.random() * 5}s`;
+
+                // Add random characters
+                let content = '';
+                const characters = '01';
+                const rows = 20;
+
+                for (let j = 0; j < rows; j++) {
+                    content += characters.charAt(Math.floor(Math.random() * characters.length)) + '<br>';
+                }
+
+                column.innerHTML = content;
+                matrixBg.appendChild(column);
+            }
+        }
+
+        // Magnetic Effect
+        function initMagneticEffect() {
+            const magneticElements = document.querySelectorAll('.magnetic');
+
+            magneticElements.forEach(el => {
+                el.addEventListener('mousemove', function (e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const deltaX = (x - centerX) / 10;
+                    const deltaY = (y - centerY) / 10;
+
+                    this.style.setProperty('--tx', `${deltaX}px`);
+                    this.style.setProperty('--ty', `${deltaY}px`);
+                });
+
+                el.addEventListener('mouseleave', function () {
+                    this.style.setProperty('--tx', '0px');
+                    this.style.setProperty('--ty', '0px');
+                });
+            });
+        }
+
+        // Typing Animation
+        function initTypingAnimations() {
+            const typingElements = document.querySelectorAll('.typing-text');
+
+            typingElements.forEach((el, index) => {
+                const text = el.textContent;
+                el.textContent = '';
+                el.style.animationDelay = `${index * 0.2}s`;
+
+                setTimeout(() => {
+                    let i = 0;
+                    const typeWriter = () => {
+                        if (i < text.length) {
+                            el.textContent += text.charAt(i);
+                            i++;
+                            setTimeout(typeWriter, 50);
+                        }
+                    };
+                    typeWriter();
+                }, index * 200);
+            });
+        }
+
+        // Counter Animation
+        function initCounters() {
+            const counters = document.querySelectorAll('.count-up');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target.toLocaleString();
+                    }
+                };
+
+                // Start when element is in view
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+
+                observer.observe(counter);
+            });
+        }
+
+        // Particle Animation
+        function initParticles() {
+            const particles = document.querySelectorAll('.particle');
+
+            particles.forEach(particle => {
+                gsap.to(particle, {
+                    y: -20,
+                    x: 'random(-10, 10)',
+                    opacity: 0,
+                    duration: 2,
+                    repeat: -1,
+                    delay: 'random(0, 3)',
+                    ease: 'power1.inOut'
+                });
+            });
+        }
+
+        // Advanced GSAP Animations
+        function initAdvancedAnimations() {
+            // Hero section animations
+            const heroTimeline = gsap.timeline();
+
+            heroTimeline
+                .from('.hero-title span', {
+                    y: 100,
+                    opacity: 0,
+                    duration: 1.5,
+                    stagger: 0.3,
+                    ease: 'power4.out'
+                })
+                .to('#heroText', {
+                    opacity: 1,
+                    duration: 1,
+                    ease: 'power2.out'
+                }, '-=0.5')
+                .from('.hero-visuals .floating-card', {
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: 'back.out(1.7)'
+                }, '-=0.5');
+
+            // Timeline animations
+            gsap.utils.toArray('.timeline-card').forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top bottom-=100',
+                        toggleActions: 'play none none reverse'
+                    },
+                    x: i % 2 === 0 ? -100 : 100,
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power3.out'
+                });
+            });
+
+            // Team cards animations
+            gsap.utils.toArray('.team-card').forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top bottom-=50',
+                        toggleActions: 'play none none reverse'
+                    },
+                    y: 100,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    ease: 'back.out(1.7)'
+                });
+            });
+
+            // Value cards animations
+            gsap.utils.toArray('.value-card').forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top bottom-=50',
+                        toggleActions: 'play none none reverse'
+                    },
+                    scale: 0.8,
+                    opacity: 0,
+                    duration: 1,
+                    delay: i * 0.2,
+                    ease: 'elastic.out(1, 0.5)'
+                });
+            });
+
+            // CTA animations
+            gsap.from('.cta-section *', {
+                scrollTrigger: {
+                    trigger: '.cta-section',
+                    start: 'top bottom-=100',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.1,
+                ease: 'power3.out'
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize GSAP
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Create effects
+            createMatrixEffect();
+            initMagneticEffect();
+            initTypingAnimations();
+            initCounters();
+            initParticles();
+            initAdvancedAnimations();
+
+            // Smooth scrolling for anchor links
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+                const target = $(this.getAttribute('href'));
+                if (target.length) {
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 100
+                    }, 1000, 'power3.inOut');
+                }
+            });
+
+            // Update active nav link on scroll
+            $(window).scroll(function () {
+                const scrollPos = $(document).scrollTop() + 200;
+                $('a.nav-link').each(function () {
+                    const currLink = $(this);
+                    const refElement = $(currLink.attr('href'));
+                    if (refElement.length && refElement.position().top <= scrollPos &&
+                        refElement.position().top + refElement.height() > scrollPos) {
+                        $('a.nav-link').removeClass('active text-[#00F2FF]');
+                        currLink.addClass('active text-[#00F2FF]');
+                    }
+                });
+            });
+
+            // Hover effects for cards
+            $('.hover-3d').hover(
+                function () {
+                    $(this).css('transform', 'perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-10px)');
+                },
+                function () {
+                    $(this).css('transform', 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)');
+                }
+            );
+
+            // Social icon hover effects
+            $('.social-icon').hover(
+                function () {
+                    $(this).css('transform', 'scale(1.25) rotate(5deg)');
+                },
+                function () {
+                    $(this).css('transform', 'scale(1) rotate(0)');
+                }
+            );
+        });
+
+        // Window resize handler
+        window.addEventListener('resize', function () {
+            document.getElementById('matrixBg').innerHTML = '';
+            createMatrixEffect();
+        });
+    </script>
+</body>
+
+</html>
