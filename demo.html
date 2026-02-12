@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xenon Studious | Demo Showcase</title>
+    <link rel="icon" href="./assets/images/xenon-mini-logo.png" type="image/x-icon">
+
+    <!-- CSS & Font Libraries -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Hide scrollbar for horizontal scroll */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Snap scroll */
+        .snap-x {
+            scroll-snap-type: x mandatory;
+        }
+        .snap-start {
+            scroll-snap-align: start;
+        }
+        
+        /* Neon underline animation */
+        .neon-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .neon-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #00F2FF, #7000FF, #00F2FF);
+            background-size: 200% auto;
+            animation: gradientShift 3s linear infinite;
+            border-radius: 2px;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        /* Card hover – clean lift with border glow */
+        .demo-card-alt {
+            transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s, border-color 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .demo-card-alt:hover {
+            transform: translateY(-8px);
+            border-color: #00F2FF;
+            box-shadow: 0 20px 40px -15px rgba(0,242,255,0.15);
+        }
+        
+        /* Category tag gradient */
+        .category-tag {
+            background: linear-gradient(145deg, rgba(0,242,255,0.15), rgba(112,0,255,0.15));
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Hero featured overlay */
+        .hero-overlay {
+            background: linear-gradient(to top, rgba(10,10,12,0.9), rgba(10,10,12,0.4), transparent);
+        }
+        
+        /* Grid background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* Floating orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.2;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body class="bg-[#0A0A0C] text-white font-['Inter'] overflow-x-hidden">
+
+    <!-- Background elements -->
+    <div class="grid-bg"></div>
+    <div class="orb bg-[#00F2FF] w-[600px] h-[600px] -top-48 -left-48"></div>
+    <div class="orb bg-[#7000FF] w-[500px] h-[500px] bottom-0 right-0"></div>
+
+    <!-- Navigation (same as other pages) -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
+        <div class="glass rounded-full px-8 py-4 flex items-center justify-between border-white/10 backdrop-blur-xl">
+            <div class="text-xl font-extrabold tracking-tighter italic">
+                <a href="index.html" class="block hover:scale-105 transition-transform">
+                    <img src="./assets/images/logo.png" alt="logo" class="h-10">
+                </a>
+            </div>
+            <div class="hidden md:flex gap-8 font-medium text-white/70">
+                <a href="index.html" class="nav-link hover:text-[#00F2FF] transition-colors">Home</a>
+                <a href="about.html" class="nav-link hover:text-[#00F2FF] transition-colors">About</a>
+                <a href="services.html" class="nav-link hover:text-[#00F2FF] transition-colors">Services</a>
+                <a href="demo.html" class="nav-link text-[#00F2FF]">Demo</a>
+                <a href="faq.html" class="nav-link hover:text-[#00F2FF] transition-colors">FAQ</a>
+            </div>
+            <a href="contact.html"
+                class="bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-[#00F2FF] transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,242,255,0.3)]">
+                Start Project
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO / FEATURED DEMO (cinematic) -->
+    <section class="relative w-full h-[80vh] min-h-[600px] flex items-end pb-20 px-6 overflow-hidden">
+        <!-- Background placeholder – in real scenario, replace with video/image -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#00F2FF]/20 to-[#7000FF]/20 mix-blend-overlay"></div>
+            <div class="absolute inset-0 hero-overlay"></div>
+            <!-- Abstract animated grid lines (GSAP later) -->
+            <div class="absolute inset-0 opacity-30" style="background-image: radial-gradient(circle at 30% 50%, rgba(0,242,255,0.1) 1px, transparent 1px); background-size: 30px 30px;"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto w-full">
+            <div class="inline-block px-4 py-2 rounded-full glass border-white/10 text-xs uppercase tracking-wider font-mono text-[#00F2FF] mb-6">
+                <i class="fas fa-star mr-2"></i> FEATURED DEMO
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight">
+                <span class="bg-gradient-to-r from-white to-[#00F2FF] bg-clip-text text-transparent">Starlink</span>
+                <span class="block text-3xl md:text-4xl font-light text-white/70 mt-2">Mission Control Interface</span>
+            </h1>
+            <p class="max-w-2xl text-white/60 text-lg mb-8 leading-relaxed">
+                Real‑time telemetry dashboard for 3000+ satellites. 4K WebGL visualization, predictive AI, and sub‑second latency.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#" class="group bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-black px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-transform shadow-[0_0_30px_rgba(0,242,255,0.3)]">
+                    <span>Launch Interactive Demo</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#" class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors flex items-center gap-2">
+                    <i class="fas fa-code"></i>
+                    <span>Case Study</span>
+                </a>
+            </div>
+            <!-- Tech stack chips -->
+            <div class="flex flex-wrap gap-3 mt-8">
+                <span class="px-4 py-2 rounded-full glass text-white/80 text-sm border-white/5">React</span>
+                <span class="px-4 py-2 rounded-full glass text-white/80 text-sm border-white/5">WebGL</span>
+                <span class="px-4 py-2 rounded-full glass text-white/80 text-sm border-white/5">D3.js</span>
+                <span class="px-4 py-2 rounded-full glass text-white/80 text-sm border-white/5">AWS</span>
+                <span class="px-4 py-2 rounded-full glass text-white/80 text-sm border-white/5">Python</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY SHOWCASE – horizontal scroll rows -->
+    <section class="py-20 px-6 space-y-20">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section intro -->
+            <div class="text-center mb-12">
+                <span class="text-[#00F2FF] font-mono text-sm tracking-widest">// DEMO GALLERY</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4">
+                    <span class="neon-underline">Explore by category</span>
+                </h2>
+                <p class="text-white/50 max-w-2xl mx-auto mt-6">
+                    Scroll horizontally through each collection. Click any card to launch a live preview.
+                </p>
+            </div>
+        </div>
+
+        <!-- Category: Web Development -->
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00F2FF] to-[#7000FF] flex items-center justify-center">
+                        <i class="fas fa-globe text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">Web Development</h3>
+                    <span class="px-3 py-1 rounded-full bg-white/10 text-white/70 text-xs font-mono">8 demos</span>
+                </div>
+                <a href="#" class="text-[#00F2FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                    View all <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <!-- Horizontal scrollable row -->
+            <div class="relative overflow-x-auto pb-4 scrollbar-hide snap-x">
+                <div class="flex gap-6 w-max">
+                    <!-- Card 1 -->
+                    <div class="demo-card-alt w-[320px] snap-start glass rounded-2xl p-5 flex-shrink-0">
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br from-[#00F2FF]/10 to-[#7000FF]/10 flex items-center justify-center mb-4 border border-white/10">
+                            <i class="fas fa-chart-pie text-4xl text-[#00F2FF]"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Nebula Dashboard</h4>
+                        <p class="text-white/50 text-sm mb-4 line-clamp-2">Cloud infrastructure monitoring with real‑time analytics and predictive scaling.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-[#00F2FF]/10 text-[#00F2FF]">React</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">D3</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">WebSockets</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-auto">
+                            <a href="#" class="text-[#00F2FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                                Live demo <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+                            <span class="text-white/30 text-xs font-mono">2024</span>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="demo-card-alt w-[320px] snap-start glass rounded-2xl p-5 flex-shrink-0">
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br from-[#00F2FF]/10 to-[#7000FF]/10 flex items-center justify-center mb-4 border border-white/10">
+                            <i class="fas fa-vr-cardboard text-4xl text-[#7000FF]"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Aether VR Configurator</h4>
+                        <p class="text-white/50 text-sm mb-4">3D product configurator for VR headsets with real‑time WebGL rendering.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-[#7000FF]/10 text-[#7000FF]">Three.js</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">WebXR</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-[#7000FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                                Try VR <i class="fas fa-vr-cardboard text-xs"></i>
+                            </a>
+                            <span class="text-white/30 text-xs font-mono">2024</span>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="demo-card-alt w-[320px] snap-start glass rounded-2xl p-5 flex-shrink-0">
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br from-[#00F2FF]/10 to-[#7000FF]/10 flex items-center justify-center mb-4 border border-white/10">
+                            <i class="fas fa-shopping-cart text-4xl text-[#00F2FF]"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Fusion Commerce</h4>
+                        <p class="text-white/50 text-sm mb-4">Headless e‑commerce with AI recommendations and instant checkout.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-[#00F2FF]/10 text-[#00F2FF]">Vue</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">Node</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">GraphQL</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-[#00F2FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                                Preview <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+                            <span class="text-white/30 text-xs font-mono">2023</span>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="demo-card-alt w-[320px] snap-start glass rounded-2xl p-5 flex-shrink-0">
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br from-[#00F2FF]/10 to-[#7000FF]/10 flex items-center justify-center mb-4 border border-white/10">
+                            <i class="fas fa-calendar-alt text-4xl text-[#7000FF]"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Chronos Scheduler</h4>
+                        <p class="text-white/50 text-sm mb-4">Smart appointment platform with drag‑drop and real‑time sync.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-[#7000FF]/10 text-[#7000FF]">React</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">Firebase</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-[#7000FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                                Demo <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+                            <span class="text-white/30 text-xs font-mono">2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: VFX & Animation -->
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#9D174D] to-[#7000FF] flex items-center justify-center">
+                        <i class="fas fa-film text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">VFX & Animation</h3>
+                    <span class="px-3 py-1 rounded-full bg-white/10 text-white/70 text-xs font-mono">6 demos</span>
+                </div>
+                <a href="#" class="text-[#9D174D] hover:text-white transition-colors text-sm flex items-center gap-1">
+                    View all <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="relative overflow-x-auto pb-4 scrollbar-hide snap-x">
+                <div class="flex gap-6 w-max">
+                    <!-- Card 1 -->
+                    <div class="demo-card-alt w-[320px] snap-start glass rounded-2xl p-5 flex-shrink-0">
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br from-[#9D174D]/10 to-[#7000FF]/10 flex items-center justify-center mb-4 border border-white/10">
+                            <i class="fas fa-rocket text-4xl text-[#9D174D]"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Chronos VFX</h4>
+                        <p class="text-white/50 text-sm mb-4">Sci‑fi title sequence with particle simulations and holographic UI.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-[#9D174D]/10 text-[#9D174D]">After Effects</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">Cinema 4D</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-[#9D174D] hover:text-white transition-colors text-sm flex items-center gap-1">
+                                Watch <i class="fas fa-play text-xs"></i>
+                            </a>
+                            <span class="text-white/30 text-xs font-mono">2024</span>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="demo-card-alt w-[320px] snap-start glass rounded-2xl p-5 flex-shrink-0">
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br from-[#9D174D]/10 to-[#7000FF]/10 flex items-center justify-center mb-4 border border-white/10">
+                            <i class="fas fa-dragon text-4xl text-[#7000FF]"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Draconis</h4>
+                        <p class="text-white/50 text-sm mb-4">3D character animation for a fantasy game trailer.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-[#7000FF]/10 text-[#7000FF]">Blender</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">Unreal</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-[#7000FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                                Trailer <i class="fas fa-play text-xs"></i>
+                            </a>
+                            <span class="text-white/30 text-xs font-mono">2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Motion Graphics -->
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00F2FF] to-[#9D174D] flex items-center justify-center">
+                        <i class="fas fa-play-circle text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">Motion Graphics</h3>
+                    <span class="px-3 py-1 rounded-full bg-white/10 text-white/70 text-xs font-mono">5 demos</span>
+                </div>
+                <a href="#" class="text-[#00F2FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                    View all <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="relative overflow-x-auto pb-4 scrollbar-hide snap-x">
+                <div class="flex gap-6 w-max">
+                    <!-- Card 1 -->
+                    <div class="demo-card-alt w-[320px] snap-start glass rounded-2xl p-5 flex-shrink-0">
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br from-[#00F2FF]/10 to-[#9D174D]/10 flex items-center justify-center mb-4 border border-white/10">
+                            <i class="fas fa-chart-line text-4xl text-[#00F2FF]"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">FlowState Explainer</h4>
+                        <p class="text-white/50 text-sm mb-4">Kinetic typography and smooth morphing transitions for a fintech product.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-[#00F2FF]/10 text-[#00F2FF]">After Effects</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">Illustrator</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-[#00F2FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                                Watch <i class="fas fa-play text-xs"></i>
+                            </a>
+                            <span class="text-white/30 text-xs font-mono">2023</span>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="demo-card-alt w-[320px] snap-start glass rounded-2xl p-5 flex-shrink-0">
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br from-[#00F2FF]/10 to-[#9D174D]/10 flex items-center justify-center mb-4 border border-white/10">
+                            <i class="fas fa-infinity text-4xl text-[#9D174D]"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Infini Loop</h4>
+                        <p class="text-white/50 text-sm mb-4">Looping animated background for a music festival visual.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-[#9D174D]/10 text-[#9D174D]">Blender</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">Eevee</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-[#9D174D] hover:text-white transition-colors text-sm flex items-center gap-1">
+                                Preview <i class="fas fa-play text-xs"></i>
+                            </a>
+                            <span class="text-white/30 text-xs font-mono">2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: AI & Automation -->
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#7000FF] to-[#00F2FF] flex items-center justify-center">
+                        <i class="fas fa-microchip text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">AI & Automation</h3>
+                    <span class="px-3 py-1 rounded-full bg-white/10 text-white/70 text-xs font-mono">7 demos</span>
+                </div>
+                <a href="#" class="text-[#7000FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                    View all <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="relative overflow-x-auto pb-4 scrollbar-hide snap-x">
+                <div class="flex gap-6 w-max">
+                    <!-- Card 1 -->
+                    <div class="demo-card-alt w-[320px] snap-start glass rounded-2xl p-5 flex-shrink-0">
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br from-[#7000FF]/10 to-[#00F2FF]/10 flex items-center justify-center mb-4 border border-white/10">
+                            <i class="fas fa-brain text-4xl text-[#7000FF]"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Synapse AI</h4>
+                        <p class="text-white/50 text-sm mb-4">Document processing with 99% accuracy using custom NLP models.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-[#7000FF]/10 text-[#7000FF]">Python</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">TensorFlow</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-[#7000FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                                Try AI <i class="fas fa-robot text-xs"></i>
+                            </a>
+                            <span class="text-white/30 text-xs font-mono">2024</span>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="demo-card-alt w-[320px] snap-start glass rounded-2xl p-5 flex-shrink-0">
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br from-[#7000FF]/10 to-[#00F2FF]/10 flex items-center justify-center mb-4 border border-white/10">
+                            <i class="fas fa-headset text-4xl text-[#00F2FF]"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Nova Chatbot</h4>
+                        <p class="text-white/50 text-sm mb-4">Multilingual customer support with sentiment analysis.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-[#00F2FF]/10 text-[#00F2FF]">GPT</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">Node</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-[#00F2FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                                Chat now <i class="fas fa-comment-dots text-xs"></i>
+                            </a>
+                            <span class="text-white/30 text-xs font-mono">2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category: Cybersecurity -->
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00F2FF] to-[#7000FF] flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white">Cybersecurity</h3>
+                    <span class="px-3 py-1 rounded-full bg-white/10 text-white/70 text-xs font-mono">4 demos</span>
+                </div>
+                <a href="#" class="text-[#00F2FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                    View all <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="relative overflow-x-auto pb-4 scrollbar-hide snap-x">
+                <div class="flex gap-6 w-max">
+                    <div class="demo-card-alt w-[320px] snap-start glass rounded-2xl p-5 flex-shrink-0">
+                        <div class="w-full h-40 rounded-xl bg-gradient-to-br from-[#00F2FF]/10 to-[#7000FF]/10 flex items-center justify-center mb-4 border border-white/10">
+                            <i class="fas fa-shield-virus text-4xl text-[#00F2FF]"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Sentinel Firewall</h4>
+                        <p class="text-white/50 text-sm mb-4">AI‑powered threat detection with real‑time response.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 text-xs rounded-full bg-[#00F2FF]/10 text-[#00F2FF]">Suricata</span>
+                            <span class="px-3 py-1 text-xs rounded-full bg-white/10 text-white/70">Python</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-[#00F2FF] hover:text-white transition-colors text-sm flex items-center gap-1">
+                                Dashboard <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+                            <span class="text-white/30 text-xs font-mono">2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REQUEST DEMO CTA -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto glass rounded-3xl p-12 text-center relative overflow-hidden border border-white/10">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#00F2FF]/5 to-[#7000FF]/5"></div>
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Didn't find what you're looking for?</h2>
+                <p class="text-white/60 text-lg mb-8 max-w-xl mx-auto">
+                    Request a personalized demo tailored to your business needs.
+                </p>
+                <a href="contact.html" class="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-[#00F2FF] transition-all shadow-[0_0_30px_rgba(0,242,255,0.2)] hover:shadow-[0_0_40px_rgba(0,242,255,0.4)]">
+                    <span>Request Demo</span>
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 border-t border-white/10 bg-black/50 backdrop-blur-xl">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="text-3xl font-extrabold tracking-tighter italic mb-8 md:mb-0">
+                    <a href="index.html" class="block hover:scale-105 transition-transform">
+                        <span class="bg-gradient-to-r from-white to-[#00F2FF] bg-clip-text text-transparent">XENON</span>
+                        <span class="text-[#00F2FF]">.</span>
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8 text-base">
+                    <a href="index.html" class="text-white/70 hover:text-[#00F2FF] transition-colors">Home</a>
+                    <a href="about.html" class="text-white/70 hover:text-[#7000FF] transition-colors">About</a>
+                    <a href="services.html" class="text-white/70 hover:text-[#00F2FF] transition-colors">Services</a>
+                    <a href="demo.html" class="text-[#00F2FF]">Demo</a>
+                    <a href="faq.html" class="text-white/70 hover:text-[#7000FF] transition-colors">FAQ</a>
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="text-[#00F2FF] font-mono text-lg mb-6 tracking-widest">XENONSTUDIOUS.BD</div>
+                <p class="text-white/50 text-sm max-w-2xl mx-auto leading-relaxed mb-8">
+                    Push the boundaries of digital experience — one demo at a time.
+                </p>
+                <div class="flex justify-center space-x-8 mb-8">
+                    <a href="#" class="text-white/50 hover:text-[#00F2FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white/50 hover:text-[#7000FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white/50 hover:text-[#00F2FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white/50 hover:text-[#7000FF] transform hover:scale-125 transition-all duration-300">
+                        <i class="fab fa-dribbble text-xl"></i>
+                    </a>
+                </div>
+                <p class="text-white/30 text-xs mt-8">
+                    © 2024 Xenon Studious. All rights reserved. | Demo Showcase v2.0
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function(){
+            // GSAP scroll animations for cards
+            gsap.registerPlugin(ScrollTrigger);
+            
+            gsap.utils.toArray('.demo-card-alt').forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top bottom-=50',
+                        toggleActions: 'play none none reverse'
+                    },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: i * 0.05,
+                    ease: 'power2.out'
+                });
+            });
+            
+            // Hover effect on category titles
+            $('.category-title').hover(
+                function(){ $(this).find('i').css('transform', 'scale(1.1)'); },
+                function(){ $(this).find('i').css('transform', 'scale(1)'); }
+            );
+        });
+    </script>
+</body>
+</html>
