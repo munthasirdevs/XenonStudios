@@ -474,32 +474,6 @@
         </div>
     </footer>
 
-    <script>
-        $(document).ready(function(){
-            // GSAP scroll animations for cards
-            gsap.registerPlugin(ScrollTrigger);
-            
-            gsap.utils.toArray('.demo-card-alt').forEach((card, i) => {
-                gsap.from(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top bottom-=50',
-                        toggleActions: 'play none none reverse'
-                    },
-                    y: 30,
-                    opacity: 0,
-                    duration: 0.5,
-                    delay: i * 0.05,
-                    ease: 'power2.out'
-                });
-            });
-            
-            // Hover effect on category titles
-            $('.category-title').hover(
-                function(){ $(this).find('i').css('transform', 'scale(1.1)'); },
-                function(){ $(this).find('i').css('transform', 'scale(1)'); }
-            );
-        });
-    </script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
