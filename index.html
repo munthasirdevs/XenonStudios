@@ -37,8 +37,8 @@
                 <a href="#services" class="nav-link hover:text-[#00F2FF] transition-colors nevBarFont">Services</a>
                 <a href="#demo" class="nav-link hover:text-[#00F2FF] transition-colors nevBarFont">Demo</a>
             </div>
-            <a href="contact.html" class="px-5 py-2 rounded-full text-sm font-bold start-button">
-                Start Project
+            <a href="contact.html" class="px-5 py-2 rounded-full text-sm font-bold start-button ubuntu">
+                Let's Build
             </a>
         </div>
     </nav>
@@ -69,47 +69,6 @@
                 </a>
             </div>
         </div>
-
-        <!-- Floating UI Cards -->
-        <div class="hero-visuals mt-20 relative max-w-5xl mx-auto h-[400px]">
-            <div class="floating-card glass absolute left-0 top-10 w-64 p-6 rounded-2xl border-white/10 z-20 floating">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                    <span class="text-xs font-mono opacity-50">Live Traffic</span>
-                </div>
-                <div class="h-20 flex items-end gap-1">
-                    <div class="bg-[#00F2FF] w-full h-[40%] rounded-t-sm"></div>
-                    <div class="bg-[#00F2FF] w-full h-[70%] rounded-t-sm"></div>
-                    <div class="bg-[#00F2FF] w-full h-[50%] rounded-t-sm"></div>
-                    <div class="bg-[#00F2FF] w-full h-[90%] rounded-t-sm"></div>
-                </div>
-            </div>
-
-            <div class="floating-card glass absolute right-0 bottom-10 w-72 p-6 rounded-2xl border-white/10 z-20 floating"
-                style="animation-delay: 1s;">
-                <div class="text-xs font-mono text-[#7000FF] mb-2">DEPLOYMENT_LOG</div>
-                <div class="text-[10px] font-mono opacity-40 leading-tight">
-                    > Initializing Xenon Engine...<br>
-                    > Optimizing Node Clusters...<br>
-                    > System.status: Optimal<br>
-                    > Domain: XENONSTUDIOS.BD
-                </div>
-            </div>
-
-            <!-- Central Mockup Frame -->
-            <div
-                class="absolute left-1/2 top-0 -translate-x-1/2 w-full max-w-3xl h-[450px] glass rounded-3xl border-white/10 overflow-hidden shadow-2xl">
-                <div class="w-full h-8 bg-white/5 flex items-center px-4 gap-2">
-                    <div class="w-2 h-2 rounded-full bg-white/10"></div>
-                    <div class="w-2 h-2 rounded-full bg-white/10"></div>
-                </div>
-                <div class="p-8">
-                    <div
-                        class="w-full h-64 rounded-xl bg-gradient-to-br from-white/5 to-transparent border border-white/5 animate-pulse">
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- About Section -->
@@ -136,7 +95,7 @@
                     <div class="space-y-4">
                         <div class="flex items-center group cursor-pointer">
                             <div
-                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#7000FF] to-[#9D174D] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                                 <i class="fas fa-bullseye text-white"></i>
                             </div>
                             <div>
@@ -162,7 +121,7 @@
 
                         <div class="flex items-center group cursor-pointer">
                             <div
-                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#9D174D] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#7000FF] to-[#9D174D] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                                 <i class="fas fa-users text-white"></i>
                             </div>
                             <div>
@@ -175,7 +134,7 @@
 
                         <div class="flex items-center group cursor-pointer">
                             <div
-                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#7000FF] to-[#00F2FF] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#7000FF] to-[#9D174D] flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                                 <i class="fas fa-leaf text-white"></i>
                             </div>
                             <div>
@@ -303,19 +262,13 @@
             </div>
         </div>
         <div class="container mx-auto text-center mt-16">
-            <a href="./about.html" class="button type--C">
-                <div class="button__line"></div>
-                <div class="button__line"></div>
-                <span class="button__text">About Us</span>
-                <div class="button__drow1"></div>
-                <div class="button__drow2"></div>
-            </a>
+            <button class="about-button ubuntu">Inside Xenon</button>
         </div>
 
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-32 px-6 bg-[#0A0A0C]">
+    <section id="services" class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
             <!-- Section Header -->
             <div class="text-center mb-24">
@@ -498,11 +451,19 @@
                 </div>
             </div>
             <div class="grid justify-items-center mt-12">
-                <button class="btn-17">
-                    <a href="./services.html" class="text-container">
-                        <span class="text">View All Services</span>
-                    </a>
+                <!-- From Uiverse.io by StealthWorm -->
+                <button type="button" class="btn-17">
+                    <strong class="league">Book A Session</strong>
+                    <div id="btn-17-container-stars">
+                        <div id="btn-17-stars"></div>
+                    </div>
+
+                    <div id="btn-17-glow">
+                        <div class="btn-17-circle"></div>
+                        <div class="btn-17-circle"></div>
+                    </div>
                 </button>
+
             </div>
 
         </div>
@@ -550,7 +511,7 @@
                     <div class="grid grid-cols-1 gap-6">
                         <div class="flex items-start gap-4">
                             <div
-                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] flex items-center justify-center">
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#488ddc] to-[#916ac0] flex items-center justify-center">
                                 <i class="fas fa-bolt text-white"></i>
                             </div>
                             <div>
@@ -562,7 +523,7 @@
 
                         <div class="flex items-start gap-4">
                             <div
-                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] flex items-center justify-center">
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#488ddc] to-[#916ac0] flex items-center justify-center">
                                 <i class="fas fa-eye text-white"></i>
                             </div>
                             <div>
@@ -574,7 +535,7 @@
 
                         <div class="flex items-start gap-4">
                             <div
-                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] flex items-center justify-center">
+                                class="w-10 h-10 rounded-full bg-gradient-to-r from-[#488ddc] to-[#916ac0] flex items-center justify-center">
                                 <i class="fas fa-shield-alt text-white"></i>
                             </div>
                             <div>
@@ -585,12 +546,8 @@
                         </div>
                     </div>
 
-                    <button class="learn-more mt-8">
-                        <span class="circle" aria-hidden="true">
-                            <span class="icon arrow"></span>
-                        </span>
-                        <a href="./demo.html" class="button-text form-[#0A0A0C] hover:text-[#edd8f8]">View demos</a>
-                    </button>
+                    <button type="button" class="demo-btn mt-8 from-[#7000FF] to-[#9D174D]"><div class="flex justify-between px-2"><div>See The Impact</div> <div><i class="fa-solid fa-arrow-up-right-dots"></i></div></div></button>
+
                 </div>
             </div>
         </div>
