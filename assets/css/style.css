@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 :root {
   --xenon-cyan: #00f2ff;
   --xenon-purple: #7000ff;
@@ -7,10 +9,12 @@
   --surface-matte: #111113;
 }
 
-body {
+#layout {
   background-color: var(--bg-dark);
   color: white;
-  font-family: "Inter", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -82,6 +86,12 @@ body {
   transition: all 0.3s ease;
   font-size: 0.9rem;
 }
+
+.nevBarFont{
+  font-family: "League Spartan", sans-serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+font-size: large;}
 
 .nav-link:hover {
   color: var(--xenon-cyan);
@@ -204,92 +214,6 @@ body {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Learn More Button */
-.learn-more {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  background: transparent;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
-  width: 12rem;
-  height: auto;
-}
-
-.learn-more .circle {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: relative;
-  display: block;
-  margin: 0;
-  width: 3rem;
-  height: 3rem;
-  background: #38b6ff;
-  border-radius: 1.625rem;
-}
-
-.learn-more .circle .icon {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background: #fff;
-}
-
-.learn-more .circle .icon.arrow {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  left: 0.625rem;
-  width: 1.125rem;
-  height: 0.125rem;
-  background: none;
-}
-
-.learn-more .circle .icon.arrow::before {
-  position: absolute;
-  content: "";
-  top: -0.29rem;
-  right: 0.0625rem;
-  width: 0.625rem;
-  height: 0.625rem;
-  border-top: 0.125rem solid #fff;
-  border-right: 0.125rem solid #fff;
-  transform: rotate(45deg);
-}
-
-.learn-more .button-text {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.75rem 0;
-  margin: 0 0 0 1.85rem;
-  color: #38b6ff;
-  font-weight: 700;
-  line-height: 1.6;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.learn-more:hover .circle {
-  width: 100%;
-}
-
-.learn-more:hover .circle .icon.arrow {
-  background: #fff;
-  transform: translate(1rem, 0);
-}
-
-.learn-more:hover .button-text {
-  color: #fff;
 }
 
 /* Demo Screen Animation */

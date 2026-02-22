@@ -14,13 +14,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body>
-
+<body id="layout">
     <!-- Background Elements -->
     <div class="grid-bg"></div>
     <div class="glow bg-[#00F2FF] top-[-10%] left-[-10%]"></div>
@@ -35,13 +32,12 @@
                 </a>
             </div>
             <div class="hidden md:flex gap-8 font-medium text-white/70">
-                <a href="#home" class="nav-link text-[#00F2FF] transition-colors">Home</a>
-                <a href="#about" class="nav-link hover:text-[#00F2FF] transition-colors">About</a>
-                <a href="#services" class="nav-link hover:text-[#00F2FF] transition-colors">Services</a>
-                <a href="#demo" class="nav-link hover:text-[#00F2FF] transition-colors">Demo</a>
+                <a href="#home" class="nav-link text-[#00F2FF] transition-colors nevBarFont">Home</a>
+                <a href="#about" class="nav-link hover:text-[#00F2FF] transition-colors nevBarFont">About</a>
+                <a href="#services" class="nav-link hover:text-[#00F2FF] transition-colors nevBarFont">Services</a>
+                <a href="#demo" class="nav-link hover:text-[#00F2FF] transition-colors nevBarFont">Demo</a>
             </div>
-            <a href="contact.html"
-                class="bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-[#00F2FF] transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,242,255,0.3)]">
+            <a href="contact.html" class="px-5 py-2 rounded-full text-sm font-bold start-button">
                 Start Project
             </a>
         </div>
@@ -58,14 +54,14 @@
                 class="hero-title text-6xl md:text-8xl font-extrabold mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
                 From Thought <br> To Thrill.
             </h1>
-            <p class="max-w-2xl mx-auto text-lg text-white/60 mb-10 leading-relaxed">
+            <p class="max-w-2xl mx-auto text-lg text-white/60 mb-10 leading-relaxed playfair">
                 Xenon Studious delivers high-performance web systems and cinematic digital identities for the next
                 generation of SaaS.
             </p>
 
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#about"
-                    class="bg-[#00F2FF] text-black px-8 py-4 rounded-xl font-bold shadow-[0_0_20px_rgba(0,242,255,0.3)] hover:scale-105 transition-transform">
+                    class="bg-[#00F2FF] text-black px-8 py-4 rounded-xl font-bold shadow-[0_0_20px_rgba(0,242,255,0.3)] hover:scale-105 transition-transform explore-button">
                     Explore Artifacts
                 </a>
                 <a href="#services" class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/5 transition-colors">
