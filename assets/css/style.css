@@ -3,11 +3,33 @@
   ============================================ */
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
-.playfair { font-family: "Playfair", serif !important; font-optical-sizing: auto; font-style: normal; }
-.ubuntu { font-family: "Ubuntu", sans-serif !important; font-weight: 400; font-style: normal; }
-.league { font-family: "League Spartan", sans-serif !important; font-optical-sizing: auto; font-weight: 400; font-style: normal; }
-.montserrat { font-family: "Montserrat", sans-serif !important; font-optical-sizing: auto; font-weight: 400; font-style: normal; }
-.cinzel { font-family: "Cinzel Decorative", serif !important; font-weight: 400; font-style: normal; }
+.playfair {
+  font-family: "Playfair", serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.ubuntu {
+  font-family: "Ubuntu", sans-serif !important;
+  font-weight: 400;
+  font-style: normal;
+}
+.league {
+  font-family: "League Spartan", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.montserrat {
+  font-family: "Montserrat", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.cinzel {
+  font-family: "Cinzel Decorative", serif !important;
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* ============================================
   2. ROOT VARIABLES & LAYOUT
@@ -35,10 +57,19 @@
 /* ============================================
   3. SCROLLBAR STYLING
   ============================================ */
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #0a0a0c; }
-::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #00f2ff, #7000ff); border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #7000ff, #00f2ff); }
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f2ff, #7000ff);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #7000ff, #00f2ff);
+}
 
 /* ============================================
   4. BACKGROUND & AMBIENT EFFECTS
@@ -49,7 +80,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 40px 40px;
   z-index: -2;
   pointer-events: none;
@@ -123,10 +156,15 @@
 /* ============================================
   6. TEXT & TYPOGRAPHY EFFECTS
   ============================================ */
-.neon-text-cyan { text-shadow: 0 0 15px rgba(0, 242, 255, 0.4); }
+.neon-text-cyan {
+  text-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+}
 
 .neon-glow {
-  text-shadow: 0 0 10px rgba(0, 242, 255, 0.7), 0 0 20px rgba(0, 242, 255, 0.5), 0 0 30px rgba(0, 242, 255, 0.3);
+  text-shadow:
+    0 0 10px rgba(0, 242, 255, 0.7),
+    0 0 20px rgba(0, 242, 255, 0.5),
+    0 0 30px rgba(0, 242, 255, 0.3);
   animation: neonPulse 2s ease-in-out infinite alternate;
 }
 
@@ -148,9 +186,16 @@
   animation: gradientText 3s linear infinite;
 }
 
-.hero-title { letter-spacing: -0.04em; line-height: 1.1; }
+.hero-title {
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
 
-.section-label { font-family: "JetBrains Mono", monospace; letter-spacing: 0.3em; color: var(--xenon-cyan); }
+.section-label {
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.3em;
+  color: var(--xenon-cyan);
+}
 
 .neon-underline {
   position: relative;
@@ -158,13 +203,13 @@
 }
 
 .neon-underline::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -8px;
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, #00F2FF, #7000FF, #00F2FF);
+  background: linear-gradient(90deg, #00f2ff, #7000ff, #00f2ff);
   background-size: 200% auto;
   animation: gradientShift 3s linear infinite;
   border-radius: 2px;
@@ -207,18 +252,25 @@
   transition: transform 0.3s ease;
 }
 
-.about-card:hover { transform: translateY(-5px); }
+.about-card:hover {
+  transform: translateY(-5px);
+}
 
 .service-card {
   background-color: var(--surface-matte);
   border: 1px solid rgba(255, 255, 255, 0.04);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.6s ease, box-shadow 0.6s ease;
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.6s ease,
+    box-shadow 0.6s ease;
 }
 
 .service-card:hover {
   transform: translateY(-4px);
   border-color: rgba(157, 23, 77, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(157, 23, 77, 0.08);
+  box-shadow:
+    0 10px 30px -10px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(157, 23, 77, 0.08);
 }
 
 .service-card:hover .icon-box {
@@ -239,11 +291,18 @@
   transform: translateX(-50%);
   width: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--xenon-magenta), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--xenon-magenta),
+    transparent
+  );
   transition: width 0.7s ease;
 }
 
-.service-card:hover .card-accent-line { width: 80%; }
+.service-card:hover .card-accent-line {
+  width: 80%;
+}
 
 .contact-card {
   background: rgba(10, 10, 12, 0.4);
@@ -258,13 +317,16 @@
 }
 
 .demo-card-alt {
-  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.3s, border-color 0.3s;
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0, 0, 1),
+    box-shadow 0.3s,
+    border-color 0.3s;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .demo-card-alt:hover {
   transform: translateY(-8px);
-  border-color: #00F2FF;
+  border-color: #00f2ff;
   box-shadow: 0 20px 40px -15px rgba(0, 242, 255, 0.15);
 }
 
@@ -286,48 +348,66 @@
 }
 
 .service-glow::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at center, rgba(0, 242, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 242, 255, 0.1) 0%,
+    transparent 70%
+  );
   opacity: 0;
   transition: opacity 0.4s;
 }
 
-.service-glow:hover::after { opacity: 1; }
+.service-glow:hover::after {
+  opacity: 1;
+}
 
-.service-icon-3d { transition: transform 0.3s ease; }
+.service-icon-3d {
+  transition: transform 0.3s ease;
+}
 
-.service-card-3d:hover .service-icon-3d { transform: scale(1.1) rotate(5deg); }
+.service-card-3d:hover .service-icon-3d {
+  transform: scale(1.1) rotate(5deg);
+}
 
 .gradient-border {
   position: relative;
   border: double 1px transparent;
-  background-image: linear-gradient(#0a0a0c, #0a0a0c), linear-gradient(90deg, #00f2ff, #7000ff);
+  background-image:
+    linear-gradient(#0a0a0c, #0a0a0c), linear-gradient(90deg, #00f2ff, #7000ff);
   background-origin: border-box;
   background-clip: padding-box, border-box;
   transition: all 0.3s ease;
 }
 
 .gradient-border:hover {
-  background-image: linear-gradient(#0a0a0c, #0a0a0c), linear-gradient(90deg, #7000ff, #00f2ff);
+  background-image:
+    linear-gradient(#0a0a0c, #0a0a0c), linear-gradient(90deg, #7000ff, #00f2ff);
 }
 
 .gradient-border-hover {
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .gradient-border-hover:hover {
-  border-color: #00F2FF;
+  border-color: #00f2ff;
   box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
 }
 
 .category-tag {
-  background: linear-gradient(145deg, rgba(0, 242, 255, 0.15), rgba(112, 0, 255, 0.15));
+  background: linear-gradient(
+    145deg,
+    rgba(0, 242, 255, 0.15),
+    rgba(112, 0, 255, 0.15)
+  );
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -348,9 +428,13 @@
   background: rgba(10, 10, 12, 0.5);
 }
 
-.contact-input:hover { border-color: rgba(0, 242, 255, 0.3); }
+.contact-input:hover {
+  border-color: rgba(0, 242, 255, 0.3);
+}
 
-.form-group { position: relative; }
+.form-group {
+  position: relative;
+}
 
 .form-label {
   position: absolute;
@@ -387,12 +471,16 @@
   transition: width 0.3s ease;
 }
 
-.form-field:focus-within::after { width: 100%; }
+.form-field:focus-within::after {
+  width: 100%;
+}
 
 /* ============================================
   10. ANIMATION UTILITY CLASSES
   ============================================ */
-[data-count] { transition: all 0.3s ease; }
+[data-count] {
+  transition: all 0.3s ease;
+}
 
 .text-4xl {
   min-height: 48px;
@@ -401,12 +489,16 @@
   justify-content: center;
 }
 
-.about-card [data-count].animated { animation: fadeInUp 0.6s ease forwards; }
+.about-card [data-count].animated {
+  animation: fadeInUp 0.6s ease forwards;
+}
 
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .fade-in.visible {
@@ -419,26 +511,42 @@
   animation: fadeIn 0.6s ease-out forwards;
 }
 
-.floating { animation: float 6s ease-in-out infinite; }
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
 
 .animate-gradient {
   animation: animate-gradient 3s ease infinite;
   background-size: 200% auto;
 }
 
-.animate-spin-slow { animation: spin-slow 20s linear infinite; }
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
 
-.animate-spin-slow.reverse { animation-direction: reverse; }
+.animate-spin-slow.reverse {
+  animation-direction: reverse;
+}
 
-.animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
 
-.animate-ping { animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; }
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
 
-.animate-shimmer { animation: shimmer 2s infinite; }
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
 
-.floating-badge { animation: floatBadge 4s ease-in-out infinite; }
+.floating-badge {
+  animation: floatBadge 4s ease-in-out infinite;
+}
 
-.pulse-glow { animation: pulseGlow 2s infinite; }
+.pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
 
 /* ============================================
   11. SPECIAL EFFECTS
@@ -455,7 +563,12 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
   transform: rotate(30deg);
   animation: shimmer 3s infinite;
 }
@@ -472,7 +585,12 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(to bottom right, rgba(0, 242, 255, 0) 0%, rgba(0, 242, 255, 0.1) 50%, rgba(0, 242, 255, 0) 100%);
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 242, 255, 0) 0%,
+    rgba(0, 242, 255, 0.1) 50%,
+    rgba(0, 242, 255, 0) 100%
+  );
   transform: rotate(30deg);
   animation: hologram 3s infinite;
 }
@@ -482,7 +600,12 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, transparent 30%, rgba(0, 217, 255, 0.1) 50%, transparent 70%);
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(0, 217, 255, 0.1) 50%,
+    transparent 70%
+  );
   animation: shine 3s infinite linear;
 }
 
@@ -535,14 +658,18 @@
   cursor: pointer;
 }
 
-.magnetic:hover { transform: translate(var(--tx, 0), var(--ty, 0)); }
+.magnetic:hover {
+  transform: translate(var(--tx, 0), var(--ty, 0));
+}
 
 .hover-3d {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
 }
 
-.hover-3d:hover { transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-10px); }
+.hover-3d:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-10px);
+}
 
 /* ============================================
   13. MESSAGE & CHAT EFFECTS
@@ -562,8 +689,12 @@
   animation: typing 1.4s infinite ease-in-out;
 }
 
-.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
 
 .message-sent {
   opacity: 0;
@@ -591,7 +722,9 @@
   transition: all 0.5s;
 }
 
-.service-btn:hover { color: #38b6ff; }
+.service-btn:hover {
+  color: #38b6ff;
+}
 
 .service-btn:after {
   content: "";
@@ -626,11 +759,18 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
-.gradient-button:hover::before { left: 100%; }
+.gradient-button:hover::before {
+  left: 100%;
+}
 
 .start-button {
   position: relative;
@@ -650,7 +790,9 @@
   box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815);
 }
 
-.start-button:hover::before { animation: sh02 0.5s 0s linear; }
+.start-button:hover::before {
+  animation: sh02 0.5s 0s linear;
+}
 
 .start-button::before {
   content: "";
@@ -666,7 +808,9 @@
   transform: skewX(-20deg);
 }
 
-.start-button:active { box-shadow: 0 0 0 0 transparent; }
+.start-button:active {
+  box-shadow: 0 0 0 0 transparent;
+}
 
 .learn-more {
   position: relative;
@@ -739,16 +883,32 @@
   text-transform: uppercase;
 }
 
-.learn-more:hover .circle { width: 100%; }
-.learn-more:hover .circle .icon.arrow { background: #fff; transform: translate(1rem, 0); }
-.learn-more:hover .button-text { color: #fff; }
+.learn-more:hover .circle {
+  width: 100%;
+}
+.learn-more:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+}
+.learn-more:hover .button-text {
+  color: #fff;
+}
 
 /* ============================================
   16. BUTTONS - BORDER ANIMATION
   ============================================ */
-.type--A { --line_color: #555555; --back_color: #ffecf6; }
-.type--B { --line_color: #1b1919; --back_color: #e9ecff; }
-.type--C { --line_color: #422da6; --back_color: #edd8f8; }
+.type--A {
+  --line_color: #555555;
+  --back_color: #ffecf6;
+}
+.type--B {
+  --line_color: #1b1919;
+  --back_color: #e9ecff;
+}
+.type--C {
+  --line_color: #422da6;
+  --back_color: #edd8f8;
+}
 
 .button {
   position: relative;
@@ -783,10 +943,26 @@
   transition: all 0.5s ease;
 }
 
-.button::before { top: 0; left: 54px; width: calc(100% - 56px * 2 - 16px); }
-.button::after { top: 0; right: 54px; width: 8px; }
-.button__text::before { bottom: 0; right: 54px; width: calc(100% - 56px * 2 - 16px); }
-.button__text::after { bottom: 0; left: 54px; width: 8px; }
+.button::before {
+  top: 0;
+  left: 54px;
+  width: calc(100% - 56px * 2 - 16px);
+}
+.button::after {
+  top: 0;
+  right: 54px;
+  width: 8px;
+}
+.button__text::before {
+  bottom: 0;
+  right: 54px;
+  width: calc(100% - 56px * 2 - 16px);
+}
+.button__text::after {
+  bottom: 0;
+  left: 54px;
+  width: 8px;
+}
 
 .button__line {
   position: absolute;
@@ -807,42 +983,122 @@
   border: solid 3px var(--line_color);
 }
 
-.button__line:nth-child(1), .button__line:nth-child(1)::before { left: 0; }
-.button__line:nth-child(2), .button__line:nth-child(2)::before { right: 0; }
+.button__line:nth-child(1),
+.button__line:nth-child(1)::before {
+  left: 0;
+}
+.button__line:nth-child(2),
+.button__line:nth-child(2)::before {
+  right: 0;
+}
 
-.button:hover { letter-spacing: 6px; }
-.button:hover::before, .button:hover .button__text::before { width: 8px; }
-.button:hover::after, .button:hover .button__text::after { width: calc(100% - 56px * 2 - 16px); }
+.button:hover {
+  letter-spacing: 6px;
+}
+.button:hover::before,
+.button:hover .button__text::before {
+  width: 8px;
+}
+.button:hover::after,
+.button:hover .button__text::after {
+  width: calc(100% - 56px * 2 - 16px);
+}
 
-.button__drow1, .button__drow2 {
+.button__drow1,
+.button__drow2 {
   position: absolute;
   z-index: -1;
   border-radius: 16px;
   transform-origin: 16px 16px;
 }
 
-.button__drow1 { top: -16px; left: 40px; width: 32px; height: 0; transform: rotate(30deg); }
-.button__drow2 { top: 44px; left: 77px; width: 32px; height: 0; transform: rotate(-127deg); }
+.button__drow1 {
+  top: -16px;
+  left: 40px;
+  width: 32px;
+  height: 0;
+  transform: rotate(30deg);
+}
+.button__drow2 {
+  top: 44px;
+  left: 77px;
+  width: 32px;
+  height: 0;
+  transform: rotate(-127deg);
+}
 
-.button__drow1::before, .button__drow1::after,
-.button__drow2::before, .button__drow2::after { content: ""; position: absolute; }
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2::before,
+.button__drow2::after {
+  content: "";
+  position: absolute;
+}
 
-.button__drow1::before { bottom: 0; left: 0; width: 0; height: 32px; border-radius: 16px; transform-origin: 16px 16px; transform: rotate(-60deg); }
-.button__drow1::after { top: -10px; left: 45px; width: 0; height: 32px; border-radius: 16px; transform-origin: 16px 16px; transform: rotate(69deg); }
-.button__drow2::before { bottom: 0; left: 0; width: 0; height: 32px; border-radius: 16px; transform-origin: 16px 16px; transform: rotate(-146deg); }
-.button__drow2::after { bottom: 26px; left: -40px; width: 0; height: 32px; border-radius: 16px; transform-origin: 16px 16px; transform: rotate(-262deg); }
+.button__drow1::before {
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(-60deg);
+}
+.button__drow1::after {
+  top: -10px;
+  left: 45px;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(69deg);
+}
+.button__drow2::before {
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(-146deg);
+}
+.button__drow2::after {
+  bottom: 26px;
+  left: -40px;
+  width: 0;
+  height: 32px;
+  border-radius: 16px;
+  transform-origin: 16px 16px;
+  transform: rotate(-262deg);
+}
 
-.button__drow1, .button__drow1::before, .button__drow1::after,
-.button__drow2, .button__drow2::before, .button__drow2::after {
+.button__drow1,
+.button__drow1::before,
+.button__drow1::after,
+.button__drow2,
+.button__drow2::before,
+.button__drow2::after {
   background: var(--back_color);
 }
 
-.button:hover .button__drow1 { animation: drow1 ease-in 0.06s forwards; }
-.button:hover .button__drow1::before { animation: drow2 linear 0.08s 0.06s forwards; }
-.button:hover .button__drow1::after { animation: drow3 linear 0.03s 0.14s forwards; }
-.button:hover .button__drow2 { animation: drow4 linear 0.06s 0.2s forwards; }
-.button:hover .button__drow2::before { animation: drow3 linear 0.03s 0.26s forwards; }
-.button:hover .button__drow2::after { animation: drow5 linear 0.06s 0.32s forwards; }
+.button:hover .button__drow1 {
+  animation: drow1 ease-in 0.06s forwards;
+}
+.button:hover .button__drow1::before {
+  animation: drow2 linear 0.08s 0.06s forwards;
+}
+.button:hover .button__drow1::after {
+  animation: drow3 linear 0.03s 0.14s forwards;
+}
+.button:hover .button__drow2 {
+  animation: drow4 linear 0.06s 0.2s forwards;
+}
+.button:hover .button__drow2::before {
+  animation: drow3 linear 0.03s 0.26s forwards;
+}
+.button:hover .button__drow2::after {
+  animation: drow5 linear 0.06s 0.32s forwards;
+}
 
 .container {
   display: flex;
@@ -851,7 +1107,9 @@
   align-items: center;
 }
 
-.button:not(:last-child) { margin-bottom: 64px; }
+.button:not(:last-child) {
+  margin-bottom: 64px;
+}
 
 /* ============================================
   17. BUTTONS - STAR ANIMATION
@@ -870,7 +1128,15 @@
   transition: 0.5s;
   animation: btn-17-gradient_301 5s ease infinite;
   border: double 4px transparent;
-  background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #9c6aff 20%, #fe53bb 45%, #dd51ea 57%, #0044ff 67%);
+  background-image:
+    linear-gradient(#212121, #212121),
+    linear-gradient(
+      137.48deg,
+      #9c6aff 20%,
+      #fe53bb 45%,
+      #dd51ea 57%,
+      #0044ff 67%
+    );
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -909,11 +1175,20 @@ strong {
   z-index: -1;
 }
 
-.btn-17-circle:nth-of-type(1) { background: rgba(254, 83, 186, 0.636); }
-.btn-17-circle:nth-of-type(2) { background: rgba(142, 81, 234, 0.704); }
+.btn-17-circle:nth-of-type(1) {
+  background: rgba(254, 83, 186, 0.636);
+}
+.btn-17-circle:nth-of-type(2) {
+  background: rgba(142, 81, 234, 0.704);
+}
 
-.btn-17:hover #btn-17-container-stars { z-index: 1; background-color: #212121; }
-.btn-17:hover { transform: scale(1.1); }
+.btn-17:hover #btn-17-container-stars {
+  z-index: 1;
+  background-color: #212121;
+}
+.btn-17:hover {
+  transform: scale(1.1);
+}
 
 .btn-17:active {
   border: double 4px #fe53bb;
@@ -922,7 +1197,9 @@ strong {
   animation: none;
 }
 
-.btn-17:active .circle { background: #fe53bb; }
+.btn-17:active .circle {
+  background: #fe53bb;
+}
 
 #btn-17-stars {
   position: relative;
@@ -974,7 +1251,9 @@ strong {
   z-index: 1;
 }
 
-.demo-btn:hover { animation: ani 8s linear infinite; }
+.demo-btn:hover {
+  animation: ani 8s linear infinite;
+}
 
 .demo-btn:before {
   content: "";
@@ -990,9 +1269,13 @@ strong {
   transition: 1s;
 }
 
-.demo-btn:hover::before { filter: blur(20px); }
+.demo-btn:hover::before {
+  filter: blur(20px);
+}
 
-.demo-btn:active { background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4); }
+.demo-btn:active {
+  background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+}
 
 /* ============================================
   19. BUTTONS - GLOW EFFECT
@@ -1010,7 +1293,10 @@ strong {
   background-color: var(--btn-color);
   border-radius: 1em;
   outline: none;
-  box-shadow: 0 0 0.01em 0.05em var(--glow-color), 0 0 5em 0.5em var(--glow-spread-color), inset 0 0 0.75em 0.25em var(--glow-color);
+  box-shadow:
+    0 0 0.01em 0.05em var(--glow-color),
+    0 0 5em 0.5em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
   text-shadow: 0 0 0.5em var(--glow-color);
   position: relative;
   transition: all 0.3s;
@@ -1033,198 +1319,396 @@ strong {
 .about-button:hover {
   color: var(--btn-color);
   background-color: var(--glow-color);
-  box-shadow: 0 0 1em 0.25em var(--glow-color), 0 0 4em 2em var(--glow-spread-color), inset 0 0 0.75em 0.25em var(--glow-color);
+  box-shadow:
+    0 0 1em 0.25em var(--glow-color),
+    0 0 4em 2em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
 }
 
 .about-button:active {
-  box-shadow: 0 0 0.6em 0.25em var(--glow-color), 0 0 2.5em 2em var(--glow-spread-color), inset 0 0 0.5em 0.25em var(--glow-color);
+  box-shadow:
+    0 0 0.6em 0.25em var(--glow-color),
+    0 0 2.5em 2em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color);
 }
 
 /* ============================================
   20. SCROLLBAR & MISC UTILITIES
   ============================================ */
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
-.snap-x { scroll-snap-type: x mandatory; }
-.snap-start { scroll-snap-align: start; }
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
 
-.hero-overlay { background: linear-gradient(to top, rgba(10, 10, 12, 0.9), rgba(10, 10, 12, 0.4), transparent); }
+.hero-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 12, 0.9),
+    rgba(10, 10, 12, 0.4),
+    transparent
+  );
+}
 
-.faq-item { opacity: 1; }
-.faq-item.visible { opacity: 1; transform: translateY(0); }
+.faq-item {
+  opacity: 1;
+}
+.faq-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ============================================
   21. KEYFRAME ANIMATIONS
   ============================================ */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes shine {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes floatBadge {
-  0%, 100% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(-5px) rotate(2deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+  }
 }
 
 @keyframes animate-gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes spin-slow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes ping {
-  75%, 100% { transform: scale(2); opacity: 0; }
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(30deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(30deg);
+  }
 }
 
 @keyframes text-gradient {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 @keyframes gradientText {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 @keyframes neonPulse {
-  from { opacity: 1; }
-  to { opacity: 0.8; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.8;
+  }
 }
 
 @keyframes floatOrb {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
 }
 
 @keyframes pulseRing {
-  0% { transform: scale(0.8); opacity: 1; }
-  70%, 100% { transform: scale(2); opacity: 0; }
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  70%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 @keyframes scanline {
-  0% { top: 0%; }
-  100% { top: 100%; }
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
 }
 
 @keyframes matrixFall {
-  0% { top: -100px; opacity: 0; }
-  10% { opacity: 0.8; }
-  90% { opacity: 0.8; }
-  100% { top: 100vh; opacity: 0; }
+  0% {
+    top: -100px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
 }
 
 @keyframes messageAppear {
-  to { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes hologram {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(30deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(30deg);
+  }
 }
 
 @keyframes typing {
-  0%, 60%, 100% { transform: translateY(0); }
-  30% { transform: translateY(-8px); }
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-8px);
+  }
 }
 
 @keyframes sh02 {
-  from { opacity: 0; left: 0%; }
-  50% { opacity: 1; }
-  to { opacity: 0; left: 100%; }
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
 }
 
 @keyframes drow1 {
-  0% { height: 0; }
-  100% { height: 100px; }
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100px;
+  }
 }
 
 @keyframes drow2 {
-  0% { width: 0; opacity: 0; }
-  10% { opacity: 0; }
-  11% { opacity: 1; }
-  100% { width: 120px; }
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  11% {
+    opacity: 1;
+  }
+  100% {
+    width: 120px;
+  }
 }
 
 @keyframes drow3 {
-  0% { width: 0; }
-  100% { width: 80px; }
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80px;
+  }
 }
 
 @keyframes drow4 {
-  0% { height: 0; }
-  100% { height: 120px; }
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 120px;
+  }
 }
 
 @keyframes drow5 {
-  0% { width: 0; }
-  100% { width: 124px; }
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 124px;
+  }
 }
 
 @keyframes ani {
-  0% { background-position: 0%; }
-  100% { background-position: 400%; }
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
 }
 
 @keyframes btn-17-gradient_301 {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes btn-17-pulse_3011 {
-  0% { transform: scale(0.75); box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); }
-  100% { transform: scale(0.75); box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
 }
 
 @keyframes btn-17-animStar {
-  from { transform: translateY(0); }
-  to { transform: translateY(-135rem); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-135rem);
+  }
 }
 
 @keyframes btn-17-animStarRotate {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0); }
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
 }
