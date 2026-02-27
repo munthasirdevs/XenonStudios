@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -336,17 +336,7 @@
   box-shadow: 0 20px 40px -15px rgba(0, 242, 255, 0.15);
 }
 
-/* Service Card 3D */
-.service-card-3d {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-.service-card-3d:hover {
-  transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateY(-10px);
-  box-shadow: 0 25px 50px -12px rgba(0, 242, 255, 0.2);
-}
+/* Service Card */
 
 .service-glow {
   position: relative;
@@ -371,14 +361,6 @@
 
 .service-glow:hover::after {
   opacity: 1;
-}
-
-.service-icon-3d {
-  transition: transform 0.3s ease;
-}
-
-.service-card-3d:hover .service-icon-3d {
-  transform: scale(1.1) rotate(5deg);
 }
 
 .gradient-border {
@@ -656,7 +638,7 @@
 }
 
 /* ============================================
-  12. 3D & INTERACTIVE EFFECTS
+  12. INTERACTIVE EFFECTS
   ============================================ */
 .magnetic {
   display: inline-block;
@@ -666,15 +648,6 @@
 
 .magnetic:hover {
   transform: translate(var(--tx, 0), var(--ty, 0));
-}
-
-.hover-3d {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-}
-
-.hover-3d:hover {
-  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-10px);
 }
 
 /* ============================================
