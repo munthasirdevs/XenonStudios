@@ -13,10 +13,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -570,56 +571,107 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-16 px-6 border-t border-white/10 bg-black/50 backdrop-blur-xl">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
-                <div class="text-3xl font-extrabold tracking-tighter italic mb-8 md:mb-0">
-                    <a href="index.html" class="block hover:scale-105 transition-transform">
-                        <span
-                            class="bg-gradient-to-r from-white to-[#00F2FF] bg-clip-text text-transparent">XENON</span>
-                        <span class="text-[#00F2FF]">.</span>
-                    </a>
+    <footer class="bg-[#0A0A0C] border-t border-white/10 py-16 mx-auto px-6 md:px-0 ">
+        <div class="mx-auto px-6 container">
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-10 md:px-0">
+
+                <!-- Brand -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        YourBrand<span class="text-[#00F2FF]">.</span>
+                    </h3>
+                    <p class="text-white/60 text-sm leading-relaxed">
+                        Building high-performance digital experiences with cutting-edge
+                        technology and precision engineering.
+                    </p>
                 </div>
-                <div class="flex flex-wrap justify-center gap-8 text-base">
-                    <a href="index.html" class="text-white/70 hover:text-[#00F2FF] transition-colors">Home</a>
-                    <a href="about.html" class="text-white/70 hover:text-[#7000FF] transition-colors">About</a>
-                    <a href="services.html" class="text-[#00F2FF]">Services</a>
-                    <a href="demo.html" class="text-white/70 hover:text-[#00F2FF] transition-colors">Demo</a>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="./index.html" class="hover:text-[#00F2FF] transition-colors">Home</a></li>
+                        <li><a href="./about.html" class="hover:text-[#00F2FF] transition-colors">About</a></li>
+                        <li><a href="./services.html" class="hover:text-[#00F2FF] transition-colors">Services</a></li>
+                        <li><a href="./demo.html" class="hover:text-[#00F2FF] transition-colors">Demo</a></li>
+                        <li><a href="./contact.html" class="hover:text-[#00F2FF] transition-colors">Contact</a></li>
+                    </ul>
                 </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Services</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="./services.html#ai-automation" class="hover:text-[#00F2FF] transition-colors">AI
+                                Automation</a></li>
+                        <li><a href="./services.html#web-dev" class="hover:text-[#00F2FF] transition-colors">Web
+                                Development</a></li>
+                        <li><a href="./services.html#cybersecurity"
+                                class="hover:text-[#00F2FF] transition-colors">Cybersecurity</a></li>
+                        <li><a href="./services.html#video-editing" class="hover:text-[#00F2FF] transition-colors">Video
+                                Editing</a></li>
+                        <li><a href="./services.html#digital-marketing"
+                                class="hover:text-[#00F2FF] transition-colors">Digital Marketing</a></li>
+                        <li><a href="./services.html#e-commerce-scaling"
+                                class="hover:text-[#00F2FF] transition-colors">E-commerce Scaling</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <div class="mb-6">
+                        <h4 class="text-white font-semibold mb-3">Subscribe</h4>
+
+                        <form class="w-60 bg-[#0A0A0C] border border-white/10 rounded-lg overflow-hidden">
+                            <div class="flex">
+                                <input type="email" placeholder="Your email" required
+                                    class="w-full px-3 py-2 bg-transparent text-white text-sm placeholder-white/40 focus:outline-none" />
+
+                                <button type="submit"
+                                    class="px-4 py-2 bg-[#00F2FF] text-black text-sm font-semibold hover:bg-white transition-colors">
+                                    Join
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="social-icon text-white/70 hover:text-[#00F2FF] transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+
+                            <a href="#" class="social-icon text-white/70 hover:text-[#00F2FF] transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+
+                            <a href="#" class="social-icon text-white/70 hover:text-[#00F2FF] transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+
+                            <a href="#" class="social-icon text-white/70 hover:text-[#00F2FF] transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+
+                            <a href="#" class="social-icon text-white/70 hover:text-[#00F2FF] transition">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="text-center">
-                <div class="text-[#00F2FF] font-mono text-lg mb-6 tracking-widest">XENONSTUDIOS.BD</div>
-                <p class="text-white/50 text-sm max-w-2xl mx-auto leading-relaxed mb-8">
-                    Engineering elite digital solutions for the next generation of SaaS. We turn thought into thrill.
-                </p>
-
-                <div class="flex justify-center space-x-8 mb-8">
-                    <a href="#"
-                        class="text-white/50 hover:text-[#00F2FF] transform hover:scale-125 transition-all duration-300">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="#"
-                        class="text-white/50 hover:text-[#7000FF] transform hover:scale-125 transition-all duration-300">
-                        <i class="fab fa-linkedin-in text-xl"></i>
-                    </a>
-                    <a href="#"
-                        class="text-white/50 hover:text-[#00F2FF] transform hover:scale-125 transition-all duration-300">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#"
-                        class="text-white/50 hover:text-[#7000FF] transform hover:scale-125 transition-all duration-300">
-                        <i class="fab fa-dribbble text-xl"></i>
-                    </a>
-                </div>
-
-                <p class="text-white/30 text-xs mt-8">
-                    © 2026 Xenon Studious. All rights reserved. | Services Page v2.0
-                </p>
+            <!-- Bottom -->
+            <div class="border-t border-white/10 mt-12 pt-6 text-center text-white/50 text-sm">
+                © 2026 YourBrand. All rights reserved.
             </div>
+
         </div>
     </footer>
 
     <script src="./js/script.js"></script>
 </body>
+
 </html>
