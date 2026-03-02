@@ -661,10 +661,7 @@
   width: 200px;
   height: 100px;
   padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  color: white;
   text-align: center;
 }
 
@@ -893,5 +890,163 @@
   75% {
     top: calc(100% - 30px);
     right: 10%;
+  }
+}
+
+/* ============================================
+  23. RESPONSIVE DESIGN
+  ============================================ */
+
+/* Small devices (phones, < 640px) */
+@media (max-width: 639px) {
+  .hero-title {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+  .hero-title br {
+    display: none;
+  }
+  .slider {
+    --width: 150px !important;
+    --height: 150px !important;
+  }
+  .outer {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+  .card .text {
+    font-size: 2.5rem;
+  }
+  .service-card {
+    width: 100%;
+    padding: 1.5rem;
+  }
+  .service-card-button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+  .footer .grid {
+    gap: 2rem;
+  }
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-button {
+    width: 100%;
+    max-width: 280px;
+  }
+  .outer-cont {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  .outer-cont svg {
+    height: 20px;
+    width: 20px;
+  }
+  .animated-button,
+  .explore-button {
+    width: 160px;
+    height: 40px;
+  }
+  .animated-button .text {
+    font-size: 14px;
+  }
+}
+
+/* Medium devices (tablets, 640px - 768px) */
+@media (min-width: 640px) and (max-width: 767px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .outer {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .service-card {
+    width: 100%;
+  }
+  .slider {
+    --width: 180px !important;
+    --height: 180px !important;
+  }
+}
+
+/* Large tablets / small laptops (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-title {
+    font-size: 5rem;
+  }
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+  .outer {
+    width: 100%;
+    max-width: 300px;
+  }
+  .service-card {
+    width: 100%;
+    min-height: 500px;
+  }
+}
+
+/* Desktops (1024px - 1280px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .service-card {
+    width: 100%;
+    min-height: 520px;
+  }
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Large desktops (≥ 1280px) */
+@media (min-width: 1280px) {
+  .hero-title {
+    font-size: 6rem;
+  }
+  .service-card {
+    width: 100%;
+    max-width: 380px;
+  }
+}
+
+/* Extra small height adjustments for short screens */
+@media (max-height: 700px) {
+  #home {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+  }
+  .hero-title {
+    margin-bottom: 1rem;
+  }
+  .slider {
+    margin-top: 2rem;
+  }
+}
+
+/* Fix for very small devices (≤ 400px) */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .animated-button,
+  .explore-button {
+    width: 140px;
+    height: 36px;
+    font-size: 12px;
+  }
+  .outer-cont {
+    padding: 6px 10px;
+  }
+  .nav-link {
+    font-size: 14px;
   }
 }
