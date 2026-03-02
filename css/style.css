@@ -665,10 +665,28 @@
   text-align: center;
 }
 
-.Carousel-card p {
-  font-size: 14px;
-  color: white;
+.Carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 0.76;
+  position: relative; /* Allows absolute positioning of the overlay */
+  display: inline-block; /* Ensures the container wraps the image */
 }
+
+.Carousel-card img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Creates the dark, soft-edged inner shadow */
+  box-shadow: inset 0px 0px 85px 40px rgba(0, 0, 0, 0.8);
+  pointer-events: none; /* Allows clicks to pass through the overlay to the image */
+}
+
 
 .slider {
   width: 100%;
