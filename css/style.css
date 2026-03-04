@@ -657,7 +657,7 @@
 }
 
 /* Slider / Carousel */
-.Carousel-card {
+.CarouselCard {
   width: 200px;
   height: 100px;
   padding: 15px;
@@ -665,7 +665,7 @@
   text-align: center;
 }
 
-.Carousel-card img {
+.CarouselLogo {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -675,7 +675,7 @@
   display: inline-block; /* Ensures the container wraps the image */
 }
 
-.Carousel-card img::after {
+.CarouselLogo::after {
   content: "";
   position: absolute;
   top: 0;
@@ -686,7 +686,6 @@
   box-shadow: inset 0px 0px 85px 40px rgba(0, 0, 0, 0.8);
   pointer-events: none; /* Allows clicks to pass through the overlay to the image */
 }
-
 
 .slider {
   width: 100%;
