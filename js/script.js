@@ -4,6 +4,33 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // ============================================================================
+// WHATSAPP BUTTON SCROLL VISIBILITY
+// ============================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  const whatsappBtn = document.getElementById('whatsapp-btn');
+  const heroSection = document.getElementById('home');
+  
+  if (whatsappBtn && heroSection) {
+    const showButton = () => {
+      const heroBottom = heroSection.offsetHeight;
+      const scrollPosition = window.scrollY + window.innerHeight;
+      
+      if (scrollPosition > heroBottom + 100) {
+        whatsappBtn.classList.remove('opacity-0', 'invisible');
+      } else {
+        whatsappBtn.classList.add('opacity-0', 'invisible');
+      }
+    };
+    
+    // Check on scroll
+    window.addEventListener('scroll', showButton);
+    
+    // Initial check
+    showButton();
+  }
+});
+
+// ============================================================================
 // MOBILE MENU TOGGLE
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
