@@ -39,10 +39,10 @@
 
     <!-- Navigation -->
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
-        <div class="glass rounded-full px-8 py-4 flex items-center justify-between border-white/10 backdrop-blur-xl">
+        <div class="glass rounded-full px-4 md:px-8 py-4 flex items-center justify-between border-white/10 backdrop-blur-xl">
             <div class="text-xl font-extrabold tracking-tighter italic">
                 <a href="index.html" class="block hover:scale-105 transition-transform">
-                    <img src="./images/logo.png" alt="logo" class="h-10">
+                    <img src="./images/logo.png" alt="logo" class="h-8 md:h-10">
                 </a>
             </div>
             <div class="hidden md:flex gap-8 font-medium text-white/70">
@@ -54,7 +54,7 @@
                 <a href="#faq"
                     class="nav-link hover:text-[#00F2FF] transition-colors text-[18px] font-bold outfit">Faq</a>
             </div>
-            <a href="https://wa.me/8801345443695" target="_blank">
+            <a href="https://wa.me/8801345443695" target="_blank" class="hidden md:block">
                 <div class="outer-cont flex">
                     <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                         <g fill="none">
@@ -69,27 +69,57 @@
                     Let's Build
                 </div>
             </a>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden mobile-menu-btn text-white p-2" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu md:hidden absolute top-full left-0 right-0 mt-2 glass rounded-2xl border-white/10 backdrop-blur-xl overflow-hidden hidden">
+            <div class="flex flex-col p-4 gap-2">
+                <a href="#home" class="mobile-nav-link text-white/70 hover:text-[#00F2FF] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Home</a>
+                <a href="#about" class="mobile-nav-link text-white/70 hover:text-[#00F2FF] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">About</a>
+                <a href="#services" class="mobile-nav-link text-white/70 hover:text-[#00F2FF] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Services</a>
+                <a href="#faq" class="mobile-nav-link text-white/70 hover:text-[#00F2FF] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Faq</a>
+                <a href="https://wa.me/8801345443695" target="_blank" class="mt-2">
+                    <div class="outer-cont flex justify-center w-full">
+                        <svg viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none">
+                                <path
+                                    d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z">
+                                </path>
+                                <path
+                                    d="M9.107 5.448c.598-1.75 3.016-1.803 3.725-.159l.06.16l.807 2.36a4 4 0 0 0 2.276 2.411l.217.081l2.36.806c1.75.598 1.803 3.016.16 3.725l-.16.06l-2.36.807a4 4 0 0 0-2.412 2.276l-.081.216l-.806 2.361c-.598 1.75-3.016 1.803-3.724.16l-.062-.16l-.806-2.36a4 4 0 0 0-2.276-2.412l-.216-.081l-2.36-.806c-1.751-.598-1.804-3.016-.16-3.724l.16-.062l2.36-.806A4 4 0 0 0 8.22 8.025l.081-.216zM11 6.094l-.806 2.36a6 6 0 0 1-3.49 3.649l-.25.091l-2.36.806l2.36.806a6 6 0 0 1 3.649 3.49l.091.25l.806 2.36l.806-2.36a6 6 0 0 1 3.49-3.649l.25-.09l2.36-.807l-2.36-.806a6 6 0 0 1-3.649-3.49l-.09-.25zM19 2a1 1 0 0 1 .898.56l.048.117l.35 1.026l1.027.35a1 1 0 0 1 .118 1.845l-.118.048l-1.026.35l-.35 1.027a1 1 0 0 1-1.845.117l-.048-.117l-.35-1.026l-1.027-.35a1 1 0 0 1-.118-1.845l.118-.048l1.026-.35l.35-1.027A1 1 0 0 1 19 2"
+                                    fill="currentColor"></path>
+                            </g>
+                        </svg>
+                        Let's Build
+                    </div>
+                </a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen pt-40 pb-20 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto text-center relative z-10 pt-16">
+    <section id="home" class="relative min-h-screen pt-32 pb-20 px-4 md:px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto text-center relative z-10 pt-12 md:pt-16">
             <h1
-                class="hero-title md:text-[80px] font-normal mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent outfit">
+                class="hero-title text-[42px] sm:text-[56px] md:text-[80px] font-normal mb-6 md:mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent outfit leading-[1.1]">
                 We Build
                 <span class="font-extrabold">Automated</span> Systems to
-                <br>
+                <br class="hidden sm:block">
                 <span class="font-bold text-white/70 transition text-gradient-animate">
                     10X Brand Revenue
                 </span>
             </h1>
-            <p class="max-w-2xl mx-auto text-2xl md:text-lg text-white/60 mb-10 leading-relaxed space-font">
+            <p class="max-w-2xl mx-auto text-lg sm:text-xl md:text-lg text-white/60 mb-8 md:mb-10 leading-relaxed space-font px-2">
                 We develop & deploy high-performance websites with full-end security, Branding & SEO conversion funnels,
                 Promos and AI automated growth systems that turn traffic into predictable revenue.
             </p>
 
-            <div class="flex flex-wrap justify-center md:gap-4">
+            <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 md:gap-4">
 
                 <a href="index.html#demo" class="explore-button">
                     Explore Artifacts
@@ -167,10 +197,10 @@
     </section>
 
     <!-- States Section -->
-    <section id="states" class="max-w-7xl mx-auto">
+    <section id="states" class="max-w-7xl mx-auto px-4 md:px-6">
         <!-- Status Card -->
         <div class="status-card">
-            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center items-center">
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 justify-center items-center">
                 <!-- From Uiverse.io by Spacious74 -->
                 <div class="outer">
                     <div class="dot"></div>
@@ -236,14 +266,14 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-32 px-6">
+    <section id="about" class="py-20 md:py-32 px-4 md:px-6">
         <div class="max-w-7xl mx-auto">
             <!-- Section Header -->
-            <div class="text-center mb-24">
+            <div class="text-center mb-16 md:mb-24">
                 <span class="section-label text-[10px] uppercase font-bold mb-4 block">Our Foundation</span>
-                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6">Who We Are</h2>
+                <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-6">Who We Are</h2>
                 <div class="w-12 h-[1px] bg-white/10 mx-auto mb-6"></div>
-                <p class="max-w-xl mx-auto text-zinc-500 text-sm md:text-base leading-relaxed">
+                <p class="max-w-xl mx-auto text-zinc-500 text-sm md:text-base leading-relaxed px-4">
                     A collective of digital architects and cinematic designers building the future of web experiences.
                 </p>
             </div>
@@ -334,14 +364,14 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-32 px-6">
+    <section id="services" class="py-20 md:py-32 px-4 md:px-6">
         <div class="max-w-7xl mx-auto">
             <!-- Section Header -->
-            <div class="text-center mb-24">
+            <div class="text-center mb-16 md:mb-24">
                 <span class="section-label text-[10px] uppercase font-bold mb-4 block">Deployment Modules</span>
-                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6">Our Expertise</h2>
+                <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-6">Our Expertise</h2>
                 <div class="w-12 h-[1px] bg-white/10 mx-auto mb-6"></div>
-                <p class="max-w-xl mx-auto text-zinc-500 text-sm md:text-base leading-relaxed">
+                <p class="max-w-xl mx-auto text-zinc-500 text-sm md:text-base leading-relaxed px-4">
                     Engineering elite digital solutions for brands that demand performance, security, and cinematic
                     visual integrity.
                 </p>
@@ -1158,29 +1188,29 @@
     </section>
 
     <!-- Why Choose Us -->
-    <section class="py-24 md:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-20 md:py-32 px-4 md:px-6">
+        <div class="max-w-7xl mx-auto">
 
             <!-- top pill badge -->
             <div class="text-center">
                 <div
-                    class="inline-flex border border-emerald-400/40 text-emerald-400 px-4 py-1 rounded-full text-sm font-medium tracking-wide">
+                    class="inline-flex border border-emerald-400/40 text-emerald-400 px-4 py-1 rounded-full text-xs md:text-sm font-medium tracking-wide">
                     Why Choose Us
                 </div>
 
                 <!-- double heading -->
-                <h2 class="mt-6 text-4xl md:text-5xl font-semibold text-white">
+                <h2 class="mt-6 text-3xl md:text-5xl font-semibold text-white">
                     <span class="text-gradient-animate">Xenon Studios</span> Alternative?
                 </h2>
                 <p
-                    class="mt-2 text-5xl md:text-6xl font-bold italic bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                    class="mt-2 text-3xl md:text-5xl lg:text-6xl font-bold italic bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent px-4">
                     Think One More Time!
                 </p>
             </div>
 
             <!-- comparison table (horizontal scroll on mobile) -->
-            <div class="mt-12 md:mt-16 overflow-x-auto pb-4">
-                <div class="min-w-[1000px] space-y-3">
+            <div class="mt-8 md:mt-12 overflow-x-auto pb-4 -mx-4 px-4">
+                <div class="min-w-[800px] md:min-w-[1000px] space-y-3">
 
                     <!-- header row -->
                     <div
@@ -1502,11 +1532,11 @@
     </section>
 -->
     <!-- FAQ Section -->
-    <section id="faq" class="py-32 px-6 bg-[#0A0A0C]">
+    <section id="faq" class="py-20 md:py-32 px-4 md:px-6 bg-[#0A0A0C]">
         <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-12 md:mb-16">
                 <span class="section-label text-[10px] uppercase font-bold mb-4 block">Support</span>
-                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6">Frequently Asked Questions
+                <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-6">Frequently Asked Questions
                 </h2>
                 <div class="w-12 h-[1px] bg-white/10 mx-auto mb-6"></div>
             </div>
@@ -1588,14 +1618,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#0A0A0C] border-t border-white/10 py-16 mx-auto px-6 md:px-0 ">
-        <div class="mx-auto px-6 container">
+    <footer class="bg-[#0A0A0C] border-t border-white/10 py-12 md:py-16 mx-auto px-4 md:px-6">
+        <div class="mx-auto px-2 md:px-6 container">
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-10 md:px-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 px-4 md:px-10">
 
                 <!-- Brand -->
                 <div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Xenon Studios</h3>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-4">Xenon Studios</h3>
                     <p class="text-white/60 text-sm leading-relaxed">
                         Building high-performance digital experiences with cutting-edge
                         technology and precision engineering.
@@ -1638,8 +1668,8 @@
                     <div class="mb-6">
                         <h4 class="text-white font-semibold mb-3">Subscribe</h4>
 
-                        <form class="w-60 bg-[#0A0A0C] border border-white/10 rounded-lg overflow-hidden">
-                            <div class="flex">
+                        <form class="w-full bg-[#0A0A0C] border border-white/10 rounded-lg overflow-hidden">
+                            <div class="flex flex-col sm:flex-row">
                                 <input type="email" placeholder="Your email" required
                                     class="w-full px-3 py-2 bg-transparent text-white text-sm placeholder-white/40 focus:outline-none" />
 
@@ -1679,7 +1709,7 @@
             </div>
 
             <!-- Bottom -->
-            <div class="border-t border-white/10 mt-12 pt-6 text-center text-white/50 text-sm">
+            <div class="border-t border-white/10 mt-8 md:mt-12 pt-6 text-center text-white/50 text-sm">
                 © 2026 YourBrand. All rights reserved.
             </div>
 
