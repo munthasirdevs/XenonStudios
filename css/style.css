@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden !important;
   max-width: 100vw;
 }
@@ -1056,7 +1057,7 @@ body {
   .grid-cols-\[1\.5fr_repeat\(5\,1fr\)\] {
     gap-x: 0.25rem !important;
   }
-  
+
   /* Hide subtitle text on very small screens */
   .hidden-sm {
     display: none;
@@ -1088,7 +1089,9 @@ body {
 .footer-content {
   max-height: 0;
   opacity: 0;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .footer-content[style*="max-height"] {
@@ -1100,11 +1103,11 @@ body {
     max-height: 500px !important;
     opacity: 1 !important;
   }
-  
+
   .footer-toggle {
     display: none !important;
   }
-  
+
   .footer-header {
     cursor: default !important;
   }
@@ -1130,7 +1133,7 @@ body {
     font-size: 36px !important;
     line-height: 1.1;
   }
-  
+
   .hero-title br {
     display: none;
   }
@@ -1140,24 +1143,15 @@ body {
     top: 4px;
     width: 95%;
   }
-  
+
   nav .glass {
     padding: 8px 12px;
   }
-  
+
   nav img {
     height: 32px !important;
   }
 
-  /* Buttons */
-  .explore-button,
-  .animated-button {
-    width: 100%;
-    max-width: 280px;
-    font-size: 14px;
-    padding: 12px 24px;
-  }
-  
   .animated-button {
     margin-left: 0;
   }
@@ -1166,7 +1160,7 @@ body {
     padding: 8px 12px;
     font-size: 13px;
   }
-  
+
   .outer-cont svg {
     width: 18px;
     height: 18px;
@@ -1186,15 +1180,15 @@ body {
     padding: 1.5rem;
     min-height: auto;
   }
-  
+
   .service-card .text-\[36px\] {
     font-size: 28px;
   }
-  
+
   .service-card .card_title {
     font-size: 22px;
   }
-  
+
   .service-card-button {
     width: 100%;
     padding: 12px 20px;
@@ -1208,11 +1202,11 @@ body {
     height: auto;
     aspect-ratio: 1 / 0.85;
   }
-  
+
   .card .text {
     font-size: 3rem;
   }
-  
+
   .card div.text-lg {
     font-size: 14px;
   }
@@ -1222,7 +1216,7 @@ body {
     --width: 120px !important;
     --height: 140px !important;
   }
-  
+
   .CarouselCard {
     width: 120px;
     height: 70px;
@@ -1240,7 +1234,7 @@ body {
     grid-template-columns: 1.5fr repeat(5, 0.8fr);
     gap-x: 4px;
   }
-  
+
   .comparison-table svg {
     width: 14px;
     height: 14px;
@@ -1250,12 +1244,12 @@ body {
   footer .grid {
     gap: 2rem;
   }
-  
+
   footer h3,
   footer h4 {
     font-size: 16px;
   }
-  
+
   footer form {
     width: 100%;
   }
@@ -1263,6 +1257,11 @@ body {
 
 /* Small devices (phones, 480px - 639px) */
 @media (max-width: 639px) {
+.ray{
+  width: 140px !important;
+}
+
+
   /* Typography */
   .hero-title {
     font-size: 40px !important;
@@ -1274,13 +1273,6 @@ body {
     padding: 10px 14px;
   }
 
-  /* Buttons */
-  .explore-button,
-  .animated-button {
-    width: 100%;
-    max-width: 300px;
-  }
-  
   .animated-button {
     margin-left: 0;
     margin-top: 12px;
@@ -1291,7 +1283,7 @@ body {
     width: 100%;
     padding: 1.5rem;
   }
-  
+
   .service-card-button {
     width: 100%;
   }
@@ -1302,7 +1294,11 @@ body {
     max-width: 300px;
     height: auto;
   }
-  
+
+  .why-choose-us{
+    display: none;
+  }
+
   .card .text {
     font-size: 3.5rem;
   }
@@ -1336,7 +1332,7 @@ body {
   #states .grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .outer {
     width: 100%;
     max-width: 280px;
@@ -1378,7 +1374,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
   }
-  
+
   .outer {
     width: 100%;
     max-width: 300px;
@@ -1409,7 +1405,7 @@ body {
   .hero-title {
     font-size: 80px !important;
   }
-  
+
   .service-card {
     width: 100%;
     max-width: 380px;
@@ -1423,15 +1419,15 @@ body {
     padding-bottom: 3rem;
     min-height: auto;
   }
-  
+
   .hero-title {
     margin-bottom: 1rem;
   }
-  
+
   .slider {
     margin-top: 2rem;
   }
-  
+
   nav {
     top: 8px;
   }
@@ -1450,12 +1446,12 @@ body {
   .about-button {
     display: none !important;
   }
-  
+
   body {
     background: white;
     color: black;
   }
-  
+
   .service-card {
     break-inside: avoid;
   }
