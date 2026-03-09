@@ -4,6 +4,140 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // ============================================================================
+// WHATSAPP BUTTON SCROLL VISIBILITY
+// ============================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  const whatsappBtn = document.getElementById('whatsapp-btn');
+  const heroSection = document.getElementById('home');
+  
+  if (whatsappBtn && heroSection) {
+    const showButton = () => {
+      const heroBottom = heroSection.offsetHeight;
+      const scrollPosition = window.scrollY + window.innerHeight;
+      
+      if (scrollPosition > heroBottom + 100) {
+        whatsappBtn.classList.remove('opacity-0', 'invisible');
+      } else {
+        whatsappBtn.classList.add('opacity-0', 'invisible');
+      }
+    };
+    
+    // Check on scroll
+    window.addEventListener('scroll', showButton);
+    
+    // Initial check
+    showButton();
+  }
+});
+
+// ============================================================================
+// MOBILE MENU TOGGLE
+// ============================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      // Animate hamburger to X
+      const icon = mobileMenuBtn.querySelector('svg');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+      } else {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+      }
+    });
+
+    // Close menu when clicking a link
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.querySelector('svg').innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+      }
+    });
+  }
+
+  // ============================================================================
+  // FOOTER ACCORDION (Mobile)
+  // ============================================================================
+  const footerToggles = document.querySelectorAll('.footer-toggle');
+  
+  footerToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const column = toggle.closest('.footer-column');
+      const content = column.querySelector('.footer-content');
+      const icon = toggle.querySelector('svg');
+      
+      // Close all other footer columns
+      footerToggles.forEach(otherToggle => {
+        if (otherToggle !== toggle) {
+          const otherColumn = otherToggle.closest('.footer-column');
+          const otherContent = otherColumn.querySelector('.footer-content');
+          const otherIcon = otherToggle.querySelector('svg');
+          
+          otherContent.style.maxHeight = '0';
+          otherIcon.classList.remove('rotate-180');
+        }
+      });
+      
+      // Toggle current column
+      if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.classList.add('rotate-180');
+      } else {
+        content.style.maxHeight = '0';
+        icon.classList.remove('rotate-180');
+      }
+    });
+  });
+  
+  // Open all footer columns by default on desktop
+  if (window.innerWidth >= 768) {
+    footerToggles.forEach(toggle => {
+      const column = toggle.closest('.footer-column');
+      const content = column.querySelector('.footer-content');
+      content.style.maxHeight = '500px';
+    });
+  }
+  
+  // Handle window resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (window.innerWidth >= 768) {
+        footerToggles.forEach(toggle => {
+          const column = toggle.closest('.footer-column');
+          const content = column.querySelector('.footer-content');
+          content.style.maxHeight = '500px';
+          const icon = toggle.querySelector('svg');
+          icon.classList.remove('rotate-180');
+        });
+      } else {
+        // Close all on mobile
+        footerToggles.forEach(toggle => {
+          const column = toggle.closest('.footer-column');
+          const content = column.querySelector('.footer-content');
+          content.style.maxHeight = '0';
+          const icon = toggle.querySelector('svg');
+          icon.classList.remove('rotate-180');
+        });
+      }
+    }, 250);
+  });
+});
+
+// ============================================================================
 // SCROLL REVEAL ANIMATIONS
 // ============================================================================
 
