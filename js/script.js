@@ -39,6 +39,75 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // ============================================================================
+  // FOOTER ACCORDION (Mobile)
+  // ============================================================================
+  const footerToggles = document.querySelectorAll('.footer-toggle');
+  
+  footerToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const column = toggle.closest('.footer-column');
+      const content = column.querySelector('.footer-content');
+      const icon = toggle.querySelector('svg');
+      
+      // Close all other footer columns
+      footerToggles.forEach(otherToggle => {
+        if (otherToggle !== toggle) {
+          const otherColumn = otherToggle.closest('.footer-column');
+          const otherContent = otherColumn.querySelector('.footer-content');
+          const otherIcon = otherToggle.querySelector('svg');
+          
+          otherContent.style.maxHeight = '0';
+          otherIcon.classList.remove('rotate-180');
+        }
+      });
+      
+      // Toggle current column
+      if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.classList.add('rotate-180');
+      } else {
+        content.style.maxHeight = '0';
+        icon.classList.remove('rotate-180');
+      }
+    });
+  });
+  
+  // Open all footer columns by default on desktop
+  if (window.innerWidth >= 768) {
+    footerToggles.forEach(toggle => {
+      const column = toggle.closest('.footer-column');
+      const content = column.querySelector('.footer-content');
+      content.style.maxHeight = '500px';
+    });
+  }
+  
+  // Handle window resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (window.innerWidth >= 768) {
+        footerToggles.forEach(toggle => {
+          const column = toggle.closest('.footer-column');
+          const content = column.querySelector('.footer-content');
+          content.style.maxHeight = '500px';
+          const icon = toggle.querySelector('svg');
+          icon.classList.remove('rotate-180');
+        });
+      } else {
+        // Close all on mobile
+        footerToggles.forEach(toggle => {
+          const column = toggle.closest('.footer-column');
+          const content = column.querySelector('.footer-content');
+          content.style.maxHeight = '0';
+          const icon = toggle.querySelector('svg');
+          icon.classList.remove('rotate-180');
+        });
+      }
+    }, 250);
+  });
 });
 
 // ============================================================================
