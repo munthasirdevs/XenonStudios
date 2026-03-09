@@ -1257,10 +1257,9 @@ body {
 
 /* Small devices (phones, 480px - 639px) */
 @media (max-width: 639px) {
-.ray{
-  width: 140px !important;
-}
-
+  .ray {
+    width: 140px !important;
+  }
 
   /* Typography */
   .hero-title {
@@ -1295,7 +1294,7 @@ body {
     height: auto;
   }
 
-  .why-choose-us{
+  .why-choose-us {
     display: none;
   }
 
