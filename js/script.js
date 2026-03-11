@@ -145,18 +145,50 @@ document.addEventListener("DOMContentLoaded", () => {
 // SCROLL REVEAL ANIMATIONS
 // ============================================================================
 
-// Service Cards
-gsap.utils.toArray(".service-card").forEach((el) => {
-  gsap.from(el, {
+// Navigation Fade In
+gsap.from("nav", {
+  opacity: 0,
+  duration: 2,
+  ease: "power2.out",
+});
+
+// Hero Section Elements Fade In (Staggered)
+gsap.set(["#home .hero-title", "#home p", "#home .explore-button", "#home .view-services-btn"], { opacity: 0, y: 30 });
+
+gsap.to(["#home .hero-title", "#home p", "#home .explore-button", "#home .view-services-btn"], {
+  opacity: 1,
+  y: 0,
+  duration: 1,
+  stagger: 0.2, // 0.2s delay between each element
+  ease: "power2.out",
+  delay: 0.2 // Slight delay so it happens smoothly right after page load
+});
+
+// Other Sections Complete Fade In & Slide Up
+gsap.utils.toArray("section:not(#home)").forEach((section) => {
+  gsap.from(section, {
     scrollTrigger: {
-      trigger: el,
-      start: "top 85%",
+      trigger: section,
+      start: "top 85%", // Triggers when the top of the section hits 85% of the viewport height
     },
-    y: 40,
+    y: 50,
     opacity: 0,
-    duration: 1,
+    duration: 1.2,
     ease: "power3.out",
   });
+});
+
+// Service Cards Sequential Reveal
+gsap.from(".service-card", {
+  scrollTrigger: {
+    trigger: "#services",
+    start: "top 60%", // Triggers when the top of the services section reaches 60% down the screen
+  },
+  y: 60,
+  opacity: 0,
+  duration: 0.8,
+  stagger: 0.15, // Animates them one by one with a 0.15s gap
+  ease: "power2.out",
 });
 
 // FAQ Items
