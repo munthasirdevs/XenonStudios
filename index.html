@@ -32,27 +32,29 @@
 </head>
 
 <body id="layout" class="outfit overflow-x-hidden">
-    <!-- Background Elements -->
+    <!-- Background Effects -->
     <div class="grid-bg"></div>
-    <div class="glow bg-[#00F2FF] top-[-10%] left-[-10%]"></div>
-    <div class="glow bg-[#7000FF] bottom-[10%] right-[-10%]"></div>
+    <div class="glow bg-[var(--xenon-color-cyan)]"></div>
+    <div class="glow bg-[var(--xenon-color-purple)] right-[-10%]"></div>
 
     <!-- Navigation -->
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
-        <div class="glass rounded-full px-8 py-4 flex items-center justify-between border-white/10 backdrop-blur-xl">
+        <div class="glass rounded-full px-8 py-4 flex items-center justify-between border-white/10">
             <div class="text-xl font-extrabold tracking-tighter italic">
                 <a href="index.html" class="block hover:scale-105 transition-transform">
                     <img src="./images/logo.png" alt="logo" class="h-10">
                 </a>
             </div>
             <div class="hidden md:flex gap-8 font-medium text-white/70">
-                <a href="#home" class="nav-link text-[#00F2FF] transition-colors text-[18px] font-bold outfit">Home</a>
+                <a href="#home"
+                    class="nav-link text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Home</a>
                 <a href="#about"
-                    class="nav-link hover:text-[#00F2FF] transition-colors text-[18px] font-bold outfit">About</a>
+                    class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">About</a>
                 <a href="#services"
-                    class="nav-link hover:text-[#00F2FF] transition-colors text-[18px] font-bold outfit">Services</a>
+                    class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Services</a>
                 <a href="#contact"
-                    class="nav-link hover:text-[#00F2FF] transition-colors text-[18px] font-bold outfit">Contact Us</a>
+                    class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Contact
+                    Us</a>
             </div>
             <a href="https://wa.link/lx0res" target="_blank" class="hidden sm:block">
                 <div class="outer-cont flex">
@@ -82,13 +84,13 @@
             class="mobile-menu md:hidden absolute top-full left-0 right-0 mt-2 glass rounded-2xl border-white/10 backdrop-blur-xl overflow-hidden hidden">
             <div class="flex flex-col p-4 gap-2">
                 <a href="#home"
-                    class="mobile-nav-link text-white/70 hover:text-[#00F2FF] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Home</a>
+                    class="mobile-nav-link text-white/70 hover:text-[var(--xenon-color-cyan)] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Home</a>
                 <a href="#about"
-                    class="mobile-nav-link text-white/70 hover:text-[#00F2FF] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">About</a>
+                    class="mobile-nav-link text-white/70 hover:text-[var(--xenon-color-cyan)] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">About</a>
                 <a href="#services"
-                    class="mobile-nav-link text-white/70 hover:text-[#00F2FF] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Services</a>
+                    class="mobile-nav-link text-white/70 hover:text-[var(--xenon-color-cyan)] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Services</a>
                 <a href="#faq"
-                    class="mobile-nav-link text-white/70 hover:text-[#00F2FF] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Faq</a>
+                    class="mobile-nav-link text-white/70 hover:text-[var(--xenon-color-cyan)] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Faq</a>
                 <a href="https://wa.link/lx0res" target="_blank" class="mt-2">
                     <div class="outer-cont flex justify-center w-full">
                         <svg viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -148,58 +150,7 @@
                 </a>
             </div>
 
-            <!-- Carousel -->
-            <!--
-            <div class="slider mt-16" style="--width: 165px; --height: 200px; --quantity: 9;">
-                <div class="list">
-                    <div class="item" style="--position: 1">
-                        <div class="CarouselCard ">
-                            <img class="CarouselLogo" src="./images/logos/bdBrand (1).svg" alt="bangladeshi-brand-logo">
-                        </div>
-                    </div>
-                    <div class="item" style="--position: 2">
-                        <div class="CarouselCard">
-                            <img class="CarouselLogo" src="./images/logos/bdBrand (2).svg" alt="bangladeshi-brand-logo">
-                        </div>
-                    </div>
-                    <div class="item" style="--position: 3">
-                        <div class="CarouselCard">
-                            <img class="CarouselLogo" src="./images/logos/bdBrand (3).svg" alt="bangladeshi-brand-logo">
-                        </div>
-                    </div>
-                    <div class="item" style="--position: 4">
-                        <div class="CarouselCard">
-                            <img class="CarouselLogo" src="./images/logos/bdBrand (4).svg" alt="bangladeshi-brand-logo">
-                        </div>
-                    </div>
-                    <div class="item" style="--position: 5">
-                        <div class="CarouselCard">
-                            <img class="CarouselLogo" src="./images/logos/bdBrand (5).svg" alt="bangladeshi-brand-logo">
-                        </div>
-                    </div>
-                    <div class="item" style="--position: 6">
-                        <div class="CarouselCard">
-                            <img class="CarouselLogo" src="./images/logos/bdBrand (6).svg" alt="bangladeshi-brand-logo">
-                        </div>
-                    </div>
-                    <div class="item" style="--position: 7">
-                        <div class="CarouselCard">
-                            <img class="CarouselLogo" src="./images/logos/bdBrand (7).svg" alt="bangladeshi-brand-logo">
-                        </div>
-                    </div>
-                    <div class="item" style="--position: 8">
-                        <div class="CarouselCard">
-                            <img class="CarouselLogo" src="./images/logos/bdBrand (8).svg" alt="bangladeshi-brand-logo">
-                        </div>
-                    </div>
-                    <div class="item" style="--position: 9">
-                        <div class="CarouselCard">
-                            <img class="CarouselLogo" src="./images/logos/bdBrand (9).svg" alt="bangladeshi-brand-logo">
-                        </div>
-                    </div>
-                </div>
-            </div>            
--->
+            <!-- Carousel Placeholder (Removed Legacy Code) -->
         </div>
     </section>
 
@@ -218,7 +169,8 @@
 
             <div class="mt-8 pt-8 border-t border-white/10">
                 <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                    <span class="bg-gradient-to-r from-[#00F2FF] to-[#7000FF] w-2 h-8 rounded-full"></span>
+                    <span
+                        class="bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] w-2 h-8 rounded-full"></span>
                     Core Values
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -226,9 +178,11 @@
                         class="value-item group/value p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer">
                         <div class="flex items-center gap-3">
                             <div
-                                class="w-3 h-3 rounded-full bg-[#00F2FF] group-hover/value:scale-150 transition-transform">
+                                class="w-3 h-3 rounded-full bg-[var(--xenon-color-cyan)] group-hover/value:scale-150 transition-transform">
                             </div>
-                            <span class="text-white group-hover/value:text-[#00F2FF] transition-colors">Integrity &
+                            <span
+                                class="text-white group-hover/value:text-[var(--xenon-color-cyan)] transition-colors">Integrity
+                                &
                                 Transparency</span>
                         </div>
                         <p class="text-white/50 text-sm mt-2 ml-6">Honest communication and ethical practices in
@@ -238,9 +192,10 @@
                         class="value-item group/value p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer">
                         <div class="flex items-center gap-3">
                             <div
-                                class="w-3 h-3 rounded-full bg-[#7000FF] group-hover/value:scale-150 transition-transform">
+                                class="w-3 h-3 rounded-full bg-[var(--xenon-color-purple)] group-hover/value:scale-150 transition-transform">
                             </div>
-                            <span class="text-white group-hover/value:text-[#7000FF] transition-colors">Continuous
+                            <span
+                                class="text-white group-hover/value:text-[var(--xenon-color-purple)] transition-colors">Continuous
                                 Innovation</span>
                         </div>
                         <p class="text-white/50 text-sm mt-2 ml-6">Always learning, evolving, and pushing
@@ -250,9 +205,10 @@
                         class="value-item group/value p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer">
                         <div class="flex items-center gap-3">
                             <div
-                                class="w-3 h-3 rounded-full bg-[#9D174D] group-hover/value:scale-150 transition-transform">
+                                class="w-3 h-3 rounded-full bg-[var(--xenon-color-magenta)] group-hover/value:scale-150 transition-transform">
                             </div>
-                            <span class="text-white group-hover/value:text-[#9D174D] transition-colors">Client-Centric
+                            <span
+                                class="text-white group-hover/value:text-[var(--xenon-color-magenta)] transition-colors">Client-Centric
                                 Focus</span>
                         </div>
                         <p class="text-white/50 text-sm mt-2 ml-6">Your success is our ultimate measure of
@@ -262,9 +218,10 @@
                         class="value-item group/value p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer">
                         <div class="flex items-center gap-3">
                             <div
-                                class="w-3 h-3 rounded-full bg-[#00F2FF] group-hover/value:scale-150 transition-transform">
+                                class="w-3 h-3 rounded-full bg-[var(--xenon-color-cyan)] group-hover/value:scale-150 transition-transform">
                             </div>
-                            <span class="text-white group-hover/value:text-[#00F2FF] transition-colors">Quality
+                            <span
+                                class="text-white group-hover/value:text-[var(--xenon-color-cyan)] transition-colors">Quality
                                 Excellence</span>
                         </div>
                         <p class="text-white/50 text-sm mt-2 ml-6">Never compromising on quality, from concept to
@@ -274,9 +231,10 @@
                         class="value-item group/value p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer">
                         <div class="flex items-center gap-3">
                             <div
-                                class="w-3 h-3 rounded-full bg-[#7000FF] group-hover/value:scale-150 transition-transform">
+                                class="w-3 h-3 rounded-full bg-[var(--xenon-color-purple)] group-hover/value:scale-150 transition-transform">
                             </div>
-                            <span class="text-white group-hover/value:text-[#7000FF] transition-colors">Agile
+                            <span
+                                class="text-white group-hover/value:text-[var(--xenon-color-purple)] transition-colors">Agile
                                 Adaptability</span>
                         </div>
                         <p class="text-white/50 text-sm mt-2 ml-6">Quickly adapting to change and market demands.
@@ -286,9 +244,10 @@
                         class="value-item group/value p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer">
                         <div class="flex items-center gap-3">
                             <div
-                                class="w-3 h-3 rounded-full bg-[#9D174D] group-hover/value:scale-150 transition-transform">
+                                class="w-3 h-3 rounded-full bg-[var(--xenon-color-magenta)] group-hover/value:scale-150 transition-transform">
                             </div>
-                            <span class="text-white group-hover/value:text-[#9D174D] transition-colors">Sustainable
+                            <span
+                                class="text-white group-hover/value:text-[var(--xenon-color-magenta)] transition-colors">Sustainable
                                 Growth</span>
                         </div>
                         <p class="text-white/50 text-sm mt-2 ml-6">Building solutions that scale and evolve with
@@ -368,11 +327,7 @@
             </div>
         </div>
 
-        <!--        
-        <div class="container mx-auto text-center mt-16">
-            <a href="./about.html" class="about-button ubuntu">Inside Xenon</a>
-        </div>        
--->
+
 
     </section>
 
@@ -460,7 +415,7 @@
                         </li>
                     </ul>
                     <a href="https://wa.link/lx0res" target="_blank"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-white font-medium overflow-hidden">
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
                         <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
@@ -547,7 +502,7 @@
                         </li>
                     </ul>
                     <a href="https://wa.link/lx0res" target="_blank"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-white font-medium overflow-hidden">
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
                         <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
@@ -634,7 +589,7 @@
                         </li>
                     </ul>
                     <a href="https://wa.link/lx0res" target="_blank"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-white font-medium overflow-hidden">
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
                         <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
@@ -721,7 +676,7 @@
                         </li>
                     </ul>
                     <a href="https://wa.link/lx0res" target="_blank"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-white font-medium overflow-hidden">
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
                         <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
@@ -808,7 +763,7 @@
                         </li>
                     </ul>
                     <a href="https://wa.link/lx0res" target="_blank"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-white font-medium overflow-hidden">
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
                         <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
@@ -895,7 +850,7 @@
                         </li>
                     </ul>
                     <a href="https://wa.link/lx0res" target="_blank"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-white font-medium overflow-hidden">
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
                         <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
@@ -982,7 +937,7 @@
                         </li>
                     </ul>
                     <a href="https://wa.link/lx0res" target="_blank"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-white font-medium overflow-hidden">
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
                         <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
@@ -1008,7 +963,7 @@
                     <div class="card_title__container">
                         <span class="card_title text-3xl font-semibold text-white">Digital Marketing</span>
                         <p class="card_paragraph text-sm text-zinc-400 mt-2">
-                            Grow your online presence and reach your target audience with data-driven marketing
+                            Grow your online presence and reach your target audience with data-driven
                             strategies.
                         </p>
                     </div>
@@ -1070,7 +1025,7 @@
                         </li>
                     </ul>
                     <a href="https://wa.link/lx0res" target="_blank"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-white font-medium overflow-hidden">
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
                         <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
@@ -1157,7 +1112,7 @@
                         </li>
                     </ul>
                     <a href="https://wa.link/lx0res" target="_blank"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[#00F2FF] to-[#7000FF] text-white font-medium overflow-hidden">
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
                         <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
@@ -1184,12 +1139,15 @@
         <div class="max-w-7xl mx-auto">
             <!-- top pill badge -->
             <div class="text-center px-4">
-                <div class="inline-flex border border-emerald-400/40 text-emerald-400 px-4 py-1.5 rounded-full text-xs md:text-sm font-medium tracking-wide">Why Choose Us</div>
+                <div
+                    class="inline-flex border border-emerald-400/40 text-emerald-400 px-4 py-1.5 rounded-full text-xs md:text-sm font-medium tracking-wide">
+                    Why Choose Us</div>
                 <!-- double heading -->
                 <h2 class="mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold text-white px-2">
                     <span class="text-gradient-animate">Xenon Studios</span> Alternative?
                 </h2>
-                <p class="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold italic bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                <p
+                    class="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold italic bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                     Think One More Time!
                 </p>
             </div>
@@ -1217,10 +1175,12 @@
 
                         <!-- primary card row -->
                         <div
-                            class="animated-glow-border group relative overflow-hidden grid grid-cols-[1.5fr_repeat(5,1fr)] gap-x-4 md:gap-x-6 lg:gap-x-8 px-4 md:px-7 py-5 md:py-6 shadow-[0_0_15px_rgba(0,242,255,0.2)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(0,242,255,0.5)]">
+                            class="animated-glow-border group relative overflow-hidden grid grid-cols-[1.5fr_repeat(5,1fr)] gap-x-4 md:gap-x-6 lg:gap-x-8 px-4 md:px-7 py-5 md:py-6 shadow-[0_0_15px_var(--xenon-color-cyan-faint)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_var(--xenon-color-cyan-transparent)]">
 
                             <!-- Shine Effect -->
-                            <div class="absolute top-0 left-[-100%] w-1/4 h-[300%] bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-25deg] transition-all duration-1000 ease-in-out group-hover:left-[200%] pointer-events-none z-10 transition-transform"></div>
+                            <div
+                                class="absolute top-0 left-[-100%] w-1/4 h-[300%] bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-25deg] transition-all duration-1000 ease-in-out group-hover:left-[200%] pointer-events-none z-10 transition-transform">
+                            </div>
 
                             <!-- platform cell with icon + title + description -->
                             <div class="flex items-center gap-2 md:gap-4">
@@ -1446,21 +1406,16 @@
                                 class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-red-500" fill="none"
                                 stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg></div>
+                            </svg>
+                        </div>
                     </div>
-
-                </div> <!-- end min-w wrapper -->
-            </div> <!-- end overflow wrapper -->
-
-            <!-- subtle footnote / extra premium touch (optional) -->
-            <div class="text-center mt-8 md:mt-10 text-gray-600 text-[10px] sm:text-xs tracking-widest uppercase px-4">
-                precision · scale ·
-                future-proof</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-[#050505] text-white relative overflow-hidden">
+    <section id="contact" class="py-24 bg-[var(--xenon-color-black)] text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
 
             <!-- Heading -->
@@ -1481,36 +1436,40 @@
                     </p>
 
                     <!-- Email -->
-                    <div class="glass rounded-xl p-6 flex items-center gap-5 mb-6 transition hover:scale-[1.02]">
-                        <div class="text-2xl text-[var(--xenon-cyan)]">
-                            <i class="fas fa-envelope"></i>
+                    <a href="mailto:connect.xenonstudios@gmail.com?subject=Project%20Inquiry&body=Hello%20Xenon%20Studios,%0A%0AI%20want%20to%20discuss%20a%20project%20with%20you."
+                        target="_blank">
+                        <div class="glass rounded-xl p-6 flex items-center gap-5 mb-6 transition hover:scale-[1.02]">
+                            <div class="text-2xl text-[var(--xenon-color-cyan)]">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-lg">Email</p>
+                                <div class="flex flex-col gap-1">
+                                    <a href="mailto:connect.xenonstudios@gmail.com?subject=Project%20Inquiry&body=Hello%20Xenon%20Studios,%0A%0AI%20want%20to%20discuss%20a%20project%20with%20you."
+                                        target="_blank" class="text-gray-400 text-sm transition group">
+                                        <span class="group-hover:hidden">Hover to see email.</span>
+                                        <span
+                                            class="hidden group-hover:inline text-[var(--xenon-color-cyan)]">connect.xenonstudios@gmail.com</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <p class="font-semibold text-lg">Email</p>
-                            <div class="flex flex-col gap-1">
-                                <a href="https://mailto:connect.xenonstudios@gmail.com" target="_blank" class="text-gray-400 text-sm transition group">
-                                    <span class="group-hover:hidden">Hover to see email.</span>
-                                    <span class="hidden group-hover:inline text-[#00F2FF]">connect.xenonstudios@gmail.com</span>
-                                </a>
-                                <a href="https://mailto:connect@xenonstudios.bd" target="_blank" class="text-gray-400 text-sm transition group">
-                                    <span class="group-hover:hidden">Hover to see email.</span>
-                                    <span class="hidden group-hover:inline text-[#00F2FF]">connect@xenonstudios.bd</span>
+                    </a>
+
+                    <!-- Phone / WhatsApp -->
+                    <a href="https://wa.link/lx0res" target="_blank">
+                        <div class="glass rounded-xl p-6 flex items-center gap-5 transition hover:scale-[1.02]">
+                            <div class="text-2xl text-green-400"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <p class="font-semibold text-lg">Phone / WhatsApp</p>
+                                <a href="https://wa.link/lx0res" target="_blank"
+                                    class="text-gray-400 text-sm transition group">
+                                    <span class="group-hover:hidden">Hover to see number.</span>
+                                    <span class="hidden group-hover:inline text-green-400">+880 1345443695</span>
                                 </a>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Phone / WhatsApp -->
-                    <div class="glass rounded-xl p-6 flex items-center gap-5 transition hover:scale-[1.02]">
-                        <div class="text-2xl text-green-400"><i class="fab fa-whatsapp"></i></div>
-                        <div>
-                            <p class="font-semibold text-lg">Phone / WhatsApp</p>
-                            <a href="https://wa.link/lx0res" target="_blank" class="text-gray-400 text-sm transition group">
-                                <span class="group-hover:hidden">Hover to see number.</span>
-                                <span class="hidden group-hover:inline text-green-400">+880 1345443695</span>
-                            </a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- RIGHT -->
@@ -1523,7 +1482,8 @@
                             class="glass rounded-xl p-6 flex items-center gap-6 hover:border-cyan-400/30 transition group">
                             <div class="text-xl text-blue-500"><i class="fab fa-facebook-f"></i></div>
                             <span class="text-lg font-medium">Facebook</span>
-                            <span class="ml-auto text-sm text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">@xenonstudios.bd</span>
+                            <span
+                                class="ml-auto text-sm text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">@xenonstudios.bd</span>
                         </a>
 
                         <!-- Instagram -->
@@ -1531,7 +1491,8 @@
                             class="glass rounded-xl p-6 flex items-center gap-6 hover:border-pink-400/30 transition group">
                             <div class="text-xl text-pink-500"><i class="fab fa-instagram"></i></div>
                             <span class="text-lg font-medium">Instagram</span>
-                            <span class="ml-auto text-sm text-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">@xenonstudios.bd</span>
+                            <span
+                                class="ml-auto text-sm text-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">@xenonstudios.bd</span>
                         </a>
 
                         <!-- X (Twitter) -->
@@ -1539,7 +1500,8 @@
                             class="glass rounded-xl p-6 flex items-center gap-6 hover:border-gray-400/30 transition group">
                             <div class="text-xl text-white">X</div>
                             <span class="text-lg font-medium">X (Twitter)</span>
-                            <span class="ml-auto text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">@xenonstudios_bd</span>
+                            <span
+                                class="ml-auto text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">@xenonstudios_bd</span>
                         </a>
 
                         <!-- LinkedIn -->
@@ -1547,7 +1509,8 @@
                             class="glass rounded-xl p-6 flex items-center gap-6 hover:border-blue-400/30 transition group">
                             <div class="text-xl text-blue-400"><i class="fab fa-linkedin-in"></i></div>
                             <span class="text-lg font-medium">LinkedIn</span>
-                            <span class="ml-auto text-sm text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">@xenonstudios-bd</span>
+                            <span
+                                class="ml-auto text-sm text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">@xenonstudios-bd</span>
                         </a>
                     </div>
                 </div>
@@ -1556,7 +1519,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-20 md:py-32 px-4 md:px-6 bg-[#0A0A0C]">
+    <section id="faq" class="py-20 md:py-32 px-4 md:px-6 bg-[var(--xenon-color-charcoal)]">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-12 md:mb-16">
                 <span class="section-label text-[10px] uppercase font-bold mb-4 block">Support</span>
@@ -1570,7 +1533,7 @@
                     <div class="faq-question flex justify-between items-center cursor-pointer">
                         <h3 class="text-lg font-semibold text-white">
                             What makes Xenon Studios different from a traditional digital agency?</h3>
-                        <div class="faq-toggle text-[#00F2FF] text-xl">+</div>
+                        <div class="faq-toggle text-[var(--xenon-color-cyan)] text-xl">+</div>
                     </div>
                     <div class="faq-answer text-zinc-400 mt-4 hidden">
                         We identify as a "Digital Foundry" rather than a traditional agency. We specialize in building
@@ -1584,7 +1547,7 @@
                 <div class="faq-item glass p-6 rounded-xl">
                     <div class="faq-question flex justify-between items-center cursor-pointer">
                         <h3 class="text-lg font-semibold text-white">Which industries do you specialize in?</h3>
-                        <div class="faq-toggle text-[#00F2FF] text-xl">+</div>
+                        <div class="faq-toggle text-[var(--xenon-color-cyan)] text-xl">+</div>
                     </div>
                     <div class="faq-answer text-zinc-400 mt-4 hidden">
                         While we are a global agency serving clients in over 5 countries, our core expertise lies in the
@@ -1598,7 +1561,7 @@
                     <div class="faq-question flex justify-between items-center cursor-pointer">
                         <h3 class="text-lg font-semibold text-white">How do you handle security for high-performance
                             systems?</h3>
-                        <div class="faq-toggle text-[#00F2FF] text-xl">+</div>
+                        <div class="faq-toggle text-[var(--xenon-color-cyan)] text-xl">+</div>
                     </div>
                     <div class="faq-answer text-zinc-400 mt-4 hidden">
                         Security is built into our foundation, not added as an afterthought. We implement Hardened
@@ -1613,7 +1576,7 @@
                     <div class="faq-question flex justify-between items-center cursor-pointer">
                         <h3 class="text-lg font-semibold text-white">How long does a typical "Next-Gen" project take to
                             deploy?</h3>
-                        <div class="faq-toggle text-[#00F2FF] text-xl">+</div>
+                        <div class="faq-toggle text-[var(--xenon-color-cyan)] text-xl">+</div>
                     </div>
                     <div class="faq-answer text-zinc-400 mt-4 hidden">
                         Because we prioritize technical excellence and custom engineering, timelines vary by complexity.
@@ -1627,7 +1590,7 @@
                 <div class="faq-item glass p-6 rounded-xl">
                     <div class="faq-question flex justify-between items-center cursor-pointer">
                         <h3 class="text-lg font-semibold text-white">What is your "Cinematic UI/UX" approach?</h3>
-                        <div class="faq-toggle text-[#00F2FF] text-xl">+</div>
+                        <div class="faq-toggle text-[var(--xenon-color-cyan)] text-xl">+</div>
                     </div>
                     <div class="faq-answer text-zinc-400 mt-4 hidden">
                         Our "Cinematic" approach treats a website like a film experience. We leverage advanced
@@ -1642,7 +1605,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#0A0A0C] border-t border-white/10 py-12 md:py-16 mx-auto px-4 md:px-6">
+    <footer class="bg-[var(--xenon-color-black)] border-t border-white/10 py-12 md:py-16 mx-auto px-4 md:px-6">
         <div class="mx-auto px-2 md:px-6 container">
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 px-4 md:px-10">
@@ -1687,12 +1650,17 @@
                     <div
                         class="footer-content overflow-hidden transition-all duration-300 md:max-h-none max-h-0 md:max-h-[500px]">
                         <ul class="space-y-3 text-sm pt-2 md:pt-0">
-                            <li><a href="./index.html" class="hover:text-[#00F2FF] transition-colors">Home</a></li>
-                            <li><a href="#about" class="hover:text-[#00F2FF] transition-colors">About</a></li>
-                            <li><a href="#services" class="hover:text-[#00F2FF] transition-colors">Services</a></li>
-                            <li><a href="#why-choose-us" class="hover:text-[#00F2FF] transition-colors">Why Choose
+                            <li><a href="./index.html"
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">Home</a></li>
+                            <li><a href="#about"
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">About</a></li>
+                            <li><a href="#services"
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">Services</a></li>
+                            <li><a href="#why-choose-us"
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">Why Choose
                                     Us</a></li>
-                            <li><a href="#contact" class="hover:text-[#00F2FF] transition-colors">Contact</a></li>
+                            <li><a href="#contact"
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1714,19 +1682,24 @@
                     <div
                         class="footer-content overflow-hidden transition-all duration-300 md:max-h-none max-h-0 md:max-h-[500px]">
                         <ul class="space-y-3 text-sm pt-2 md:pt-0">
-                            <li><a href="./index.html#ai-automation" class="hover:text-[#00F2FF] transition-colors">AI
+                            <li><a href="./index.html#ai-automation"
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">AI
                                     Automation</a></li>
-                            <li><a href="./index.html#web-dev" class="hover:text-[#00F2FF] transition-colors">Web
+                            <li><a href="./index.html#web-dev"
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">Web
                                     Development</a></li>
                             <li><a href="./index.html#cybersecurity"
-                                    class="hover:text-[#00F2FF] transition-colors">Cybersecurity</a></li>
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">Cybersecurity</a>
+                            </li>
                             <li><a href="./index.html#video-editing"
-                                    class="hover:text-[#00F2FF] transition-colors">Video
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">Video
                                     Editing</a></li>
                             <li><a href="./index.html#digital-marketing"
-                                    class="hover:text-[#00F2FF] transition-colors">Digital Marketing</a></li>
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">Digital Marketing</a>
+                            </li>
                             <li><a href="./index.html#e-commerce-scaling"
-                                    class="hover:text-[#00F2FF] transition-colors">E-commerce Scaling</a></li>
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">E-commerce
+                                    Scaling</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1750,13 +1723,14 @@
                         <div class="mb-6">
                             <h5 class="text-white font-semibold mb-3 text-sm">Subscribe</h5>
 
-                            <form class="w-full bg-[#0A0A0C] border border-white/10 rounded-lg overflow-hidden">
+                            <form
+                                class="w-full bg-[var(--xenon-color-charcoal)] border border-white/10 rounded-lg overflow-hidden">
                                 <div class="flex flex-col sm:flex-row">
                                     <input type="email" placeholder="Your email" required
                                         class="w-full px-3 py-2 bg-transparent text-white text-sm placeholder-white/40 focus:outline-none" />
 
                                     <button type="submit"
-                                        class="px-4 py-2 bg-[#00F2FF] text-black text-sm font-semibold hover:bg-white transition-colors">
+                                        class="px-4 py-2 bg-[var(--xenon-color-cyan)] text-black text-sm font-semibold hover:bg-white transition-colors">
                                         Join
                                     </button>
                                 </div>
@@ -1765,23 +1739,28 @@
                         <div>
                             <h5 class="text-white font-semibold mb-4 text-sm">Follow Us</h5>
                             <div class="flex space-x-4">
-                                <a href="#" class="social-icon text-white/70 hover:text-[#00F2FF] transition">
+                                <a href="#"
+                                    class="social-icon text-white/70 hover:text-[var(--xenon-color-cyan)] transition">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
 
-                                <a href="#" class="social-icon text-white/70 hover:text-[#00F2FF] transition">
+                                <a href="#"
+                                    class="social-icon text-white/70 hover:text-[var(--xenon-color-cyan)] transition">
                                     <i class="fab fa-instagram"></i>
                                 </a>
 
-                                <a href="#" class="social-icon text-white/70 hover:text-[#00F2FF] transition">
+                                <a href="#"
+                                    class="social-icon text-white/70 hover:text-[var(--xenon-color-cyan)] transition">
                                     <i class="fab fa-twitter"></i>
                                 </a>
 
-                                <a href="#" class="social-icon text-white/70 hover:text-[#00F2FF] transition">
+                                <a href="#"
+                                    class="social-icon text-white/70 hover:text-[var(--xenon-color-cyan)] transition">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
 
-                                <a href="#" class="social-icon text-white/70 hover:text-[#00F2FF] transition">
+                                <a href="#"
+                                    class="social-icon text-white/70 hover:text-[var(--xenon-color-cyan)] transition">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -1814,7 +1793,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 

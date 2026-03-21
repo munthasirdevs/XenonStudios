@@ -6,337 +6,294 @@ gsap.registerPlugin(ScrollTrigger);
 // ============================================================================
 // WHATSAPP BUTTON SCROLL VISIBILITY
 // ============================================================================
-document.addEventListener("DOMContentLoaded", () => {
-  const whatsappBtn = document.getElementById("whatsapp-btn");
-  const heroSection = document.getElementById("home");
+const initWhatsappResvisibility = () => {
+    const whatsappBtn = document.getElementById("whatsapp-btn");
+    const heroSection = document.getElementById("home");
 
-  if (whatsappBtn && heroSection) {
-    const showButton = () => {
-      const heroBottom = heroSection.offsetHeight;
-      const scrollPosition = window.scrollY + window.innerHeight;
+    if (whatsappBtn && heroSection) {
+        const showButton = () => {
+            const heroBottom = heroSection.offsetHeight;
+            const scrollPosition = window.scrollY + window.innerHeight;
 
-      if (scrollPosition > heroBottom + 100) {
-        whatsappBtn.classList.remove("opacity-0", "invisible");
-      } else {
-        whatsappBtn.classList.add("opacity-0", "invisible");
-      }
-    };
+            if (scrollPosition > heroBottom + 100) {
+                whatsappBtn.classList.remove("opacity-0", "invisible");
+            } else {
+                whatsappBtn.classList.add("opacity-0", "invisible");
+            }
+        };
 
-    // Check on scroll
-    window.addEventListener("scroll", showButton);
-
-    // Initial check
-    showButton();
-  }
-});
+        window.addEventListener("scroll", showButton);
+        showButton();
+    }
+};
 
 // ============================================================================
 // MOBILE MENU TOGGLE
 // ============================================================================
-document.addEventListener("DOMContentLoaded", () => {
-  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-  const mobileMenu = document.querySelector(".mobile-menu");
-  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+const initMobileMenu = () => {
+    const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-      // Animate hamburger to X
-      const icon = mobileMenuBtn.querySelector("svg");
-      if (mobileMenu.classList.contains("hidden")) {
-        icon.innerHTML =
-          '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-      } else {
-        icon.innerHTML =
-          '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
-      }
-    });
+    if (mobileMenuBtn && mobileMenu) {
+        const icon = mobileMenuBtn.querySelector("svg");
+        const hamburgerPath = 'M4 6h16M4 12h16M4 18h16';
+        const closePath = 'M6 18L18 6M6 6l12 12';
 
-    // Close menu when clicking a link
-    mobileNavLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-        mobileMenuBtn.querySelector("svg").innerHTML =
-          '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-      });
-    });
+        const toggleMenu = (show) => {
+            mobileMenu.classList.toggle("hidden", !show);
+            icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${show ? closePath : hamburgerPath}"></path>`;
+        };
 
-    // Close menu when clicking outside
-    document.addEventListener("click", (e) => {
-      if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        mobileMenu.classList.add("hidden");
-        mobileMenuBtn.querySelector("svg").innerHTML =
-          '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
-      }
-    });
-  }
-
-  // ============================================================================
-  // FOOTER ACCORDION (Mobile)
-  // ============================================================================
-  const footerToggles = document.querySelectorAll(".footer-toggle");
-
-  footerToggles.forEach((toggle) => {
-    toggle.addEventListener("click", () => {
-      const column = toggle.closest(".footer-column");
-      const content = column.querySelector(".footer-content");
-      const icon = toggle.querySelector("svg");
-
-      // Close all other footer columns
-      footerToggles.forEach((otherToggle) => {
-        if (otherToggle !== toggle) {
-          const otherColumn = otherToggle.closest(".footer-column");
-          const otherContent = otherColumn.querySelector(".footer-content");
-          const otherIcon = otherToggle.querySelector("svg");
-
-          otherContent.style.maxHeight = "0";
-          otherIcon.classList.remove("rotate-180");
-        }
-      });
-
-      // Toggle current column
-      if (content.style.maxHeight === "0px" || content.style.maxHeight === "") {
-        content.style.maxHeight = content.scrollHeight + "px";
-        icon.classList.add("rotate-180");
-      } else {
-        content.style.maxHeight = "0";
-        icon.classList.remove("rotate-180");
-      }
-    });
-  });
-
-  // Open all footer columns by default on desktop
-  if (window.innerWidth >= 768) {
-    footerToggles.forEach((toggle) => {
-      const column = toggle.closest(".footer-column");
-      const content = column.querySelector(".footer-content");
-      content.style.maxHeight = "500px";
-    });
-  }
-
-  // Handle window resize
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      if (window.innerWidth >= 768) {
-        footerToggles.forEach((toggle) => {
-          const column = toggle.closest(".footer-column");
-          const content = column.querySelector(".footer-content");
-          content.style.maxHeight = "500px";
-          const icon = toggle.querySelector("svg");
-          icon.classList.remove("rotate-180");
+        mobileMenuBtn.addEventListener("click", () => {
+            const isHidden = mobileMenu.classList.contains("hidden");
+            toggleMenu(isHidden);
         });
-      } else {
-        // Close all on mobile
-        footerToggles.forEach((toggle) => {
-          const column = toggle.closest(".footer-column");
-          const content = column.querySelector(".footer-content");
-          content.style.maxHeight = "0";
-          const icon = toggle.querySelector("svg");
-          icon.classList.remove("rotate-180");
+
+        mobileNavLinks.forEach((link) => {
+            link.addEventListener("click", () => toggleMenu(false));
         });
-      }
-    }, 250);
-  });
-});
 
-// ============================================================================
-// SCROLL REVEAL ANIMATIONS
-// ============================================================================
-
-// Navigation Fade In
-gsap.from("nav", {
-  opacity: 0,
-  duration: 2,
-  ease: "power2.out",
-});
-
-// Hero Section Elements Fade In (Staggered)
-gsap.set(["#home .hero-title", "#home p", "#home .explore-button", "#home .view-services-btn"], { opacity: 0, y: 30 });
-
-gsap.to(["#home .hero-title", "#home p", "#home .explore-button", "#home .view-services-btn"], {
-  opacity: 1,
-  y: 0,
-  duration: 1,
-  stagger: 0.2, // 0.2s delay between each element
-  ease: "power2.out",
-  delay: 0.2 // Slight delay so it happens smoothly right after page load
-});
-
-// Other Sections Complete Fade In & Slide Up
-gsap.utils.toArray("section:not(#home)").forEach((section) => {
-  gsap.from(section, {
-    scrollTrigger: {
-      trigger: section,
-      start: "top 85%", // Triggers when the top of the section hits 85% of the viewport height
-    },
-    y: 50,
-    opacity: 0,
-    duration: 1.2,
-    ease: "power3.out",
-  });
-});
-
-// Service Cards Sequential Reveal
-gsap.from(".service-card", {
-  scrollTrigger: {
-    trigger: "#services",
-    start: "top 60%", // Triggers when the top of the services section reaches 60% down the screen
-  },
-  y: 60,
-  opacity: 0,
-  duration: 0.8,
-  stagger: 0.15, // Animates them one by one with a 0.15s gap
-  ease: "power2.out",
-});
-
-// FAQ Items
-gsap.utils.toArray(".faq-item").forEach((el, i) => {
-  gsap.from(el, {
-    scrollTrigger: {
-      trigger: el,
-      start: "top 90%",
-    },
-    y: 30,
-    opacity: 0,
-    duration: 0.8,
-    delay: i * 0.1,
-    ease: "power2.out",
-  });
-});
-
-// ============================================================================
-// FAQ ACCORDION (Vanilla JS with GSAP animation)
-// ============================================================================
-document.querySelectorAll(".faq-question").forEach((question) => {
-  question.addEventListener("click", () => {
-    const item = question.parentElement;
-    const answer = item.querySelector(".faq-answer");
-    const toggle = item.querySelector(".faq-toggle");
-
-    // Close all other FAQs
-    document.querySelectorAll(".faq-item").forEach((otherItem) => {
-      if (otherItem !== item) {
-        otherItem.querySelector(".faq-answer").classList.add("hidden");
-        otherItem.querySelector(".faq-toggle").textContent = "+";
-      }
-    });
-
-    // Toggle current FAQ
-    answer.classList.toggle("hidden");
-    toggle.textContent = answer.classList.contains("hidden") ? "+" : "−";
-
-    // Animate
-    gsap.fromTo(
-      answer,
-      { height: 0, opacity: 0 },
-      { height: "auto", opacity: 1, duration: 0.3, ease: "power2.out" },
-    );
-  });
-});
-
-// ============================================================================
-// COUNTER ANIMATIONS (jQuery)
-// ============================================================================
-$(document).ready(function () {
-  function isElementInViewport(el) {
-    var rect = el.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  }
-
-  function animateCounter($element) {
-    var $this = $element;
-    var countTo = parseFloat($this.attr("data-count"));
-    var symbol = $this.text().replace(/\d+/g, "");
-
-    $({ countNum: 0 }).animate(
-      {
-        countNum: countTo,
-      },
-      {
-        duration: 3000,
-        easing: "swing",
-        step: function () {
-          var value = Math.floor(this.countNum);
-          $this.text(value + symbol);
-        },
-        complete: function () {
-          $this.text(countTo + symbol);
-        },
-      },
-    );
-  }
-
-  function checkCounters() {
-    $(".status-card [data-count]").each(function () {
-      var $this = $(this);
-      if (isElementInViewport(this) && !$this.hasClass("animated")) {
-        $this.addClass("animated");
-        animateCounter($this);
-      }
-    });
-  }
-
-  checkCounters();
-  $(window).on("scroll", checkCounters);
-});
-
-// ============================================================================
-// SMOOTH SCROLLING & NAVIGATION (jQuery)
-// ============================================================================
-$(document).ready(function () {
-  // Smooth scroll for anchor links
-  $('a[href^="#"]').on("click", function (e) {
-    e.preventDefault();
-    var target = $(this.getAttribute("href"));
-    if (target.length) {
-      $("html, body")
-        .stop()
-        .animate(
-          {
-            scrollTop: target.offset().top - 100,
-          },
-          1000,
-          "swing",
-        );
+        document.addEventListener("click", (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                toggleMenu(false);
+            }
+        });
     }
-  });
-
-  // Active nav link highlighting on scroll
-  $(window).scroll(function () {
-    var scrollPos = $(document).scrollTop() + 200;
-    $(".nav-link").each(function () {
-      var currLink = $(this);
-      var refElement = $(currLink.attr("href"));
-      if (
-        refElement.length &&
-        refElement.position().top <= scrollPos &&
-        refElement.position().top + refElement.height() > scrollPos
-      ) {
-        $(".nav-link").removeClass("text-[#00F2FF]");
-        currLink.addClass("text-[#00F2FF]");
-      }
-    });
-  });
-});
+};
 
 // ============================================================================
-// CTA BUTTON CLICK ANIMATION (Vanilla JS)
+// FOOTER ACCORDION (Mobile)
 // ============================================================================
-document.querySelectorAll("button").forEach((button) => {
-  button.addEventListener("click", function () {
-    gsap.to(this, {
-      scale: 0.95,
-      duration: 0.1,
-      yoyo: true,
-      repeat: 1,
+const initFooterAccordion = () => {
+    const footerToggles = document.querySelectorAll(".footer-toggle");
+
+    const updateFooterState = () => {
+        const isDesktop = window.innerWidth >= 768;
+        footerToggles.forEach((toggle) => {
+            const content = toggle.closest(".footer-column").querySelector(".footer-content");
+            const icon = toggle.querySelector("svg");
+            
+            if (isDesktop) {
+                content.style.maxHeight = "500px";
+                content.style.opacity = "1";
+                icon.classList.remove("rotate-180");
+            } else {
+                content.style.maxHeight = "0";
+                content.style.opacity = "0";
+                icon.classList.remove("rotate-180");
+            }
+        });
+    };
+
+    footerToggles.forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+            if (window.innerWidth >= 768) return;
+
+            const column = toggle.closest(".footer-column");
+            const content = column.querySelector(".footer-content");
+            const icon = toggle.querySelector("svg");
+
+            // Close others
+            footerToggles.forEach((other) => {
+                if (other !== toggle) {
+                    const otherContent = other.closest(".footer-column").querySelector(".footer-content");
+                    otherContent.style.maxHeight = "0";
+                    otherContent.style.opacity = "0";
+                    other.querySelector("svg").classList.remove("rotate-180");
+                }
+            });
+
+            const isOpen = content.style.maxHeight !== "0px" && content.style.maxHeight !== "";
+            content.style.maxHeight = isOpen ? "0" : content.scrollHeight + "px";
+            content.style.opacity = isOpen ? "0" : "1";
+            icon.classList.toggle("rotate-180", !isOpen);
+        });
     });
-  });
+
+    window.addEventListener("resize", () => {
+        clearTimeout(window.footerResizeTimer);
+        window.footerResizeTimer = setTimeout(updateFooterState, 250);
+    });
+
+    updateFooterState();
+};
+
+// ============================================================================
+// GSAP SCROLL ANIMATIONS
+// ============================================================================
+const initGsapAnimations = () => {
+    // Navigation Fade In
+    gsap.from("nav", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        ease: "power2.out",
+    });
+
+    // Hero Staggered Reveal
+    const heroElements = ["#home .hero-title", "#home p", "#home .explore-button", "#home .view-services-btn"];
+    gsap.from(heroElements, {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.out",
+        delay: 0.3
+    });
+
+    // Section Reveals
+    gsap.utils.toArray("section:not(#home)").forEach((section) => {
+        gsap.from(section, {
+            scrollTrigger: {
+                trigger: section,
+                start: "top 85%",
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+        });
+    });
+
+    // Service Cards
+    gsap.from(".service-card", {
+        scrollTrigger: {
+            trigger: "#services",
+            start: "top 70%",
+        },
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
+    });
+
+    // FAQ Items
+    gsap.utils.toArray(".faq-item").forEach((el, i) => {
+        gsap.from(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: "top 90%",
+            },
+            y: 20,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+        });
+    });
+
+    // Stats Counters (Replacing jQuery)
+    document.querySelectorAll(".status-card [data-count]").forEach((counter) => {
+        const target = parseFloat(counter.getAttribute("data-count"));
+        const symbol = counter.textContent.replace(/[0-9.]/g, "");
+        
+        gsap.to(counter, {
+            scrollTrigger: {
+                trigger: counter,
+                start: "top 90%",
+            },
+            innerHTML: target,
+            duration: 2,
+            snap: { innerHTML: 1 },
+            ease: "power1.inOut",
+            onUpdate: function() {
+                counter.innerHTML = Math.floor(this.targets()[0].innerHTML) + symbol;
+            }
+        });
+    });
+};
+
+// ============================================================================
+// FAQ INTERACTIVITY
+// ============================================================================
+const initFaqSystem = () => {
+    document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+            const item = question.parentElement;
+            const answer = item.querySelector(".faq-answer");
+            const toggle = item.querySelector(".faq-toggle");
+            const isHidden = answer.classList.contains("hidden");
+
+            // Close all
+            document.querySelectorAll(".faq-item").forEach((other) => {
+                const otherAnswer = other.querySelector(".faq-answer");
+                const otherToggle = other.querySelector(".faq-toggle");
+                if (!otherAnswer.classList.contains("hidden")) {
+                    gsap.to(otherAnswer, { height: 0, opacity: 0, duration: 0.3, onComplete: () => otherAnswer.classList.add("hidden") });
+                    otherToggle.textContent = "+";
+                }
+            });
+
+            if (isHidden) {
+                answer.classList.remove("hidden");
+                gsap.fromTo(answer, { height: 0, opacity: 0 }, { height: "auto", opacity: 1, duration: 0.4, ease: "power2.out" });
+                toggle.textContent = "−";
+            }
+        });
+    });
+};
+
+// ============================================================================
+// SMOOTH SCROLL & ACTIVE NAV
+// ============================================================================
+const initSmoothScroll = () => {
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Active Link Observer
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    const isActive = link.getAttribute('href') === `#${id}`;
+                    link.classList.toggle('text-[var(--xenon-color-cyan)]', isActive);
+                    link.classList.toggle('text-white/70', !isActive);
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+};
+
+// ============================================================================
+// GLOBAL INITIALIZATION
+// ============================================================================
+document.addEventListener("DOMContentLoaded", () => {
+    initWhatsappResvisibility();
+    initMobileMenu();
+    initFooterAccordion();
+    initGsapAnimations();
+    initFaqSystem();
+    initSmoothScroll();
+
+    // Button Click Feedback
+    document.querySelectorAll("button, .explore-button, .animated-button").forEach((btn) => {
+        btn.addEventListener("click", function() {
+            gsap.to(this, { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1 });
+        });
+    });
 });
