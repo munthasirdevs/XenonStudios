@@ -73,7 +73,7 @@ const initFooterAccordion = () => {
         footerToggles.forEach((toggle) => {
             const content = toggle.closest(".footer-column").querySelector(".footer-content");
             const icon = toggle.querySelector("svg");
-            
+
             if (isDesktop) {
                 content.style.maxHeight = "500px";
                 content.style.opacity = "1";
@@ -134,11 +134,11 @@ const initGsapAnimations = () => {
 
     // Hero Staggered Reveal
     const heroElements = ["#home .hero-title", "#home p", "#home .explore-button", "#home .view-services-btn"];
-    gsap.fromTo(heroElements, 
-        { 
-            opacity: 0, 
-            y: 30 
-        }, 
+    gsap.fromTo(heroElements,
+        {
+            opacity: 0,
+            y: 30
+        },
         {
             opacity: 1,
             y: 0,
@@ -198,7 +198,7 @@ const initGsapAnimations = () => {
     document.querySelectorAll(".status-card [data-count]").forEach((counter) => {
         const target = parseFloat(counter.getAttribute("data-count"));
         const symbol = counter.textContent.replace(/[0-9.]/g, "");
-        
+
         gsap.to(counter, {
             scrollTrigger: {
                 trigger: counter,
@@ -208,7 +208,7 @@ const initGsapAnimations = () => {
             duration: 2,
             snap: { innerHTML: 1 },
             ease: "power1.inOut",
-            onUpdate: function() {
+            onUpdate: function () {
                 counter.innerHTML = Math.floor(this.targets()[0].innerHTML) + symbol;
             }
         });
@@ -267,7 +267,7 @@ const initSmoothScroll = () => {
     // Active Link Observer
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section[id]');
-    
+
     const observerOptions = {
         root: null,
         rootMargin: '-20% 0px -70% 0px',
@@ -303,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Button Click Feedback
     document.querySelectorAll("button, .explore-button, .animated-button").forEach((btn) => {
-        btn.addEventListener("click", function() {
+        btn.addEventListener("click", function () {
             gsap.to(this, { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1 });
         });
     });
