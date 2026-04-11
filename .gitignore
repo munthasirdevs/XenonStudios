@@ -1,3 +1,4 @@
 # Qwen Code configuration and state
 .qwen/
+# Ignore the AddOn directory, which contains generated code and should not be tracked by version control
 AddOn/
