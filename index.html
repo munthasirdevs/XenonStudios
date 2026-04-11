@@ -18,8 +18,11 @@
     <link rel="icon" href="./images/xenon-mini-logo.png" type="image/x-icon">
 
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 
     <!-- Google Fonts (Optimized with display=swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,8 +32,8 @@
         rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
         <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet">
     </noscript>
 
     <!-- Material Symbols -->
@@ -52,14 +55,18 @@
 
 <body id="layout" class="outfit overflow-x-hidden">
     <!-- Page Loader -->
-    <div id="page-loader" class="fixed inset-0 z-[10000] bg-black flex items-center justify-center transition-opacity duration-500">
+    <div id="page-loader"
+        class="fixed inset-0 z-[10000] bg-black flex items-center justify-center transition-opacity duration-500">
         <div class="text-center">
             <div class="relative mb-8">
                 <img src="./images/logo.png" alt="Xenon Studios" class="h-16 md:h-20 animate-pulse">
-                <div class="absolute inset-0 bg-[var(--xenon-color-cyan)]/20 blur-3xl rounded-full -z-10 animate-pulse"></div>
+                <div class="absolute inset-0 bg-[var(--xenon-color-cyan)]/20 blur-3xl rounded-full -z-10 animate-pulse">
+                </div>
             </div>
             <div class="w-48 md:w-64 h-1 bg-white/10 rounded-full overflow-hidden mx-auto">
-                <div id="loader-progress" class="h-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] rounded-full transition-all duration-300" style="width: 0%"></div>
+                <div id="loader-progress"
+                    class="h-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] rounded-full transition-all duration-300"
+                    style="width: 0%"></div>
             </div>
             <p class="text-white/50 text-sm mt-4 font-light tracking-widest uppercase">Loading Experience</p>
         </div>
@@ -85,7 +92,7 @@
                     class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">About</a>
                 <a href="#services"
                     class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Services</a>
-                
+
                 <a href="#contact"
                     class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Contact
                     Us</a>
@@ -1641,16 +1648,19 @@
                         class="overflow-x-auto rounded-2xl border border-white/40 backdrop-blur-xl bg-black/40 shadow-[0_0_60px_-12px_rgba(255,255,255,0.3)]">
                         <table class="w-full text-left border-collapse">
                             <thead>
-                                <tr
-                                    class="sticky top-0 z-20 backdrop-blur-xl bg-black/80 border-b border-white/40">
+                                <tr class="sticky top-0 z-20 backdrop-blur-xl bg-black/80 border-b border-white/40">
                                     <th
                                         class="p-6 md:p-8 text-sm font-bold tracking-widest uppercase text-gray-400 w-1/4 border-r border-white/40">
                                         Feature</th>
-                                    <th class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-r border-white/25">Essential</th>
+                                    <th
+                                        class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-r border-white/25">
+                                        Essential</th>
                                     <th
                                         class="p-6 md:p-8 text-xl font-bold text-[var(--xenon-color-cyan)] w-1/4 text-center border-x border-white/40 bg-gradient-to-b from-white/5 to-transparent">
                                         Professional</th>
-                                    <th class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-l border-white/25">Enterprise
+                                    <th
+                                        class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-l border-white/25">
+                                        Enterprise
                                     </th>
                                 </tr>
                             </thead>
@@ -1658,8 +1668,7 @@
                                 <!-- Category: Design & Build -->
                                 <tr
                                     class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-purple)]/25 to-transparent">
-                                    <td
-                                        class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-cyan)] border-r border-white/40"
+                                    <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-cyan)] border-r border-white/40"
                                         colspan="4">
                                         <i class="fas fa-palette mr-2"></i>Design & Build
                                     </td>
@@ -1702,8 +1711,7 @@
                                 <!-- Category: Features & Integrations -->
                                 <tr
                                     class="bg-gradient-to-r from-[var(--xenon-color-purple)]/25 via-[var(--xenon-color-cyan)]/25 to-transparent">
-                                    <td
-                                        class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-purple)] border-r border-white/40"
+                                    <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-purple)] border-r border-white/40"
                                         colspan="4">
                                         <i class="fas fa-plug mr-2"></i>Features & Integrations
                                     </td>
@@ -1715,15 +1723,12 @@
                                     <td class="p-6 md:p-8 text-center border-r border-white/25">
                                         <span class="material-symbols-outlined text-gray-500 text-2xl">cancel</span>
                                     </td>
-                                    <td
-                                        class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
-                                        <span
-                                            class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                    <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                        <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
                                             style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
                                     </td>
                                     <td class="p-6 md:p-8 text-center border-l border-white/25">
-                                        <span
-                                            class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
                                             style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
                                     </td>
                                 </tr>
@@ -1734,15 +1739,12 @@
                                     <td class="p-6 md:p-8 text-center border-r border-white/25">
                                         <span class="material-symbols-outlined text-gray-500 text-2xl">cancel</span>
                                     </td>
-                                    <td
-                                        class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
-                                        <span
-                                            class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                    <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                        <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
                                             style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
                                     </td>
                                     <td class="p-6 md:p-8 text-center border-l border-white/25">
-                                        <span
-                                            class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
                                             style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
                                     </td>
                                 </tr>
@@ -1753,15 +1755,12 @@
                                     <td class="p-6 md:p-8 text-center border-r border-white/25">
                                         <span class="material-symbols-outlined text-gray-500 text-2xl">cancel</span>
                                     </td>
-                                    <td
-                                        class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
-                                        <span
-                                            class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                    <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                        <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
                                             style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
                                     </td>
                                     <td class="p-6 md:p-8 text-center border-l border-white/25">
-                                        <span
-                                            class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
                                             style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
                                     </td>
                                 </tr>
@@ -1769,8 +1768,7 @@
                                 <!-- Category: Support & Maintenance -->
                                 <tr
                                     class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
-                                    <td
-                                        class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-magenta)] border-r border-white/40"
+                                    <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-magenta)] border-r border-white/40"
                                         colspan="4">
                                         <i class="fas fa-headset mr-2"></i>Support & Maintenance
                                     </td>
@@ -1867,7 +1865,8 @@
                     <!-- Email -->
                     <a href="mailto:connect@xenonstudios.bd?subject=Project%20Inquiry&body=Hello%20Xenon%20Studios,%0A%0AI%20want%20to%20discuss%20a%20project%20with%20you."
                         target="_blank">
-                        <div class="glass-card rounded-xl p-6 flex items-center gap-5 mb-6 transition hover:scale-[1.02]">
+                        <div
+                            class="glass-card rounded-xl p-6 flex items-center gap-5 mb-6 transition hover:scale-[1.02]">
                             <div class="text-2xl text-[var(--xenon-color-cyan)]">
                                 <i class="fas fa-envelope"></i>
                             </div>
@@ -1875,7 +1874,8 @@
                                 <p class="font-semibold text-lg">Email</p>
                                 <div class="flex flex-col gap-1">
                                     <a href="mailto:connect@xenonstudios.bd?subject=Project%20Inquiry&body=Hello%20Xenon%20Studios,%0A%0AI%20want%20to%20discuss%20a%20project%20with%20you."
-                                        target="_blank" class="text-[var(--xenon-color-cyan)] text-sm transition hover:underline">
+                                        target="_blank"
+                                        class="text-[var(--xenon-color-cyan)] text-sm transition hover:underline">
                                         connect@xenonstudios.bd
                                     </a>
                                 </div>
@@ -2210,4 +2210,3 @@
 </body>
 
 </html>
-

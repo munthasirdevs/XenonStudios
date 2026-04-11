@@ -10,7 +10,8 @@
 /* Extra Small Phones (< 480px) */
 @media (max-width: 479px) {
   /* Prevent horizontal scroll */
-  html, body {
+  html,
+  body {
     overflow-x: hidden !important;
     max-width: 100vw;
   }
@@ -126,16 +127,9 @@
     height: 20px;
   }
 
-  /* Reduce animations for performance */
+  /* Keep animations smooth on mobile - match desktop speed */
   .glow {
-    animation-duration: 8s !important;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.3s !important;
-    transition-duration: 0.2s !important;
+    animation-duration: 10s !important;
   }
 }
 
@@ -185,8 +179,13 @@
 
   /* Reduce glow animation on mobile */
   @keyframes glow-pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.5; }
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.5;
+    }
   }
 }
 
@@ -273,7 +272,9 @@
 
   /* Optimize shadows */
   .shadow-\[0_0_80px_-16px_rgba\(255\,255\,255\,0\.4\)\,0_20px_60px_rgba\(0\,0\,0\,0\.5\)\] {
-    box-shadow: 0 0 40px -8px rgba(255,255,255,0.3), 0 10px 30px rgba(0,0,0,0.4) !important;
+    box-shadow:
+      0 0 40px -8px rgba(255, 255, 255, 0.3),
+      0 10px 30px rgba(0, 0, 0, 0.4) !important;
   }
 
   /* Reduce table complexity */
