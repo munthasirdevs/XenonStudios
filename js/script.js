@@ -1,28 +1,105 @@
 // ============================================================================
+// PAGE LOADER
+// ============================================================================
+const initPageLoader = () => {
+    const loader = document.getElementById('page-loader');
+    const progressBar = document.getElementById('loader-progress');
+    
+    if (!loader || !progressBar) return;
+
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress > 90) progress = 90;
+        progressBar.style.width = progress + '%';
+    }, 100);
+
+    const hideLoader = () => {
+        clearInterval(interval);
+        progressBar.style.width = '100%';
+        
+        setTimeout(() => {
+            loader.classList.add('fade-out');
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 500);
+        }, 300);
+    };
+
+    // Hide when page is fully loaded
+    if (document.readyState === 'complete') {
+        hideLoader();
+    } else {
+        window.addEventListener('load', hideLoader);
+        // Fallback: hide after 3 seconds max
+        setTimeout(hideLoader, 3000);
+    }
+};
+
+// ============================================================================
 // INITIALIZATION
 // ============================================================================
 gsap.registerPlugin(ScrollTrigger);
 
 // ============================================================================
-// WHATSAPP BUTTON SCROLL VISIBILITY
+// SCROLL-TRIGGERED ANIMATIONS (Performance Optimized)
+// ============================================================================
+const initScrollAnimations = () => {
+    const animatedElements = document.querySelectorAll('.section-animate');
+    
+    if (!animatedElements.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                // Optional: unobserve after animation to save resources
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    animatedElements.forEach(el => observer.observe(el));
+};
+
+// ============================================================================
+// WHATSAPP BUTTON SCROLL VISIBILITY (Optimized with throttle)
 // ============================================================================
 const initWhatsappResvisibility = () => {
     const whatsappBtn = document.getElementById("whatsapp-btn");
     const heroSection = document.getElementById("home");
 
     if (whatsappBtn && heroSection) {
+        let ticking = false;
+        
         const showButton = () => {
-            const heroBottom = heroSection.offsetHeight;
-            const scrollPosition = window.scrollY + window.innerHeight;
+            const heroBottom = heroSection.getBoundingClientRect().bottom + window.scrollY;
+            const scrollPosition = window.scrollY + window.innerHeight * 0.7;
 
-            if (scrollPosition > heroBottom + 100) {
+            if (scrollPosition > heroBottom) {
                 whatsappBtn.classList.remove("opacity-0", "invisible");
+                whatsappBtn.classList.add("opacity-100", "visible");
             } else {
                 whatsappBtn.classList.add("opacity-0", "invisible");
+                whatsappBtn.classList.remove("opacity-100", "visible");
             }
+            ticking = false;
         };
 
-        window.addEventListener("scroll", showButton);
+        // Throttled scroll listener
+        window.addEventListener("scroll", () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    showButton();
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+        
         showButton();
     }
 };
@@ -294,6 +371,8 @@ const initSmoothScroll = () => {
 // GLOBAL INITIALIZATION
 // ============================================================================
 document.addEventListener("DOMContentLoaded", () => {
+    initPageLoader();
+    initScrollAnimations();
     initWhatsappResvisibility();
     initMobileMenu();
     initFooterAccordion();

@@ -51,7 +51,7 @@
     padding: 0;
   }
 
-  nav .glass {
+  nav .glass-card {
     padding: 10px 14px;
   }
 
@@ -87,7 +87,7 @@
   }
 
   /* Pricing cards stack */
-  .animated-glow-border,
+  .pricing-card-popular,
   .glass-card {
     padding: 1.5rem !important;
   }
@@ -115,13 +115,13 @@
   }
 
   /* WhatsApp button larger */
-  .outer-cont {
+  .whatsapp-button {
     padding: 12px 16px;
     font-size: 15px;
     min-height: 48px;
   }
 
-  .outer-cont svg {
+  .whatsapp-button svg {
     width: 20px;
     height: 20px;
   }
@@ -292,7 +292,7 @@
 
 /* Extra Small (Phones, < 480px) */
 @media (max-width: 479px) {
-  .ray {
+  .stats-card-ray {
     width: 100px !important;
   }
 
@@ -301,7 +301,7 @@
     width: 95%;
   }
 
-  nav .glass {
+  nav .glass-card {
     padding: 8px 12px;
   }
 
@@ -313,12 +313,12 @@
     margin-left: 0;
   }
 
-  .outer-cont {
+  .whatsapp-button {
     padding: 8px 12px;
     font-size: 13px;
   }
 
-  .outer-cont svg {
+  .whatsapp-button svg {
     width: 18px;
     height: 18px;
   }
@@ -343,18 +343,18 @@
     font-size: 14px;
   }
 
-  .outer {
+  .stats-card {
     width: 100%;
     max-width: 280px;
     height: auto;
     aspect-ratio: 1 / 0.85;
   }
 
-  .card .text {
+  .stats-card-inner .text {
     font-size: 3rem;
   }
 
-  .card div.text-lg {
+  .stats-card-inner div.text-lg {
     font-size: 14px;
   }
 
@@ -389,7 +389,7 @@
 
 /* Small (Phones, 480px - 639px) */
 @media (max-width: 639px) {
-  .ray {
+  .stats-card-ray {
     width: 140px !important;
   }
 
@@ -398,7 +398,7 @@
     line-height: 1.15;
   }
 
-  nav .glass {
+  nav .glass-card {
     padding: 10px 14px;
   }
 
@@ -416,7 +416,7 @@
     width: 100%;
   }
 
-  .outer {
+  .stats-card {
     width: 100%;
     max-width: 300px;
     height: auto;
@@ -426,7 +426,7 @@
     display: none;
   }
 
-  .card .text {
+  .stats-card-inner .text {
     font-size: 3.5rem;
   }
 
@@ -450,7 +450,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .outer {
+  .stats-card {
     width: 100%;
     max-width: 280px;
     margin: 0 auto;
@@ -481,7 +481,7 @@
     justify-items: center;
   }
 
-  .outer {
+  .stats-card {
     width: 100%;
     max-width: 300px;
   }

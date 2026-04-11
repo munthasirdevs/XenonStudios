@@ -2,7 +2,70 @@
    BASE STYLES & RESET
    Global reset and base layout styling
    ============================================ */
+
+/* Page Loader */
+#page-loader {
+  opacity: 1;
+}
+
+#page-loader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#page-loader.fade-out #loader-progress {
+  width: 100% !important;
+}
+
+@keyframes loader-glow {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   CRITICAL FIX: PREVENT HORIZONTAL OVERFLOW
+   ============================================ */
+html,
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  position: relative;
+  left: 0;
+}
+
+/* Prevent images/elements from causing overflow */
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure containers don't overflow */
+.max-w-7xl,
+.max-w-6xl,
+.max-w-5xl,
+.max-w-4xl {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -105,7 +168,223 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Scrollbar */
+/* ============================================
+   VISUAL HIERARCHY & SECTION SPACING
+   ============================================ */
+
+/* Section Spacing Scale */
+section:not(#home) {
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+/* Hero section special spacing */
+#home {
+  padding-top: clamp(6rem, 15vh, 10rem);
+  padding-bottom: clamp(2rem, 5vh, 4rem);
+}
+
+/* Consistent heading margins */
+section h2 {
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+section p.text-gray-400 {
+  margin-bottom: 2rem;
+}
+
+/* Grid spacing */
+section .grid {
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+/* CTA prominence */
+.space-button,
+.animated-button,
+.explore-button {
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.space-button:hover,
+.animated-button:hover,
+.explore-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 0 40px rgba(0, 242, 255, 0.5),
+    0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Typography improvements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.02em;
+}
+
+.text-gray-400 {
+  line-height: 1.6;
+}
+
+/* Card elevation */
+.glass-card {
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(0, 242, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   SCROLL-TRIGGERED ANIMATIONS
+   Elements animate when they enter viewport
+   ============================================ */
+
+/* Base animation states */
+.section-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.section-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for child elements */
+.section-animate .stagger-1 {
+  transition-delay: 0.1s;
+}
+.section-animate .stagger-2 {
+  transition-delay: 0.2s;
+}
+.section-animate .stagger-3 {
+  transition-delay: 0.3s;
+}
+.section-animate .stagger-4 {
+  transition-delay: 0.4s;
+}
+
+/* ============================================
+   ENHANCED HOVER ANIMATIONS
+   Premium micro-interactions for all elements
+   ============================================ */
+
+/* Pricing Cards - Premium Hover */
+.pricing-card-popular {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.pricing-card-popular:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 60px rgba(0, 242, 255, 0.3),
+    0 0 40px rgba(112, 0, 255, 0.2);
+}
+
+/* Stats Cards Hover */
+.stats-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.stats-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow:
+    0 15px 40px rgba(0, 242, 255, 0.25),
+    0 0 30px rgba(112, 0, 255, 0.15);
+}
+
+.stats-card:hover .stats-card-inner .text {
+  color: var(--xenon-color-cyan);
+  text-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+}
+
+/* Service Cards Enhanced */
+.service-card {
+  will-change: transform, box-shadow;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(0, 242, 255, 0.2);
+}
+
+/* FAQ Items Hover */
+details.glass-card {
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+
+details.glass-card:hover {
+  transform: translateX(4px);
+  border-left: 3px solid var(--xenon-color-cyan);
+}
+
+/* Social Icons Bounce */
+.social-icon {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.15);
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+/* Footer Links Glow */
+footer a:hover {
+  text-shadow: 0 0 8px currentColor;
+  transform: translateX(3px);
+  transition: all 0.3s ease;
+}
+
+/* Contact Cards Slide */
+a[href^="mailto:"],
+a[href^="tel:"] {
+  transition: all 0.3s ease;
+}
+
+a[href^="mailto:"]:hover .glass-card,
+a[href^="tel:"]:hover .glass-card {
+  transform: translateX(6px) scale(1.02);
+}
+
+/* Logo Link Glow */
+nav a:hover img {
+  filter: drop-shadow(0 0 10px var(--xenon-color-cyan));
+  transition: filter 0.3s ease;
+}
+
+/* Table Rows Highlight */
+table tr {
+  transition: background-color 0.3s ease;
+}
+
+/* Comparison table special hover */
+table tr:hover td {
+  background-color: rgba(0, 242, 255, 0.05);
+}
+
+/* ============================================
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -187,14 +466,14 @@ body {
   max-height: 500px;
 }
 
-.glass {
+.glass-card {
   background: var(--xenon-color-dark-transparent);
   backdrop-filter: blur(20px);
   border: 1px solid var(--xenon-color-white-transparent);
   transition: all 0.3s ease;
 }
 
-.glass:hover {
+.glass-card:hover {
   background: var(--xenon-color-dark-transparent);
   border-color: var(--xenon-color-cyan-faint);
 }
@@ -384,7 +663,7 @@ body {
   opacity: 1;
 }
 
-.outer-cont {
+.whatsapp-button {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -409,7 +688,7 @@ body {
   text-shadow: 1px 1px 1px var(--xenon-color-black);
 }
 
-.outer-cont::before {
+.whatsapp-button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -428,16 +707,16 @@ body {
   transition: all 0.3s ease;
 }
 
-.outer-cont:hover::before {
+.whatsapp-button:hover::before {
   filter: blur(15px);
 }
 
-.outer-cont:active::before {
+.whatsapp-button:active::before {
   filter: blur(5px);
   transform: translateY(1px);
 }
 
-.outer-cont:active {
+.whatsapp-button:active {
   box-shadow:
     inset 0px 0px 5px var(--xenon-color-white-translucent),
     inset 0px 35px 30px var(--xenon-color-black);
@@ -489,19 +768,22 @@ body {
     box-shadow 0.6s ease;
 }
 
-.service-card .card__list {
+.service-card .service-features-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.service-card .card__list .card__list_item {
+.service-card .service-features-list .service-feature-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.service-card .card__list .card__list_item .check {
+.service-card
+  .service-features-list
+  .service-feature-item
+  .service-feature-check {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -643,7 +925,7 @@ body {
    STATISTICS CARDS
    Cards with animated borders and text gradients
    ============================================ */
-.outer {
+.stats-card {
   width: 300px;
   height: 250px;
   border-radius: 10px;
@@ -656,7 +938,7 @@ body {
   position: relative;
 }
 
-.dot {
+.stats-card-dot {
   width: 5px;
   aspect-ratio: 1;
   position: absolute;
@@ -669,7 +951,7 @@ body {
   animation: moveDot 6s linear infinite;
 }
 
-.card {
+.stats-card-inner {
   z-index: 1;
   width: 100%;
   height: 100%;
@@ -689,7 +971,7 @@ body {
   color: var(--xenon-color-white);
 }
 
-.ray {
+.stats-card-ray {
   width: 220px;
   height: 45px;
   border-radius: 100px;
@@ -704,7 +986,7 @@ body {
   transform: rotate(40deg);
 }
 
-.card .text {
+.stats-card-inner .text {
   font-weight: bolder;
   font-size: 4rem;
   background: linear-gradient(
@@ -717,14 +999,14 @@ body {
   color: transparent;
 }
 
-.line {
+.stats-card-line {
   width: 100%;
   height: 1px;
   position: absolute;
   background-color: var(--xenon-color-grey-ash);
 }
 
-.topl {
+.stats-card-line-top {
   top: 10%;
   background: linear-gradient(
     90deg,
@@ -733,11 +1015,11 @@ body {
   );
 }
 
-.bottoml {
+.stats-card-line-bottom {
   bottom: 10%;
 }
 
-.leftl {
+.stats-card-line-left {
   left: 10%;
   width: 1px;
   height: 100%;
@@ -748,7 +1030,7 @@ body {
   );
 }
 
-.rightl {
+.stats-card-line-right {
   right: 10%;
   width: 1px;
   height: 100%;
@@ -775,13 +1057,13 @@ body {
   inherits: false;
 }
 
-.animated-glow-border {
+.pricing-card-popular {
   position: relative;
   border-radius: 0.75rem;
   /* rounded-xl */
 }
 
-.animated-glow-border::after {
+.pricing-card-popular::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -1086,7 +1368,11 @@ body {
 }
 
 .material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 }
 
 /* Premium Space Button Styles */
