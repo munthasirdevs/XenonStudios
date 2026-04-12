@@ -545,7 +545,8 @@
   button,
   .service-card-button,
   .explore-button,
-  .animated-button {
+  .animated-button,
+  .quiz-cta-button {
     display: none !important;
   }
 
@@ -556,5 +557,22 @@
 
   .service-card {
     break-inside: avoid;
+  }
+}
+
+/* ============================================
+   QUIZ CTA BUTTON - MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+  .quiz-cta-button {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .quiz-badge {
+    font-size: 0.65rem;
   }
 }
