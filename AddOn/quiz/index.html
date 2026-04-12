@@ -35,312 +35,390 @@
     <link rel="stylesheet" href="./css/quiz-style.css">
 </head>
 
-<body>
-    <!-- Particle Background -->
-    <canvas id="particle-canvas" width="1536" height="395"></canvas>
+<body id="layout" class="outfit overflow-x-hidden">
+    <!-- Background Effects -->
+    <div class="grid-bg"></div>
+    <div class="glow bg-[var(--xenon-color-cyan)]" style="top: 10%; left: -5%;"></div>
+    <div class="glow bg-[var(--xenon-color-purple)]" style="top: 60%; right: -10%;"></div>
 
-    <!-- Background Glow Effects -->
-    <div class="bg-glow bg-glow-cyan"></div>
-    <div class="bg-glow bg-glow-purple"></div>
+    <!-- Particle Background -->
+    <div id="particles-container" class="fixed inset-0 pointer-events-none z-0"></div>
 
     <!-- Progress Bar -->
-    <div class="progress-container">
-        <div class="progress-bar" style="width: 33.3333%;"></div>
+    <div class="fixed top-0 left-0 w-full h-1 bg-white/5 z-[100]">
+        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] transition-all duration-700 ease-out" style="width: 0%"></div>
     </div>
 
-    <!-- Header -->
-    <header class="quiz-header">
-        <div class="header-left">
-            <span class="logo-text">XENON STUDIOS</span>
-        </div>
-        <div class="header-right">
-            <span class="step-indicator">QUESTION <span class="current-step">1</span> OF 3</span>
-        </div>
-    </header>
+    <!-- Main Quiz Container -->
+    <main id="quiz-container" class="relative min-h-screen flex items-center justify-center px-4 py-12 z-10">
 
-    <!-- Quiz Container -->
-    <main class="quiz-container">
-        <!-- PAGE 1: Identity Classification -->
-        <div class="quiz-page active" data-page="1" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
-            <div class="page-content">
-                <h1 class="question-heading">What type of business are you?</h1>
-                <p class="question-subtext">Select the option that best describes your current operation.</p>
-
-                <div class="options-grid">
-                    <div class="option-card" data-value="saas" data-score="2">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
-                        </div>
-                        <div class="option-icon">
-                            <span class="material-symbols-outlined">cloud</span>
-                        </div>
-                        <h3 class="option-title">SaaS / Tech Startup</h3>
-                        <p class="option-description">Software products, platforms, or tech-first ventures building
-                            scalable solutions.</p>
-                    </div>
-
-                    <div class="option-card" data-value="ecommerce" data-score="2">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
-                        </div>
-                        <div class="option-icon">
-                            <span class="material-symbols-outlined">shopping_cart</span>
-                        </div>
-                        <h3 class="option-title">E-commerce Brand</h3>
-                        <p class="option-description">Online retail, D2C brands, or marketplace sellers scaling product
-                            sales.</p>
-                    </div>
-
-                    <div class="option-card" data-value="business" data-score="1">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
-                        </div>
-                        <div class="option-icon">
-                            <span class="material-symbols-outlined">corporate_fare</span>
-                        </div>
-                        <h3 class="option-title">Business / Company</h3>
-                        <p class="option-description">Traditional businesses, consulting firms, or established companies
-                            going digital.</p>
-                    </div>
-
-                    <div class="option-card" data-value="clinic" data-score="1">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
-                        </div>
-                        <div class="option-icon">
-                            <span class="material-symbols-outlined">medical_services</span>
-                        </div>
-                        <h3 class="option-title">Clinic / Professional Service</h3>
-                        <p class="option-description">Healthcare, legal, finance, or other professional service
-                            providers.</p>
-                    </div>
-
-                    <div class="option-card" data-value="agency" data-score="2">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
-                        </div>
-                        <div class="option-icon">
-                            <span class="material-symbols-outlined">group_work</span>
-                        </div>
-                        <h3 class="option-title">Agency / Creator</h3>
-                        <p class="option-description">Marketing agencies, content creators, freelancers, or creative
-                            studios.</p>
-                    </div>
+        <!-- Page 1: Identity Classification -->
+        <div id="page-identity" class="quiz-page active">
+            <div class="max-w-4xl mx-auto">
+                <!-- Question Header -->
+                <div class="text-center mb-12 quiz-header">
+                    <span class="question-step text-[10px] uppercase font-bold mb-4 block tracking-[0.3em] text-[var(--xenon-color-cyan)]">Question 1 of 3</span>
+                    <h1 class="question-title text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        What best describes your <span class="text-gradient-animate">business?</span>
+                    </h1>
+                    <p class="question-subtitle text-white/50 text-base md:text-lg max-w-xl mx-auto">
+                        Select the option that most closely matches your business model
+                    </p>
                 </div>
 
-                <div class="navigation-footer">
-                    <div class="nav-spacer"></div>
-                    <button class="next-btn" disabled="">
-                        <span class="btn-text">Next Question</span>
-                        <span class="material-symbols-outlined btn-arrow">arrow_forward</span>
+                <!-- Options Grid -->
+                <div class="quiz-options-grid identity-grid">
+                    <!-- SaaS / Tech Startup -->
+                    <button class="quiz-option-card identity-option" data-value="saas" data-points="2">
+                        <div class="option-icon">
+                            <span class="material-symbols-outlined text-3xl">rocket_launch</span>
+                        </div>
+                        <div class="option-content">
+                            <h3 class="option-title">SaaS / Tech Startup</h3>
+                            <p class="option-description">Software products, platforms, or technology solutions</p>
+                        </div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        </div>
+                        <div class="option-glow"></div>
+                    </button>
+
+                    <!-- E-commerce Brand -->
+                    <button class="quiz-option-card identity-option" data-value="ecommerce" data-points="2">
+                        <div class="option-icon">
+                            <span class="material-symbols-outlined text-3xl">shopping_cart</span>
+                        </div>
+                        <div class="option-content">
+                            <h3 class="option-title">E-commerce Brand</h3>
+                            <p class="option-description">Online stores, retail, or product sales</p>
+                        </div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        </div>
+                        <div class="option-glow"></div>
+                    </button>
+
+                    <!-- Business / Company -->
+                    <button class="quiz-option-card identity-option" data-value="business" data-points="1">
+                        <div class="option-icon">
+                            <span class="material-symbols-outlined text-3xl">business_center</span>
+                        </div>
+                        <div class="option-content">
+                            <h3 class="option-title">Business / Company</h3>
+                            <p class="option-description">Traditional business or corporate services</p>
+                        </div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        </div>
+                        <div class="option-glow"></div>
+                    </button>
+
+                    <!-- Clinic / Professional Service -->
+                    <button class="quiz-option-card identity-option" data-value="clinic" data-points="1">
+                        <div class="option-icon">
+                            <span class="material-symbols-outlined text-3xl">medical_services</span>
+                        </div>
+                        <div class="option-content">
+                            <h3 class="option-title">Clinic / Professional Service</h3>
+                            <p class="option-description">Healthcare, consulting, or professional services</p>
+                        </div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        </div>
+                        <div class="option-glow"></div>
+                    </button>
+
+                    <!-- Agency / Creator -->
+                    <button class="quiz-option-card identity-option" data-value="agency" data-points="2">
+                        <div class="option-icon">
+                            <span class="material-symbols-outlined text-3xl">palette</span>
+                        </div>
+                        <div class="option-content">
+                            <h3 class="option-title">Agency / Creator</h3>
+                            <p class="option-description">Marketing, content creation, or creative services</p>
+                        </div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        </div>
+                        <div class="option-glow"></div>
+                    </button>
+                </div>
+
+                <!-- Continue Button -->
+                <div class="mt-12 text-center">
+                    <button id="continue-stage" class="quiz-continue-btn" disabled>
+                        <span class="btn-text">Continue</span>
+                        <span class="material-symbols-outlined btn-icon">arrow_forward</span>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- PAGE 2: Business Stage + Needs -->
-        <div class="quiz-page" data-page="2">
-            <div class="page-content">
-                <h1 class="question-heading">What stage is your business in?</h1>
-                <p class="question-subtext">Tell us where you are right now — we'll map your growth path.</p>
-
-                <div class="options-grid options-grid-stage">
-                    <div class="option-card option-card-large" data-value="starting" data-score="1">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
-                        </div>
-                        <div class="option-card-large-content">
-                            <div class="option-icon option-icon-large">
-                                <span class="material-symbols-outlined">rocket_launch</span>
-                            </div>
-                            <div class="option-text-content">
-                                <h3 class="option-title">Starting</h3>
-                                <p class="option-description">Just getting started — need a website, basic online
-                                    presence, and foundational digital setup.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="option-card option-card-large" data-value="growing" data-score="2">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
-                        </div>
-                        <div class="option-card-large-content">
-                            <div class="option-icon option-icon-large">
-                                <span class="material-symbols-outlined">trending_up</span>
-                            </div>
-                            <div class="option-text-content">
-                                <h3 class="option-title">Growing</h3>
-                                <p class="option-description">Generating revenue but need more leads, better
-                                    conversions, and structured marketing systems.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="option-card option-card-large" data-value="scaling" data-score="3">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
-                        </div>
-                        <div class="option-card-large-content">
-                            <div class="option-icon option-icon-large">
-                                <span class="material-symbols-outlined">speed</span>
-                            </div>
-                            <div class="option-text-content">
-                                <h3 class="option-title">Scaling</h3>
-                                <p class="option-description">Ready for automation, AI-powered dashboards, and
-                                    full-system growth infrastructure.</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Page 2: Stage + Need -->
+        <div id="page-stage" class="quiz-page">
+            <div class="max-w-4xl mx-auto">
+                <!-- Question Header -->
+                <div class="text-center mb-12 quiz-header">
+                    <span class="question-step text-[10px] uppercase font-bold mb-4 block tracking-[0.3em] text-[var(--xenon-color-purple)]">Question 2 of 3</span>
+                    <h1 class="question-title text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        What's your current <span class="text-gradient-animate">growth stage?</span>
+                    </h1>
+                    <p class="question-subtitle text-white/50 text-base md:text-lg max-w-xl mx-auto">
+                        Where does your business need the most support right now?
+                    </p>
                 </div>
 
-                <div class="navigation-footer">
-                    <button class="back-btn" aria-label="Previous question">
-                        <span class="material-symbols-outlined btn-arrow-back">arrow_back</span>
+                <!-- Options Grid -->
+                <div class="quiz-options-grid stage-grid">
+                    <!-- Starting -->
+                    <button class="quiz-option-card stage-option" data-value="starting" data-points="1">
+                        <div class="stage-card-content">
+                            <div class="stage-icon-large">
+                                <span class="material-symbols-outlined text-5xl">sprout</span>
+                            </div>
+                            <h3 class="stage-title">Starting Out</h3>
+                            <p class="stage-description">I need to establish my online presence and build a professional website or platform</p>
+                            <div class="stage-needs">
+                                <span class="need-tag">Website Design</span>
+                                <span class="need-tag">Brand Identity</span>
+                                <span class="need-tag">Digital Presence</span>
+                            </div>
+                        </div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-2xl">check_circle</span>
+                        </div>
+                        <div class="option-glow"></div>
+                    </button>
+
+                    <!-- Growing -->
+                    <button class="quiz-option-card stage-option" data-value="growing" data-points="2">
+                        <div class="stage-card-content">
+                            <div class="stage-icon-large">
+                                <span class="material-symbols-outlined text-5xl">trending_up</span>
+                            </div>
+                            <h3 class="stage-title">Growing Fast</h3>
+                            <p class="stage-description">I have a presence but need more leads, conversions, and systematic growth</p>
+                            <div class="stage-needs">
+                                <span class="need-tag">Lead Generation</span>
+                                <span class="need-tag">Conversion Optimization</span>
+                                <span class="need-tag">Marketing Systems</span>
+                            </div>
+                        </div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-2xl">check_circle</span>
+                        </div>
+                        <div class="option-glow"></div>
+                    </button>
+
+                    <!-- Scaling -->
+                    <button class="quiz-option-card stage-option" data-value="scaling" data-points="3">
+                        <div class="stage-card-content">
+                            <div class="stage-icon-large">
+                                <span class="material-symbols-outlined text-5xl">speed</span>
+                            </div>
+                            <h3 class="stage-title">Scaling Up</h3>
+                            <p class="stage-description">I need automation, advanced systems, and enterprise-level infrastructure</p>
+                            <div class="stage-needs">
+                                <span class="need-tag">AI Automation</span>
+                                <span class="need-tag">System Integration</span>
+                                <span class="need-tag">Enterprise Solutions</span>
+                            </div>
+                        </div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-2xl">check_circle</span>
+                        </div>
+                        <div class="option-glow"></div>
+                    </button>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="mt-12 flex justify-center gap-4">
+                    <button id="back-to-identity" class="quiz-back-btn">
+                        <span class="material-symbols-outlined btn-icon">arrow_back</span>
                         <span class="btn-text">Back</span>
                     </button>
-                    <button class="next-btn" disabled="">
-                        <span class="btn-text">Next Question</span>
-                        <span class="material-symbols-outlined btn-arrow">arrow_forward</span>
+                    <button id="continue-budget" class="quiz-continue-btn" disabled>
+                        <span class="btn-text">Continue</span>
+                        <span class="material-symbols-outlined btn-icon">arrow_forward</span>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- PAGE 3: Budget Qualification -->
-        <div class="quiz-page" data-page="3">
-            <div class="page-content">
-                <h1 class="question-heading">What's your investment budget?</h1>
-                <p class="question-subtext">This helps us recommend the right growth path for your business.</p>
+        <!-- Page 3: Budget Qualification -->
+        <div id="page-budget" class="quiz-page">
+            <div class="max-w-4xl mx-auto">
+                <!-- Question Header -->
+                <div class="text-center mb-12 quiz-header">
+                    <span class="question-step text-[10px] uppercase font-bold mb-4 block tracking-[0.3em] text-[var(--xenon-color-magenta)]">Question 3 of 3</span>
+                    <h1 class="question-title text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        What's your investment <span class="text-gradient-animate">budget?</span>
+                    </h1>
+                    <p class="question-subtitle text-white/50 text-base md:text-lg max-w-xl mx-auto">
+                        This helps us recommend the right solution for your needs
+                    </p>
+                </div>
 
-                <div class="options-grid options-grid-budget">
-                    <div class="option-card budget-card" data-value="300-1000" data-score="1">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
-                        </div>
+                <!-- Options Grid -->
+                <div class="quiz-options-grid budget-grid">
+                    <!-- $300-$1,000 -->
+                    <button class="quiz-option-card budget-option" data-value="300-1000" data-points="1">
                         <div class="budget-amount">$300 – $1,000</div>
-                        <p class="option-description">Foundational digital presence setup</p>
-                    </div>
-
-                    <div class="option-card budget-card" data-value="1000-3000" data-score="2">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
+                        <div class="budget-description">Starter projects and basic solutions</div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-xl">check_circle</span>
                         </div>
+                        <div class="option-glow"></div>
+                    </button>
+
+                    <!-- $1,000-$3,000 -->
+                    <button class="quiz-option-card budget-option" data-value="1000-3000" data-points="2">
                         <div class="budget-amount">$1,000 – $3,000</div>
-                        <p class="option-description">Professional website + marketing system</p>
-                    </div>
-
-                    <div class="option-card budget-card" data-value="3000-10000" data-score="3">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
+                        <div class="budget-description">Professional packages with full features</div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-xl">check_circle</span>
                         </div>
+                        <div class="option-glow"></div>
+                    </button>
+
+                    <!-- $3,000-$10,000 -->
+                    <button class="quiz-option-card budget-option" data-value="3000-10000" data-points="3">
                         <div class="budget-amount">$3,000 – $10,000</div>
-                        <p class="option-description">Full-stack digital transformation</p>
-                    </div>
-
-                    <div class="option-card budget-card" data-value="10000-plus" data-score="4">
-                        <div class="option-selection-indicator">
-                            <span class="material-symbols-outlined check-icon">check_circle</span>
+                        <div class="budget-description">Advanced systems and comprehensive solutions</div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-xl">check_circle</span>
                         </div>
+                        <div class="option-glow"></div>
+                    </button>
+
+                    <!-- $10,000+ -->
+                    <button class="quiz-option-card budget-option" data-value="10000+" data-points="4">
                         <div class="budget-amount">$10,000+</div>
-                        <p class="option-description">Enterprise-grade growth infrastructure</p>
-                    </div>
+                        <div class="budget-description">Enterprise-grade infrastructure and automation</div>
+                        <div class="option-check">
+                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        </div>
+                        <div class="option-glow"></div>
+                    </button>
                 </div>
 
-                <div class="navigation-footer">
-                    <button class="back-btn" aria-label="Previous question">
-                        <span class="material-symbols-outlined btn-arrow-back">arrow_back</span>
+                <!-- Navigation Buttons -->
+                <div class="mt-12 flex justify-center gap-4">
+                    <button id="back-to-stage" class="quiz-back-btn">
+                        <span class="material-symbols-outlined btn-icon">arrow_back</span>
                         <span class="btn-text">Back</span>
                     </button>
-                    <button class="next-btn complete-btn" disabled="">
+                    <button id="get-results" class="quiz-continue-btn" disabled>
                         <span class="btn-text">Get My Results</span>
-                        <span class="material-symbols-outlined btn-arrow">auto_awesome</span>
+                        <span class="material-symbols-outlined btn-icon">auto_awesome</span>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- RESULT PAGE -->
-        <div class="quiz-page" data-page="result">
-            <div class="page-content">
-                <!-- Processing Screen -->
-                <div class="processing-screen">
-                    <div class="processing-animation">
-                        <div class="scanner-line"></div>
-                        <div class="processing-icon">
-                            <span class="material-symbols-outlined spinning-icon">analytics</span>
-                        </div>
-                        <h2 class="processing-text">Analyzing your business profile...</h2>
-                        <div class="processing-dots">
-                            <span></span><span></span><span></span>
-                        </div>
+        <!-- Processing Screen -->
+        <div id="page-processing" class="quiz-page">
+            <div class="max-w-2xl mx-auto text-center">
+                <div class="processing-animation">
+                    <div class="scanner-ring"></div>
+                    <div class="scanner-ring scanner-ring-2"></div>
+                    <div class="scanner-ring scanner-ring-3"></div>
+                    <div class="scanner-core">
+                        <span class="material-symbols-outlined text-6xl">analytics</span>
                     </div>
                 </div>
-
-                <!-- Result Content -->
-                <div class="result-content hidden">
-                    <div class="result-header">
-                        <div class="result-badge">
-                            <span class="material-symbols-outlined">verified</span>
-                            <span class="badge-text">Analysis Complete</span>
-                        </div>
-                        <h1 class="result-heading">Your Growth Path</h1>
-                    </div>
-
-                    <div class="result-summary-grid">
-                        <div class="result-card">
-                            <div class="result-card-header">
-                                <span class="material-symbols-outlined result-card-icon">business</span>
-                                <span class="result-card-label">Business Type</span>
-                            </div>
-                            <p class="result-card-value user-type-value">—</p>
-                        </div>
-
-                        <div class="result-card">
-                            <div class="result-card-header">
-                                <span class="material-symbols-outlined result-card-icon">flag</span>
-                                <span class="result-card-label">Business Stage</span>
-                            </div>
-                            <p class="result-card-value business-stage-value">—</p>
-                        </div>
-
-                        <div class="result-card">
-                            <div class="result-card-header">
-                                <span class="material-symbols-outlined result-card-icon">payments</span>
-                                <span class="result-card-label">Budget Level</span>
-                            </div>
-                            <p class="result-card-value budget-tier-value">—</p>
-                        </div>
-                    </div>
-
-                    <div class="recommendation-card">
-                        <div class="recommendation-header">
-                            <span class="material-symbols-outlined recommendation-icon">auto_awesome</span>
-                            <span class="recommendation-label">Recommended For You</span>
-                        </div>
-                        <h3 class="recommendation-tier">—</h3>
-                        <p class="recommendation-description">—</p>
-                    </div>
-
-                    <a href="#" class="result-cta-btn">
-                        <span class="cta-btn-text">—</span>
-                        <span class="material-symbols-outlined cta-arrow">arrow_forward</span>
-                    </a>
-
-                    <a href="../../index.html" class="back-to-site">
-                        <span class="material-symbols-outlined">home</span>
-                        <span>Back to Xenon Studios</span>
-                    </a>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-8 mb-4">Analyzing Your Profile</h2>
+                <p class="text-white/50 text-lg mb-8" id="processing-text">Evaluating business requirements...</p>
+                <div class="w-full max-w-md mx-auto h-2 bg-white/10 rounded-full overflow-hidden">
+                    <div id="processing-bar" class="h-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] rounded-full transition-all duration-500" style="width: 0%"></div>
                 </div>
             </div>
         </div>
+
+        <!-- Results Page -->
+        <div id="page-results" class="quiz-page">
+            <div class="max-w-4xl mx-auto">
+                <!-- Results Header -->
+                <div class="text-center mb-12">
+                    <div class="results-badge">
+                        <span class="material-symbols-outlined text-4xl">check_circle</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Your Business Profile</h1>
+                    <p class="text-white/50 text-lg max-w-xl mx-auto">Here's what we recommend based on your answers</p>
+                </div>
+
+                <!-- Profile Summary Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <!-- Business Type Card -->
+                    <div class="result-card">
+                        <div class="result-card-icon">
+                            <span class="material-symbols-outlined text-3xl" id="result-business-icon">business</span>
+                        </div>
+                        <div class="result-card-content">
+                            <span class="result-label">Business Type</span>
+                            <h3 class="result-value" id="result-business-type">-</h3>
+                        </div>
+                    </div>
+
+                    <!-- Growth Stage Card -->
+                    <div class="result-card">
+                        <div class="result-card-icon">
+                            <span class="material-symbols-outlined text-3xl" id="result-stage-icon">trending_up</span>
+                        </div>
+                        <div class="result-card-content">
+                            <span class="result-label">Growth Stage</span>
+                            <h3 class="result-value" id="result-stage">-</h3>
+                        </div>
+                    </div>
+
+                    <!-- Budget Level Card -->
+                    <div class="result-card">
+                        <div class="result-card-icon">
+                            <span class="material-symbols-outlined text-3xl" id="result-budget-icon">account_balance_wallet</span>
+                        </div>
+                        <div class="result-card-content">
+                            <span class="result-label">Budget Level</span>
+                            <h3 class="result-value" id="result-budget">-</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommended Tier Card -->
+                <div id="recommended-tier-card" class="tier-recommendation-card mb-8">
+                    <div class="tier-badge" id="tier-badge">
+                        <span class="material-symbols-outlined text-5xl">stars</span>
+                    </div>
+                    <h2 class="tier-title" id="tier-title">-</h2>
+                    <p class="tier-description" id="tier-description">-</p>
+
+                    <div class="tier-features" id="tier-features">
+                        <!-- Features will be injected here -->
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="tier-cta">
+                        <a href="#" id="tier-cta-button" class="tier-cta-btn">
+                            <span class="btn-text" id="tier-cta-text">-</span>
+                            <span class="material-symbols-outlined btn-icon">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Restart Option -->
+                <div class="text-center mt-8">
+                    <button id="restart-quiz" class="restart-btn">
+                        <span class="material-symbols-outlined">refresh</span>
+                        <span>Restart Quiz</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </main>
 
-    <!-- Custom JS -->
-    <script src="./js/particles.js"></script>
+    <!-- Quiz System -->
     <script src="./js/quiz-engine.js"></script>
-
-
+    <script src="./js/particles.js"></script>
 </body>
 
 </html>

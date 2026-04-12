@@ -1,218 +1,225 @@
 /**
  * XENON STUDIOS - Particle Background System
- * Soft floating dots / light dust effect
+ * Soft floating dots / light dust effect using DOM elements
  */
 
 (function () {
-    'use strict';
+  "use strict";
 
-    const canvas = document.getElementById('particle-canvas');
-    if (!canvas) return;
+  const container = document.getElementById("particles-container");
+  if (!container) return;
 
-    const ctx = canvas.getContext('2d');
+  // Configuration
+  const config = {
+    particleCount: 30,
+    particleMinSize: 1,
+    particleMaxSize: 4,
+    particleMinSpeed: 0.2,
+    particleMaxSpeed: 0.6,
+    particleMinOpacity: 0.1,
+    particleMaxOpacity: 0.4,
+    particleColors: [
+      "var(--xenon-color-cyan)",
+      "var(--xenon-color-purple)",
+    ],
+    mouseRadius: 150,
+    mouseInfluence: 0.03,
+  };
 
-    // Configuration
-    const config = {
-        particleCount: 60,
-        particleMinSize: 0.5,
-        particleMaxSize: 2.5,
-        particleMinSpeed: 0.15,
-        particleMaxSpeed: 0.4,
-        particleOpacity: 0.4,
-        particleColors: [
-            'rgba(0, 242, 255,',    // Cyan
-            'rgba(112, 0, 255,',    // Purple
-            'rgba(217, 176, 255,',  // Glow
-            'rgba(255, 255, 255,'   // White
-        ],
-        connectionDistance: 120,
-        connectionOpacity: 0.08,
-        mouseRadius: 150,
-        mouseInfluence: 0.02
-    };
+  // State
+  let particles = [];
+  let animationId = null;
+  let mouseX = -1000;
+  let mouseY = -1000;
 
-    // State
-    let particles = [];
-    let animationId = null;
-    let mouseX = -1000;
-    let mouseY = -1000;
+  /**
+   * Get random number in range
+   */
+  function random(min, max) {
+    return Math.random() * (max - min) + min;
+  }
 
-    /**
-     * Resize canvas to match window
-     */
-    function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+  /**
+   * Create a particle DOM element
+   */
+  function createParticleElement() {
+    const div = document.createElement("div");
+    div.className = "particle-dot";
+    div.style.position = "absolute";
+    div.style.borderRadius = "50%";
+    div.style.pointerEvents = "none";
+    div.style.willChange = "transform";
+    container.appendChild(div);
+    return div;
+  }
+
+  /**
+   * Particle class
+   */
+  class Particle {
+    constructor() {
+      this.element = createParticleElement();
+      this.reset();
     }
 
-    /**
-     * Particle class
-     */
-    class Particle {
-        constructor() {
-            this.reset();
-        }
+    reset() {
+      this.x = random(0, window.innerWidth);
+      this.y = random(0, window.innerHeight);
+      this.size = random(config.particleMinSize, config.particleMaxSize);
+      this.baseSpeedX = random(config.particleMinSpeed, config.particleMaxSpeed) * (Math.random() > 0.5 ? 1 : -1);
+      this.baseSpeedY = random(config.particleMinSpeed, config.particleMaxSpeed) * (Math.random() > 0.5 ? 1 : -1);
+      this.speedX = this.baseSpeedX;
+      this.speedY = this.baseSpeedY;
+      this.color = config.particleColors[Math.floor(Math.random() * config.particleColors.length)];
+      this.opacity = random(config.particleMinOpacity, config.particleMaxOpacity);
+      this.pulseSpeed = random(0.003, 0.008);
+      this.pulsePhase = random(0, Math.PI * 2);
 
-        reset() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = config.particleMinSize + Math.random() * (config.particleMaxSize - config.particleMinSize);
-            this.speedX = (Math.random() - 0.5) * (config.particleMaxSpeed - config.particleMinSpeed) + config.particleMinSpeed;
-            this.speedY = (Math.random() - 0.5) * (config.particleMaxSpeed - config.particleMinSpeed) + config.particleMinSpeed;
-            this.color = config.particleColors[Math.floor(Math.random() * config.particleColors.length)];
-            this.opacity = config.particleOpacity * (0.3 + Math.random() * 0.7);
-            this.pulseSpeed = 0.005 + Math.random() * 0.01;
-            this.pulsePhase = Math.random() * Math.PI * 2;
-        }
-
-        update(time) {
-            // Move particle
-            this.x += this.speedX;
-            this.y += this.speedY;
-
-            // Pulse opacity
-            this.currentOpacity = this.opacity * (0.5 + 0.5 * Math.sin(time * this.pulseSpeed + this.pulsePhase));
-
-            // Mouse interaction
-            const dx = this.x - mouseX;
-            const dy = this.y - mouseY;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < config.mouseRadius) {
-                const force = (config.mouseRadius - distance) / config.mouseRadius;
-                this.x += dx * force * config.mouseInfluence;
-                this.y += dy * force * config.mouseInfluence;
-            }
-
-            // Wrap around edges
-            if (this.x < -10) this.x = canvas.width + 10;
-            if (this.x > canvas.width + 10) this.x = -10;
-            if (this.y < -10) this.y = canvas.height + 10;
-            if (this.y > canvas.height + 10) this.y = -10;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = this.color + this.currentOpacity + ')';
-            ctx.fill();
-        }
+      // Apply initial styles
+      this.element.style.width = `${this.size}px`;
+      this.element.style.height = `${this.size}px`;
+      this.element.style.background = this.color;
     }
 
-    /**
-     * Draw connections between nearby particles
-     */
-    function drawConnections() {
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
+    update(time) {
+      // Move particle
+      this.x += this.speedX;
+      this.y += this.speedY;
 
-                if (distance < config.connectionDistance) {
-                    const opacity = config.connectionOpacity * (1 - distance / config.connectionDistance);
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(0, 242, 255, ${opacity})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.stroke();
-                }
-            }
-        }
+      // Pulse opacity
+      const pulse = 0.5 + 0.5 * Math.sin(time * this.pulseSpeed + this.pulsePhase);
+      this.currentOpacity = this.opacity * (0.6 + 0.4 * pulse);
+
+      // Mouse interaction
+      const dx = this.x - mouseX;
+      const dy = this.y - mouseY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < config.mouseRadius && distance > 0) {
+        const force = (config.mouseRadius - distance) / config.mouseRadius;
+        this.x += dx * force * config.mouseInfluence;
+        this.y += dy * force * config.mouseInfluence;
+      }
+
+      // Wrap around edges
+      if (this.x < -10) this.x = window.innerWidth + 10;
+      if (this.x > window.innerWidth + 10) this.x = -10;
+      if (this.y < -10) this.y = window.innerHeight + 10;
+      if (this.y > window.innerHeight + 10) this.y = -10;
+
+      // Apply transforms
+      this.element.style.transform = `translate(${this.x}px, ${this.y}px)`;
+      this.element.style.opacity = this.currentOpacity;
     }
 
-    /**
-     * Initialize particles
-     */
-    function initParticles() {
-        particles = [];
-        const count = window.innerWidth < 768 ? Math.floor(config.particleCount * 0.5) : config.particleCount;
-
-        for (let i = 0; i < count; i++) {
-            particles.push(new Particle());
-        }
+    destroy() {
+      if (this.element && this.element.parentNode) {
+        this.element.parentNode.removeChild(this.element);
+      }
     }
+  }
 
-    /**
-     * Animation loop
-     */
-    let time = 0;
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        time++;
+  /**
+   * Initialize particles
+   */
+  function initParticles() {
+    // Clear existing
+    particles.forEach(p => p.destroy());
+    particles = [];
 
-        // Update and draw particles
-        particles.forEach(particle => {
-            particle.update(time);
-            particle.draw();
-        });
+    const count = window.innerWidth < 768
+      ? Math.floor(config.particleCount * 0.5)
+      : config.particleCount;
 
-        // Draw connections
-        drawConnections();
-
-        animationId = requestAnimationFrame(animate);
+    for (let i = 0; i < count; i++) {
+      particles.push(new Particle());
     }
+  }
 
-    /**
-     * Handle mouse movement
-     */
-    function handleMouseMove(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+  /**
+   * Animation loop
+   */
+  let time = 0;
+  function animate() {
+    time++;
+
+    particles.forEach(particle => {
+      particle.update(time);
+    });
+
+    animationId = requestAnimationFrame(animate);
+  }
+
+  /**
+   * Handle mouse movement
+   */
+  function handleMouseMove(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  }
+
+  function handleMouseLeave() {
+    mouseX = -1000;
+    mouseY = -1000;
+  }
+
+  /**
+   * Handle touch movement (mobile)
+   */
+  function handleTouchMove(e) {
+    if (e.touches.length > 0) {
+      mouseX = e.touches[0].clientX;
+      mouseY = e.touches[0].clientY;
     }
+  }
 
-    function handleMouseLeave() {
-        mouseX = -1000;
-        mouseY = -1000;
-    }
+  function handleTouchEnd() {
+    mouseX = -1000;
+    mouseY = -1000;
+  }
 
-    /**
-     * Handle touch movement (mobile)
-     */
-    function handleTouchMove(e) {
-        if (e.touches.length > 0) {
-            mouseX = e.touches[0].clientX;
-            mouseY = e.touches[0].clientY;
-        }
-    }
+  /**
+   * Handle window resize
+   */
+  let resizeTimeout;
+  function handleResize() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      initParticles();
+    }, 300);
+  }
 
-    function handleTouchEnd() {
-        mouseX = -1000;
-        mouseY = -1000;
-    }
+  /**
+   * Initialize
+   */
+  function init() {
+    // Set container styles
+    container.style.position = "fixed";
+    container.style.top = "0";
+    container.style.left = "0";
+    container.style.width = "100%";
+    container.style.height = "100%";
+    container.style.pointerEvents = "none";
+    container.style.zIndex = "0";
+    container.style.overflow = "hidden";
 
-    /**
-     * Handle window resize
-     */
-    function handleResize() {
-        resize();
-        initParticles();
-    }
+    initParticles();
 
-    /**
-     * Initialize
-     */
-    function init() {
-        resize();
-        initParticles();
+    // Event listeners
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    window.addEventListener("resize", handleResize);
 
-        // Event listeners
-        window.addEventListener('mousemove', handleMouseMove);
-        window.addEventListener('mouseleave', handleMouseLeave);
-        window.addEventListener('touchmove', handleTouchMove, { passive: true });
-        window.addEventListener('touchend', handleTouchEnd, { passive: true });
-        window.addEventListener('resize', handleResize);
+    // Start animation
+    animate();
+  }
 
-        // Start animation
-        animate();
-    }
-
-    // Start when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
-
+  // Start when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
