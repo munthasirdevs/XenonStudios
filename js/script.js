@@ -290,22 +290,26 @@ const initGsapAnimations = () => {
     });
   });
 
-  // Stats Counters (Replacing jQuery)
-  document.querySelectorAll(".status-card [data-count]").forEach((counter) => {
+  // Stats Counters Animation
+  const counters = document.querySelectorAll("[data-count]");
+
+  counters.forEach((counter) => {
     const target = parseFloat(counter.getAttribute("data-count"));
-    const symbol = counter.textContent.replace(/[0-9.]/g, "");
+    const symbol = counter.textContent.replace(/[0-9.]/g, "").trim();
 
     gsap.to(counter, {
       scrollTrigger: {
         trigger: counter,
-        start: "top 90%",
+        start: "top 85%",
+        once: true,
       },
       innerHTML: target,
-      duration: 2,
+      duration: 2.5,
       snap: { innerHTML: 1 },
-      ease: "power1.inOut",
+      ease: "power2.out",
       onUpdate: function () {
-        counter.innerHTML = Math.floor(this.targets()[0].innerHTML) + symbol;
+        const currentValue = Math.floor(this.targets()[0].innerHTML);
+        counter.innerHTML = currentValue + symbol;
       },
     });
   });
