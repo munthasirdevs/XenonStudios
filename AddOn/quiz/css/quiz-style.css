@@ -82,6 +82,13 @@
 /* ============================================
    Processing Screen Animations
    ============================================ */
+.processing-animation {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+}
+
 .scanner-ring {
   position: absolute;
   top: 50%;
@@ -113,8 +120,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
+  width: 96px;
+  height: 96px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,16 +130,10 @@
   border: 1px solid rgba(0, 242, 255, 0.2);
 }
 
-.scanner-core .material-symbols-outlined {
-  background: linear-gradient(
-    135deg,
-    var(--xenon-color-cyan),
-    var(--xenon-color-purple)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.scanner-core svg {
+  color: var(--xenon-color-cyan);
   animation: spin 2s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.5));
 }
 
 @keyframes scannerPulse {
@@ -177,28 +178,62 @@
 /* ============================================
    Tier Badge Glow
    ============================================ */
-.tier-badge .material-symbols-outlined {
-  background: linear-gradient(
-    135deg,
-    var(--xenon-color-cyan),
-    var(--xenon-color-purple)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glowPulse 2s ease-in-out infinite;
+/* ============================================
+   Tier Badge Icon Animation
+   ============================================ */
+#tier-badge svg {
+  animation: badgeSpin 3s ease-in-out infinite;
 }
 
-@keyframes glowPulse {
+@keyframes badgeSpin {
   0%,
   100% {
-    opacity: 1;
-    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.3));
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.4));
   }
   50% {
-    opacity: 0.8;
+    transform: rotate(5deg) scale(1.05);
     filter: drop-shadow(0 0 16px rgba(0, 242, 255, 0.6));
   }
+}
+
+/* ============================================
+   Tier Recommendation Card Hover
+   ============================================ */
+.tier-recommendation-card {
+  transition: all 0.4s ease;
+}
+
+.tier-recommendation-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 60px rgba(0, 242, 255, 0.15),
+    0 10px 30px rgba(112, 0, 255, 0.1);
+  border-color: rgba(0, 242, 255, 0.3);
+}
+
+/* ============================================
+   Tier Feature Items
+   ============================================ */
+.tier-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tier-feature:hover {
+  background: rgba(0, 242, 255, 0.08);
+  border-color: rgba(0, 242, 255, 0.2);
+  color: rgba(0, 242, 255, 1);
+  transform: translateY(-2px);
 }
 
 /* ============================================

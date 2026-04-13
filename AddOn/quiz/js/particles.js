@@ -18,10 +18,7 @@
     particleMaxSpeed: 0.6,
     particleMinOpacity: 0.1,
     particleMaxOpacity: 0.4,
-    particleColors: [
-      "var(--xenon-color-cyan)",
-      "var(--xenon-color-purple)",
-    ],
+    particleColors: ["var(--xenon-color-cyan)", "var(--xenon-color-purple)"],
     mouseRadius: 150,
     mouseInfluence: 0.03,
   };
@@ -66,12 +63,22 @@
       this.x = random(0, window.innerWidth);
       this.y = random(0, window.innerHeight);
       this.size = random(config.particleMinSize, config.particleMaxSize);
-      this.baseSpeedX = random(config.particleMinSpeed, config.particleMaxSpeed) * (Math.random() > 0.5 ? 1 : -1);
-      this.baseSpeedY = random(config.particleMinSpeed, config.particleMaxSpeed) * (Math.random() > 0.5 ? 1 : -1);
+      this.baseSpeedX =
+        random(config.particleMinSpeed, config.particleMaxSpeed) *
+        (Math.random() > 0.5 ? 1 : -1);
+      this.baseSpeedY =
+        random(config.particleMinSpeed, config.particleMaxSpeed) *
+        (Math.random() > 0.5 ? 1 : -1);
       this.speedX = this.baseSpeedX;
       this.speedY = this.baseSpeedY;
-      this.color = config.particleColors[Math.floor(Math.random() * config.particleColors.length)];
-      this.opacity = random(config.particleMinOpacity, config.particleMaxOpacity);
+      this.color =
+        config.particleColors[
+          Math.floor(Math.random() * config.particleColors.length)
+        ];
+      this.opacity = random(
+        config.particleMinOpacity,
+        config.particleMaxOpacity,
+      );
       this.pulseSpeed = random(0.003, 0.008);
       this.pulsePhase = random(0, Math.PI * 2);
 
@@ -87,7 +94,8 @@
       this.y += this.speedY;
 
       // Pulse opacity
-      const pulse = 0.5 + 0.5 * Math.sin(time * this.pulseSpeed + this.pulsePhase);
+      const pulse =
+        0.5 + 0.5 * Math.sin(time * this.pulseSpeed + this.pulsePhase);
       this.currentOpacity = this.opacity * (0.6 + 0.4 * pulse);
 
       // Mouse interaction
@@ -124,12 +132,13 @@
    */
   function initParticles() {
     // Clear existing
-    particles.forEach(p => p.destroy());
+    particles.forEach((p) => p.destroy());
     particles = [];
 
-    const count = window.innerWidth < 768
-      ? Math.floor(config.particleCount * 0.5)
-      : config.particleCount;
+    const count =
+      window.innerWidth < 768
+        ? Math.floor(config.particleCount * 0.5)
+        : config.particleCount;
 
     for (let i = 0; i < count; i++) {
       particles.push(new Particle());
@@ -143,7 +152,7 @@
   function animate() {
     time++;
 
-    particles.forEach(particle => {
+    particles.forEach((particle) => {
       particle.update(time);
     });
 

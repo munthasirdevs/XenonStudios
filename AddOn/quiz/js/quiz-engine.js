@@ -101,7 +101,7 @@
           "Perfect foundation to begin your digital journey. We'll build your online presence and set up core marketing systems.",
         cta: "Get Started",
         ctaLink: "../../index.html#contact",
-        icon: "check_circle",
+        icon: "check",
         color: "var(--xenon-color-magenta)",
         features: [
           "Professional Website",
@@ -140,8 +140,8 @@
     pageProcessing: document.getElementById("page-processing"),
     pageResults: document.getElementById("page-results"),
 
-    // Progress
-    progressBar: document.getElementById("quiz-progress-bar"),
+    // Progress (removed from UI)
+    // progressBar: document.getElementById("quiz-progress-bar"),
 
     // Buttons
     continueStage: document.getElementById("continue-stage"),
@@ -191,9 +191,8 @@
    * Update the progress bar based on current page
    */
   function updateProgress() {
-    const currentIndex = getCurrentPageIndex();
-    const progress = (currentIndex / 3) * 100; // 3 question pages
-    elements.progressBar.style.width = `${Math.min(progress, 100)}%`;
+    // Progress bar removed from UI
+    return;
   }
 
   /**
@@ -257,7 +256,7 @@
                 stagger: 0.08,
                 ease: "back.out(1.7)",
                 delay: 0.1,
-              }
+              },
             );
           },
         });
@@ -398,13 +397,23 @@
             let stepIndex = 0;
             const processInterval = setInterval(() => {
               if (stepIndex < steps.length) {
-                elements.processingText.textContent = steps[stepIndex].text;
-                elements.processingBar.style.width = `${steps[stepIndex].progress}%`;
+                try {
+                  elements.processingText.textContent = steps[stepIndex].text;
+                  elements.processingBar.style.width = `${steps[stepIndex].progress}%`;
+                } catch (e) {
+                  console.error("Processing step error:", e);
+                }
                 stepIndex++;
               } else {
                 clearInterval(processInterval);
                 // Show results
-                setTimeout(showResultsPage, 500);
+                setTimeout(() => {
+                  try {
+                    showResultsPage();
+                  } catch (e) {
+                    console.error("Show results error:", e);
+                  }
+                }, 500);
               }
             }, 600);
           },
@@ -445,13 +454,9 @@
     // Populate result values
     elements.resultBusinessType.textContent =
       scoreConfig.user_type_labels[quizState.user_type] || "—";
-    elements.resultBusinessIcon.textContent =
-      scoreConfig.user_type_icons[quizState.user_type] || "business";
 
     elements.resultStage.textContent =
       scoreConfig.business_stage_labels[quizState.business_stage] || "—";
-    elements.resultStageIcon.textContent =
-      scoreConfig.business_stage_icons[quizState.business_stage] || "trending_up";
 
     elements.resultBudget.textContent =
       scoreConfig.budget_tier_labels[quizState.budget_tier] || "—";
@@ -461,18 +466,18 @@
     elements.tierDescription.textContent = tier.description;
     elements.tierCtaText.textContent = tier.cta;
     elements.tierCtaButton.href = tier.ctaLink;
-    elements.tierBadge.querySelector(".material-symbols-outlined").textContent =
-      tier.icon;
 
     // Generate feature list
     elements.tierFeatures.innerHTML = tier.features
       .map(
         (feature) => `
       <div class="tier-feature">
-        <span class="material-symbols-outlined text-lg">check</span>
+        <svg class="w-5 h-5 text-xenon-cyan shrink-0" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+        </svg>
         <span>${feature}</span>
       </div>
-    `
+    `,
       )
       .join("");
 
@@ -506,7 +511,7 @@
             stagger: 0.1,
             ease: "back.out(1.7)",
             delay: 0.2,
-          }
+          },
         );
 
         // Animate tier card
@@ -520,7 +525,7 @@
             duration: 0.5,
             ease: "back.out(1.7)",
             delay: 0.4,
-          }
+          },
         );
       },
     });
@@ -549,9 +554,12 @@
     elements.continueStage.disabled = true;
     elements.continueBudget.disabled = true;
     elements.getResults.disabled = true;
-    gsap.set([elements.continueStage, elements.continueBudget, elements.getResults], {
-      opacity: 0.5,
-    });
+    gsap.set(
+      [elements.continueStage, elements.continueBudget, elements.getResults],
+      {
+        opacity: 0.5,
+      },
+    );
 
     // Reset progress
     elements.progressBar.style.width = "0%";
@@ -589,7 +597,7 @@
             stagger: 0.08,
             ease: "back.out(1.7)",
             delay: 0.1,
-          }
+          },
         );
       },
     });
@@ -602,37 +610,39 @@
     // Identity option clicks
     elements.identityOptions.forEach((card) => {
       card.addEventListener("click", () =>
-        handleOptionSelection(card, "identity")
+        handleOptionSelection(card, "identity"),
       );
     });
 
     // Stage option clicks
     elements.stageOptions.forEach((card) => {
-      card.addEventListener("click", () => handleOptionSelection(card, "stage"));
+      card.addEventListener("click", () =>
+        handleOptionSelection(card, "stage"),
+      );
     });
 
     // Budget option clicks
     elements.budgetOptions.forEach((card) => {
       card.addEventListener("click", () =>
-        handleOptionSelection(card, "budget")
+        handleOptionSelection(card, "budget"),
       );
     });
 
     // Continue buttons
     elements.continueStage.addEventListener("click", () =>
-      showPage("stage", "forward")
+      showPage("stage", "forward"),
     );
     elements.continueBudget.addEventListener("click", () =>
-      showPage("budget", "forward")
+      showPage("budget", "forward"),
     );
     elements.getResults.addEventListener("click", calculateAndShowResults);
 
     // Back buttons
     elements.backToIdentity.addEventListener("click", () =>
-      showPage("identity", "backward")
+      showPage("identity", "backward"),
     );
     elements.backToStage.addEventListener("click", () =>
-      showPage("stage", "backward")
+      showPage("stage", "backward"),
     );
 
     // Restart quiz
@@ -644,7 +654,9 @@
         const activePage = document.querySelector(".quiz-page.active");
         if (!activePage) return;
 
-        const continueBtn = activePage.querySelector(".continue-btn:not(:disabled)");
+        const continueBtn = activePage.querySelector(
+          ".continue-btn:not(:disabled)",
+        );
         if (continueBtn) {
           continueBtn.click();
         }
@@ -665,9 +677,12 @@
     });
 
     // Set initial button states
-    gsap.set([elements.continueStage, elements.continueBudget, elements.getResults], {
-      opacity: 0.5,
-    });
+    gsap.set(
+      [elements.continueStage, elements.continueBudget, elements.getResults],
+      {
+        opacity: 0.5,
+      },
+    );
 
     initEventListeners();
     updateProgress();
@@ -695,10 +710,10 @@
               stagger: 0.08,
               ease: "back.out(1.7)",
               delay: 0.1,
-            }
+            },
           );
         },
-      }
+      },
     );
 
     console.log("Xenon Studios Quiz Engine initialized");
