@@ -155,6 +155,7 @@
     identityOptions: document.querySelectorAll(".identity-option"),
     stageOptions: document.querySelectorAll(".stage-option"),
     budgetOptions: document.querySelectorAll(".budget-option"),
+    allOptionCards: document.querySelectorAll(".quiz-option"),
 
     // Results elements
     resultBusinessIcon: document.getElementById("result-business-icon"),
@@ -245,7 +246,7 @@
             updateProgress();
 
             // Animate option cards staggered entrance
-            const cards = nextPageEl.querySelectorAll(".quiz-option-card");
+            const cards = nextPageEl.querySelectorAll(".quiz-option");
             gsap.fromTo(
               cards,
               { opacity: 0, y: 30 },
@@ -271,7 +272,7 @@
     if (quizState.isTransitioning) return;
 
     const page = card.closest(".quiz-page");
-    const cardsInPage = page.querySelectorAll(".quiz-option-card");
+    const cardsInPage = page.querySelectorAll(".quiz-option");
 
     // Remove previous selection
     cardsInPage.forEach((c) => c.classList.remove("selected"));
@@ -540,7 +541,7 @@
     quizState.total_score = 0;
 
     // Reset selections
-    document.querySelectorAll(".quiz-option-card.selected").forEach((card) => {
+    document.querySelectorAll(".quiz-option.selected").forEach((card) => {
       card.classList.remove("selected");
     });
 
@@ -577,7 +578,7 @@
         quizState.isTransitioning = false;
 
         // Animate option cards
-        const cards = elements.pageIdentity.querySelectorAll(".quiz-option-card");
+        const cards = elements.pageIdentity.querySelectorAll(".quiz-option");
         gsap.fromTo(
           cards,
           { opacity: 0, y: 30 },
@@ -643,7 +644,7 @@
         const activePage = document.querySelector(".quiz-page.active");
         if (!activePage) return;
 
-        const continueBtn = activePage.querySelector(".quiz-continue-btn:not(:disabled)");
+        const continueBtn = activePage.querySelector(".continue-btn:not(:disabled)");
         if (continueBtn) {
           continueBtn.click();
         }

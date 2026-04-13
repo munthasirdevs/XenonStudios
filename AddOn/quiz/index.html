@@ -14,334 +14,482 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&display=swap"
+            rel="stylesheet">
     </noscript>
 
     <!-- Material Symbols -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+            rel="stylesheet">
     </noscript>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'xenon-cyan': 'rgba(0, 242, 255, 1)',
+                        'xenon-purple': 'rgba(112, 0, 255, 1)',
+                        'xenon-magenta': 'rgba(157, 23, 77, 1)',
+                        'xenon-black': 'rgba(0, 0, 0, 1)',
+                        'xenon-charcoal': 'rgba(10, 10, 12, 1)',
+                        'xenon-dark-base': 'rgba(20, 20, 22, 1)',
+                        'xenon-dark-surface': 'rgba(35, 36, 40, 1)',
+                    },
+                    fontFamily: {
+                        'outfit': ['Outfit', 'sans-serif'],
+                        'space': ['Space Grotesk', 'sans-serif'],
+                        'syne': ['Syne', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- GSAP Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-    <!-- Custom CSS -->
+    <!-- Custom CSS (minimal - only for animations/effects) -->
     <link rel="stylesheet" href="./css/quiz-style.css">
 </head>
 
-<body id="layout" class="outfit overflow-x-hidden">
+<body id="layout" class="font-outfit bg-xenon-black text-white overflow-x-hidden">
     <!-- Background Effects -->
-    <div class="grid-bg"></div>
-    <div class="glow bg-[var(--xenon-color-cyan)]" style="top: 10%; left: -5%;"></div>
-    <div class="glow bg-[var(--xenon-color-purple)]" style="top: 60%; right: -10%;"></div>
+    <div
+        class="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0">
+    </div>
+    <div class="fixed w-[500px] h-[500px] rounded-full bg-xenon-cyan/10 blur-[150px] pointer-events-none z-0"
+        style="top: 10%; left: -5%;"></div>
+    <div class="fixed w-[500px] h-[500px] rounded-full bg-xenon-purple/10 blur-[150px] pointer-events-none z-0"
+        style="top: 60%; right: -10%;"></div>
 
     <!-- Particle Background -->
     <div id="particles-container" class="fixed inset-0 pointer-events-none z-0"></div>
 
     <!-- Progress Bar -->
-    <div class="fixed top-0 left-0 w-full h-1 bg-white/5 z-[100]">
-        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] transition-all duration-700 ease-out" style="width: 0%"></div>
+    <div class="fixed top-0 left-0 w-full h-[4px] bg-white/5 z-[100]">
+        <div id="quiz-progress-bar"
+            class="h-full bg-gradient-to-r from-xenon-cyan to-xenon-purple transition-all duration-700 ease-out"
+            style="width: 0%"></div>
     </div>
 
     <!-- Main Quiz Container -->
     <main id="quiz-container" class="relative min-h-screen flex items-center justify-center px-4 py-12 z-10">
 
         <!-- Page 1: Identity Classification -->
-        <div id="page-identity" class="quiz-page active">
-            <div class="max-w-4xl mx-auto">
+        <div id="page-identity" class="quiz-page active w-full">
+            <div class="max-w-[1400px] mx-auto px-4">
                 <!-- Question Header -->
-                <div class="text-center mb-12 quiz-header">
-                    <span class="question-step text-[10px] uppercase font-bold mb-4 block tracking-[0.3em] text-[var(--xenon-color-cyan)]">Question 1 of 3</span>
-                    <h1 class="question-title text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                        What best describes your <span class="text-gradient-animate">business?</span>
+                <div class="text-center mb-12">
+                    <span class="text-[10px] uppercase font-bold mb-4 block tracking-[0.3em] text-xenon-cyan">Question
+                        1 of 3</span>
+                    <h1 class="font-syne text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        What best describes your <span
+                            class="bg-gradient-to-r from-xenon-cyan to-xenon-purple bg-clip-text text-transparent">business?</span>
                     </h1>
-                    <p class="question-subtitle text-white/50 text-base md:text-lg max-w-xl mx-auto">
+                    <p class="text-white/50 text-base md:text-lg max-w-xl mx-auto">
                         Select the option that most closely matches your business model
                     </p>
                 </div>
 
                 <!-- Options Grid -->
-                <div class="quiz-options-grid identity-grid">
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 w-full max-w-[1400px] mx-auto">
                     <!-- SaaS / Tech Startup -->
-                    <button class="quiz-option-card identity-option" data-value="saas" data-points="2">
-                        <div class="option-icon">
-                            <span class="material-symbols-outlined text-3xl">rocket_launch</span>
+                    <button
+                        class="quiz-option identity-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1),0_4px_16px_rgba(112,0,255,0.05)] overflow-hidden"
+                        data-value="saas" data-points="2">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-white/60 transition-all duration-300 group-hover:bg-xenon-cyan/10 group-hover:text-xenon-cyan shrink-0">
+                                <span class="material-symbols-outlined text-2xl">rocket_launch</span>
+                            </div>
+                            <h3
+                                class="font-space text-sm font-semibold text-white transition-colors duration-300 group-hover:text-xenon-cyan">
+                                SaaS / Tech Startup</h3>
                         </div>
-                        <div class="option-content">
-                            <h3 class="option-title">SaaS / Tech Startup</h3>
-                            <p class="option-description">Software products, platforms, or technology solutions</p>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
                         </div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
                         </div>
-                        <div class="option-glow"></div>
                     </button>
 
                     <!-- E-commerce Brand -->
-                    <button class="quiz-option-card identity-option" data-value="ecommerce" data-points="2">
-                        <div class="option-icon">
-                            <span class="material-symbols-outlined text-3xl">shopping_cart</span>
+                    <button
+                        class="quiz-option identity-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1),0_4px_16px_rgba(112,0,255,0.05)] overflow-hidden"
+                        data-value="ecommerce" data-points="2">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-white/60 transition-all duration-300 group-hover:bg-xenon-cyan/10 group-hover:text-xenon-cyan shrink-0">
+                                <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+                            </div>
+                            <h3
+                                class="font-space text-sm font-semibold text-white transition-colors duration-300 group-hover:text-xenon-cyan">
+                                E-commerce Brand</h3>
                         </div>
-                        <div class="option-content">
-                            <h3 class="option-title">E-commerce Brand</h3>
-                            <p class="option-description">Online stores, retail, or product sales</p>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
                         </div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
                         </div>
-                        <div class="option-glow"></div>
                     </button>
 
                     <!-- Business / Company -->
-                    <button class="quiz-option-card identity-option" data-value="business" data-points="1">
-                        <div class="option-icon">
-                            <span class="material-symbols-outlined text-3xl">business_center</span>
+                    <button
+                        class="quiz-option identity-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1),0_4px_16px_rgba(112,0,255,0.05)] overflow-hidden"
+                        data-value="business" data-points="1">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-white/60 transition-all duration-300 group-hover:bg-xenon-cyan/10 group-hover:text-xenon-cyan shrink-0">
+                                <span class="material-symbols-outlined text-2xl">business_center</span>
+                            </div>
+                            <h3
+                                class="font-space text-sm font-semibold text-white transition-colors duration-300 group-hover:text-xenon-cyan">
+                                Business / Company</h3>
                         </div>
-                        <div class="option-content">
-                            <h3 class="option-title">Business / Company</h3>
-                            <p class="option-description">Traditional business or corporate services</p>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
                         </div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
                         </div>
-                        <div class="option-glow"></div>
                     </button>
 
                     <!-- Clinic / Professional Service -->
-                    <button class="quiz-option-card identity-option" data-value="clinic" data-points="1">
-                        <div class="option-icon">
-                            <span class="material-symbols-outlined text-3xl">medical_services</span>
+                    <button
+                        class="quiz-option identity-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1),0_4px_16px_rgba(112,0,255,0.05)] overflow-hidden"
+                        data-value="clinic" data-points="1">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-white/60 transition-all duration-300 group-hover:bg-xenon-cyan/10 group-hover:text-xenon-cyan shrink-0">
+                                <span class="material-symbols-outlined text-2xl">medical_services</span>
+                            </div>
+                            <h3
+                                class="font-space text-sm font-semibold text-white transition-colors duration-300 group-hover:text-xenon-cyan">
+                                Clinic / Professional Service</h3>
                         </div>
-                        <div class="option-content">
-                            <h3 class="option-title">Clinic / Professional Service</h3>
-                            <p class="option-description">Healthcare, consulting, or professional services</p>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
                         </div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
                         </div>
-                        <div class="option-glow"></div>
                     </button>
 
                     <!-- Agency / Creator -->
-                    <button class="quiz-option-card identity-option" data-value="agency" data-points="2">
-                        <div class="option-icon">
-                            <span class="material-symbols-outlined text-3xl">palette</span>
+                    <button
+                        class="quiz-option identity-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1),0_4px_16px_rgba(112,0,255,0.05)] overflow-hidden"
+                        data-value="agency" data-points="2">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-white/60 transition-all duration-300 group-hover:bg-xenon-cyan/10 group-hover:text-xenon-cyan shrink-0">
+                                <span class="material-symbols-outlined text-2xl">palette</span>
+                            </div>
+                            <h3
+                                class="font-space text-sm font-semibold text-white transition-colors duration-300 group-hover:text-xenon-cyan">
+                                Agency / Creator</h3>
                         </div>
-                        <div class="option-content">
-                            <h3 class="option-title">Agency / Creator</h3>
-                            <p class="option-description">Marketing, content creation, or creative services</p>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
                         </div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
                         </div>
-                        <div class="option-glow"></div>
                     </button>
                 </div>
 
                 <!-- Continue Button -->
                 <div class="mt-12 text-center">
-                    <button id="continue-stage" class="quiz-continue-btn" disabled>
-                        <span class="btn-text">Continue</span>
-                        <span class="material-symbols-outlined btn-icon">arrow_forward</span>
+                    <button id="continue-stage"
+                        class="continue-btn inline-flex items-center gap-3 px-8 py-3.5 bg-gradient-to-r from-xenon-cyan to-xenon-purple text-xenon-black font-semibold text-base rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,242,255,0.4),0_4px_15px_rgba(112,0,255,0.3)] disabled:opacity-30 disabled:cursor-not-allowed disabled:grayscale disabled:hover:translate-y-0 min-h-[52px]"
+                        disabled>
+                        <span>Continue</span>
+                        <span class="material-symbols-outlined text-xl">arrow_forward</span>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Page 2: Stage + Need -->
-        <div id="page-stage" class="quiz-page">
-            <div class="max-w-4xl mx-auto">
+        <div id="page-stage" class="quiz-page w-full">
+            <div class="max-w-[1400px] mx-auto px-4">
                 <!-- Question Header -->
-                <div class="text-center mb-12 quiz-header">
-                    <span class="question-step text-[10px] uppercase font-bold mb-4 block tracking-[0.3em] text-[var(--xenon-color-purple)]">Question 2 of 3</span>
-                    <h1 class="question-title text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                        What's your current <span class="text-gradient-animate">growth stage?</span>
+                <div class="text-center mb-12">
+                    <span class="text-[10px] uppercase font-bold mb-4 block tracking-[0.3em] text-xenon-purple">Question
+                        2 of 3</span>
+                    <h1 class="font-syne text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        What's your current <span
+                            class="bg-gradient-to-r from-xenon-cyan to-xenon-purple bg-clip-text text-transparent">growth
+                            stage?</span>
                     </h1>
-                    <p class="question-subtitle text-white/50 text-base md:text-lg max-w-xl mx-auto">
+                    <p class="text-white/50 text-base md:text-lg max-w-xl mx-auto">
                         Where does your business need the most support right now?
                     </p>
                 </div>
 
                 <!-- Options Grid -->
-                <div class="quiz-options-grid stage-grid">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-[1400px] mx-auto">
                     <!-- Starting -->
-                    <button class="quiz-option-card stage-option" data-value="starting" data-points="1">
-                        <div class="stage-card-content">
-                            <div class="stage-icon-large">
-                                <span class="material-symbols-outlined text-5xl">sprout</span>
+                    <button
+                        class="quiz-option stage-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1)] overflow-hidden"
+                        data-value="starting" data-points="1">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-white/60 transition-all duration-300 group-hover:bg-xenon-cyan/10 group-hover:text-xenon-cyan shrink-0">
+                                <span class="material-symbols-outlined text-2xl">sprout</span>
                             </div>
-                            <h3 class="stage-title">Starting Out</h3>
-                            <p class="stage-description">I need to establish my online presence and build a professional website or platform</p>
-                            <div class="stage-needs">
-                                <span class="need-tag">Website Design</span>
-                                <span class="need-tag">Brand Identity</span>
-                                <span class="need-tag">Digital Presence</span>
-                            </div>
+                            <h3
+                                class="font-space text-sm font-semibold text-white transition-colors duration-300 group-hover:text-xenon-cyan">
+                                Starting Out</h3>
                         </div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-2xl">check_circle</span>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
                         </div>
-                        <div class="option-glow"></div>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
+                        </div>
                     </button>
 
                     <!-- Growing -->
-                    <button class="quiz-option-card stage-option" data-value="growing" data-points="2">
-                        <div class="stage-card-content">
-                            <div class="stage-icon-large">
-                                <span class="material-symbols-outlined text-5xl">trending_up</span>
+                    <button
+                        class="quiz-option stage-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1)] overflow-hidden"
+                        data-value="growing" data-points="2">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-white/60 transition-all duration-300 group-hover:bg-xenon-cyan/10 group-hover:text-xenon-cyan shrink-0">
+                                <span class="material-symbols-outlined text-2xl">trending_up</span>
                             </div>
-                            <h3 class="stage-title">Growing Fast</h3>
-                            <p class="stage-description">I have a presence but need more leads, conversions, and systematic growth</p>
-                            <div class="stage-needs">
-                                <span class="need-tag">Lead Generation</span>
-                                <span class="need-tag">Conversion Optimization</span>
-                                <span class="need-tag">Marketing Systems</span>
-                            </div>
+                            <h3
+                                class="font-space text-sm font-semibold text-white transition-colors duration-300 group-hover:text-xenon-cyan">
+                                Growing Fast</h3>
                         </div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-2xl">check_circle</span>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
                         </div>
-                        <div class="option-glow"></div>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
+                        </div>
                     </button>
 
                     <!-- Scaling -->
-                    <button class="quiz-option-card stage-option" data-value="scaling" data-points="3">
-                        <div class="stage-card-content">
-                            <div class="stage-icon-large">
-                                <span class="material-symbols-outlined text-5xl">speed</span>
+                    <button
+                        class="quiz-option stage-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1)] overflow-hidden"
+                        data-value="scaling" data-points="3">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 text-white/60 transition-all duration-300 group-hover:bg-xenon-cyan/10 group-hover:text-xenon-cyan shrink-0">
+                                <span class="material-symbols-outlined text-2xl">speed</span>
                             </div>
-                            <h3 class="stage-title">Scaling Up</h3>
-                            <p class="stage-description">I need automation, advanced systems, and enterprise-level infrastructure</p>
-                            <div class="stage-needs">
-                                <span class="need-tag">AI Automation</span>
-                                <span class="need-tag">System Integration</span>
-                                <span class="need-tag">Enterprise Solutions</span>
-                            </div>
+                            <h3
+                                class="font-space text-sm font-semibold text-white transition-colors duration-300 group-hover:text-xenon-cyan">
+                                Scaling Up</h3>
                         </div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-2xl">check_circle</span>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
                         </div>
-                        <div class="option-glow"></div>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
+                        </div>
                     </button>
                 </div>
 
                 <!-- Navigation Buttons -->
                 <div class="mt-12 flex justify-center gap-4">
-                    <button id="back-to-identity" class="quiz-back-btn">
-                        <span class="material-symbols-outlined btn-icon">arrow_back</span>
-                        <span class="btn-text">Back</span>
+                    <button id="back-to-identity"
+                        class="back-btn inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-white/20 rounded-full text-white/70 font-medium transition-all duration-300 hover:bg-white/5 hover:border-white/40 hover:text-white min-h-[48px]">
+                        <span class="material-symbols-outlined text-xl">arrow_back</span>
+                        <span>Back</span>
                     </button>
-                    <button id="continue-budget" class="quiz-continue-btn" disabled>
-                        <span class="btn-text">Continue</span>
-                        <span class="material-symbols-outlined btn-icon">arrow_forward</span>
+                    <button id="continue-budget"
+                        class="continue-btn inline-flex items-center gap-3 px-8 py-3.5 bg-gradient-to-r from-xenon-cyan to-xenon-purple text-xenon-black font-semibold text-base rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,242,255,0.4),0_4px_15px_rgba(112,0,255,0.3)] disabled:opacity-30 disabled:cursor-not-allowed disabled:grayscale disabled:hover:translate-y-0 min-h-[52px]"
+                        disabled>
+                        <span>Continue</span>
+                        <span class="material-symbols-outlined text-xl">arrow_forward</span>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Page 3: Budget Qualification -->
-        <div id="page-budget" class="quiz-page">
-            <div class="max-w-4xl mx-auto">
+        <div id="page-budget" class="quiz-page w-full">
+            <div class="max-w-[1400px] mx-auto px-4">
                 <!-- Question Header -->
-                <div class="text-center mb-12 quiz-header">
-                    <span class="question-step text-[10px] uppercase font-bold mb-4 block tracking-[0.3em] text-[var(--xenon-color-magenta)]">Question 3 of 3</span>
-                    <h1 class="question-title text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                        What's your investment <span class="text-gradient-animate">budget?</span>
+                <div class="text-center mb-12">
+                    <span
+                        class="text-[10px] uppercase font-bold mb-4 block tracking-[0.3em] text-xenon-magenta">Question
+                        3 of 3</span>
+                    <h1 class="font-syne text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        What's your investment <span
+                            class="bg-gradient-to-r from-xenon-cyan to-xenon-purple bg-clip-text text-transparent">budget?</span>
                     </h1>
-                    <p class="question-subtitle text-white/50 text-base md:text-lg max-w-xl mx-auto">
+                    <p class="text-white/50 text-base md:text-lg max-w-xl mx-auto">
                         This helps us recommend the right solution for your needs
                     </p>
                 </div>
 
                 <!-- Options Grid -->
-                <div class="quiz-options-grid budget-grid">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-[1400px] mx-auto">
                     <!-- $300-$1,000 -->
-                    <button class="quiz-option-card budget-option" data-value="300-1000" data-points="1">
-                        <div class="budget-amount">$300 – $1,000</div>
-                        <div class="budget-description">Starter projects and basic solutions</div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                    <button
+                        class="quiz-option budget-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1)] overflow-hidden"
+                        data-value="300-1000" data-points="1">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="font-space text-sm font-bold text-white transition-all duration-300 group-hover:text-xenon-cyan group-hover:[text-shadow:0_0_20px_rgba(0,242,255,0.3)]">
+                                $300 – $1,000
+                            </div>
+                            <div class="text-xs text-white/40">Starter projects and basic solutions</div>
                         </div>
-                        <div class="option-glow"></div>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
+                        </div>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
+                        </div>
                     </button>
 
                     <!-- $1,000-$3,000 -->
-                    <button class="quiz-option-card budget-option" data-value="1000-3000" data-points="2">
-                        <div class="budget-amount">$1,000 – $3,000</div>
-                        <div class="budget-description">Professional packages with full features</div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                    <button
+                        class="quiz-option budget-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1)] overflow-hidden"
+                        data-value="1000-3000" data-points="2">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="font-space text-sm font-bold text-white transition-all duration-300 group-hover:text-xenon-cyan group-hover:[text-shadow:0_0_20px_rgba(0,242,255,0.3)]">
+                                $1,000 – $3,000
+                            </div>
+                            <div class="text-xs text-white/40">Professional packages with full features</div>
                         </div>
-                        <div class="option-glow"></div>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
+                        </div>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
+                        </div>
                     </button>
 
                     <!-- $3,000-$10,000 -->
-                    <button class="quiz-option-card budget-option" data-value="3000-10000" data-points="3">
-                        <div class="budget-amount">$3,000 – $10,000</div>
-                        <div class="budget-description">Advanced systems and comprehensive solutions</div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                    <button
+                        class="quiz-option budget-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1)] overflow-hidden"
+                        data-value="3000-10000" data-points="3">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="font-space text-sm font-bold text-white transition-all duration-300 group-hover:text-xenon-cyan group-hover:[text-shadow:0_0_20px_rgba(0,242,255,0.3)]">
+                                $3,000 – $10,000
+                            </div>
+                            <div class="text-xs text-white/40">Advanced systems and comprehensive solutions</div>
                         </div>
-                        <div class="option-glow"></div>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
+                        </div>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
+                        </div>
                     </button>
 
                     <!-- $10,000+ -->
-                    <button class="quiz-option-card budget-option" data-value="10000+" data-points="4">
-                        <div class="budget-amount">$10,000+</div>
-                        <div class="budget-description">Enterprise-grade infrastructure and automation</div>
-                        <div class="option-check">
-                            <span class="material-symbols-outlined text-xl">check_circle</span>
+                    <button
+                        class="quiz-option budget-option group relative bg-white/3 border border-white/8 rounded-xl px-5 py-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:bg-white/5 hover:border-white/15 hover:shadow-[0_8px_32px_rgba(0,242,255,0.1)] overflow-hidden"
+                        data-value="10000+" data-points="4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="font-space text-sm font-bold text-white transition-all duration-300 group-hover:text-xenon-cyan group-hover:[text-shadow:0_0_20px_rgba(0,242,255,0.3)]">
+                                $10,000+
+                            </div>
+                            <div class="text-xs text-white/40">Enterprise-grade infrastructure and automation</div>
                         </div>
-                        <div class="option-glow"></div>
+                        <div
+                            class="absolute top-2 right-2 w-5 h-5 opacity-0 scale-50 transition-all duration-300 selected-check">
+                            <span
+                                class="material-symbols-outlined text-lg text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.5)]">check_circle</span>
+                        </div>
+                        <div class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            style="background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(112,0,255,0.1));">
+                        </div>
                     </button>
                 </div>
 
                 <!-- Navigation Buttons -->
                 <div class="mt-12 flex justify-center gap-4">
-                    <button id="back-to-stage" class="quiz-back-btn">
-                        <span class="material-symbols-outlined btn-icon">arrow_back</span>
-                        <span class="btn-text">Back</span>
+                    <button id="back-to-stage"
+                        class="back-btn inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-white/20 rounded-full text-white/70 font-medium transition-all duration-300 hover:bg-white/5 hover:border-white/40 hover:text-white min-h-[48px]">
+                        <span class="material-symbols-outlined text-xl">arrow_back</span>
+                        <span>Back</span>
                     </button>
-                    <button id="get-results" class="quiz-continue-btn" disabled>
-                        <span class="btn-text">Get My Results</span>
-                        <span class="material-symbols-outlined btn-icon">auto_awesome</span>
+                    <button id="get-results"
+                        class="continue-btn inline-flex items-center gap-3 px-8 py-3.5 bg-gradient-to-r from-xenon-cyan to-xenon-purple text-xenon-black font-semibold text-base rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,242,255,0.4),0_4px_15px_rgba(112,0,255,0.3)] disabled:opacity-30 disabled:cursor-not-allowed disabled:grayscale disabled:hover:translate-y-0 min-h-[52px]"
+                        disabled>
+                        <span>Get My Results</span>
+                        <span class="material-symbols-outlined text-xl">auto_awesome</span>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Processing Screen -->
-        <div id="page-processing" class="quiz-page">
-            <div class="max-w-2xl mx-auto text-center">
-                <div class="processing-animation">
+        <div id="page-processing" class="quiz-page w-full">
+            <div class="max-w-2xl mx-auto text-center px-4">
+                <div class="processing-animation relative mb-8">
                     <div class="scanner-ring"></div>
                     <div class="scanner-ring scanner-ring-2"></div>
                     <div class="scanner-ring scanner-ring-3"></div>
-                    <div class="scanner-core">
+                    <div class="scanner-core flex items-center justify-center">
                         <span class="material-symbols-outlined text-6xl">analytics</span>
                     </div>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-8 mb-4">Analyzing Your Profile</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Analyzing Your Profile</h2>
                 <p class="text-white/50 text-lg mb-8" id="processing-text">Evaluating business requirements...</p>
                 <div class="w-full max-w-md mx-auto h-2 bg-white/10 rounded-full overflow-hidden">
-                    <div id="processing-bar" class="h-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] rounded-full transition-all duration-500" style="width: 0%"></div>
+                    <div id="processing-bar"
+                        class="h-full bg-gradient-to-r from-xenon-cyan to-xenon-purple rounded-full transition-all duration-500"
+                        style="width: 0%"></div>
                 </div>
             </div>
         </div>
 
         <!-- Results Page -->
-        <div id="page-results" class="quiz-page">
-            <div class="max-w-4xl mx-auto">
+        <div id="page-results" class="quiz-page w-full">
+            <div class="max-w-[1400px] mx-auto px-4">
                 <!-- Results Header -->
                 <div class="text-center mb-12">
-                    <div class="results-badge">
-                        <span class="material-symbols-outlined text-4xl">check_circle</span>
+                    <div
+                        class="results-badge inline-flex items-center gap-2 px-4 py-2 bg-xenon-cyan/10 border border-xenon-cyan/30 rounded-full mb-6">
+                        <span class="material-symbols-outlined text-4xl text-xenon-cyan">check_circle</span>
                     </div>
                     <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Your Business Profile</h1>
                     <p class="text-white/50 text-lg max-w-xl mx-auto">Here's what we recommend based on your answers</p>
@@ -350,63 +498,86 @@
                 <!-- Profile Summary Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                     <!-- Business Type Card -->
-                    <div class="result-card">
-                        <div class="result-card-icon">
+                    <div
+                        class="result-card bg-white/3 border border-white/8 rounded-2xl p-6 text-center transition-all duration-300 hover:bg-white/5 hover:border-white/15 hover:-translate-y-0.5">
+                        <div
+                            class="result-card-icon text-3xl text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.4)] mb-4">
                             <span class="material-symbols-outlined text-3xl" id="result-business-icon">business</span>
                         </div>
-                        <div class="result-card-content">
-                            <span class="result-label">Business Type</span>
-                            <h3 class="result-value" id="result-business-type">-</h3>
+                        <div>
+                            <span
+                                class="result-label text-[10px] font-semibold text-white/40 uppercase tracking-[0.1em] block mb-2">Business
+                                Type</span>
+                            <h3 class="result-value font-space text-lg font-semibold text-white"
+                                id="result-business-type">-</h3>
                         </div>
                     </div>
 
                     <!-- Growth Stage Card -->
-                    <div class="result-card">
-                        <div class="result-card-icon">
+                    <div
+                        class="result-card bg-white/3 border border-white/8 rounded-2xl p-6 text-center transition-all duration-300 hover:bg-white/5 hover:border-white/15 hover:-translate-y-0.5">
+                        <div
+                            class="result-card-icon text-3xl text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.4)] mb-4">
                             <span class="material-symbols-outlined text-3xl" id="result-stage-icon">trending_up</span>
                         </div>
-                        <div class="result-card-content">
-                            <span class="result-label">Growth Stage</span>
-                            <h3 class="result-value" id="result-stage">-</h3>
+                        <div>
+                            <span
+                                class="result-label text-[10px] font-semibold text-white/40 uppercase tracking-[0.1em] block mb-2">Growth
+                                Stage</span>
+                            <h3 class="result-value font-space text-lg font-semibold text-white" id="result-stage">-
+                            </h3>
                         </div>
                     </div>
 
                     <!-- Budget Level Card -->
-                    <div class="result-card">
-                        <div class="result-card-icon">
-                            <span class="material-symbols-outlined text-3xl" id="result-budget-icon">account_balance_wallet</span>
+                    <div
+                        class="result-card bg-white/3 border border-white/8 rounded-2xl p-6 text-center transition-all duration-300 hover:bg-white/5 hover:border-white/15 hover:-translate-y-0.5">
+                        <div
+                            class="result-card-icon text-3xl text-xenon-cyan drop-shadow-[0_0_8px_rgba(0,242,255,0.4)] mb-4">
+                            <span class="material-symbols-outlined text-3xl"
+                                id="result-budget-icon">account_balance_wallet</span>
                         </div>
-                        <div class="result-card-content">
-                            <span class="result-label">Budget Level</span>
-                            <h3 class="result-value" id="result-budget">-</h3>
+                        <div>
+                            <span
+                                class="result-label text-[10px] font-semibold text-white/40 uppercase tracking-[0.1em] block mb-2">Budget
+                                Level</span>
+                            <h3 class="result-value font-space text-lg font-semibold text-white" id="result-budget">-
+                            </h3>
                         </div>
                     </div>
                 </div>
 
                 <!-- Recommended Tier Card -->
-                <div id="recommended-tier-card" class="tier-recommendation-card mb-8">
-                    <div class="tier-badge" id="tier-badge">
+                <div id="recommended-tier-card"
+                    class="tier-recommendation-card mb-8 bg-gradient-to-br from-xenon-cyan/8 to-xenon-purple/8 border border-xenon-cyan/20 rounded-3xl p-8 text-center relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-xenon-cyan to-xenon-purple">
+                    </div>
+                    <div class="tier-badge inline-flex items-center justify-center mb-4" id="tier-badge">
                         <span class="material-symbols-outlined text-5xl">stars</span>
                     </div>
-                    <h2 class="tier-title" id="tier-title">-</h2>
-                    <p class="tier-description" id="tier-description">-</p>
+                    <h2 class="tier-title font-syne text-3xl font-bold bg-gradient-to-r from-xenon-cyan to-xenon-purple bg-clip-text text-transparent mb-3"
+                        id="tier-title">-</h2>
+                    <p class="tier-description text-white/60 text-base max-w-lg mx-auto mb-6" id="tier-description">-
+                    </p>
 
-                    <div class="tier-features" id="tier-features">
+                    <div class="tier-features flex flex-wrap gap-3 justify-center mb-8" id="tier-features">
                         <!-- Features will be injected here -->
                     </div>
 
                     <!-- CTA Button -->
                     <div class="tier-cta">
-                        <a href="#" id="tier-cta-button" class="tier-cta-btn">
+                        <a href="#" id="tier-cta-button"
+                            class="tier-cta-btn inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-xenon-cyan to-xenon-purple text-xenon-black font-semibold text-base rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,242,255,0.4),0_4px_15px_rgba(112,0,255,0.3)]">
                             <span class="btn-text" id="tier-cta-text">-</span>
-                            <span class="material-symbols-outlined btn-icon">arrow_forward</span>
+                            <span class="material-symbols-outlined text-xl">arrow_forward</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Restart Option -->
                 <div class="text-center mt-8">
-                    <button id="restart-quiz" class="restart-btn">
+                    <button id="restart-quiz"
+                        class="restart-btn inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-white/20 rounded-full text-white/70 font-medium transition-all duration-300 hover:bg-white/5 hover:border-white/40 hover:text-white">
                         <span class="material-symbols-outlined">refresh</span>
                         <span>Restart Quiz</span>
                     </button>
