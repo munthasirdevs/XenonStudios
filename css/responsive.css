@@ -302,6 +302,100 @@
   .pricing-card-popular:hover::after {
     opacity: 0.5;
   }
+
+  /* PERFORMANCE: Disable particles on mobile */
+  .bubble-layer {
+    animation: none !important;
+    opacity: 0.08 !important;
+  }
+
+  .glow {
+    opacity: 0.06 !important;
+    animation: none !important;
+    width: 50vw !important;
+    height: 50vw !important;
+  }
+
+  .grid-bg {
+    opacity: 0.3 !important;
+    background-size: 60px 60px !important;
+  }
+
+  .scanner-ring {
+    animation: none !important;
+  }
+
+  .pricing-card-popular::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  /* PERFORMANCE: Reduce animation durations */
+  .service-card,
+  .glass-card,
+  .pricing-card {
+    transition-duration: 0.2s !important;
+  }
+
+  /* Disable hover transforms on touch devices */
+  .service-card:hover,
+  .glass-card:hover,
+  .pricing-card:hover {
+    transform: none !important;
+  }
+
+  /* ACCESSIBILITY: Minimum 44px tap targets */
+  button,
+  a,
+  input[type="submit"],
+  input[type="button"],
+  [role="button"],
+  .faq-question,
+  .social-icon,
+  .sticky-cta-close {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Ensure nav links have adequate touch targets */
+  nav a,
+  .mobile-menu a {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+
+  /* LAYOUT: Prevent horizontal overflow */
+  .max-w-6xl,
+  .max-w-7xl,
+  .max-w-4xl {
+    max-width: 100%;
+  }
+
+  /* Fix table overflow */
+  .data-table-wrapper,
+  table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* TOUCH: Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent zoom on input focus on iOS */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* Ensure billing toggle is large enough */
+  #billing-toggle {
+    min-width: 56px;
+    min-height: 44px;
+  }
 }
 
 /* ============================================
@@ -822,3 +916,29 @@
    MOBILE STRATEGY: SECTION SPACING & LAYOUT
    ============================================ */
 @media (max-width: 479px) {
+  /* READABILITY: Mobile typography improvements */
+  body {
+    font-size: 14px;
+    line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Ensure text doesn't get too small */
+  .text-xs,
+  .text-sm {
+    font-size: 13px !important;
+  }
+
+  /* Increase spacing for readability */
+  section p,
+  section li {
+    line-height: 1.7;
+  }
+
+  /* Footer links on mobile */
+  footer a {
+    min-height: 44px;
+    padding: 8px 0;
+  }
+}

@@ -213,6 +213,15 @@ const initFooterAccordion = () => {
 // GSAP SCROLL ANIMATIONS
 // ============================================================================
 const initGsapAnimations = () => {
+  // Only run heavy GSAP animations if not reduced-motion preference
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  if (prefersReducedMotion) {
+    // Skip all GSAP animations for users who prefer reduced motion
+    return;
+  }
+
   // Navigation Fade In
   gsap.from("nav", {
     opacity: 0,
@@ -316,43 +325,7 @@ const initGsapAnimations = () => {
 };
 
 // ============================================================================
-// FAQ INTERACTIVITY
-// ============================================================================
-const initFaqSystem = () => {
-  document.querySelectorAll(".faq-question").forEach((question) => {
-    question.addEventListener("click", () => {
-      const item = question.parentElement;
-      const answer = item.querySelector(".faq-answer");
-      const toggle = item.querySelector(".faq-toggle");
-      const isHidden = answer.classList.contains("hidden");
-
-      // Close all
-      document.querySelectorAll(".faq-item").forEach((other) => {
-        const otherAnswer = other.querySelector(".faq-answer");
-        const otherToggle = other.querySelector(".faq-toggle");
-        if (!otherAnswer.classList.contains("hidden")) {
-          gsap.to(otherAnswer, {
-            height: 0,
-            opacity: 0,
-            duration: 0.3,
-            onComplete: () => otherAnswer.classList.add("hidden"),
-          });
-          otherToggle.textContent = "+";
-        }
-      });
-
-      if (isHidden) {
-        answer.classList.remove("hidden");
-        gsap.fromTo(
-          answer,
-          { height: 0, opacity: 0 },
-          { height: "auto", opacity: 1, duration: 0.4, ease: "power2.out" },
-        );
-        toggle.textContent = "−";
-      }
-    });
-  });
-};
+// FAQ INTERACTIVITY — handled natively by <details>/<summary> elements
 
 // ============================================================================
 // SMOOTH SCROLL & ACTIVE NAV
@@ -427,7 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initFooterAccordion();
   initGsapAnimations();
-  initFaqSystem();
+  // initFaqSystem(); // REMOVED — FAQ now uses native <details>/<summary>
   initSmoothScroll();
 
   // Button Click Feedback

@@ -65,18 +65,6 @@ svg {
   margin-right: auto;
 }
 
-/* ============================================
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  max-width: 100vw;
-  scroll-behavior: smooth;
-}
-
 body {
   position: relative;
 }
@@ -1777,8 +1765,7 @@ table tr:hover td {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow:
     0 4px 10px rgba(10, 10, 31, 0.5),
-    0 0 10px rgba(0, 242, 255, 0.15),
-    inset 0 0 10px rgba(0, 242, 255, 0.05);
+    0 0 10px rgba(0, 242, 255, 0.15);
   font-family: "Ubuntu", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -1894,8 +1881,7 @@ table tr:hover td {
   transform: translateY(-1px) translateZ(0);
   box-shadow:
     0 6px 10px rgba(10, 10, 31, 0.6),
-    0 0 15px rgba(0, 242, 255, 0.3),
-    inset 0 0 15px rgba(0, 242, 255, 0.1);
+    0 0 15px rgba(0, 242, 255, 0.3);
   background: linear-gradient(45deg, #141436, #1e1e42);
 }
 
@@ -2369,7 +2355,7 @@ textarea.form-input {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  z-index: 9000;
+  z-index: var(--z-toast, 1200);
   animation: slideInRight 0.3s ease-out;
   max-width: 400px;
 }
@@ -2729,7 +2715,7 @@ textarea.form-input {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: var(--z-sticky-top, 200);
 }
 
 .topbar-title {
@@ -2986,9 +2972,14 @@ textarea.form-input {
   border: none;
   color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  padding: 4px;
+  padding: 12px;
   font-size: 18px;
   transition: color 0.2s;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sticky-cta-close:hover {
@@ -3156,4 +3147,242 @@ a:focus-visible {
 
 .skip-link:focus {
   top: 0;
+}
+
+/* ============================================
+   PERFORMANCE: CONTENT-VISIBILITY FOR BELOW-FOLD SECTIONS
+   Skips rendering until user scrolls near them
+   ============================================ */
+#about,
+#services,
+#pricing,
+#faq,
+#contact,
+#why-choose-us,
+.comparison-table {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* ============================================
+   UI STATE SYSTEM
+   Standard states for all components
+   ============================================ */
+
+/* --- Default State --- */
+/* All components have their default styles in their base class */
+
+/* --- Hover State --- */
+/* Already defined in component-specific styles */
+
+/* --- Active/Pressed State --- */
+.component--active {
+  /* Override for active/pressed state */
+  transform: scale(0.98);
+}
+
+button:active,
+[role="button"]:active,
+a:active {
+  transform: scale(0.98);
+  transition-duration: 0.1s;
+}
+
+/* --- Disabled State --- */
+.component--disabled,
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled,
+[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* --- Loading State --- */
+.component--loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.component--loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  margin-left: -8px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button loading state */
+.button--loading {
+  opacity: 0.7;
+  pointer-events: none;
+  position: relative;
+  color: transparent !important;
+}
+
+.button--loading::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  z-index: 10;
+}
+
+/* --- Success State --- */
+.component--success {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2) !important;
+}
+
+.input--success {
+  border-color: #10b981 !important;
+  background-color: rgba(16, 185, 129, 0.05) !important;
+}
+
+.input--success + .form-helper {
+  color: #10b981;
+}
+
+/* --- Error State --- */
+.component--error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+}
+
+.input--error {
+  border-color: #ef4444 !important;
+  background-color: rgba(239, 68, 68, 0.05) !important;
+}
+
+.input--error + .form-helper {
+  color: #ef4444;
+}
+
+.input--error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  outline-color: #ef4444;
+}
+
+/* --- Card States --- */
+.card--hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(0, 242, 255, 0.2);
+}
+
+.card--selected {
+  border-color: var(--xenon-color-cyan);
+  box-shadow:
+    0 0 0 2px var(--xenon-color-cyan),
+    0 0 20px rgba(0, 242, 255, 0.1);
+}
+
+/* --- Link States --- */
+.link--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* --- Badge States --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.badge--success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge--error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge--warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge--info {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.badge--neutral {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   FORM VALIDATION STYLES
+   ============================================ */
+.form-error-message {
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-error-message::before {
+  content: "⚠";
+  font-size: 14px;
+}
+
+.form-success-message {
+  color: #10b981;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Required field indicator */
+.form-label-required::after {
+  content: " *";
+  color: #ef4444;
+}
+
+/* Submit button disabled state */
+.form-submit--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
