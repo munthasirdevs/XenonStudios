@@ -59,7 +59,7 @@
         class="fixed inset-0 z-[10000] bg-black flex items-center justify-center transition-opacity duration-500">
         <div class="text-center">
             <div class="relative mb-8">
-                <img src="./images/logo.png" alt="Xenon Studios" class="h-16 md:h-20 animate-pulse" decoding="async">
+                <img src="./images/logo.png" alt="Xenon Studios" class="h-16 md:h-20 animate-pulse">
                 <div class="absolute inset-0 bg-[var(--xenon-color-cyan)]/20 blur-3xl rounded-full -z-10 animate-pulse">
                 </div>
             </div>
@@ -78,11 +78,11 @@
     <div class="glow bg-[var(--xenon-color-purple)] right-[-10%]"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl" aria-label="Main navigation">
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
         <div class="glass-card rounded-full px-8 py-4 flex items-center justify-between border-white/10">
             <div class="text-xl font-extrabold tracking-tighter italic">
                 <a href="index.html" class="block hover:scale-105 transition-transform">
-                    <img src="./images/logo.png" alt="logo" class="h-10" decoding="async">
+                    <img src="./images/logo.png" alt="logo" class="h-10">
                 </a>
             </div>
             <div class="hidden md:flex gap-8 font-medium text-white/70">
@@ -97,8 +97,7 @@
                     class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Contact
                     Us</a>
             </div>
-            <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer" class="hidden sm:block"
-                aria-label="Chat on WhatsApp - Opens in new tab">
+            <a href="https://wa.link/lx0res" target="_blank" class="hidden sm:block">
                 <div class="whatsapp-button flex">
                     <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                         <g fill="none">
@@ -133,8 +132,7 @@
                     class="mobile-nav-link text-white/70 hover:text-[var(--xenon-color-cyan)] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Services</a>
                 <a href="#faq"
                     class="mobile-nav-link text-white/70 hover:text-[var(--xenon-color-cyan)] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Faq</a>
-                <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer" class="mt-2"
-                    aria-label="Chat on WhatsApp - Opens in new tab">
+                <a href="https://wa.link/lx0res" target="_blank" class="mt-2">
                     <div class="whatsapp-button flex justify-center w-full">
                         <svg viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                             <g fill="none">
@@ -191,80 +189,6 @@
                         </path>
                     </svg>
                 </a>
-            </div>
-
-            <!-- Quiz Integration CTA -->
-            <div class="mt-6 flex items-center justify-center gap-3">
-                <a href="./AddOn/quiz/index.html"
-                    class="inline-flex items-center gap-2 text-sm text-white/60 hover:text-xenon-cyan transition-colors">
-                    <span
-                        class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-xenon-cyan/10 border border-xenon-cyan/20">
-                        <svg class="w-3.5 h-3.5 text-xenon-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                            stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                        </svg>
-                    </span>
-                    <span class="font-medium">Take our 60-second quiz</span>
-                    <span class="text-xenon-cyan/70">→</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Proof Bar -->
-    <section id="social-proof" class="py-10 px-4 border-y border-white/5"
-        aria-label="Social proof and client statistics">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 text-center">
-                <div class="flex items-center gap-3">
-                    <div class="flex -space-x-2">
-                        <div
-                            class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400/20 to-purple-400/20 border border-white/10 flex items-center justify-center text-xs font-bold">
-                            A</div>
-                        <div
-                            class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400/20 to-purple-400/20 border border-white/10 flex items-center justify-center text-xs font-bold">
-                            K</div>
-                        <div
-                            class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400/20 to-purple-400/20 border border-white/10 flex items-center justify-center text-xs font-bold">
-                            M</div>
-                        <div
-                            class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400/20 to-purple-400/20 border border-white/10 flex items-center justify-center text-xs font-bold">
-                            S</div>
-                        <div
-                            class="w-8 h-8 rounded-full bg-xenon-dark-surface border border-white/10 flex items-center justify-center text-xs text-white/50">
-                            +146</div>
-                    </div>
-                    <span class="text-sm text-white/50">Trusted by 150+ clients</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <div class="flex text-yellow-400">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                        </svg>
-                    </div>
-                    <span class="text-sm text-white/50">4.9/5 avg. rating</span>
-                </div>
-                <div class="text-sm text-white/50">
-                    <span class="text-xenon-cyan font-semibold">97%</span> client satisfaction rate
-                </div>
             </div>
         </div>
     </section>
@@ -378,7 +302,7 @@
                     <div
                         class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 justify-center items-center">
                         <!-- From Uiverse.io by Spacious74 -->
-                        <div class="stats-card" aria-label="Projects completed: 150+">
+                        <div class="stats-card">
                             <div class="stats-card-dot"></div>
                             <div class="stats-card-inner">
                                 <div class="stats-card-ray"></div>
@@ -393,7 +317,7 @@
                             </div>
                         </div>
 
-                        <div class="stats-card" aria-label="Years Experience: 4">
+                        <div class="stats-card">
                             <div class="stats-card-dot"></div>
                             <div class="stats-card-inner">
                                 <div class="stats-card-ray"></div>
@@ -408,7 +332,7 @@
                             </div>
                         </div>
 
-                        <div class="stats-card" aria-label="Countries Served: 5">
+                        <div class="stats-card">
                             <div class="stats-card-dot"></div>
                             <div class="stats-card-inner">
                                 <div class="stats-card-ray"></div>
@@ -423,7 +347,7 @@
                             </div>
                         </div>
 
-                        <div class="stats-card" aria-label="Client Satisfaction: 97%">
+                        <div class="stats-card">
                             <div class="stats-card-dot"></div>
                             <div class="stats-card-inner">
                                 <div class="stats-card-ray"></div>
@@ -460,8 +384,7 @@
             <div class="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
 
                 <!-- AI Automation -->
-                <div id="ai-automation" class="service-card relative px-10 rounded-xl group overflow-hidden"
-                    aria-label="AI Automation service">
+                <div id="ai-automation" class="service-card relative px-10 rounded-xl group overflow-hidden">
                     <div class="service-card-border"></div>
                     <div class="text-[36px]"><i class="fa-solid fa-robot"></i></div>
                     <div class="service-card-title-container">
@@ -527,12 +450,15 @@
                             <span class="service-feature-text">24/7 AI Support</span>
                         </li>
                     </ul>
-                    <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden"
-                        aria-label="Book A Call - Opens in new tab">
+                    <a href="https://wa.link/lx0res" target="_blank"
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
+                        <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
+                        <div class="bubble-layer bubble-4"></div>
                         <div class="bubble-layer bubble-5"></div>
+                        <div class="bubble-layer bubble-6"></div>
+                        <div class="bubble-layer bubble-7"></div>
                         <span>
                             <div class="flex items-center gap-2 justify-center">
                                 <div class="text-[24px]">
@@ -545,8 +471,7 @@
                 </div>
 
                 <!-- Web Development -->
-                <div id="web-dev" class="service-card relative px-10 rounded-xl group overflow-hidden"
-                    aria-label="Web Development service">
+                <div id="web-dev" class="service-card relative px-10 rounded-xl group overflow-hidden">
                     <div class="service-card-border"></div>
                     <div class="text-[36px]"><i class="fa-solid fa-laptop-code"></i></div>
                     <div class="service-card-title-container">
@@ -612,12 +537,15 @@
                             <span class="service-feature-text">SEO & Performance Optimization</span>
                         </li>
                     </ul>
-                    <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden"
-                        aria-label="Book A Call - Opens in new tab">
+                    <a href="https://wa.link/lx0res" target="_blank"
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
+                        <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
+                        <div class="bubble-layer bubble-4"></div>
                         <div class="bubble-layer bubble-5"></div>
+                        <div class="bubble-layer bubble-6"></div>
+                        <div class="bubble-layer bubble-7"></div>
                         <span>
                             <div class="flex items-center gap-2 justify-center">
                                 <div class="text-[24px]">
@@ -630,8 +558,7 @@
                 </div>
 
                 <!-- Visual Designs -->
-                <div id="visual-designs" class="service-card relative px-10 rounded-xl group overflow-hidden"
-                    aria-label="Visual Designs service">
+                <div id="visual-designs" class="service-card relative px-10 rounded-xl group overflow-hidden">
                     <div class="service-card-border"></div>
                     <div class="text-[36px]"><i class="fa-solid fa-palette"></i></div>
                     <div class="service-card-title-container">
@@ -697,12 +624,15 @@
                             <span class="service-feature-text">Motion Graphics & Animation</span>
                         </li>
                     </ul>
-                    <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden"
-                        aria-label="Book A Call - Opens in new tab">
+                    <a href="https://wa.link/lx0res" target="_blank"
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
+                        <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
+                        <div class="bubble-layer bubble-4"></div>
                         <div class="bubble-layer bubble-5"></div>
+                        <div class="bubble-layer bubble-6"></div>
+                        <div class="bubble-layer bubble-7"></div>
                         <span>
                             <div class="flex items-center gap-2 justify-center">
                                 <div class="text-[24px]">
@@ -715,8 +645,7 @@
                 </div>
 
                 <!-- VFX & Animation -->
-                <div id="vfx" class="service-card relative px-10 rounded-xl group overflow-hidden"
-                    aria-label="VFX and Animation service">
+                <div id="vfx" class="service-card relative px-10 rounded-xl group overflow-hidden">
                     <div class="service-card-border"></div>
                     <div class="text-[36px]"><i class="fa-solid fa-video"></i></div>
                     <div class="service-card-title-container">
@@ -782,12 +711,15 @@
                             <span class="service-feature-text">Explainer & Promotional Videos</span>
                         </li>
                     </ul>
-                    <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden"
-                        aria-label="Book A Call - Opens in new tab">
+                    <a href="https://wa.link/lx0res" target="_blank"
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
+                        <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
+                        <div class="bubble-layer bubble-4"></div>
                         <div class="bubble-layer bubble-5"></div>
+                        <div class="bubble-layer bubble-6"></div>
+                        <div class="bubble-layer bubble-7"></div>
                         <span>
                             <div class="flex items-center gap-2 justify-center">
                                 <div class="text-[24px]">
@@ -800,8 +732,7 @@
                 </div>
 
                 <!-- Motion Graphics -->
-                <div id="motion-graphics" class="service-card relative px-10 rounded-xl group overflow-hidden"
-                    aria-label="Motion Graphics service">
+                <div id="motion-graphics" class="service-card relative px-10 rounded-xl group overflow-hidden">
                     <div class="service-card-border"></div>
                     <div class="text-[36px]"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                     <div class="service-card-title-container">
@@ -867,12 +798,15 @@
                             <span class="service-feature-text">Title Sequences & Transitions</span>
                         </li>
                     </ul>
-                    <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden"
-                        aria-label="Book A Call - Opens in new tab">
+                    <a href="https://wa.link/lx0res" target="_blank"
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
+                        <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
+                        <div class="bubble-layer bubble-4"></div>
                         <div class="bubble-layer bubble-5"></div>
+                        <div class="bubble-layer bubble-6"></div>
+                        <div class="bubble-layer bubble-7"></div>
                         <span>
                             <div class="flex items-center gap-2 justify-center">
                                 <div class="text-[24px]">
@@ -885,8 +819,7 @@
                 </div>
 
                 <!-- Cybersecurity -->
-                <div id="cybersecurity" class="service-card relative px-10 rounded-xl group overflow-hidden"
-                    aria-label="Cybersecurity service">
+                <div id="cybersecurity" class="service-card relative px-10 rounded-xl group overflow-hidden">
                     <div class="service-card-border"></div>
                     <div class="text-[36px]"><i class="fa-solid fa-shield-halved"></i></div>
                     <div class="service-card-title-container">
@@ -952,12 +885,15 @@
                             <span class="service-feature-text">Compliance & Risk Management</span>
                         </li>
                     </ul>
-                    <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden"
-                        aria-label="Book A Call - Opens in new tab">
+                    <a href="https://wa.link/lx0res" target="_blank"
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
+                        <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
+                        <div class="bubble-layer bubble-4"></div>
                         <div class="bubble-layer bubble-5"></div>
+                        <div class="bubble-layer bubble-6"></div>
+                        <div class="bubble-layer bubble-7"></div>
                         <span>
                             <div class="flex items-center gap-2 justify-center">
                                 <div class="text-[24px]">
@@ -970,8 +906,7 @@
                 </div>
 
                 <!-- Video Editing -->
-                <div id="video-editing" class="service-card relative px-10 rounded-xl group overflow-hidden"
-                    aria-label="Video Editing service">
+                <div id="video-editing" class="service-card relative px-10 rounded-xl group overflow-hidden">
                     <div class="service-card-border"></div>
                     <div class="text-[36px]"><i class="fa-solid fa-clapperboard"></i></div>
                     <div class="service-card-title-container">
@@ -1037,12 +972,15 @@
                             <span class="service-feature-text">Multi-Camera Editing</span>
                         </li>
                     </ul>
-                    <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden"
-                        aria-label="Book A Call - Opens in new tab">
+                    <a href="https://wa.link/lx0res" target="_blank"
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
+                        <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
+                        <div class="bubble-layer bubble-4"></div>
                         <div class="bubble-layer bubble-5"></div>
+                        <div class="bubble-layer bubble-6"></div>
+                        <div class="bubble-layer bubble-7"></div>
                         <span>
                             <div class="flex items-center gap-2 justify-center">
                                 <div class="text-[24px]">
@@ -1055,8 +993,7 @@
                 </div>
 
                 <!-- Digital Marketing -->
-                <div id="digital-marketing" class="service-card relative px-10 rounded-xl group overflow-hidden"
-                    aria-label="Digital Marketing service">
+                <div id="digital-marketing" class="service-card relative px-10 rounded-xl group overflow-hidden">
                     <div class="service-card-border"></div>
                     <div class="text-[36px]"><i class="fa-solid fa-ranking-star"></i></div>
                     <div class="service-card-title-container">
@@ -1123,12 +1060,15 @@
                             <span class="service-feature-text">Analytics & ROI Tracking</span>
                         </li>
                     </ul>
-                    <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden"
-                        aria-label="Book A Call - Opens in new tab">
+                    <a href="https://wa.link/lx0res" target="_blank"
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
+                        <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
+                        <div class="bubble-layer bubble-4"></div>
                         <div class="bubble-layer bubble-5"></div>
+                        <div class="bubble-layer bubble-6"></div>
+                        <div class="bubble-layer bubble-7"></div>
                         <span>
                             <div class="flex items-center gap-2 justify-center">
                                 <div class="text-[24px]">
@@ -1141,8 +1081,7 @@
                 </div>
 
                 <!-- E-commerce Scaling -->
-                <div id="e-commerce-scaling" class="service-card relative px-10 rounded-xl group overflow-hidden"
-                    aria-label="E-commerce Scaling service">
+                <div id="e-commerce-scaling" class="service-card relative px-10 rounded-xl group overflow-hidden">
                     <div class="service-card-border"></div>
                     <div class="text-[36px]"><i class="fa-solid fa-cart-shopping"></i></div>
                     <div class="service-card-title-container">
@@ -1208,12 +1147,15 @@
                             <span class="service-feature-text">Upsell & Cross-sell Strategies</span>
                         </li>
                     </ul>
-                    <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer"
-                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden"
-                        aria-label="Book A Call - Opens in new tab">
+                    <a href="https://wa.link/lx0res" target="_blank"
+                        class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden">
                         <div class="bubble-layer bubble-1"></div>
+                        <div class="bubble-layer bubble-2"></div>
                         <div class="bubble-layer bubble-3"></div>
+                        <div class="bubble-layer bubble-4"></div>
                         <div class="bubble-layer bubble-5"></div>
+                        <div class="bubble-layer bubble-6"></div>
+                        <div class="bubble-layer bubble-7"></div>
                         <span>
                             <div class="flex items-center gap-2 justify-center">
                                 <div class="text-[24px]">
@@ -1879,11 +1821,12 @@
                     <p class="text-gray-400 mb-10 max-w-xl mx-auto">Join over 150+ brands that trust Xenon Studios to
                         build their digital future.</p>
                     <div class="flex flex-col md:flex-row gap-4 justify-center">
-                        <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.link/lx0res" target="_blank"
                             class="px-10 py-4 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-bold hover:scale-105 transition-transform">
                             Get Started Today
                         </a>
-                        <button class="ghost-button">
+                        <button
+                            class="px-10 py-4 rounded-full bg-white/10 text-white font-bold hover:bg-white/20 transition-colors">
                             Book a Demo
                         </button>
                     </div>
@@ -1920,7 +1863,7 @@
 
                     <!-- Email -->
                     <a href="mailto:connect@xenonstudios.bd?subject=Project%20Inquiry&body=Hello%20Xenon%20Studios,%0A%0AI%20want%20to%20discuss%20a%20project%20with%20you."
-                        target="_blank" rel="noopener noreferrer">
+                        target="_blank">
                         <div
                             class="glass-card rounded-xl p-6 flex items-center gap-5 mb-6 transition hover:scale-[1.02]">
                             <div class="text-2xl text-[var(--xenon-color-cyan)]">
@@ -1930,7 +1873,7 @@
                                 <p class="font-semibold text-lg">Email</p>
                                 <div class="flex flex-col gap-1">
                                     <a href="mailto:connect@xenonstudios.bd?subject=Project%20Inquiry&body=Hello%20Xenon%20Studios,%0A%0AI%20want%20to%20discuss%20a%20project%20with%20you."
-                                        target="_blank" rel="noopener noreferrer"
+                                        target="_blank"
                                         class="text-[var(--xenon-color-cyan)] text-sm transition hover:underline">
                                         connect@xenonstudios.bd
                                     </a>
@@ -1940,7 +1883,7 @@
                     </a>
 
                     <!-- Phone / WhatsApp -->
-                    <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.link/lx0res" target="_blank">
                         <div class="glass-card rounded-xl p-6 flex items-center gap-5 transition hover:scale-[1.02]">
                             <div class="text-2xl text-green-400"><i class="fab fa-whatsapp"></i></div>
                             <div>
@@ -2086,8 +2029,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[var(--xenon-color-black)] border-t border-white/10 py-12 md:py-16 mx-auto px-4 md:px-6"
-        role="contentinfo">
+    <footer class="bg-[var(--xenon-color-black)] border-t border-white/10 py-12 md:py-16 mx-auto px-4 md:px-6">
         <div class="mx-auto px-2 md:px-6 container">
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 px-4 md:px-10">
@@ -2249,7 +2191,7 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer" id="whatsapp-btn"
+    <a href="https://wa.link/lx0res" target="_blank" id="whatsapp-btn"
         class="fixed bottom-6 right-6 z-50 hover:scale-110 transition-all duration-300 opacity-0 invisible"
         aria-label="Chat on WhatsApp">
         <div class="bg-gradient-animate text-white rounded-full p-3.5 md:p-4 shadow-lg shadow-black/30">
@@ -2260,84 +2202,6 @@
             </svg>
         </div>
     </a>
-
-    <!-- Sticky CTA Bar (Conversion Engine) -->
-    <div id="sticky-cta-bar" class="sticky-cta-bar" aria-label="Call to action">
-        <button class="sticky-cta-close" aria-label="Dismiss"
-            onclick="document.getElementById('sticky-cta-bar').classList.remove('visible')">&times;</button>
-        <div class="sticky-cta-content">
-            <div class="sticky-cta-text">
-                <div class="sticky-cta-title">Ready to 10X Your Revenue?</div>
-                <div class="sticky-cta-subtitle">Take our 60-second quiz to get your personalized growth strategy</div>
-            </div>
-            <div class="sticky-cta-actions">
-                <a href="./AddOn/quiz/index.html" class="sticky-cta-btn">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                    </svg>
-                    Take Quiz
-                </a>
-                <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer"
-                    class="sticky-cta-btn sticky-cta-btn-secondary" aria-label="Book a Call - Opens in new tab">
-                    Book a Call
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Conversion Engine Scripts -->
-    <script>
-        (function () {
-            'use strict';
-
-            // Sticky CTA Bar - show after scrolling past hero
-            const stickyBar = document.getElementById('sticky-cta-bar');
-            const heroSection = document.getElementById('home');
-
-            if (stickyBar && heroSection) {
-                const observer = new IntersectionObserver(
-                    ([entry]) => {
-                        if (!entry.isIntersecting) {
-                            stickyBar.classList.add('visible');
-                        } else {
-                            stickyBar.classList.remove('visible');
-                        }
-                    },
-                    { threshold: 0.1 }
-                );
-                observer.observe(heroSection);
-            }
-
-            // Dismissed state for sticky bar (session storage)
-            const closeBtn = document.querySelector('.sticky-cta-close');
-            if (closeBtn) {
-                closeBtn.addEventListener('click', function () {
-                    sessionStorage.setItem('sticky-cta-dismissed', 'true');
-                });
-            }
-
-            // Check if previously dismissed
-            if (sessionStorage.getItem('sticky-cta-dismissed') === 'true' && stickyBar) {
-                stickyBar.style.display = 'none';
-            }
-
-            // ===== KEYBOARD NAVIGATION SUPPORT =====
-            // Skip to content shortcut (Alt+S)
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 's' && e.altKey) {
-                    e.preventDefault();
-                    const mainContent = document.querySelector('#home');
-                    if (mainContent) mainContent.focus();
-                }
-            });
-
-            // Add tabindex="-1" to section headings for skip navigation
-            document.querySelectorAll('section[id]').forEach(function (section) {
-                section.setAttribute('tabindex', '-1');
-            });
-        })();
-    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
