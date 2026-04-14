@@ -561,8 +561,8 @@
       },
     );
 
-    // Reset progress
-    elements.progressBar.style.width = "0%";
+    // Progress bar removed from UI
+    // elements.progressBar.style.width = "0%";
 
     // Hide all pages
     document.querySelectorAll(".quiz-page").forEach((page) => {
