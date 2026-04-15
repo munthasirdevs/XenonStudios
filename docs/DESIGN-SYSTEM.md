@@ -1,15 +1,16 @@
 # Xenon Studios Design System
 
-> **Version:** 2.0.0
-> **Last Updated:** April 14, 2026
+> **Version:** 2.1.0
+> **Last Updated:** April 16, 2026
 > **Status:** Active
 > **Applies To:** Xenon Studios Main Website (index.html)
 
 ## Version History
 
-| Version | Date           | Changes                                                                                                                                                                                                                                                ------------------------------------------------------------------------------------------------------------------------------------ |
-| 2.0.0   | April 14, 2026 | 7-phase overhaul: accent hierarchy, effect limitations, product layer (forms, feedback, data UI, dashboard), 96 design tokens, 40 utility classes, performance optimizations (backdrop-filter, blur, will-change, reduced motion, mobile overrides), conversion engine (sticky CTA, social proof, hero quiz), mobile strategy, accessibility (focus-visible, skip link, ARIA, keyboard nav) |
-| 1.0.0   | April 14, 2026 | Initial complete design system documentation                                                                                                                                                                                                                                                                                                                                                |
+| Version | Date | Changes ------------------------------------------------------------------------------------------------------------------------------------ |
+| 2.1.0 | April 16, 2026 | Rebuilt service card buttons with 7 animated bubble layers (btn-001 pattern) using :root accent colors (purple, blue-electric, violet-glow, blue-soft, magenta-bright, neon-mint). Restored service card 6-layer radial gradient design. Restored pricing card buttons to space-button with bright-particles effect. Added AddOn/btn/ to .gitignore. |
+| 2.0.0 | April 14, 2026 | 7-phase overhaul: accent hierarchy, effect limitations, product layer (forms, feedback, data UI, dashboard), 96 design tokens, 40 utility classes, performance optimizations (backdrop-filter, blur, will-change, reduced motion, mobile overrides), conversion engine (sticky CTA, social proof, hero quiz), mobile strategy, accessibility (focus-visible, skip link, ARIA, keyboard nav) |
+| 1.0.0 | April 14, 2026 | Initial complete design system documentation |
 
 ---
 
@@ -961,19 +962,14 @@ The foundational card component used throughout the site. Provides a frosted gla
 
 ### 7.2 Service Card
 
-The most complex component. Features layered radial gradients for glow effects, animated bubble particles, and a gradient CTA button.
+The most complex component. Features layered radial gradients for glow effects, and an animated bubble CTA button.
 
-**v2.0.0 Changes:** Radial gradients reduced from 6 → 3 layers. Bubble layers reduced from 7 → 3 (kept bubble-1, bubble-3, bubble-5). REMOVED keyframes: `moveDownLeft`, `moveUpLeft`, `moveLeft`, `moveUp`. KEPT keyframes: `moveDownRight`, `moveDiagonal`, `moveRight`.
+**v2.1.0 Changes:** Service card uses 6 radial gradient layers (3 dark-base + 2 purple + 1 cyan). Service card button rebuilt with 7 animated bubble layers (btn-001 pattern) using :root accent colors: purple, blue-electric, violet-glow, blue-soft, magenta-bright, neon-mint. Button gradient applied via Tailwind HTML classes (`bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)]`).
 
 #### Structure
 
 ```html
 <div class="service-card relative px-10 rounded-xl group overflow-hidden">
-  <!-- 3 Animated Bubble Layers (v2.0.0: was 7) -->
-  <div class="bubble-layer bubble-1"></div>
-  <div class="bubble-layer bubble-3"></div>
-  <div class="bubble-layer bubble-5"></div>
-
   <!-- Icon (36px) -->
   <div class="text-[36px]"><i class="fa-solid fa-robot"></i></div>
 
@@ -982,7 +978,7 @@ The most complex component. Features layered radial gradients for glow effects, 
     <span class="service-card-title text-3xl font-semibold text-white"
       >AI Automation</span
     >
-    <p class="service-card-description text-sm text-zinc-400 mt-2">
+    <p class="service-card-description text-sm text-zinc-300 mt-2">
       Streamline your business with intelligent automation solutions.
     </p>
   </div>
@@ -998,11 +994,19 @@ The most complex component. Features layered radial gradients for glow effects, 
     <!-- ... more features -->
   </ul>
 
-  <!-- CTA Button -->
+  <!-- CTA Button with 7 Animated Bubbles -->
   <a
     href="..."
-    class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-cyan to-purple text-white font-medium overflow-hidden"
+    class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden"
   >
+    <!-- 7 Bubble Layers (btn-001 pattern) -->
+    <div class="bubble-layer bubble-1"></div>
+    <div class="bubble-layer bubble-2"></div>
+    <div class="bubble-layer bubble-3"></div>
+    <div class="bubble-layer bubble-4"></div>
+    <div class="bubble-layer bubble-5"></div>
+    <div class="bubble-layer bubble-6"></div>
+    <div class="bubble-layer bubble-7"></div>
     <span>
       <div class="flex items-center gap-2 justify-center">
         <i class="fa-brands fa-whatsapp"></i>
@@ -1025,7 +1029,7 @@ The most complex component. Features layered radial gradients for glow effects, 
   width: 100%;
   max-width: 400px;
   background-color: var(--xenon-color-dark-base);
-  /* v2.0.0: 3 radial gradients (was 6) */
+  /* 6 radial gradients: 3 dark-base + 2 purple + 1 cyan */
   background-image:
     radial-gradient(
       at 88% 40%,
@@ -1037,7 +1041,14 @@ The most complex component. Features layered radial gradients for glow effects, 
       var(--xenon-color-dark-base) 0px,
       transparent 85%
     ),
-    radial-gradient(at 0% 64%, var(--xenon-color-purple) 0px, transparent 85%);
+    radial-gradient(
+      at 14% 26%,
+      var(--xenon-color-dark-base) 0px,
+      transparent 85%
+    ),
+    radial-gradient(at 0% 64%, var(--xenon-color-purple) 0px, transparent 85%),
+    radial-gradient(at 41% 94%, var(--xenon-color-purple) 0px, transparent 85%),
+    radial-gradient(at 100% 99%, var(--xenon-color-cyan) 0px, transparent 85%);
   border-radius: 1rem;
   box-shadow: 0px -16px 24px 0px var(--xenon-color-white-transparent) inset;
   border: 1px solid var(--xenon-color-white-faint);
@@ -1045,29 +1056,32 @@ The most complex component. Features layered radial gradients for glow effects, 
     transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.6s ease,
     box-shadow 0.6s ease;
-  will-change: transform; /* v2.0.0: added performance hint */
 }
 
 .service-card:hover {
   transform: translateY(-4px);
-  border-color: var(--xenon-color-magenta-transparent);
+  border-color: var(--xenon-color-cyan-faint);
   box-shadow:
     0 10px 30px -10px var(--xenon-color-black-transparent),
-    0 0 15px var(--xenon-color-magenta-faint);
+    0 0 15px var(--xenon-color-cyan-faint);
+}
+
+.service-feature-check {
+  background-color: var(--xenon-color-cyan); /* v2.1.0: was violet-glow */
 }
 ```
 
 #### Properties
 
-| Property      | Default                                              | Hover                                                                 |
-| ------------- | ---------------------------------------------------- | --------------------------------------------------------------------- |
-| Max Width     | 400px                                                | Same                                                                  |
-| Padding       | 1rem internal, px-10 horizontal                      | Same                                                                  |
-| Background    | Dark base + 3 radial gradients (v2.0.0: was 6)       | Same                                                                  |
-| Border        | `1px solid rgba(255, 255, 255, 0.04)`                | `1px solid rgba(157, 23, 77, 0.4)`                                    |
-| Box Shadow    | `0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset` | `0 10px 30px -10px rgba(0,0,0,0.5), 0 0 15px rgba(157, 23, 77, 0.08)` |
-| Transform     | `none`                                               | `translateY(-10px)` (from global hover)                               |
-| Border Radius | 1rem (`rounded-xl`)                                  | Same                                                                  |
+| Property      | Default                                              | Hover                                                                |
+| ------------- | ---------------------------------------------------- | -------------------------------------------------------------------- |
+| Max Width     | 400px                                                | Same                                                                 |
+| Padding       | 1rem internal, px-10 horizontal                      | Same                                                                 |
+| Background    | Dark base + 6 radial gradients                       | Same                                                                 |
+| Border        | `1px solid rgba(255, 255, 255, 0.04)`                | `1px solid rgba(0, 242, 255, 0.2)`                                   |
+| Box Shadow    | `0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset` | `0 10px 30px -10px rgba(0,0,0,0.5), 0 0 15px rgba(0, 242, 255, 0.2)` |
+| Transform     | `none`                                               | `translateY(-4px)`                                                   |
+| Border Radius | 1rem (`rounded-xl`)                                  | Same                                                                 |
 
 #### Service Card Title
 
@@ -1111,7 +1125,32 @@ The most complex component. Features layered radial gradients for glow effects, 
 
 #### Service Card Button
 
+**v2.1.0:** Rebuilt with btn-001 animated bubble pattern. 7 bubble layers using :root accent colors (no cyan). Gradient applied via Tailwind HTML classes, not CSS.
+
+```html
+<a
+  href="..."
+  class="service-card-button relative mt-8 px-6 py-3 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white font-medium overflow-hidden"
+>
+  <!-- 7 Animated Bubbles (btn-001 pattern) -->
+  <div class="bubble-layer bubble-1"></div>
+  <div class="bubble-layer bubble-2"></div>
+  <div class="bubble-layer bubble-3"></div>
+  <div class="bubble-layer bubble-4"></div>
+  <div class="bubble-layer bubble-5"></div>
+  <div class="bubble-layer bubble-6"></div>
+  <div class="bubble-layer bubble-7"></div>
+  <span>
+    <div class="flex items-center gap-2 justify-center">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span class="outfit text-[20px] font-bold">Book A Call</span>
+    </div>
+  </span>
+</a>
+```
+
 ```css
+/* Base button — transparent bg, gradient from HTML classes */
 .service-card-button {
   position: relative;
   padding: 14px 42px;
@@ -1122,7 +1161,7 @@ The most complex component. Features layered radial gradients for glow effects, 
   border-radius: 50px; /* pill shape */
   cursor: pointer;
   overflow: hidden;
-  background: transparent;
+  background: transparent; /* gradient from Tailwind HTML */
   display: inline-block;
   z-index: 1;
   transition: transform 0.2s ease;
@@ -1153,15 +1192,182 @@ The most complex component. Features layered radial gradients for glow effects, 
   transform: scale(0.96);
 }
 
-/* Gradient background */
-.service-card-button {
-  background: linear-gradient(
-    to right,
-    var(--xenon-color-cyan),
-    var(--xenon-color-purple)
-  );
+/* 7 Animated Bubbles (btn-001 pattern with :root colors) */
+.service-card-button .bubble-layer {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.service-card-button .bubble-1 {
+  background: var(--xenon-color-purple);
+  top: -20%;
+  left: -10%;
+  animation: btnBubbleUpRight 6s ease-in-out infinite;
+}
+.service-card-button .bubble-2 {
+  background: var(--xenon-color-blue-electric);
+  top: 0%;
+  left: 10%;
+  animation: btnBubbleDownLeft 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+.service-card-button .bubble-3 {
+  background: var(--xenon-color-violet-glow);
+  top: 20%;
+  left: 50%;
+  animation: btnBubbleRight 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+.service-card-button .bubble-4 {
+  background: var(--xenon-color-blue-soft);
+  top: -20%;
+  left: 70%;
+  animation: btnBubbleUpLeft 7s ease-in-out infinite;
+  animation-delay: 3s;
+}
+.service-card-button .bubble-5 {
+  background: var(--xenon-color-purple);
+  top: 30%;
+  left: -10%;
+  animation: btnBubbleDownRight 3s ease-in-out infinite;
+  animation-delay: 4s;
+}
+.service-card-button .bubble-6 {
+  background: var(--xenon-color-magenta-bright);
+  top: -10%;
+  left: 30%;
+  animation: btnBubbleLeft 8s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+.service-card-button .bubble-7 {
+  background: var(--xenon-color-neon-mint);
+  top: 40%;
+  left: 60%;
+  animation: btnBubbleUp 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes btnBubbleUpRight {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100%, -100%);
+  }
+  50% {
+    transform: translate(-50%, 50%);
+  }
+  75% {
+    transform: translate(50%, -50%);
+  }
+}
+@keyframes btnBubbleDownLeft {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-100%, 100%);
+  }
+  50% {
+    transform: translate(50%, -50%);
+  }
+  75% {
+    transform: translate(-50%, 50%);
+  }
+}
+@keyframes btnBubbleRight {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100%, 0);
+  }
+  50% {
+    transform: translate(-100%, 50%);
+  }
+  75% {
+    transform: translate(50%, -50%);
+  }
+}
+@keyframes btnBubbleUpLeft {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-100%, -100%);
+  }
+  50% {
+    transform: translate(50%, 50%);
+  }
+  75% {
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes btnBubbleDownRight {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100%, 100%);
+  }
+  50% {
+    transform: translate(-50%, -50%);
+  }
+  75% {
+    transform: translate(50%, 50%);
+  }
+}
+@keyframes btnBubbleLeft {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-100%, 0);
+  }
+  50% {
+    transform: translate(100%, -50%);
+  }
+  75% {
+    transform: translate(-50%, 50%);
+  }
+}
+@keyframes btnBubbleUp {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(0, -100%);
+  }
+  50% {
+    transform: translate(50%, 50%);
+  }
+  75% {
+    transform: translate(-50%, -50%);
+  }
 }
 ```
+
+| Property      | Value                                                                                                         |
+| ------------- | ------------------------------------------------------------------------------------------------------------- |
+| Padding       | 14px 42px                                                                                                     |
+| Font Size     | 18px, bold, white                                                                                             |
+| Border Radius | 50px (pill shape)                                                                                             |
+| Background    | Transparent (gradient from HTML: cyan → purple)                                                               |
+| Hover Effect  | Black overlay (`::before`) scales to fill                                                                     |
+| Active Effect | `scale(0.96)`                                                                                                 |
+| Bubble Layers | 7, 150px, blur(10px), :root colors (purple, blue-electric, violet-glow, blue-soft, magenta-bright, neon-mint) |
 
 ### 7.3 Stats Card
 
@@ -2171,6 +2377,44 @@ A glass card with an animated rotating conic gradient border using CSS Houdini.
 | CSS Houdini Property | `@property --glow-angle`          |
 | Hover Transform      | `translateY(-8px) scale(1.02)`    |
 | Hover Box Shadow     | Multi-layer cyan + purple glow    |
+
+#### Pricing Card Buttons (v2.1.0)
+
+**v2.1.0:** All three pricing plan buttons restored to `space-button` with `bright-particles` effect (from `.bak`).
+
+```html
+<!-- Essential Plan -->
+<div class="button-container w-full">
+  <button class="space-button w-full">
+    <div class="bright-particles"></div>
+    <span>Start Basic</span>
+  </button>
+</div>
+
+<!-- Professional Plan -->
+<div class="button-container w-full">
+  <button class="space-button w-full">
+    <div class="bright-particles"></div>
+    <span>Go Pro</span>
+  </button>
+</div>
+
+<!-- Enterprise Plan -->
+<div class="button-container w-full">
+  <button class="space-button w-full">
+    <div class="bright-particles"></div>
+    <span>Contact Sales</span>
+  </button>
+</div>
+```
+
+| Property     | Value                                     |
+| ------------ | ----------------------------------------- |
+| Button Type  | `.space-button` (with `bright-particles`) |
+| Width        | `w-full` (100% of container)              |
+| Essential    | "Start Basic"                             |
+| Professional | "Go Pro"                                  |
+| Enterprise   | "Contact Sales"                           |
 
 ### 7.9 FAQ Accordion
 
