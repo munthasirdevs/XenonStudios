@@ -74,11 +74,6 @@ body {
    Defines the core color palette and effects
    ============================================ */
 :root {
-  /* === ACCENT HIERARCHY === */
-  /* Primary (20%): Cyan - CTAs, active states, primary accents */
-  /* Secondary (7%): Purple - Secondary elements, gradients */
-  /* Tertiary (3%): Magenta - Rare highlights, special badges */
-
   /* Brand Constants */
   --xenon-color-cyan: rgba(0, 242, 255, 1);
   /* #00f2ff */
@@ -151,144 +146,6 @@ body {
   /* #f593e4 */
   --xenon-color-violet-glow: rgba(135, 49, 246, 1);
   /* #8731f6 */
-
-  /* ============================================
-     SPACING SYSTEM (4px Base Grid)
-     ============================================ */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-8: 48px;
-  --space-10: 64px;
-  --space-12: 96px;
-  --space-16: 128px;
-
-  /* Compound Spacing (for common patterns) */
-  --space-section: clamp(3rem, 8vw, 6rem); /* Section vertical padding */
-  --space-card: var(--space-5); /* Card padding */
-  --space-component: var(--space-4); /* Component internal padding */
-  --space-element: var(--space-2); /* Small element gaps */
-
-  /* ============================================
-     MOTION/TIMING SYSTEM
-     ============================================ */
-  /* Duration */
-  --motion-instant: 0ms;
-  --motion-fast: 150ms;
-  --motion-normal: 300ms;
-  --motion-slow: 600ms;
-
-  /* Easing Curves */
-  --ease-linear: linear;
-  --ease-ease: ease;
-  --ease-ease-in: ease-in;
-  --ease-ease-out: ease-out;
-  --ease-ease-in-out: ease-in-out;
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
-
-  /* Motion Presets (common animation combos) */
-  --motion-hover: var(--motion-fast) var(--ease-ease-out);
-  --motion-entrance: var(--motion-slow) var(--ease-out-expo);
-  --motion-entrance-sm: var(--motion-normal) var(--ease-out-expo);
-  --motion-interactive: var(--motion-normal) var(--ease-out-back);
-  --motion-page: var(--motion-slow) var(--ease-ease-in-out);
-
-  /* ============================================
-     SHADOW SYSTEM
-     ============================================ */
-  /* Depth Levels */
-  --shadow-none: none;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 1px rgba(255, 255, 255, 0.1);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 242, 255, 0.1);
-  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 242, 255, 0.15);
-
-  /* Glow Shadows (accent-driven) */
-  --shadow-glow-sm: 0 0 10px rgba(0, 242, 255, 0.2);
-  --shadow-glow-md:
-    0 0 20px rgba(0, 242, 255, 0.3), 0 4px 10px rgba(0, 0, 0, 0.3);
-  --shadow-glow-lg:
-    0 0 40px rgba(0, 242, 255, 0.4), 0 10px 30px rgba(0, 0, 0, 0.4);
-  --shadow-glow-purple:
-    0 0 30px rgba(112, 0, 255, 0.3), 0 8px 20px rgba(0, 0, 0, 0.3);
-  --shadow-glow-magenta:
-    0 0 25px rgba(157, 23, 77, 0.3), 0 6px 15px rgba(0, 0, 0, 0.3);
-
-  /* Inset Shadows */
-  --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-  --shadow-inset-glow: inset 0 0 20px rgba(0, 242, 255, 0.05);
-
-  /* ============================================
-     Z-INDEX SYSTEM
-     ============================================ */
-  --z-base: 0;
-  --z-behind: -1;
-  --z-content: 1;
-  --z-sticky: 50;
-  --z-dropdown: 100;
-  --z-sticky-top: 200;
-  --z-overlay-backdrop: 500;
-  --z-modal: 1000;
-  --z-popover: 1100;
-  --z-toast: 1200;
-  --z-loading: 9999;
-
-  /* ============================================
-     BORDER RADIUS SYSTEM
-     ============================================ */
-  --radius-none: 0;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 10px;
-  --radius-xl: 12px;
-  --radius-2xl: 16px;
-  --radius-3xl: 24px;
-  --radius-full: 9999px;
-
-  /* ============================================
-     FONT SIZE SYSTEM (Reference)
-     ============================================ */
-  --text-xs: 12px;
-  --text-sm: 14px;
-  --text-base: 16px;
-  --text-lg: 18px;
-  --text-xl: 20px;
-  --text-2xl: 24px;
-  --text-3xl: 30px;
-  --text-4xl: 36px;
-  --text-5xl: 48px;
-  --text-6xl: 60px;
-  --text-hero-sm: 42px;
-  --text-hero-md: 56px;
-  --text-hero-lg: 80px;
-
-  /* ============================================
-     BORDER WIDTH SYSTEM
-     ============================================ */
-  --border-none: 0;
-  --border-hairline: 0.5px;
-  --border-thin: 1px;
-  --border-normal: 1.5px;
-  --border-thick: 2px;
-  --border-heavy: 4px;
-
-  /* ============================================
-     CONTAINER SIZES
-     ============================================ */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-  --container-2xl: 1536px;
-  --container-content: 1280px; /* Main content max width */
-  --container-narrow: 896px; /* Reading content */
-  --container-wide: 1792px; /* Full-width sections */
 }
 
 /* ============================================
@@ -622,7 +479,7 @@ h6 {
   transform: translateY(-10px);
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(0, 242, 255, 0.2);
+    0 0 30px var(--xenon-color-cyan-faint);
 }
 
 /* FAQ Items Hover */
@@ -1104,6 +961,7 @@ table tr:hover td {
   transition: all 0.3s ease;
   box-shadow:
     inset 0px 0px 5px var(--xenon-color-white-translucent),
+    inset 0px 35px 30px var(--xenon-color-black),
     0px 5px 10px var(--xenon-color-black);
   text-shadow: 1px 1px 1px var(--xenon-color-black);
 }
@@ -1137,7 +995,9 @@ table tr:hover td {
 }
 
 .whatsapp-button:active {
-  box-shadow: inset 0px 0px 5px var(--xenon-color-white-translucent);
+  box-shadow:
+    inset 0px 0px 5px var(--xenon-color-white-translucent),
+    inset 0px 35px 30px var(--xenon-color-black);
   margin-top: 3px;
 }
 
@@ -1173,13 +1033,13 @@ table tr:hover td {
    SERVICE CARDS
    Card styling with radial gradient border effects
    ============================================ */
-/* Service Card - Reduced from 6 to 3 radial gradient layers (ENFORCED: Max 2 gradients) */
+/* Service Card - 6 radial gradient layers (original .bak design) */
 .service-card {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 2rem 2.5rem;
+  padding: 1rem;
   width: 100%;
   max-width: 400px;
   background-color: var(--xenon-color-dark-base);
@@ -1195,10 +1055,13 @@ table tr:hover td {
       transparent 85%
     ),
     radial-gradient(
-      at 100% 99%,
-      var(--xenon-color-pink-glow) 0px,
+      at 14% 26%,
+      var(--xenon-color-dark-base) 0px,
       transparent 85%
-    );
+    ),
+    radial-gradient(at 0% 64%, var(--xenon-color-purple) 0px, transparent 85%),
+    radial-gradient(at 41% 94%, var(--xenon-color-purple) 0px, transparent 85%),
+    radial-gradient(at 100% 99%, var(--xenon-color-cyan) 0px, transparent 85%);
   border-radius: 1rem;
   box-shadow: 0px -16px 24px 0px var(--xenon-color-white-transparent) inset;
   border: 1px solid var(--xenon-color-white-faint);
@@ -1229,16 +1092,16 @@ table tr:hover td {
   align-items: center;
   width: 1rem;
   height: 1rem;
-  background-color: var(--xenon-color-violet-glow);
+  background-color: var(--xenon-color-cyan);
   border-radius: 50%;
 }
 
 .service-card:hover {
   transform: translateY(-4px);
-  border-color: var(--xenon-color-magenta-transparent);
+  border-color: var(--xenon-color-cyan-faint);
   box-shadow:
     0 10px 30px -10px var(--xenon-color-black-transparent),
-    0 0 15px var(--xenon-color-magenta-faint);
+    0 0 15px var(--xenon-color-cyan-faint);
 }
 
 /* ⚠️ Service Cards Only - Do not reuse outside service cards ⚠️ */
@@ -1252,15 +1115,10 @@ table tr:hover td {
   border-radius: 50px;
   cursor: pointer;
   overflow: hidden;
-  background: linear-gradient(
-    90deg,
-    var(--xenon-color-cyan),
-    var(--xenon-color-purple)
-  );
+  background: transparent;
   display: inline-block;
   z-index: 1;
   transition: transform 0.2s ease;
-  box-shadow: 0 4px 15px rgba(0, 242, 255, 0.2);
 }
 
 .service-card-button span {
@@ -1292,15 +1150,196 @@ table tr:hover td {
   transform: scale(1);
 }
 
-.service-card-button:hover {
-  box-shadow:
-    0 6px 25px rgba(0, 242, 255, 0.35),
-    0 0 20px rgba(112, 0, 255, 0.2);
-  transform: translateY(-2px);
+/* Service Card Button - Animated Bubbles (btn-001 with :root colors) */
+.service-card-button .bubble-layer {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: 0;
+  pointer-events: none;
 }
 
-.service-card-button:active {
-  transform: translateY(0) scale(0.98);
+.service-card-button .bubble-1 {
+  background: var(--xenon-color-purple);
+  top: -20%;
+  left: -10%;
+  animation: btnBubbleUpRight 6s ease-in-out infinite;
+}
+
+.service-card-button .bubble-2 {
+  background: var(--xenon-color-blue-electric);
+  top: 0%;
+  left: 10%;
+  animation: btnBubbleDownLeft 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.service-card-button .bubble-3 {
+  background: var(--xenon-color-violet-glow);
+  top: 20%;
+  left: 50%;
+  animation: btnBubbleRight 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.service-card-button .bubble-4 {
+  background: var(--xenon-color-blue-soft);
+  top: -20%;
+  left: 70%;
+  animation: btnBubbleUpLeft 7s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.service-card-button .bubble-5 {
+  background: var(--xenon-color-purple);
+  top: 30%;
+  left: -10%;
+  animation: btnBubbleDownRight 3s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+.service-card-button .bubble-6 {
+  background: var(--xenon-color-magenta-bright);
+  top: -10%;
+  left: 30%;
+  animation: btnBubbleLeft 8s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.service-card-button .bubble-7 {
+  background: var(--xenon-color-neon-mint);
+  top: 40%;
+  left: 60%;
+  animation: btnBubbleUp 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes btnBubbleUpRight {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100%, -100%);
+  }
+  50% {
+    transform: translate(-50%, 50%);
+  }
+  75% {
+    transform: translate(50%, -50%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleDownLeft {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-100%, 100%);
+  }
+  50% {
+    transform: translate(50%, -50%);
+  }
+  75% {
+    transform: translate(-50%, 50%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleRight {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100%, 0);
+  }
+  50% {
+    transform: translate(-100%, 50%);
+  }
+  75% {
+    transform: translate(50%, -50%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleUpLeft {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-100%, -100%);
+  }
+  50% {
+    transform: translate(50%, 50%);
+  }
+  75% {
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleDownRight {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100%, 100%);
+  }
+  50% {
+    transform: translate(-50%, -50%);
+  }
+  75% {
+    transform: translate(50%, 50%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleLeft {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-100%, 0);
+  }
+  50% {
+    transform: translate(100%, -50%);
+  }
+  75% {
+    transform: translate(-50%, 50%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleUp {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(0, -100%);
+  }
+  50% {
+    transform: translate(50%, 50%);
+  }
+  75% {
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 /* ============================================

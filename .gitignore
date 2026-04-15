@@ -1,2 +1,5 @@
 # Qwen Code configuration and state
 .qwen/
+
+# AddOn development / reference files
+AddOn/btn/
