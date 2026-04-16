@@ -35,6 +35,21 @@
   box-sizing: border-box;
 }
 
+/* Hero Section Background */
+.hero-bg {
+  background-image: url('c:/Users/Munthasir Rahman/OneDrive/文档/Xenon Studios/Xenon WorkSpace/XenonStudios/images/background.jpeg');
+  background-size: cover;
+  background-position: start center;
+  background-repeat: no-repeat;
+}
+
+/* WhatsApp Floating Button Alignment */
+.whatsapp-float-btn {
+  align-self: flex-end;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
 /* ============================================
    CRITICAL FIX: PREVENT HORIZONTAL OVERFLOW
    ============================================ */
