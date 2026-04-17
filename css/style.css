@@ -37,7 +37,7 @@
 
 /* Hero Section Background */
 .hero-bg {
-  background-image: url('c:/Users/Munthasir Rahman/OneDrive/文档/Xenon Studios/Xenon WorkSpace/XenonStudios/images/background.jpeg');
+  background-image: url("../images/background.jpeg");
   background-size: cover;
   background-position: start center;
   background-repeat: no-repeat;
