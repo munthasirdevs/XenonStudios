@@ -1,0 +1,268 @@
+/* Xenon Studios Services Page - Custom Styles */
+
+/* Service Detail Section */
+.service-detail-section {
+    position: relative;
+}
+
+.service-detail-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(0, 242, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(112, 0, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Section Label */
+.section-label {
+    display: inline-block;
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, var(--xenon-color-cyan, #00f2ff) / 20%, var(--xenon-color-purple, #7000ff) / 20%);
+    border: 1px solid var(--xenon-color-cyan, #00f2ff) / 30%;
+    color: var(--xenon-color-cyan, #00f2ff);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* Pricing Cards */
+.pricing-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.pricing-card-popular {
+    background: rgba(0, 242, 255, 0.05);
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.1),
+                0 0 60px rgba(0, 242, 255, 0.05);
+}
+
+.pricing-card-popular::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--xenon-color-cyan, #00f2ff), transparent);
+}
+
+/* Animated Button */
+.animated-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(90deg, var(--xenon-color-cyan, #00f2ff), var(--xenon-color-purple, #7000ff));
+    color: white;
+    font-weight: 600;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.animated-button:hover::before {
+    left: 100%;
+}
+
+.animated-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.3);
+}
+
+/* Glass Button */
+.glass-button {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Service Pills */
+.service-pill {
+    transition: all 0.3s ease;
+}
+
+.service-pill:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Service Nav Cards */
+.service-nav-card {
+    transition: all 0.3s ease;
+}
+
+.service-nav-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.service-nav-card:hover i {
+    transform: scale(1.2);
+}
+
+.service-nav-card i {
+    transition: transform 0.3s ease;
+}
+
+/* FAQ Styles */
+.faq-question {
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.faq-answer {
+    transition: all 0.3s ease;
+}
+
+/* Comparison Table */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+table th,
+table td {
+    transition: background 0.2s ease;
+}
+
+table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    transition: all 0.3s ease;
+}
+
+.mobile-menu:not(.hidden) {
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .section-label {
+        font-size: 9px;
+        padding: 0.25rem 0.75rem;
+    }
+
+    .pricing-card {
+        padding: 1.5rem;
+    }
+
+    .pricing-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .pricing-card .text-4xl {
+        font-size: 2rem;
+    }
+
+    table {
+        font-size: 0.875rem;
+    }
+
+    table th,
+    table td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+/* Scrollbar Styling */
+.overflow-x-auto {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+    height: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Focus States for Accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--xenon-color-cyan, #00f2ff);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .mobile-menu-btn,
+    .whatsapp-button,
+    .animated-button,
+    nav,
+    footer {
+        display: none !important;
+    }
+
+    .service-detail-section {
+        page-break-inside: avoid;
+    }
+}

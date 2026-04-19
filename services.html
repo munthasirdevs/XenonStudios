@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Xenon Studios - Premium Digital Services | AI Automation, Web Development, VFX, Marketing & More">
+    <title>Xenon Studios | Our Services</title>
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./images/xenon-mini-logo.png" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Syne:wght@400..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/services-page.css">
+</head>
+
+<body id="layout" class="outfit overflow-x-hidden">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Background Effects -->
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="glow bg-[var(--xenon-color-cyan)]" aria-hidden="true"></div>
+    <div class="glow bg-[var(--xenon-color-purple)] right-[-10%]" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl" aria-label="Main navigation">
+        <div class="glass-card rounded-full px-8 py-4 flex items-center justify-between border-white/10">
+            <div class="text-xl font-extrabold tracking-tighter italic">
+                <a href="index.html" class="block hover:scale-105 transition-transform">
+                    <img src="./images/logo.png" alt="Xenon Studios" class="h-10" decoding="async">
+                </a>
+            </div>
+            <div class="hidden md:flex gap-8 font-medium text-white/70">
+                <a href="index.html" class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Home</a>
+                <a href="#services-list" class="nav-link text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Services</a>
+                <a href="index.html#contact" class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Contact</a>
+            </div>
+            <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer" class="hidden sm:block"
+                data-track-cta="whatsapp" aria-label="Chat on WhatsApp">
+                <div class="whatsapp-button flex">
+                    <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none">
+                            <path d="M9.107 5.448c.598-1.75 3.016-1.803 3.725-.159l.06.16l.807 2.36a4 4 0 0 0 2.276 2.411l.217.081l2.36.806c1.75.598 1.803 3.016.16 3.725l-.16.06l-2.36.807a4 4 0 0 0-2.412 2.276l-.081.216l-.806 2.361c-.598 1.75-3.016 1.803-3.724.16l-.062-.16l-.806-2.36a4 4 0 0 0-2.276-2.412l-.216-.081l-2.36-.806c-1.751-.598-1.804-3.016-.16-3.724l.16-.062l2.36-.806A4 4 0 0 0 8.22 8.025l.081-.216z" fill="currentColor"></path>
+                        </g>
+                    </svg>
+                    Let's Build
+                </div>
+            </a>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden mobile-menu-btn text-white p-2" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden absolute top-full left-0 right-0 mt-2 glass rounded-2xl border-white/10 backdrop-blur-xl overflow-hidden hidden">
+            <div class="flex flex-col p-4 gap-2">
+                <a href="index.html" class="mobile-nav-link text-white/70 hover:text-[var(--xenon-color-cyan)] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Home</a>
+                <a href="#services-list" class="mobile-nav-link text-white/70 hover:text-[var(--xenon-color-cyan)] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Services</a>
+                <a href="index.html#contact" class="mobile-nav-link text-white/70 hover:text-[var(--xenon-color-cyan)] transition-colors text-[16px] font-bold outfit py-3 px-4 rounded-lg hover:bg-white/5">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" tabindex="-1">
+        <!-- Hero Section -->
+        <section id="services-hero" class="py-32 bg-gradient-to-b from-[var(--xenon-color-black)] to-[var(--xenon-color-charcoal)] text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="text-center">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)]/20 to-[var(--xenon-color-purple)]/20 border border-[var(--xenon-color-cyan)]/30 text-[var(--xenon-color-cyan)] text-[10px] font-bold tracking-widest uppercase mb-6">Our Expertise</span>
+                    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 bg-gradient-to-b from-white to-white/50 bg-clip-text text-transparent">Premium Digital Services</h1>
+                    <p class="max-w-3xl mx-auto text-gray-400 text-lg leading-relaxed mb-8">End-to-end digital solutions engineered for performance, security, and cinematic visual integrity. Choose your journey with our elite team of specialists.</p>
+
+                    <!-- Quick Services Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-4 mt-12">
+                        <a href="#ai-automation" class="service-pill glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                            <i class="fa-solid fa-robot text-2xl text-[var(--xenon-color-cyan)] mb-2"></i>
+                            <span class="text-xs text-white/70 block">AI Automation</span>
+                        </a>
+                        <a href="#web-development" class="service-pill glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                            <i class="fa-solid fa-laptop-code text-2xl text-[var(--xenon-color-purple)] mb-2"></i>
+                            <span class="text-xs text-white/70 block">Web Dev</span>
+                        </a>
+                        <a href="#visual-designs" class="service-pill glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                            <i class="fa-solid fa-palette text-2xl text-[var(--xenon-color-magenta)] mb-2"></i>
+                            <span class="text-xs text-white/70 block">Visual Design</span>
+                        </a>
+                        <a href="#vfx-animation" class="service-pill glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                            <i class="fa-solid fa-video text-2xl text-[var(--xenon-color-cyan)] mb-2"></i>
+                            <span class="text-xs text-white/70 block">VFX</span>
+                        </a>
+                        <a href="#motion-graphics" class="service-pill glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                            <i class="fa-solid fa-wand-magic-sparkles text-2xl text-[var(--xenon-color-purple)] mb-2"></i>
+                            <span class="text-xs text-white/70 block">Motion</span>
+                        </a>
+                        <a href="#cybersecurity" class="service-pill glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                            <i class="fa-solid fa-shield-halved text-2xl text-[var(--xenon-color-cyan)] mb-2"></i>
+                            <span class="text-xs text-white/70 block">Security</span>
+                        </a>
+                        <a href="#video-editing" class="service-pill glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                            <i class="fa-solid fa-clapperboard text-2xl text-[var(--xenon-color-magenta)] mb-2"></i>
+                            <span class="text-xs text-white/70 block">Video Edit</span>
+                        </a>
+                        <a href="#digital-marketing" class="service-pill glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                            <i class="fa-solid fa-ranking-star text-2xl text-[var(--xenon-color-cyan)] mb-2"></i>
+                            <span class="text-xs text-white/70 block">Marketing</span>
+                        </a>
+                        <a href="#ecom-scaling" class="service-pill glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                            <i class="fa-solid fa-cart-shopping text-2xl text-[var(--xenon-color-purple)] mb-2"></i>
+                            <span class="text-xs text-white/70 block">E-com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[var(--xenon-color-black)] to-transparent pointer-events-none"></div>
+        </section>
+
+        <!-- Service 1: AI Automation -->
+        <section id="ai-automation" class="service-detail-section py-24 bg-gradient-to-b from-[var(--xenon-color-black)] to-[var(--xenon-color-charcoal)] text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Header -->
+                <div class="text-center mb-16">
+                    <span class="section-label text-[10px] uppercase font-bold mb-4 block">Intelligence</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">AI Automation</h2>
+                    <p class="text-xl text-white/60 max-w-2xl mx-auto">Transform Your Business with Intelligent Automation</p>
+                </div>
+
+                <!-- Pricing Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                    <!-- Starter -->
+                    <div class="pricing-card glass-card rounded-2xl p-8 border border-white/10 hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
+                        <p class="text-white/50 mb-6">Perfect for small businesses</p>
+                        <div class="text-4xl font-bold text-[var(--xenon-color-cyan)] mb-6">$999<span class="text-lg text-white/50">/mo</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                1 Custom AI Agent
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                5 Automated Workflows
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Basic Integrations
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Email Support
+                            </li>
+                        </ul>
+                        <a href="https://wa.link/lx0res" class="animated-button w-full block text-center">Get Started</a>
+                    </div>
+
+                    <!-- Professional -->
+                    <div class="pricing-card pricing-card-popular glass-card rounded-2xl p-8 border-2 border-[var(--xenon-color-cyan)] relative hover:-translate-y-2 transition-transform duration-300">
+                        <span class="absolute top-0 right-0 bg-[var(--xenon-color-cyan)] text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">MOST POPULAR</span>
+                        <h3 class="text-2xl font-bold text-white mb-2">Professional</h3>
+                        <p class="text-white/50 mb-6">For growing companies</p>
+                        <div class="text-4xl font-bold text-[var(--xenon-color-cyan)] mb-6">$2,499<span class="text-lg text-white/50">/mo</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                5 Custom AI Agents
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Unlimited Workflows
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                50+ Integrations
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Priority Support
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Advanced Analytics
+                            </li>
+                        </ul>
+                        <a href="https://wa.link/lx0res" class="animated-button w-full block text-center">Get Started</a>
+                    </div>
+
+                    <!-- Enterprise -->
+                    <div class="pricing-card glass-card rounded-2xl p-8 border border-white/10 hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
+                        <p class="text-white/50 mb-6">For large organizations</p>
+                        <div class="text-4xl font-bold text-[var(--xenon-color-cyan)] mb-6">Custom</div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Unlimited AI Agents
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Custom Integrations
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Dedicated Account Manager
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                24/7 Phone Support
+                            </li>
+                        </ul>
+                        <a href="https://wa.link/lx0res" class="animated-button w-full block text-center">Contact Us</a>
+                    </div>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-white mb-8 text-center">Detailed Comparison</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full glass-card rounded-xl border border-white/10">
+                            <thead>
+                                <tr class="border-b border-white/10">
+                                    <th class="text-left p-4 text-white/70">Features</th>
+                                    <th class="text-center p-4 text-[var(--xenon-color-cyan)]">Starter</th>
+                                    <th class="text-center p-4 text-[var(--xenon-color-cyan)]">Professional</th>
+                                    <th class="text-center p-4 text-[var(--xenon-color-cyan)]">Enterprise</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">Custom AI Agents</td>
+                                    <td class="text-center p-4 text-white">1</td>
+                                    <td class="text-center p-4 text-white">5</td>
+                                    <td class="text-center p-4 text-white">Unlimited</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">Automated Workflows</td>
+                                    <td class="text-center p-4 text-white">5</td>
+                                    <td class="text-center p-4 text-white">Unlimited</td>
+                                    <td class="text-center p-4 text-white">Unlimited</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">Integrations</td>
+                                    <td class="text-center p-4 text-white">Basic</td>
+                                    <td class="text-center p-4 text-white">50+</td>
+                                    <td class="text-center p-4 text-white">Custom</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">Smart Data Processing</td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">24/7 AI Support</td>
+                                    <td class="text-center p-4 text-white/30">-</td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 text-white/70">Advanced Analytics</td>
+                                    <td class="text-center p-4 text-white/30">-</td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Description Section -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-bold text-white mb-6">Why Choose Our AI Automation?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">Reduce Manual Work by 80%</h4>
+                            <p class="text-white/60">Our custom AI agents handle repetitive tasks automatically, freeing your team to focus on strategic initiatives that drive growth.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">24/7 Operations</h4>
+                            <p class="text-white/60">AI agents work around the clock without breaks, ensuring your business operations continue seamlessly day and night.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">100+ Integrations</h4>
+                            <p class="text-white/60">Connect with your existing tools including Slack, Salesforce, HubSpot, Zapier, and hundreds more platforms.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">Smart Decision Making</h4>
+                            <p class="text-white/60">Advanced machine learning algorithms analyze data patterns and make intelligent decisions in real-time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6 text-center">Frequently Asked Questions</h3>
+                    <div class="space-y-4 max-w-4xl mx-auto">
+                        <div class="faq-item glass-card rounded-xl border border-white/10">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+                                <span class="text-white font-medium">How long does AI implementation take?</span>
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)] transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-4 hidden">
+                                <p class="text-white/60">Typical AI implementation takes 2-4 weeks depending on complexity. Our Starter plan can be deployed in as little as 1 week, while Enterprise solutions may take 6-8 weeks for full custom integration.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item glass-card rounded-xl border border-white/10">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+                                <span class="text-white font-medium">Do I need technical expertise to use AI agents?</span>
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)] transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-4 hidden">
+                                <p class="text-white/60">Not at all! Our AI agents come with user-friendly interfaces and dashboards. We provide full training and documentation, and our support team is always available to help you get the most out of your automation.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item glass-card rounded-xl border border-white/10">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+                                <span class="text-white font-medium">Can AI integrate with our existing software?</span>
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)] transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-4 hidden">
+                                <p class="text-white/60">Yes! We support 100+ pre-built integrations including CRM systems, marketing platforms, communication tools, and databases. For custom software, we build bespoke connectors to ensure seamless data flow.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service 2: Web Development -->
+        <section id="web-development" class="service-detail-section py-24 bg-gradient-to-b from-[var(--xenon-color-black)] to-[var(--xenon-color-charcoal)] text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="section-label text-[10px] uppercase font-bold mb-4 block">Development</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Web Development</h2>
+                    <p class="text-xl text-white/60 max-w-2xl mx-auto">Build Powerful, Scalable Web Applications</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                    <div class="pricing-card glass-card rounded-2xl p-8 border border-white/10 hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
+                        <p class="text-white/50 mb-6">Perfect for small businesses</p>
+                        <div class="text-4xl font-bold text-[var(--xenon-color-cyan)] mb-6">$1,499<span class="text-lg text-white/50"> one-time</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                5-Page Website
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Responsive Design
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Basic SEO
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Contact Form
+                            </li>
+                        </ul>
+                        <a href="https://wa.link/lx0res" class="animated-button w-full block text-center">Get Started</a>
+                    </div>
+
+                    <div class="pricing-card pricing-card-popular glass-card rounded-2xl p-8 border-2 border-[var(--xenon-color-cyan)] relative hover:-translate-y-2 transition-transform duration-300">
+                        <span class="absolute top-0 right-0 bg-[var(--xenon-color-cyan)] text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">MOST POPULAR</span>
+                        <h3 class="text-2xl font-bold text-white mb-2">Professional</h3>
+                        <p class="text-white/50 mb-6">For growing companies</p>
+                        <div class="text-4xl font-bold text-[var(--xenon-color-cyan)] mb-6">$4,999<span class="text-lg text-white/50"> one-time</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                15-Page Website
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                E-Commerce Ready
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                CMS Integration
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Advanced SEO
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                3 Months Support
+                            </li>
+                        </ul>
+                        <a href="https://wa.link/lx0res" class="animated-button w-full block text-center">Get Started</a>
+                    </div>
+
+                    <div class="pricing-card glass-card rounded-2xl p-8 border border-white/10 hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
+                        <p class="text-white/50 mb-6">For large organizations</p>
+                        <div class="text-4xl font-bold text-[var(--xenon-color-cyan)] mb-6">Custom</div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Unlimited Pages
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Custom Web Application
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                API Integrations
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Performance Optimization
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                12 Months Support
+                            </li>
+                        </ul>
+                        <a href="https://wa.link/lx0res" class="animated-button w-full block text-center">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-white mb-8 text-center">Detailed Comparison</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full glass-card rounded-xl border border-white/10">
+                            <thead>
+                                <tr class="border-b border-white/10">
+                                    <th class="text-left p-4 text-white/70">Features</th>
+                                    <th class="text-center p-4 text-[var(--xenon-color-cyan)]">Starter</th>
+                                    <th class="text-center p-4 text-[var(--xenon-color-cyan)]">Professional</th>
+                                    <th class="text-center p-4 text-[var(--xenon-color-cyan)]">Enterprise</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">Number of Pages</td>
+                                    <td class="text-center p-4 text-white">5</td>
+                                    <td class="text-center p-4 text-white">15</td>
+                                    <td class="text-center p-4 text-white">Unlimited</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">Responsive Design</td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">E-Commerce</td>
+                                    <td class="text-center p-4 text-white/30">-</td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">CMS Integration</td>
+                                    <td class="text-center p-4 text-white/30">-</td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 text-white/70">SEO Optimization</td>
+                                    <td class="text-center p-4 text-white">Basic</td>
+                                    <td class="text-center p-4 text-white">Advanced</td>
+                                    <td class="text-center p-4 text-white">Enterprise</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mb-16">
+                    <h3 class="text-2xl font-bold text-white mb-6">Why Choose Our Web Development?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">Lightning-Fast Performance</h4>
+                            <p class="text-white/60">Optimized code and modern frameworks ensure your website loads in under 2 seconds, improving SEO and user experience.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">Mobile-First Design</h4>
+                            <p class="text-white/60">Every website is built responsive from the ground up, ensuring perfect display on phones, tablets, and desktops.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">SEO Optimized</h4>
+                            <p class="text-white/60">Built-in SEO best practices including schema markup, meta optimization, and clean code structure for better rankings.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">Secure & Scalable</h4>
+                            <p class="text-white/60">Enterprise-grade security features and architecture that grows with your business without performance degradation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6 text-center">Frequently Asked Questions</h3>
+                    <div class="space-y-4 max-w-4xl mx-auto">
+                        <div class="faq-item glass-card rounded-xl border border-white/10">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+                                <span class="text-white font-medium">How long does website development take?</span>
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)] transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-4 hidden">
+                                <p class="text-white/60">Typical projects take 4-8 weeks. Starter websites can be completed in 2-3 weeks, while Enterprise solutions with custom functionality may take 10-12 weeks.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item glass-card rounded-xl border border-white/10">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+                                <span class="text-white font-medium">Do you provide ongoing maintenance?</span>
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)] transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-4 hidden">
+                                <p class="text-white/60">Yes! Professional plans include 3 months of support, and Enterprise includes 12 months. We also offer ongoing maintenance packages with regular updates, backups, and security monitoring.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item glass-card rounded-xl border border-white/10">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+                                <span class="text-white font-medium">Can you redesign our existing website?</span>
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)] transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-4 hidden">
+                                <p class="text-white/60">Absolutely! We handle full website redesigns including content migration, SEO preservation with 301 redirects, and improved design and functionality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service 3: Visual Designs -->
+        <section id="visual-designs" class="service-detail-section py-24 bg-gradient-to-b from-[var(--xenon-color-black)] to-[var(--xenon-color-charcoal)] text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="section-label text-[10px] uppercase font-bold mb-4 block">Creative</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Visual Designs</h2>
+                    <p class="text-xl text-white/60 max-w-2xl mx-auto">Captivating Visuals That Elevate Your Brand</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                    <div class="pricing-card glass-card rounded-2xl p-8 border border-white/10 hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
+                        <p class="text-white/50 mb-6">Perfect for small businesses</p>
+                        <div class="text-4xl font-bold text-[var(--xenon-color-cyan)] mb-6">$799<span class="text-lg text-white/50"> one-time</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Logo Design
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Brand Colors
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                5 Social Media Templates
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                All File Formats
+                            </li>
+                        </ul>
+                        <a href="https://wa.link/lx0res" class="animated-button w-full block text-center">Get Started</a>
+                    </div>
+
+                    <div class="pricing-card pricing-card-popular glass-card rounded-2xl p-8 border-2 border-[var(--xenon-color-cyan)] relative hover:-translate-y-2 transition-transform duration-300">
+                        <span class="absolute top-0 right-0 bg-[var(--xenon-color-cyan)] text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">MOST POPULAR</span>
+                        <h3 class="text-2xl font-bold text-white mb-2">Professional</h3>
+                        <p class="text-white/50 mb-6">For growing companies</p>
+                        <div class="text-4xl font-bold text-[var(--xenon-color-cyan)] mb-6">$1,999<span class="text-lg text-white/50"> one-time</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Complete Brand Identity
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                UI/UX Design (5 screens)
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                15 Social Media Templates
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Print Design Kit
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Brand Guidelines Document
+                            </li>
+                        </ul>
+                        <a href="https://wa.link/lx0res" class="animated-button w-full block text-center">Get Started</a>
+                    </div>
+
+                    <div class="pricing-card glass-card rounded-2xl p-8 border border-white/10 hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-2">Enterprise</h3>
+                        <p class="text-white/50 mb-6">For large organizations</p>
+                        <div class="text-4xl font-bold text-[var(--xenon-color-cyan)] mb-6">Custom</div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Full Brand System
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Complete UI/UX Package
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Motion Graphics Package
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Packaging Design
+                            </li>
+                            <li class="flex items-center gap-3 text-white/70">
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)]" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg>
+                                Dedicated Designer
+                            </li>
+                        </ul>
+                        <a href="https://wa.link/lx0res" class="animated-button w-full block text-center">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-white mb-8 text-center">Detailed Comparison</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full glass-card rounded-xl border border-white/10">
+                            <thead>
+                                <tr class="border-b border-white/10">
+                                    <th class="text-left p-4 text-white/70">Features</th>
+                                    <th class="text-center p-4 text-[var(--xenon-color-cyan)]">Starter</th>
+                                    <th class="text-center p-4 text-[var(--xenon-color-cyan)]">Professional</th>
+                                    <th class="text-center p-4 text-[var(--xenon-color-cyan)]">Enterprise</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">Logo Design</td>
+                                    <td class="text-center p-4 text-white">3 Concepts</td>
+                                    <td class="text-center p-4 text-white">5 Concepts</td>
+                                    <td class="text-center p-4 text-white">Unlimited</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">UI/UX Design</td>
+                                    <td class="text-center p-4 text-white/30">-</td>
+                                    <td class="text-center p-4 text-white">5 Screens</td>
+                                    <td class="text-center p-4 text-white">Full App</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">Social Media Templates</td>
+                                    <td class="text-center p-4 text-white">5</td>
+                                    <td class="text-center p-4 text-white">15</td>
+                                    <td class="text-center p-4 text-white">Unlimited</td>
+                                </tr>
+                                <tr class="border-b border-white/5">
+                                    <td class="p-4 text-white/70">Print Design</td>
+                                    <td class="text-center p-4 text-white/30">-</td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 text-white/70">Brand Guidelines</td>
+                                    <td class="text-center p-4 text-white/30">-</td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                    <td class="text-center p-4"><svg class="w-5 h-5 text-[var(--xenon-color-cyan)] mx-auto" fill="currentColor" viewBox="0 0 16"><path d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"/></svg></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mb-16">
+                    <h3 class="text-2xl font-bold text-white mb-6">Why Choose Our Visual Design?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">Complete Brand Identity</h4>
+                            <p class="text-white/60">From logo to marketing materials, we create cohesive visual systems that make your brand instantly recognizable.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">UI/UX That Converts</h4>
+                            <p class="text-white/60">User-centered design that not only looks beautiful but drives engagement and converts visitors into customers.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">Print & Digital Consistency</h4>
+                            <p class="text-white/60">Seamless visual experience across all touchpoints - from business cards to websites to social media.</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-[var(--xenon-color-cyan)] mb-3">Unlimited Revisions</h4>
+                            <p class="text-white/60">Professional and Enterprise plans include unlimited revisions to ensure you get designs you absolutely love.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6 text-center">Frequently Asked Questions</h3>
+                    <div class="space-y-4 max-w-4xl mx-auto">
+                        <div class="faq-item glass-card rounded-xl border border-white/10">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+                                <span class="text-white font-medium">What file formats do you deliver?</span>
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)] transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-4 hidden">
+                                <p class="text-white/60">We deliver all industry-standard formats: AI, EPS, PDF, PNG, JPG, SVG for print; and optimized web formats for digital. You'll receive a complete package ready for any use case.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item glass-card rounded-xl border border-white/10">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+                                <span class="text-white font-medium">How many revisions are included?</span>
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)] transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-4 hidden">
+                                <p class="text-white/60">Starter includes 3 rounds of revisions. Professional includes 5 rounds, and Enterprise includes unlimited revisions until you're 100% satisfied with the final designs.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item glass-card rounded-xl border border-white/10">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
+                                <span class="text-white font-medium">Do you provide brand guidelines?</span>
+                                <svg class="w-5 h-5 text-[var(--xenon-color-cyan)] transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-4 hidden">
+                                <p class="text-white/60">Yes! Professional and Enterprise plans include comprehensive brand guidelines documents covering logo usage, color palettes, typography, and design do's and don'ts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Quick Navigation -->
+        <section id="services-list" class="py-16 bg-gradient-to-b from-[var(--xenon-color-black)] to-[var(--xenon-color-charcoal)] text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="section-label text-[10px] uppercase font-bold mb-4 block">Navigate</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">All Services</h2>
+                    <p class="text-white/60">Quick links to all our premium services</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-4">
+                    <a href="#ai-automation" class="service-nav-card glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                        <i class="fa-solid fa-robot text-2xl text-[var(--xenon-color-cyan)] mb-2"></i>
+                        <span class="text-xs text-white/70 block">AI Automation</span>
+                    </a>
+                    <a href="#web-development" class="service-nav-card glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                        <i class="fa-solid fa-laptop-code text-2xl text-[var(--xenon-color-purple)] mb-2"></i>
+                        <span class="text-xs text-white/70 block">Web Dev</span>
+                    </a>
+                    <a href="#visual-designs" class="service-nav-card glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                        <i class="fa-solid fa-palette text-2xl text-[var(--xenon-color-magenta)] mb-2"></i>
+                        <span class="text-xs text-white/70 block">Visual Design</span>
+                    </a>
+                    <a href="#vfx-animation" class="service-nav-card glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                        <i class="fa-solid fa-video text-2xl text-[var(--xenon-color-cyan)] mb-2"></i>
+                        <span class="text-xs text-white/70 block">VFX</span>
+                    </a>
+                    <a href="#motion-graphics" class="service-nav-card glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                        <i class="fa-solid fa-wand-magic-sparkles text-2xl text-[var(--xenon-color-purple)] mb-2"></i>
+                        <span class="text-xs text-white/70 block">Motion</span>
+                    </a>
+                    <a href="#cybersecurity" class="service-nav-card glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                        <i class="fa-solid fa-shield-halved text-2xl text-[var(--xenon-color-cyan)] mb-2"></i>
+                        <span class="text-xs text-white/70 block">Security</span>
+                    </a>
+                    <a href="#video-editing" class="service-nav-card glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                        <i class="fa-solid fa-clapperboard text-2xl text-[var(--xenon-color-magenta)] mb-2"></i>
+                        <span class="text-xs text-white/70 block">Video Edit</span>
+                    </a>
+                    <a href="#digital-marketing" class="service-nav-card glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                        <i class="fa-solid fa-ranking-star text-2xl text-[var(--xenon-color-cyan)] mb-2"></i>
+                        <span class="text-xs text-white/70 block">Marketing</span>
+                    </a>
+                    <a href="#ecom-scaling" class="service-nav-card glass-card rounded-xl p-4 text-center hover:bg-white/10 transition-all">
+                        <i class="fa-solid fa-cart-shopping text-2xl text-2xl text-[var(--xenon-color-purple)] mb-2"></i>
+                        <span class="text-xs text-white/70 block">E-com</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz-section" class="py-32 bg-gradient-to-b from-[var(--xenon-color-black)] to-[var(--xenon-color-charcoal)] text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)]/20 to-[var(--xenon-color-purple)]/20 border border-[var(--xenon-color-cyan)]/30 text-[var(--xenon-color-cyan)] text-[10px] font-bold tracking-widest uppercase mb-6">Get Started</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Find Your Perfect Solution</h2>
+                    <p class="text-xl text-white/60 max-w-2xl mx-auto mb-8">Take our 60-second quiz to discover which services best fit your business needs and get a personalized recommendation.</p>
+                    <a href="./AddOn/quiz/index.html" class="animated-button inline-flex items-center gap-3">
+                        <span class="text">Start Quiz</span>
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <section class="py-20 bg-gradient-to-b from-[var(--xenon-color-charcoal)] to-[var(--xenon-color-black)] text-white relative overflow-hidden">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Transform Your Business?</h2>
+                <p class="text-white/60 mb-8">Let's discuss how our services can help you achieve your goals.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://wa.link/lx0res" class="animated-button inline-flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Chat on WhatsApp</span>
+                    </a>
+                    <a href="index.html#contact" class="glass-button inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 hover:bg-white/10 transition-all">
+                        <span>Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-12 bg-[var(--xenon-color-black)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-4">
+                    <img src="./images/logo.png" alt="Xenon Studios" class="h-8">
+                    <span class="text-white/50 text-sm">&copy; 2026 Xenon Studios. All rights reserved.</span>
+                </div>
+                <div class="flex gap-6">
+                    <a href="index.html" class="text-white/50 hover:text-[var(--xenon-color-cyan)] transition-colors text-sm">Home</a>
+                    <a href="#services-list" class="text-white/50 hover:text-[var(--xenon-color-cyan)] transition-colors text-sm">Services</a>
+                    <a href="index.html#contact" class="text-white/50 hover:text-[var(--xenon-color-cyan)] transition-colors text-sm">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            this.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('svg');
+
+                // Toggle current
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+
+                // Close others
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    if (a !== answer) {
+                        a.classList.add('hidden');
+                        a.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- GSAP Animations -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate service sections on scroll
+        document.querySelectorAll('.service-detail-section').forEach(section => {
+            gsap.from(section.querySelectorAll('.pricing-card, .faq-item, .glass-card'), {
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.1
+            });
+        });
+    </script>
+</body>
+
+</html>
