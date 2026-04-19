@@ -13,7 +13,7 @@
     right: 0;
     bottom: 0;
     background: radial-gradient(ellipse at 20% 50%, rgba(0, 242, 255, 0.03) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 50%, rgba(112, 0, 255, 0.03) 0%, transparent 50%);
+        radial-gradient(ellipse at 80% 50%, rgba(112, 0, 255, 0.03) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -46,7 +46,7 @@
 .pricing-card-popular {
     background: rgba(0, 242, 255, 0.05);
     box-shadow: 0 0 30px rgba(0, 242, 255, 0.1),
-                0 0 60px rgba(0, 242, 255, 0.05);
+        0 0 60px rgba(0, 242, 255, 0.05);
 }
 
 .pricing-card-popular::before {
@@ -177,6 +177,7 @@ table tbody tr:hover {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -237,9 +238,12 @@ table tbody tr:hover {
 
 /* Loading Animation */
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.5;
     }
@@ -254,6 +258,7 @@ button:focus-visible {
 
 /* Print Styles */
 @media print {
+
     .mobile-menu-btn,
     .whatsapp-button,
     .animated-button,
@@ -265,4 +270,18 @@ button:focus-visible {
     .service-detail-section {
         page-break-inside: avoid;
     }
+}
+
+/* Glass Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
 }
