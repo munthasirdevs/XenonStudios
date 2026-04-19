@@ -9,10 +9,7 @@ const initServicesAnimations = () => {
 
     // Protocol Safety: Prevent ScrollTrigger from probing the window context 
     // too deeply when running on file:// protocol, which triggers CORS warnings.
-    ScrollTrigger.config({ 
-        limitCallbacks: true,
-        autoRefreshEvents: "visibilitychange,DOMContentLoaded,load" // Avoid frequent resize probing
-    });
+
 
     // 2. Global Defaults
     const sectionSelector = ".service-detail-section";
