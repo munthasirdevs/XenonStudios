@@ -82,6 +82,25 @@ svg {
 
 body {
   position: relative;
+  background-color: #000000;
+  color: #ffffff;
+  min-height: 100vh;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Fallback styles when Tailwind CDN fails */
+@media all {
+  main, section, nav, div {
+    display: block;
+  }
+  .hidden { display: none; }
+  .fixed { position: fixed; }
+}
+
+/* Fallback visibility when GSAP fails */
+main, section, nav, .text-center, .section-label, h1, h2, h3, h4, p {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 /* ============================================
