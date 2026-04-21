@@ -8,6 +8,32 @@
   "use strict";
 
   // ============================================
+  // Dependency Check
+  // ============================================
+  if (typeof gsap === "undefined") {
+    console.error("Quiz Engine requires GSAP to be loaded. Please include GSAP library.");
+    document.addEventListener("DOMContentLoaded", function () {
+      var quizContainer = document.getElementById("quiz-container");
+      if (quizContainer) {
+        quizContainer.innerHTML =
+          '<div class="text-center text-white p-8"><p class="text-red-400">Quiz requires GSAP library to function.</p></div>';
+      }
+    });
+    return;
+  }
+
+  // ============================================
+  // Site Origin for Dynamic Paths
+  // ============================================
+  var siteOrigin =
+    window.location.origin +
+    window.location.pathname.replace(/AddOn\/quiz\/.*$/, "");
+
+  function getSiteURL(path) {
+    return siteOrigin + path;
+  }
+
+  // ============================================
   // Global State
   // ============================================
   const quizState = {
@@ -83,7 +109,7 @@
         description:
           "You're in a strong growth phase. Our Pro Package will accelerate your leads, conversions, and marketing infrastructure.",
         cta: "View Pro Package",
-        ctaLink: "../../index.html#services",
+        ctaLink: getSiteURL("index.html#services"),
         icon: "stars",
         color: "var(--xenon-color-purple)",
         features: [
@@ -100,7 +126,7 @@
         description:
           "Perfect foundation to begin your digital journey. We'll build your online presence and set up core marketing systems.",
         cta: "Get Started",
-        ctaLink: "../../index.html#contact",
+        ctaLink: getSiteURL("contact.html"),
         icon: "check",
         color: "var(--xenon-color-magenta)",
         features: [
@@ -116,7 +142,7 @@
         description:
           "Start with our free resources to validate your idea. When you're ready to scale, we'll be here to build your growth engine.",
         cta: "Access Free Resources",
-        ctaLink: "../../index.html#services",
+        ctaLink: getSiteURL("index.html#services"),
         icon: "menu_book",
         color: "rgba(255,255,255,0.5)",
         features: [
@@ -175,6 +201,32 @@
     processingText: document.getElementById("processing-text"),
     processingBar: document.getElementById("processing-bar"),
   };
+
+  // ============================================
+  // Element Validation
+  // ============================================
+  function validateElements() {
+    var requiredIds = [
+      "quiz-container",
+      "page-identity",
+      "page-stage",
+      "page-budget",
+      "page-processing",
+      "page-results",
+    ];
+    for (var i = 0; i < requiredIds.length; i++) {
+      if (!document.getElementById(requiredIds[i])) {
+        console.error("Quiz Engine: Missing required element #" + requiredIds[i]);
+        return false;
+      }
+    }
+    return true;
+  }
+
+  if (!validateElements()) {
+    console.error("Quiz Engine: Required elements missing. Quiz will not initialize.");
+    return;
+  }
 
   // ============================================
   // Core Functions
