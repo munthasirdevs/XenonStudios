@@ -1,15 +1,20 @@
 # Xenon Studios Design System
 
-> **Version:** 2.1.0
-> **Last Updated:** April 16, 2026
+> **Version:** 2.2.0
+> **Last Updated:** April 21, 2026
 > **Status:** Active
-> **Applies To:** Xenon Studios Main Website (index.html)
+> **Applies To:** Xenon Studios Main Website (index.html, services.html)
 
 ## Version History
 
-| Version | Date | Changes ------------------------------------------------------------------------------------------------------------------------------------ |
+| Version | Date | Changes |
+
+| 2.2.0 | April 21, 2026 | Comprehensive design analysis completed. Added services.html page with service-specific sections (AI Automation, Web Development), detailed pricing tiers, comparison tables, trust indicators, FAQs, and service navigation. Enhanced gradient border cards, liquid shine hover effects, glass panels, service nav buttons. Updated JavaScript architecture (page loader, mobile menu, smooth scroll, active nav tracking, stats counters, GSAP scroll animations, reduced motion support). |
+
 | 2.1.0 | April 16, 2026 | Rebuilt service card buttons with 7 animated bubble layers (btn-001 pattern) using :root accent colors (purple, blue-electric, violet-glow, blue-soft, magenta-bright, neon-mint). Restored service card 6-layer radial gradient design. Restored pricing card buttons to space-button with bright-particles effect. Added AddOn/btn/ to .gitignore. |
+
 | 2.0.0 | April 14, 2026 | 7-phase overhaul: accent hierarchy, effect limitations, product layer (forms, feedback, data UI, dashboard), 96 design tokens, 40 utility classes, performance optimizations (backdrop-filter, blur, will-change, reduced motion, mobile overrides), conversion engine (sticky CTA, social proof, hero quiz), mobile strategy, accessibility (focus-visible, skip link, ARIA, keyboard nav) |
+
 | 1.0.0 | April 14, 2026 | Initial complete design system documentation |
 
 ---

@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now | Xenon Studios</title>
+    <meta name="description" content="Start your growth application with Xenon Studios. Premium digital solutions for high-ticket clients.">
+    
+    <link rel="icon" type="image/png" href="images/xenon-mini-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        xenon: {
+                            cyan: '#00f2ff',
+                            purple: '#7000ff',
+                            magenta: '#9d174d',
+                            dark: '#141416',
+                            surface: '#232428'
+                        }
+                    },
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                        space: ['Space Grotesk', 'sans-serif']
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        'glow-pulse': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(0, 242, 255, 0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(0, 242, 255, 0.6)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --xenon-color-cyan: #00f2ff;
+            --xenon-color-purple: #7000ff;
+            --xenon-color-magenta: #9d174d;
+            --xenon-color-dark-base: #141416;
+            --xenon-color-dark-surface: #232428;
+            --xenon-color-charcoal: #0a0a0c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--xenon-color-charcoal);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--xenon-color-cyan) 0%, var(--xenon-color-purple) 50%, var(--xenon-color-magenta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradient 8s ease infinite;
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .glow-orb-cyan {
+            background: var(--xenon-color-cyan);
+        }
+
+        .glow-orb-purple {
+            background: var(--xenon-color-purple);
+        }
+
+        .glass-card {
+            background: rgba(35, 36, 40, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 242, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 242, 255, 0.1);
+        }
+
+        .glass-input {
+            background: rgba(20, 20, 22, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .glass-input:hover {
+            border-color: rgba(0, 242, 255, 0.3);
+        }
+
+        .glass-input:focus {
+            outline: none;
+            border-color: var(--xenon-color-cyan);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .glass-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .glass-select {
+            background: rgba(20, 20, 22, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2300f2ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 18px;
+        }
+
+        .glass-select:hover {
+            border-color: rgba(0, 242, 255, 0.3);
+        }
+
+        .glass-select:focus {
+            outline: none;
+            border-color: var(--xenon-color-cyan);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .glass-select option {
+            background: var(--xenon-color-dark-base);
+            color: #ffffff;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .btn-primary {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 40px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--xenon-color-cyan) 0%, var(--xenon-color-purple) 100%);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 242, 255, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--xenon-color-cyan), var(--xenon-color-purple));
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--xenon-color-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .step-card {
+            position: relative;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--xenon-color-cyan), var(--xenon-color-purple));
+            border-radius: 50%;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .step-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 242, 255, 0.1);
+            border-radius: 16px;
+            font-size: 1.5rem;
+            color: var(--xenon-color-cyan);
+        }
+
+        .guarantee-card {
+            background: linear-gradient(135deg, rgba(157, 23, 77, 0.15) 0%, rgba(112, 0, 255, 0.15) 100%);
+            border: 1px solid rgba(157, 23, 77, 0.3);
+        }
+
+        .guarantee-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--xenon-color-magenta), var(--xenon-color-purple));
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 { transition-delay: 0.1s; }
+        .fade-in-delay-2 { transition-delay: 0.2s; }
+        .fade-in-delay-3 { transition-delay: 0.3s; }
+        .fade-in-delay-4 { transition-delay: 0.4s; }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--xenon-color-cyan), var(--xenon-color-purple));
+            border-radius: 50%;
+            font-size: 2.5rem;
+            color: #000000;
+        }
+
+        .budget-note {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-spacing {
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+            
+            .section-spacing {
+                padding: 60px 0;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hero-spacing {
+                padding-top: 160px;
+                padding-bottom: 100px;
+            }
+            
+            .section-spacing {
+                padding: 100px 0;
+            }
+        }
+
+        ::selection {
+            background: var(--xenon-color-cyan);
+            color: #000000;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 1000px #141416 inset !important;
+            -webkit-text-fill-color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Page Loader -->
+    <div id="page-loader" style="position: fixed; inset: 0; background: #0a0a0c; z-index: 9999; display: flex; align-items: center; justify-content: center;">
+        <div style="text-align: center;">
+            <div style="width: 60px; height: 60px; border: 3px solid rgba(0, 242, 255, 0.2); border-top-color: #00f2ff; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+            <p style="color: #00f2ff; font-family: 'Space Grotesk', sans-serif; font-size: 0.875rem; letter-spacing: 0.2em; text-transform: uppercase;">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 0; background: rgba(10, 10, 12, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <img src="images/xenon-mini-logo.png" alt="Xenon Studios" style="height: 40px;">
+                <span style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff;">XENON <span style="color: #00f2ff;">STUDIOS</span></span>
+            </a>
+            <div style="display: flex; align-items: center; gap: 32px;">
+                <a href="index.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.3s;">Home</a>
+                <a href="services.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.3s;">Services</a>
+                <a href="contact.html" style="color: #00f2ff; text-decoration: none; font-size: 0.875rem; font-weight: 600;">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-spacing" style="position: relative; overflow: hidden; min-height: 100vh; display: flex; align-items: center;">
+        <div class="glow-orb glow-orb-cyan" style="width: 600px; height: 600px; top: -200px; right: -200px;"></div>
+        <div class="glow-orb glow-orb-purple" style="width: 400px; height: 400px; bottom: -100px; left: -100px;"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
+            <div class="fade-in">
+                <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 32px; flex-wrap: wrap;">
+                    <span class="trust-badge">
+                        <i class="fas fa-star"></i>
+                        High-Ticket Clients Only
+                    </span>
+                    <span class="trust-badge">
+                        <i class="fas fa-calendar-check"></i>
+                        Limited Monthly Slots
+                    </span>
+                </div>
+            </div>
+            
+            <h1 class="fade-in fade-in-delay-1" style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px;">
+                <span class="gradient-text">Start Your Growth Application</span>
+            </h1>
+            
+            <p class="fade-in fade-in-delay-2" style="font-size: clamp(1rem, 2vw, 1.25rem); color: rgba(255, 255, 255, 0.7); max-width: 600px; margin: 0 auto 48px; line-height: 1.6;">
+                Tell us about your business. If we're a fit, we'll build a system that scales your revenue.
+            </p>
+            
+            <div class="fade-in fade-in-delay-3">
+                <a href="#application-form" class="btn-primary">
+                    <span>Apply Now</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <section style="padding: 40px 0; background: rgba(20, 20, 22, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="glass-card" style="padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(0, 242, 255, 0.1); border-radius: 12px; color: #00f2ff; font-size: 1.25rem;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <p style="font-size: 1.5rem; font-weight: 700; color: #00f2ff;">$10M+</p>
+                        <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.1em;">Revenue Generated</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(112, 0, 255, 0.1); border-radius: 12px; color: #7000ff; font-size: 1.25rem;">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div>
+                        <p style="font-size: 1.5rem; font-weight: 700; color: #7000ff;">150+</p>
+                        <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.1em;">Clients Served</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(157, 23, 77, 0.1); border-radius: 12px; color: #9d174d; font-size: 1.25rem;">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div>
+                        <p style="font-size: 1.5rem; font-weight: 700; color: #9d174d;">347%</p>
+                        <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.1em;">Avg ROI</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="display: flex; gap: -8px;">
+                        <img src="https://ui-avatars.com/api/?name=Client+A&background=00f2ff&color=000&size=40" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #0a0a0c;">
+                        <img src="https://ui-avatars.com/api/?name=Client+B&background=7000ff&color=fff&size=40" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #0a0a0c; margin-left: -8px;">
+                        <img src="https://ui-avatars.com/api/?name=Client+C&background=9d174d&color=fff&size=40" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #0a0a0c; margin-left: -8px;">
+                    </div>
+                    <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">Trusted by industry leaders</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="application-form" class="section-spacing" style="position: relative;">
+        <div class="glow-orb glow-orb-cyan" style="width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.15;"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="fade-in" style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 16px;">
+                    <span class="gradient-text">Apply Now</span>
+                </h2>
+                <p class="fade-in fade-in-delay-1" style="color: rgba(255, 255, 255, 0.6); max-width: 500px; margin: 0 auto;">
+                    Complete the application below. We'll review and get back to you within 24 hours.
+                </p>
+            </div>
+            
+            <div class="glass-card fade-in fade-in-delay-2" style="padding: 48px;" id="formContainer">
+                <form id="applicationForm">
+                    <!-- Section A: Basic Info -->
+                    <div style="margin-bottom: 40px;">
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00f2ff; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: rgba(0, 242, 255, 0.1); border-radius: 8px; font-size: 0.75rem;">A</span>
+                            Basic Information
+                        </h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" class="glass-input" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" class="glass-input" placeholder="john@company.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="company">Company Name *</label>
+                                <input type="text" id="company" name="company" class="glass-input" placeholder="Your Company" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="website">Website URL</label>
+                                <input type="url" id="website" name="website" class="glass-input" placeholder="https://yourwebsite.com">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Section B: Business Context -->
+                    <div style="margin-bottom: 40px;">
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: #7000ff; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: rgba(112, 0, 255, 0.1); border-radius: 8px; font-size: 0.75rem;">B</span>
+                            Business Context
+                        </h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="whatYouDo">What do you do? *</label>
+                            <textarea id="whatYouDo" name="whatYouDo" class="glass-input" rows="3" placeholder="Describe your business in a few sentences..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="targetAudience">Who is your target audience? *</label>
+                            <input type="text" id="targetAudience" name="targetAudience" class="glass-input" placeholder="e.g., B2B SaaS founders, E-commerce brands, etc." required>
+                        </div>
+                    </div>
+                    
+                    <!-- Section C: Revenue Level -->
+                    <div style="margin-bottom: 40px;">
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: #9d174d; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: rgba(157, 23, 77, 0.1); border-radius: 8px; font-size: 0.75rem;">C</span>
+                            Current Revenue
+                        </h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="revenue">Monthly Revenue Level</label>
+                            <select id="revenue" name="revenue" class="glass-select">
+                                <option value="">Select your revenue range</option>
+                                <option value="0-1k">$0 – $1,000</option>
+                                <option value="1k-10k">$1,000 – $10,000</option>
+                                <option value="10k-50k">$10,000 – $50,000</option>
+                                <option value="50k+">$50,000+</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Section D: Goal -->
+                    <div style="margin-bottom: 40px;">
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00f2ff; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: rgba(0, 242, 255, 0.1); border-radius: 8px; font-size: 0.75rem;">D</span>
+                            Your Goal
+                        </h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="goal">What is your main goal? *</label>
+                            <select id="goal" name="goal" class="glass-select" required>
+                                <option value="">Select your primary goal</option>
+                                <option value="leads">More Leads</option>
+                                <option value="sales">More Sales</option>
+                                <option value="automation">Automation</option>
+                                <option value="scaling">Scaling</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Section E: Budget -->
+                    <div style="margin-bottom: 40px;">
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: #7000ff; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: rgba(112, 0, 255, 0.1); border-radius: 8px; font-size: 0.75rem;">E</span>
+                            Budget
+                        </h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="budget">Investment Range</label>
+                            <select id="budget" name="budget" class="glass-select">
+                                <option value="">Select your budget range</option>
+                                <option value="under-1k">&lt; $1,000</option>
+                                <option value="1k-5k">$1,000 – $5,000</option>
+                                <option value="5k-10k">$5,000 – $10,000</option>
+                                <option value="10k+">$10,000+</option>
+                            </select>
+                            <p class="budget-note">Projects typically start from $2,500</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Section F: Timeline -->
+                    <div style="margin-bottom: 40px;">
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: #9d174d; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: rgba(157, 23, 77, 0.1); border-radius: 8px; font-size: 0.75rem;">F</span>
+                            Timeline
+                        </h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="timeline">When are you looking to start?</label>
+                            <select id="timeline" name="timeline" class="glass-select">
+                                <option value="">Select your timeline</option>
+                                <option value="asap">ASAP</option>
+                                <option value="1-3-months">1–3 months</option>
+                                <option value="exploring">Just exploring</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Section G: Additional Info -->
+                    <div style="margin-bottom: 40px;">
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; color: #00f2ff; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: rgba(0, 242, 255, 0.1); border-radius: 8px; font-size: 0.75rem;">G</span>
+                            Additional Information
+                        </h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="additional">Anything else we should know?</label>
+                            <textarea id="additional" name="additional" class="glass-input" rows="4" placeholder="Tell us about any specific challenges, requirements, or questions..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary" style="width: 100%;">
+                        <span>Submit Application</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; margin-bottom: 16px; color: #ffffff;">Application Submitted!</h3>
+                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 32px; line-height: 1.6;">
+                        Thank you for applying. Our team will review your application and get back to you within 24 hours. Check your email for confirmation.
+                    </p>
+                    <a href="index.html" class="btn-primary" style="display: inline-flex;">
+                        <span>Back to Home</span>
+                        <i class="fas fa-home"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Explainer -->
+    <section class="section-spacing" style="background: rgba(20, 20, 22, 0.5);">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="fade-in" style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 16px;">
+                    What Happens <span class="gradient-text">Next?</span>
+                </h2>
+                <p class="fade-in fade-in-delay-1" style="color: rgba(255, 255, 255, 0.6); max-width: 500px; margin: 0 auto;">
+                    Our process is simple, transparent, and designed to get you results fast.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+                <div class="glass-card step-card fade-in fade-in-delay-1">
+                    <span class="step-number">1</span>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; color: #ffffff;">Application Review</h4>
+                    <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; line-height: 1.6;">We review your application within 24 hours to ensure we're a good fit.</p>
+                </div>
+                
+                <div class="glass-card step-card fade-in fade-in-delay-2">
+                    <span class="step-number">2</span>
+                    <div class="step-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; color: #ffffff;">Strategy Call</h4>
+                    <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; line-height: 1.6;">We hop on a call to discuss your goals and outline a custom strategy.</p>
+                </div>
+                
+                <div class="glass-card step-card fade-in fade-in-delay-3">
+                    <span class="step-number">3</span>
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; color: #ffffff;">Custom Plan</h4>
+                    <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; line-height: 1.6;">We create a detailed roadmap tailored specifically to your business needs.</p>
+                </div>
+                
+                <div class="glass-card step-card fade-in fade-in-delay-4">
+                    <span class="step-number">4</span>
+                    <div class="step-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; color: #ffffff;">Execution</h4>
+                    <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; line-height: 1.6;">We launch your growth system and start scaling your results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee / Risk Reversal -->
+    <section class="section-spacing">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-card guarantee-card fade-in" style="padding: 48px; position: relative; text-align: center;">
+                <div style="width: 80px; height: 80px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; background: rgba(157, 23, 77, 0.2); border-radius: 50%;">
+                    <i class="fas fa-shield-alt" style="font-size: 2rem; color: #9d174d;"></i>
+                </div>
+                
+                <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 20px; color: #ffffff;">
+                    Our Commitment to Quality
+                </h3>
+                
+                <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                    If we don't see clear growth opportunities for your business, <strong style="color: #00f2ff;">we won't take you on.</strong> 
+                    We only work with businesses we believe we can genuinely scale. Our reputation depends on delivering results.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-spacing" style="background: linear-gradient(180deg, rgba(20, 20, 22, 0) 0%, rgba(20, 20, 22, 0.5) 100%);">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="fade-in" style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 20px;">
+                Ready to <span class="gradient-text">Scale?</span>
+            </h2>
+            
+            <p class="fade-in fade-in-delay-1" style="color: rgba(255, 255, 255, 0.7); font-size: 1.125rem; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto;">
+                Apply now and let's see if we're the right fit for your growth journey.
+            </p>
+            
+            <div class="fade-in fade-in-delay-2">
+                <a href="#application-form" class="btn-primary" style="padding: 20px 60px; font-size: 1.2rem;">
+                    <span>Start Application</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 60px 0 30px; background: #0a0a0c; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+        <div class="max-w-6xl mx-auto px-6">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; margin-bottom: 40px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <img src="images/xenon-mini-logo.png" alt="Xenon Studios" style="height: 32px;">
+                    <span style="font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; color: #ffffff;">XENON <span style="color: #00f2ff;">STUDIOS</span></span>
+                </div>
+                
+                <div style="display: flex; gap: 24px;">
+                    <a href="index.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 0.875rem; transition: color 0.3s;">Home</a>
+                    <a href="services.html" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 0.875rem; transition: color 0.3s;">Services</a>
+                    <a href="contact.html" style="color: #00f2ff; text-decoration: none; font-size: 0.875rem; font-weight: 600;">Apply Now</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+                <p style="color: rgba(255, 255, 255, 0.4); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">
+                    &copy; 2026 Xenon Studios. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        // Page Loader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('page-loader').classList.add('fade-out');
+            }, 500);
+        });
+
+        // Progress Bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Fade In Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Form Handling
+        const form = document.getElementById('applicationForm');
+        const formContainer = document.getElementById('formContainer');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate required fields
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#9d174d';
+                } else {
+                    field.style.borderColor = '';
+                }
+            });
+            
+            if (!isValid) {
+                return;
+            }
+            
+            // Show success message with animation
+            form.style.display = 'none';
+            successMessage.classList.add('active');
+            
+            // GSAP animation for success
+            gsap.from('.success-icon', {
+                scale: 0,
+                duration: 0.5,
+                ease: 'back.out(1.7)'
+            });
+            
+            gsap.from('.success-message h3', {
+                y: 20,
+                opacity: 0,
+                duration: 0.5,
+                delay: 0.3
+            });
+            
+            gsap.from('.success-message p', {
+                y: 20,
+                opacity: 0,
+                duration: 0.5,
+                delay: 0.4
+            });
+            
+            gsap.from('.success-message .btn-primary', {
+                y: 20,
+                opacity: 0,
+                duration: 0.5,
+                delay: 0.5
+            });
+        });
+
+        // Input focus effects
+        const inputs = document.querySelectorAll('.glass-input, .glass-select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // GSAP Hero Animation
+        gsap.from('.hero-spacing .fade-in', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power3.out'
+        });
+    </script>
+</body>
+</html>
