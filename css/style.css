@@ -461,13 +461,6 @@ p {
 /* ============================================
    VISUAL HIERARCHY & SECTION SPACING
    ============================================ */
-
-/* Section Spacing Scale */
-section:not(#home) {
-  padding-top: clamp(3rem, 8vw, 6rem);
-  padding-bottom: clamp(3rem, 8vw, 6rem);
-}
-
 /* Hero section special spacing */
 #home {
   padding-top: clamp(6rem, 15vh, 10rem);
