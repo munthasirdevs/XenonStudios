@@ -25,28 +25,8 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'xenon-cyan': 'rgba(0, 242, 255, 1)',
-                        'xenon-purple': 'rgba(112, 0, 255, 1)',
-                        'xenon-magenta': 'rgba(157, 23, 77, 1)',
-                        'xenon-black': 'rgba(0, 0, 0, 1)',
-                        'xenon-charcoal': 'rgba(10, 10, 12, 1)',
-                        'xenon-dark-base': 'rgba(20, 20, 22, 1)',
-                        'xenon-dark-surface': 'rgba(35, 36, 40, 1)',
-                    },
-                    fontFamily: {
-                        'outfit': ['Outfit', 'sans-serif'],
-                        'space': ['Space Grotesk', 'sans-serif'],
-                        'syne': ['Syne', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="../js/tailwind-config.js"></script>
+
 
     <!-- GSAP Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -72,7 +52,14 @@
     <div id="particles-container" class="fixed inset-0 pointer-events-none z-0"></div>
 
     <!-- Main Quiz Container -->
-    <main id="quiz-container" class="relative min-h-screen flex items-center justify-center px-4 py-12 z-10">
+    <main id="quiz-container" class="relative min-h-screen flex flex-col items-center justify-center px-4 py-12 z-10">
+        <!-- Logo -->
+        <div class="mb-12 transition-transform hover:scale-105 duration-300">
+            <a href="../index.html">
+                <img src="../images/xenonLogo/logo.png" alt="Xenon Studios" class="h-10 md:h-12" decoding="async">
+            </a>
+        </div>
+
 
         <!-- Page 1: Identity Classification -->
         <div id="page-identity" class="quiz-page active w-full">

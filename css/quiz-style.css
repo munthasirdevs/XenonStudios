@@ -59,12 +59,10 @@
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.05),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent);
   transition: none;
   pointer-events: none;
 }
@@ -132,48 +130,38 @@
 
 .scanner-core svg {
   color: var(--xenon-color-cyan);
-  animation: spin 2s linear infinite;
   filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.5));
 }
 
 @keyframes scannerPulse {
+
   0%,
   100% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 0.3;
   }
+
   50% {
     transform: translate(-50%, -50%) scale(1.1);
     opacity: 0.8;
   }
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* ============================================
-   Tier Recommendation Card
-   ============================================ */
-
 /* ============================================
    Tier Badge Glow
-   ============================================ */
-/* ============================================
-   Tier Badge Icon Animation
    ============================================ */
 #tier-badge svg {
   animation: badgeSpin 3s ease-in-out infinite;
 }
 
 @keyframes badgeSpin {
+
   0%,
   100% {
     transform: rotate(0deg) scale(1);
     filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.4));
   }
+
   50% {
     transform: rotate(5deg) scale(1.05);
     filter: drop-shadow(0 0 16px rgba(0, 242, 255, 0.6));
@@ -240,10 +228,12 @@
 }
 
 @keyframes gradientShift {
+
   0%,
   100% {
     background-position: 0% center;
   }
+
   50% {
     background-position: 100% center;
   }
@@ -257,14 +247,17 @@
     width: 80px;
     height: 80px;
   }
+
   .scanner-ring-2 {
     width: 110px;
     height: 110px;
   }
+
   .scanner-ring-3 {
     width: 140px;
     height: 140px;
   }
+
   .scanner-core {
     width: 60px;
     height: 60px;

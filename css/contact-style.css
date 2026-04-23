@@ -1,0 +1,7 @@
+.text-glow {
+    text-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+}
+
+.xenon-gradient {
+    background: linear-gradient(135deg, #00f2ff 0%, #7000ff 100%);
+}

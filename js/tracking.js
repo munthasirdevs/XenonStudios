@@ -26,7 +26,7 @@
       // Store in sessionStorage for session analysis
       try {
         sessionStorage.setItem("xenon_events", JSON.stringify(this.events));
-      } catch (e) {}
+      } catch (e) { }
 
       // Dispatch custom event for integration with other systems
       window.dispatchEvent(new CustomEvent("xenon:track", { detail: event }));

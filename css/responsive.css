@@ -9,6 +9,7 @@
 
 /* Extra Small Phones (< 480px) */
 @media (max-width: 479px) {
+
   /* Prevent horizontal scroll */
   html,
   body {
@@ -142,7 +143,7 @@
   }
 
   nav .glass-card {
-    padding: 10px 14px;
+    padding: 10px 14px !important;
   }
 
   nav img {
@@ -268,10 +269,12 @@
 
   /* Reduce glow animation on mobile */
   @keyframes glow-pulse {
+
     0%,
     100% {
       opacity: 0.3;
     }
+
     50% {
       opacity: 0.5;
     }
@@ -468,6 +471,12 @@
    Reduce heavy effects on mobile
    ============================================ */
 @media (max-width: 768px) {
+  /* Disable background image on mobile */
+  .hero-bg {
+    background-image: none !important;
+  }
+
+
   /* Reduce backdrop-blur on mobile */
   .backdrop-blur-xl {
     --tw-backdrop-blur: blur(12px) !important;
@@ -531,7 +540,7 @@
 
   /* Simplify stats card hover on mobile */
   .stats-card:hover {
-    transform: translateY(-3px);
+    transform: none;
   }
 
   /* Reduce WhatsApp button conic gradient cost on mobile */
@@ -570,7 +579,7 @@
   }
 
   nav .glass-card {
-    padding: 8px 12px;
+    padding: 8px 12px !important;
   }
 
   nav img {
@@ -667,7 +676,7 @@
   }
 
   nav .glass-card {
-    padding: 10px 14px;
+    padding: 10px 14px !important;
   }
 
   .animated-button {
@@ -804,6 +813,7 @@
    PRINT OVERRIDES
    ============================================ */
 @media print {
+
   nav,
   .mobile-menu,
   .glow,
@@ -848,10 +858,12 @@
    PRODUCT LAYER RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
+
   /* Product Layer Responsive */
   .form-input {
     padding: 14px 16px;
-    font-size: 16px; /* Prevents iOS zoom */
+    font-size: 16px;
+    /* Prevents iOS zoom */
   }
 
   .data-table th,
@@ -885,6 +897,7 @@
    CONVERSION ENGINE: MOBILE RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
+
   /* Conversion Engine Mobile */
   .sticky-cta-content {
     flex-direction: column;
@@ -915,6 +928,7 @@
    MOBILE STRATEGY: SECTION SPACING & LAYOUT
    ============================================ */
 @media (max-width: 479px) {
+
   /* READABILITY: Mobile typography improvements */
   body {
     font-size: 14px;

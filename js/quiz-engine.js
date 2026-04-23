@@ -11,7 +11,9 @@
   // Dependency Check
   // ============================================
   if (typeof gsap === "undefined") {
-    console.error("Quiz Engine requires GSAP to be loaded. Please include GSAP library.");
+    console.error(
+      "Quiz Engine requires GSAP to be loaded. Please include GSAP library.",
+    );
     document.addEventListener("DOMContentLoaded", function () {
       var quizContainer = document.getElementById("quiz-container");
       if (quizContainer) {
@@ -216,7 +218,9 @@
     ];
     for (var i = 0; i < requiredIds.length; i++) {
       if (!document.getElementById(requiredIds[i])) {
-        console.error("Quiz Engine: Missing required element #" + requiredIds[i]);
+        console.error(
+          "Quiz Engine: Missing required element #" + requiredIds[i],
+        );
         return false;
       }
     }
@@ -224,7 +228,9 @@
   }
 
   if (!validateElements()) {
-    console.error("Quiz Engine: Required elements missing. Quiz will not initialize.");
+    console.error(
+      "Quiz Engine: Required elements missing. Quiz will not initialize.",
+    );
     return;
   }
 

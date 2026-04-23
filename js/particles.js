@@ -73,7 +73,7 @@
       this.speedY = this.baseSpeedY;
       this.color =
         config.particleColors[
-          Math.floor(Math.random() * config.particleColors.length)
+        Math.floor(Math.random() * config.particleColors.length)
         ];
       this.opacity = random(
         config.particleMinOpacity,

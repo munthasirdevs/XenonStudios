@@ -29,36 +29,9 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
 
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "xenon-cyan": "#00f2ff",
-                        "xenon-purple": "#7000ff",
-                        "xenon-magenta": "#9d174d",
-                        "xenon-black": "#000000",
-                        "xenon-charcoal": "#0a0a0c"
-                    },
-                    fontFamily: {
-                        "headline": ["Manrope", "sans-serif"],
-                        "body": ["Outfit", "sans-serif"],
-                        "label": ["Inter", "sans-serif"]
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .text-glow {
-            text-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
-        }
+    <script src="../js/contact-config.js"></script>
+    <link rel="stylesheet" href="../css/contact-style.css">
 
-        .xenon-gradient {
-            background: linear-gradient(135deg, #00f2ff 0%, #7000ff 100%);
-        }
-    </style>
 </head>
 
 <body id="layout" class="outfit overflow-x-hidden">
@@ -70,7 +43,7 @@
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl" aria-label="Main navigation">
         <div class="glass-card rounded-full px-8 py-4 flex items-center justify-between border-white/10">
             <div class="text-xl font-extrabold tracking-tighter italic">
-                <a href="index.html" class="block hover:scale-105 transition-transform">
+                <a href="../index.html" class="block hover:scale-105 transition-transform">
                     <img src="../images/xenonLogo/logo.png" alt="logo" class="h-10" decoding="async">
                 </a>
             </div>
@@ -151,7 +124,7 @@
         </section>
 
         <!-- Form Card -->
-        <section class="max-w-7xl mx-auto px-6 mb-24 relative z-10">
+        <section class="max-w-7xl mx-auto mb-24 relative z-10">
             <div class="glass-card rounded-xl p-8 md:p-12 border border-white/5 relative overflow-hidden">
                 <div
                     class="absolute -top-40 -right-40 w-96 h-96 bg-xenon-cyan/10 rounded-full blur-[100px] pointer-events-none">
@@ -188,17 +161,32 @@
                             <label class="block text-xenon-cyan font-label text-sm mb-3">What do you need?</label>
                             <div class="flex flex-wrap gap-3">
                                 <button
-                                    class="px-4 py-2 rounded-full border border-white/20 text-gray-300 text-sm font-label hover:border-xenon-cyan hover:text-xenon-cyan transition-colors"
-                                    type="button">Web Development</button>
-                                <button
                                     class="px-4 py-2 rounded-full border border-xenon-cyan text-xenon-cyan bg-xenon-cyan/10 text-sm font-label transition-colors"
                                     type="button">AI Automation</button>
                                 <button
+                                    class="px-4 py-2 rounded-full border border-white/20 text-gray-300 text-sm font-label hover:border-xenon-cyan hover:text-xenon-cyan transition-colors"
+                                    type="button">Web Development</button>
+                                <button
                                     class="px-4 py-2 rounded-full border border-white/20 text-gray-300 text-sm font-label hover:border-xenon-purple hover:text-xenon-purple transition-colors"
-                                    type="button">Visual Design</button>
+                                    type="button">Visual Designs</button>
                                 <button
                                     class="px-4 py-2 rounded-full border border-white/20 text-gray-300 text-sm font-label hover:border-xenon-magenta hover:text-xenon-magenta transition-colors"
-                                    type="button">Branding</button>
+                                    type="button">VFX & Animation</button>
+                                <button
+                                    class="px-4 py-2 rounded-full border border-white/20 text-gray-300 text-sm font-label hover:border-xenon-cyan hover:text-xenon-cyan transition-colors"
+                                    type="button">Motion Graphics</button>
+                                <button
+                                    class="px-4 py-2 rounded-full border border-white/20 text-gray-300 text-sm font-label hover:border-xenon-purple hover:text-xenon-purple transition-colors"
+                                    type="button">Cybersecurity</button>
+                                <button
+                                    class="px-4 py-2 rounded-full border border-white/20 text-gray-300 text-sm font-label hover:border-xenon-magenta hover:text-xenon-magenta transition-colors"
+                                    type="button">Video Editing</button>
+                                <button
+                                    class="px-4 py-2 rounded-full border border-white/20 text-gray-300 text-sm font-label hover:border-xenon-cyan hover:text-xenon-cyan transition-colors"
+                                    type="button">Digital Marketing</button>
+                                <button
+                                    class="px-4 py-2 rounded-full border border-white/20 text-gray-300 text-sm font-label hover:border-xenon-purple hover:text-xenon-purple transition-colors"
+                                    type="button">E-com Scaling</button>
                             </div>
                         </div>
                         <div>
@@ -333,7 +321,7 @@
                     href="../index.html#about">About</a>
                 <a class="text-gray-500 hover:text-xenon-cyan transition-colors font-label text-sm"
                     href="services.html">Services</a>
-                <a class="text-xenon-cyan font-label text-sm" href="contact.html">Contact</a>
+                <a class="text-xenon-cyan font-label text-sm" aria-current="page" href="#">Contact</a>
                 <a class="text-gray-500 hover:text-xenon-cyan transition-colors font-label text-sm"
                     href="https://wa.link/lx0res">WhatsApp</a>
             </div>

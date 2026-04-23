@@ -66,7 +66,8 @@
         class="fixed inset-0 z-[10000] bg-black flex items-center justify-center transition-opacity duration-500">
         <div class="text-center">
             <div class="relative mb-8">
-                <img src="./images/xenonLogo/logo.png" alt="Xenon Studios" class="h-16 md:h-20 animate-pulse" decoding="async">
+                <img src="./images/xenonLogo/logo.png" alt="Xenon Studios" class="h-16 md:h-20 animate-pulse"
+                    decoding="async">
                 <div class="absolute inset-0 bg-[var(--xenon-color-cyan)]/20 blur-3xl rounded-full -z-10 animate-pulse">
                 </div>
             </div>
@@ -97,12 +98,11 @@
                     class="nav-link text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Home</a>
                 <a href="#about"
                     class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">About</a>
-                <a href="#services"
+                <a href="./pages/services.html"
                     class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Services</a>
 
-                <a href="contact.html"
-                    class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Apply
-                    Now</a>
+                <a href="pages/contact.html"
+                    class="nav-link hover:text-[var(--xenon-color-cyan)] transition-colors text-[18px] font-bold outfit">Contact</a>
             </div>
             <a href="https://wa.link/lx0res" target="_blank" rel="noopener noreferrer" class="hidden sm:block"
                 data-track-cta="whatsapp" aria-label="Chat on WhatsApp - Opens in new tab">
@@ -205,28 +205,28 @@
 
                 <!-- Quiz Integration CTA -->
                 <div class="mt-6 flex items-center justify-center gap-3">
-                    <a href="./pages/quiz.html"
-                        class="inline-flex items-center gap-2 text-sm text-white/60 hover:text-xenon-cyan transition-colors"
+                    <a href="./pages/quiz.html" class="inline-flex items-center gap-2 text-sm transition-colors"
                         onclick="window.XenonTracker && window.XenonTracker.track('quiz_start')">
                         <span
-                            class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-xenon-cyan/10 border border-xenon-cyan/20">
-                            <svg class="w-3.5 h-3.5 text-xenon-cyan" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                            class="inline-flex items-center justify-center w-6 h-6 rounded-full border border-black bg-black transition-colors">
+                            <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                         </span>
-                        <span class="font-medium">Take our 60-second quiz</span>
-                        <span class="text-xenon-cyan/70">→</span>
+                        <span class="font-medium text-black">Take our 60-second quiz</span>
+                        <span class="text-black">→</span>
                     </a>
                 </div>
             </div>
-        </section>
 
-        <!-- Social Proof Bar -->
-        <section id="social-proof" class="py-10 px-4 border-y border-white/5"
-            aria-label="Social proof and client statistics">
-            <div class="max-w-6xl mx-auto">
+            <!-- Trust Section -->
+            <div class="max-w-6xl mx-auto relative px-4 md:px-6 mt-20 md:mt-32">
+                <!-- Blur Effects -->
+                <div class="absolute -top-20 -left-32 w-64 h-64 rounded-full bg-[var(--xenon-color-cyan)]/20 blur-[100px] pointer-events-none"
+                    aria-hidden="true"></div>
+                <div class="absolute -bottom-16 -right-24 w-56 h-56 rounded-full bg-[var(--xenon-color-purple)]/20 blur-[80px] pointer-events-none"
+                    aria-hidden="true"></div>
                 <!-- Trust Heading -->
                 <div class="text-center mb-8">
                     <span class="text-xs font-bold tracking-[0.2em] text-[var(--xenon-color-cyan)] uppercase">Trusted by
@@ -1647,21 +1647,6 @@
                         Transparent pricing for brands that prioritize precision and excellence. Select a plan that fits
                         your growth trajectory.
                     </p>
-                    <!-- Billing Toggle -->
-                    <div class="mt-12 flex items-center justify-center gap-4">
-                        <span class="text-sm font-medium text-gray-400">Monthly</span>
-                        <button class="w-14 h-11 bg-white/10 rounded-full p-1 relative flex items-center" role="switch"
-                            aria-checked="false" aria-label="Toggle yearly billing" id="billing-toggle">
-                            <div
-                                class="w-5 h-5 bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] rounded-full shadow-lg translate-x-7">
-                            </div>
-                        </button>
-                        <span class="text-sm font-medium text-white flex items-center gap-2">
-                            Yearly
-                            <span
-                                class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/20 to-[var(--xenon-color-purple)]/20 border border-[var(--xenon-color-cyan)]/30 text-[var(--xenon-color-cyan)] text-[10px] px-2 py-0.5 rounded-full font-bold">-20%</span>
-                        </span>
-                    </div>
                 </header>
 
                 <!-- Pricing Cards Grid -->
@@ -2216,7 +2201,7 @@
         </section>
 
         <!-- Final CTA Section -->
-        <section class="bg-white/5 rounded-xl p-16 text-center border border-white/10 relative overflow-hidden">
+        <section class="bg-white/5 p-16 text-center border border-white/10 relative overflow-hidden">
             <div class="relative z-10">
                 <h2 class="text-4xl font-bold mb-6">Still undecided?</h2>
                 <p class="text-gray-400 mb-10 max-w-xl mx-auto">Join over 150+ brands that trust Xenon Studios
@@ -2297,8 +2282,8 @@
                             <li><a href="#why-choose-us"
                                     class="hover:text-[var(--xenon-color-cyan)] transition-colors">Why Choose
                                     Us</a></li>
-                            <li><a href="contact.html"
-                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">Apply Now</a></li>
+                            <li><a href="pages/contact.html"
+                                    class="hover:text-[var(--xenon-color-cyan)] transition-colors">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -2451,181 +2436,8 @@
     </div>
 
     <!-- Conversion Engine Scripts -->
-    <script>
-        (function () {
-            'use strict';
+    <script src="./js/conversion-engine.js"></script>
 
-            // Sticky CTA Bar - show after scrolling past hero
-            const stickyBar = document.getElementById('sticky-cta-bar');
-            const heroSection = document.getElementById('home');
-
-            if (stickyBar && heroSection) {
-                const observer = new IntersectionObserver(
-                    ([entry]) => {
-                        if (!entry.isIntersecting) {
-                            stickyBar.classList.add('visible');
-                        } else {
-                            stickyBar.classList.remove('visible');
-                        }
-                    },
-                    { threshold: 0.1 }
-                );
-                observer.observe(heroSection);
-            }
-
-            // Dismissed state for sticky bar (session storage)
-            const closeBtn = document.querySelector('.sticky-cta-close');
-            if (closeBtn) {
-                closeBtn.addEventListener('click', function () {
-                    sessionStorage.setItem('sticky-cta-dismissed', 'true');
-                });
-            }
-
-            // Check if previously dismissed
-            if (sessionStorage.getItem('sticky-cta-dismissed') === 'true' && stickyBar) {
-                stickyBar.style.display = 'none';
-            }
-
-            // ===== KEYBOARD NAVIGATION SUPPORT =====
-            // Skip to content shortcut (Alt+S)
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 's' && e.altKey) {
-                    e.preventDefault();
-                    const mainContent = document.querySelector('#home');
-                    if (mainContent) mainContent.focus();
-                }
-            });
-
-            // Add tabindex="-1" to section headings for skip navigation
-            document.querySelectorAll('section[id]').forEach(function (section) {
-                section.setAttribute('tabindex', '-1');
-            });
-
-            // Escape key handler — close mobile menu, dismiss sticky CTA
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') {
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    const menuBtn = document.querySelector('.mobile-menu-btn');
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        menuBtn.setAttribute('aria-expanded', 'false');
-                    }
-                    // Dismiss sticky CTA bar
-                    const stickyBar = document.querySelector('.sticky-cta-bar');
-                    if (stickyBar) {
-                        stickyBar.style.display = 'none';
-                    }
-                }
-            });
-
-            // ===== FORM VALIDATION SYSTEM =====
-            (function initFormValidation() {
-                var forms = document.querySelectorAll('form');
-
-                forms.forEach(function (form) {
-                    var inputs = form.querySelectorAll('input, textarea, select');
-                    var submitBtn = form.querySelector('input[type="submit"], button[type="submit"]');
-
-                    inputs.forEach(function (input) {
-                        // Validate on blur
-                        input.addEventListener('blur', function () {
-                            validateField(this);
-                        });
-
-                        // Validate on input (after first blur)
-                        input.addEventListener('input', function () {
-                            if (this.dataset.touched === 'true') {
-                                validateField(this);
-                            }
-                        });
-
-                        // Mark as touched on focus
-                        input.addEventListener('focus', function () {
-                            this.dataset.touched = 'true';
-                        });
-                    });
-
-                    // Validate on submit
-                    form.addEventListener('submit', function (e) {
-                        var isValid = true;
-
-                        inputs.forEach(function (input) {
-                            if (!validateField(input)) {
-                                isValid = false;
-                            }
-                        });
-
-                        if (!isValid) {
-                            e.preventDefault();
-                            // Focus first invalid field
-                            var firstError = form.querySelector('.input--error, [aria-invalid="true"]');
-                            if (firstError) firstError.focus();
-                            return;
-                        }
-
-                        // Show loading state on submit button
-                        if (submitBtn) {
-                            submitBtn.classList.add('button--loading');
-                            submitBtn.disabled = true;
-                        }
-                    });
-                });
-
-                function validateField(field) {
-                    // Clear previous state
-                    field.classList.remove('input--error', 'input--success');
-                    field.removeAttribute('aria-invalid');
-                    var existingError = field.parentElement.querySelector('.form-error-message');
-                    if (existingError) existingError.remove();
-
-                    // Skip disabled/hidden fields
-                    if (field.disabled || field.type === 'hidden') return true;
-
-                    // Required check
-                    if (field.required && !field.value.trim()) {
-                        showFieldError(field, 'This field is required');
-                        return false;
-                    }
-
-                    // Email validation
-                    if (field.type === 'email' && field.value.trim()) {
-                        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (!emailRegex.test(field.value.trim())) {
-                            showFieldError(field, 'Please enter a valid email address');
-                            return false;
-                        }
-                    }
-
-                    // Min length
-                    if (field.minLength > 0 && field.value.length < field.minLength) {
-                        showFieldError(field, 'Minimum ' + field.minLength + ' characters required');
-                        return false;
-                    }
-
-                    // All good
-                    if (field.value.trim()) {
-                        field.classList.add('input--success');
-                    }
-                    return true;
-                }
-
-                function showFieldError(field, message) {
-                    field.classList.add('input--error');
-                    field.setAttribute('aria-invalid', 'true');
-                    field.setAttribute('aria-describedby', field.id + '-error');
-
-                    // Create error message
-                    var errorEl = document.createElement('div');
-                    errorEl.id = field.id + '-error';
-                    errorEl.className = 'form-error-message text-sm mt-1';
-                    errorEl.setAttribute('role', 'alert');
-                    errorEl.textContent = message;
-                    field.parentElement.appendChild(errorEl);
-                }
-            })();
-        })();
-    </script>
 
     <!-- Conversion Tracking -->
     <script src="./js/tracking.js"></script>
