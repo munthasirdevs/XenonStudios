@@ -1,0 +1,333 @@
+/* ============================================
+   SERVICE CARDS
+   Card styling with radial gradient border effects
+   ============================================ */
+/* Service Card - 6 radial gradient layers (original .bak design) */
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--xenon-color-dark-base);
+  background-image:
+    radial-gradient(at 88% 40%,
+      var(--xenon-color-dark-base) 0px,
+      transparent 85%),
+    radial-gradient(at 49% 30%,
+      var(--xenon-color-dark-base) 0px,
+      transparent 85%),
+    radial-gradient(at 14% 26%,
+      var(--xenon-color-dark-base) 0px,
+      transparent 85%),
+    radial-gradient(at 0% 64%, var(--xenon-color-purple) 0px, transparent 85%),
+    radial-gradient(at 41% 94%, var(--xenon-color-purple) 0px, transparent 85%),
+    radial-gradient(at 100% 99%, var(--xenon-color-cyan) 0px, transparent 85%);
+  border-radius: 1rem;
+  box-shadow: 0px -16px 24px 0px var(--xenon-color-white-transparent) inset;
+  border: 1px solid var(--xenon-color-white-faint);
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.6s ease,
+    box-shadow 0.6s ease;
+}
+
+.service-card .service-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.service-card .service-features-list .service-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.service-card .service-features-list .service-feature-item .service-feature-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--xenon-color-cyan);
+  border-radius: 50%;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--xenon-color-cyan-faint);
+  box-shadow:
+    0 10px 30px -10px var(--xenon-color-black-transparent),
+    0 0 15px var(--xenon-color-cyan-faint);
+}
+
+/* ⚠️ Service Cards Only - Do not reuse outside service cards ⚠️ */
+.service-card-button {
+  position: relative;
+  padding: 14px 42px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  background: transparent;
+  display: inline-block;
+  z-index: 1;
+  transition: transform 0.2s ease;
+}
+
+.service-card-button span {
+  position: relative;
+  z-index: 15;
+}
+
+.service-card-button:active {
+  transform: scale(0.96);
+}
+
+.service-card-button::before {
+  content: "";
+  background: var(--xenon-color-black);
+  border-radius: inherit;
+  height: calc(100% - 4px);
+  width: calc(100% - 4px);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: 12;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.5s ease;
+}
+
+.service-card-button:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Service Card Button - Animated Bubbles (btn-001 with :root colors) */
+.service-card-button .bubble-layer {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.service-card-button .bubble-1 {
+  background: var(--xenon-color-purple);
+  top: -20%;
+  left: -10%;
+  animation: btnBubbleUpRight 6s ease-in-out infinite;
+}
+
+.service-card-button .bubble-2 {
+  background: var(--xenon-color-blue-electric);
+  top: 0%;
+  left: 10%;
+  animation: btnBubbleDownLeft 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.service-card-button .bubble-3 {
+  background: var(--xenon-color-violet-glow);
+  top: 20%;
+  left: 50%;
+  animation: btnBubbleRight 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.service-card-button .bubble-4 {
+  background: var(--xenon-color-blue-soft);
+  top: -20%;
+  left: 70%;
+  animation: btnBubbleUpLeft 7s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.service-card-button .bubble-5 {
+  background: var(--xenon-color-purple);
+  top: 30%;
+  left: -10%;
+  animation: btnBubbleDownRight 3s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+.service-card-button .bubble-6 {
+  background: var(--xenon-color-magenta-bright);
+  top: -10%;
+  left: 30%;
+  animation: btnBubbleLeft 8s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.service-card-button .bubble-7 {
+  background: var(--xenon-color-neon-mint);
+  top: 40%;
+  left: 60%;
+  animation: btnBubbleUp 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes btnBubbleUpRight {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(100%, -100%);
+  }
+
+  50% {
+    transform: translate(-50%, 50%);
+  }
+
+  75% {
+    transform: translate(50%, -50%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleDownLeft {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-100%, 100%);
+  }
+
+  50% {
+    transform: translate(50%, -50%);
+  }
+
+  75% {
+    transform: translate(-50%, 50%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleRight {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(100%, 0);
+  }
+
+  50% {
+    transform: translate(-100%, 50%);
+  }
+
+  75% {
+    transform: translate(50%, -50%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleUpLeft {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-100%, -100%);
+  }
+
+  50% {
+    transform: translate(50%, 50%);
+  }
+
+  75% {
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleDownRight {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(100%, 100%);
+  }
+
+  50% {
+    transform: translate(-50%, -50%);
+  }
+
+  75% {
+    transform: translate(50%, 50%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleLeft {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-100%, 0);
+  }
+
+  50% {
+    transform: translate(100%, -50%);
+  }
+
+  75% {
+    transform: translate(-50%, 50%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes btnBubbleUp {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(0, -100%);
+  }
+
+  50% {
+    transform: translate(50%, 50%);
+  }
+
+  75% {
+    transform: translate(-50%, -50%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* ============================================

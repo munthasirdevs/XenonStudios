@@ -27,20 +27,13 @@ const initPageLoader = () => {
     }, 300);
   };
 
-  // Hide when page is fully loaded
   if (document.readyState === "complete") {
     hideLoader();
   } else {
     window.addEventListener("load", hideLoader);
-    // Fallback: hide after 3 seconds max
     setTimeout(hideLoader, 3000);
   }
 };
-
-// ============================================================================
-// INITIALIZATION
-// ============================================================================
-gsap.registerPlugin(ScrollTrigger);
 
 // ============================================================================
 // SCROLL-TRIGGERED ANIMATIONS (Performance Optimized)
@@ -55,8 +48,6 @@ const initScrollAnimations = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("in-view");
-          // Optional: unobserve after animation to save resources
-          // observer.unobserve(entry.target);
         }
       });
     },
@@ -94,7 +85,6 @@ const initWhatsappResvisibility = () => {
       ticking = false;
     };
 
-    // Throttled scroll listener
     window.addEventListener(
       "scroll",
       () => {
@@ -181,7 +171,6 @@ const initFooterAccordion = () => {
       const content = column.querySelector(".footer-content");
       const icon = toggle.querySelector("svg");
 
-      // Close others
       footerToggles.forEach((other) => {
         if (other !== toggle) {
           const otherContent = other
@@ -210,184 +199,106 @@ const initFooterAccordion = () => {
 };
 
 // ============================================================================
-// GSAP SCROLL ANIMATIONS
-// ============================================================================
-const initGsapAnimations = () => {
-  // Only run heavy GSAP animations if not reduced-motion preference
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
-  if (prefersReducedMotion) {
-    // Skip all GSAP animations for users who prefer reduced motion
-    return;
-  }
-
-  // Navigation Fade In
-  gsap.from("nav", {
-    opacity: 0,
-    y: -20,
-    duration: 1,
-    ease: "power2.out",
-    clearProps: "all",
-  });
-
-  // Hero Staggered Reveal
-  const heroElements = [
-    "#home .hero-title",
-    "#home p",
-    "#home .explore-button",
-    "#home .view-services-btn",
-  ];
-  gsap.fromTo(
-    heroElements,
-    {
-      opacity: 0,
-      y: 30,
-    },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power2.out",
-      delay: 0.3,
-      clearProps: "opacity,transform",
-    },
-  );
-
-  // Section Reveals
-  gsap.utils.toArray("section:not(#home)").forEach((section) => {
-    gsap.from(section, {
-      scrollTrigger: {
-        trigger: section,
-        start: "top 85%",
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: "power2.out",
-      clearProps: "all",
-    });
-  });
-
-  // Service Cards
-  gsap.from(".service-card", {
-    scrollTrigger: {
-      trigger: "#services",
-      start: "top 70%",
-    },
-    y: 60,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: "power2.out",
-    clearProps: "all",
-  });
-
-  // FAQ Items
-  gsap.utils.toArray(".faq-item").forEach((el, i) => {
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: "top 90%",
-      },
-      y: 20,
-      opacity: 0,
-      duration: 0.6,
-      ease: "power2.out",
-      clearProps: "all",
-    });
-  });
-
-  // Stats Counters Animation
-  const counters = document.querySelectorAll("[data-count]");
-
-  counters.forEach((counter) => {
-    const target = parseFloat(counter.getAttribute("data-count"));
-    const symbol = counter.textContent.replace(/[0-9.]/g, "").trim();
-
-    gsap.to(counter, {
-      scrollTrigger: {
-        trigger: counter,
-        start: "top 85%",
-        once: true,
-      },
-      innerHTML: target,
-      duration: 2.5,
-      snap: { innerHTML: 1 },
-      ease: "power2.out",
-      onUpdate: function () {
-        const currentValue = Math.floor(this.targets()[0].innerHTML);
-        counter.innerHTML = currentValue + symbol;
-      },
-    });
-  });
-};
-
-// ============================================================================
-// FAQ INTERACTIVITY — handled natively by <details>/<summary> elements
-
-// ============================================================================
 // SMOOTH SCROLL & ACTIVE NAV
 // ============================================================================
 const initSmoothScroll = () => {
-  // Smooth Scroll with better offset for fixed nav
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-      e.preventDefault();
       const targetId = this.getAttribute("href");
-      if (targetId === "#") return;
+      // Only prevent default if it's an internal link on the same page
+      if (targetId === "#") {
+        e.preventDefault();
+        return;
+      }
 
-      const target = document.querySelector(targetId);
-      if (target) {
-        const navHeight = 80;
-        const targetPosition =
-          target.getBoundingClientRect().top + window.scrollY - navHeight;
+      if (targetId.startsWith("#")) {
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const navHeight = 80;
+          const targetPosition =
+            target.getBoundingClientRect().top + window.scrollY - navHeight;
 
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
-        });
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
 
-        // Close mobile menu if open
-        const mobileMenu = document.querySelector(".mobile-menu");
-        if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
-          mobileMenu.classList.add("hidden");
-          const mobileMenuBtn = document.querySelector(
-            ".mobile-menu-btn svg path",
-          );
-          if (mobileMenuBtn) {
-            mobileMenuBtn.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
+          const mobileMenu = document.querySelector(".mobile-menu");
+          if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.add("hidden");
+            const mobileMenuBtn = document.querySelector(
+              ".mobile-menu-btn svg path",
+            );
+            if (mobileMenuBtn) {
+              mobileMenuBtn.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
+            }
           }
         }
       }
     });
   });
 
-  // Active Link Observer
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll("section[id]");
 
-  const observerOptions = {
-    root: null,
-    rootMargin: "-20% 0px -70% 0px",
-    threshold: 0,
-  };
+  if (sections.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: 0,
+    };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute("id");
-        navLinks.forEach((link) => {
-          const isActive = link.getAttribute("href") === `#${id}`;
-          link.classList.toggle("text-[var(--xenon-color-cyan)]", isActive);
-          link.classList.toggle("text-white/70", !isActive);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          navLinks.forEach((link) => {
+            const isActive = link.getAttribute("href") === `#${id}`;
+            link.classList.toggle("text-[var(--xenon-color-cyan)]", isActive);
+            link.classList.toggle("text-white/70", !isActive);
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+  }
+};
+
+// ============================================================================
+// STATS COUNTER ANIMATION
+// ============================================================================
+const initStatsCounter = () => {
+    if (typeof gsap !== 'undefined') {
+        const counters = document.querySelectorAll("[data-count]");
+        if (!counters.length) return;
+
+        gsap.registerPlugin(ScrollTrigger);
+        counters.forEach((counter) => {
+            const target = parseFloat(counter.getAttribute("data-count"));
+            const originalText = counter.textContent;
+            const symbol = originalText.replace(/[0-9.]/g, "").trim();
+
+            counter.textContent = "0" + symbol;
+
+            gsap.to(counter, {
+                scrollTrigger: {
+                    trigger: counter,
+                    start: "top 85%",
+                    once: true,
+                },
+                innerHTML: target,
+                duration: 2.5,
+                snap: { innerHTML: 1 },
+                ease: "power2.inOut",
+                onUpdate: function () {
+                    const currentValue = Math.floor(this.targets()[0].innerHTML);
+                    counter.innerHTML = currentValue + symbol;
+                },
+            });
         });
-      }
-    });
-  }, observerOptions);
-
-  sections.forEach((section) => observer.observe(section));
+    }
 };
 
 // ============================================================================
@@ -399,16 +310,17 @@ document.addEventListener("DOMContentLoaded", () => {
   initWhatsappResvisibility();
   initMobileMenu();
   initFooterAccordion();
-  initGsapAnimations();
-  // initFaqSystem(); // REMOVED — FAQ now uses native <details>/<summary>
   initSmoothScroll();
+  initStatsCounter();
 
   // Button Click Feedback
-  document
-    .querySelectorAll("button, .explore-button, .animated-button")
-    .forEach((btn) => {
-      btn.addEventListener("click", function () {
-        gsap.to(this, { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1 });
+  if (typeof gsap !== 'undefined') {
+    document
+      .querySelectorAll("button, .explore-button, .animated-button")
+      .forEach((btn) => {
+        btn.addEventListener("click", function () {
+          gsap.to(this, { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1 });
+        });
       });
-    });
+  }
 });

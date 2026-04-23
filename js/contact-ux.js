@@ -118,38 +118,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initFooterAccordion();
 
-    // Stats Counting Animation
-    const initStatsCounter = () => {
-        if (typeof gsap !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-            const counters = document.querySelectorAll("[data-count]");
-
-            counters.forEach((counter) => {
-                const target = parseFloat(counter.getAttribute("data-count"));
-                const originalText = counter.textContent;
-                const symbol = originalText.replace(/[0-9.]/g, "").trim();
-
-                // Start from zero
-                counter.textContent = "0" + symbol;
-
-                gsap.to(counter, {
-                    scrollTrigger: {
-                        trigger: counter,
-                        start: "top 85%",
-                        once: true,
-                    },
-                    innerHTML: target,
-                    duration: 2.5,
-                    snap: { innerHTML: 1 },
-                    ease: "power2.inOut",
-                    onUpdate: function () {
-                        const currentValue = Math.floor(this.targets()[0].innerHTML);
-                        counter.innerHTML = currentValue + symbol;
-                    },
-                });
-            });
-        }
-    };
-
-    initStatsCounter();
+    // (initStatsCounter removed, now handled in global app.js)
 });

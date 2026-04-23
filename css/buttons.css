@@ -1,0 +1,666 @@
+/* ============================================
+   BUTTONS & INTERACTIVE ELEMENTS
+   Custom buttons with hover animations and glows
+   
+   APPROVED BUTTON TYPES:
+   1. .animated-button - Primary CTA (main call-to-action)
+   2. .explore-button - Secondary button
+   3. .ghost-button - Ghost/outline button (minimal emphasis)
+   4. .space-button - HERO ONLY - Do not reuse below the fold
+   5. .quiz-cta-button - Quiz System Only
+   6. .service-card-button - Service Cards Only
+   7. .whatsapp-button - External link button (special case)
+   ============================================ */
+/* Hero Buttons */
+.explore-button {
+  border-radius: 8px;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0px 15px;
+  border: none;
+  color: white;
+  position: relative;
+  cursor: pointer;
+  font-weight: 700;
+  transition-duration: 0.2s;
+  background-color: var(--xenon-color-dark-base);
+  z-index: 1;
+  text-decoration: none;
+}
+
+.explore-button:before,
+.explore-button:after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  border-radius: 10px;
+  background: linear-gradient(45deg,
+      var(--xenon-color-dark-base),
+      var(--xenon-color-dark-base),
+      var(--xenon-color-grey-ash),
+      var(--xenon-color-white),
+      var(--xenon-color-grey-ash),
+      var(--xenon-color-dark-base),
+      var(--xenon-color-dark-base),
+      var(--xenon-color-dark-base));
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: steam 20s linear infinite;
+}
+
+.explore-button:after {
+  filter: blur(25px);
+}
+
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  border-radius: 8px;
+  width: 200px;
+  height: 50px;
+  font-weight: 600;
+  color: var(--xenon-color-white);
+  box-shadow: 0 0 0 2px var(--xenon-color-grey-dim);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  text-decoration: none;
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: var(--xenon-color-white);
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: var(--xenon-color-purple);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: var(--xenon-color-white);
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: var(--xenon-color-white);
+}
+
+.animated-button:active {
+  scale: 0.95;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
+/* ============================================
+   GHOST BUTTON (Minimal Emphasis)
+   For low-priority actions, secondary navigation
+   ============================================ */
+.ghost-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.ghost-button:hover {
+  border-color: var(--xenon-color-cyan);
+  color: var(--xenon-color-cyan);
+  background: rgba(0, 242, 255, 0.05);
+}
+
+/* ============================================
+   QUIZ CTA BUTTON (Hero Section)
+   ⚠️ Quiz System Only - Do not reuse outside quiz module ⚠️
+   ============================================ */
+.quiz-cta-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg,
+      rgba(0, 242, 255, 0.1),
+      rgba(112, 0, 255, 0.1));
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  border-radius: 50px;
+  color: var(--xenon-color-white);
+  font-family: var(--font-outfit);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent);
+  transition: left 0.5s;
+}
+
+.quiz-cta-button:hover::before {
+  left: 100%;
+}
+
+.quiz-cta-button:hover {
+  background: linear-gradient(135deg,
+      rgba(0, 242, 255, 0.2),
+      rgba(112, 0, 255, 0.2));
+  border-color: var(--xenon-color-cyan);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 25px rgba(0, 242, 255, 0.3),
+    0 4px 15px rgba(112, 0, 255, 0.2);
+}
+
+.quiz-cta-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.quiz-cta-button svg {
+  transition: transform 0.3s;
+}
+
+.quiz-cta-button:hover svg {
+  transform: translateX(4px);
+}
+
+.quiz-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: linear-gradient(135deg,
+      var(--xenon-color-cyan),
+      var(--xenon-color-purple));
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--xenon-color-black);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 12px 20px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  background: linear-gradient(90deg,
+      var(--xenon-color-neon-mint),
+      var(--xenon-color-pink-soft),
+      var(--xenon-color-blue-soft));
+  border-radius: 12px;
+  color: var(--xenon-color-white);
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 0px 0px 5px var(--xenon-color-white-translucent),
+    inset 0px 35px 30px var(--xenon-color-black),
+    0px 5px 10px var(--xenon-color-black);
+  text-shadow: 1px 1px 1px var(--xenon-color-black);
+}
+
+.whatsapp-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 12px;
+  filter: blur(0);
+  z-index: -1;
+  box-shadow: none;
+  background: conic-gradient(var(--xenon-color-black-none) 80deg,
+      var(--xenon-color-blue-electric),
+      var(--xenon-color-magenta-bright),
+      var(--xenon-color-neon-mint),
+      var(--xenon-color-black-none) 280deg);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-button:hover::before {
+  filter: blur(15px);
+}
+
+.whatsapp-button:active::before {
+  filter: blur(5px);
+  transform: translateY(1px);
+}
+
+.whatsapp-button:active {
+  box-shadow:
+    inset 0px 0px 5px var(--xenon-color-white-translucent),
+    inset 0px 35px 30px var(--xenon-color-black);
+  margin-top: 3px;
+}
+
+/* ============================================
+   ANIMATED BUBBLES
+   Floating background elements for visual interest
+   Reduced from 7 to 3 layers (ENFORCED: Effect limitation)
+   ============================================ */
+.bubble-layer {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: 0;
+}
+
+.bubble-1 {
+  background: var(--xenon-color-purple);
+  top: -20%;
+  left: -10%;
+  animation: moveUpRight 6s ease-in-out infinite;
+}
+
+/* bubble-2 REMOVED - reduced from 7 to 3 */
+
+.bubble-3 {
+  background: var(--xenon-color-purple);
+  top: 20%;
+  left: 50%;
+  animation: moveRight 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* bubble-4 REMOVED - reduced from 7 to 3 */
+
+.bubble-5 {
+  background: var(--xenon-color-purple);
+  top: 30%;
+  left: -10%;
+  animation: moveDownRight 3s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+/* bubble-6 REMOVED - reduced from 7 to 3 */
+/* bubble-7 REMOVED - reduced from 7 to 3 */
+
+/* ============================================
+   PRICING SECTION STYLES
+   Premium space buttons and glass cards
+   ============================================ */
+
+.glass-card {
+  background: rgba(0, 242, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+}
+
+.vignette-fade {
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.half-cut-gradient {
+  background: linear-gradient(90deg, #00f2ff 50%, #7000ff 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.5s ease-out;
+}
+
+.half-cut-gradient:hover {
+  background-position: left bottom;
+}
+
+.sticky-header-blur {
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+/* Premium Space Button Styles */
+/* ⚠️ HERO ONLY - Do not reuse .space-button below the fold ⚠️ */
+.space-button {
+  position: relative;
+  padding: 15px 40px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  background: linear-gradient(45deg, #0f0f2d, #1a1a3a);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 4px 10px rgba(10, 10, 31, 0.5),
+    0 0 10px rgba(0, 242, 255, 0.15);
+  font-family: "Ubuntu", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 1;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.1);
+  font-weight: 500;
+}
+
+/* ⚠️ HERO ONLY - button-container is part of .space-button system ⚠️ */
+.button-container {
+  position: relative;
+  display: block;
+  padding: 2px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #00f2ff, #7000ff, #9d174d, #00f2ff);
+  background-size: 400% 400%;
+  animation: gradientBorder 20s ease-in-out infinite;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, filter;
+}
+
+.space-button span {
+  position: relative;
+  z-index: 5;
+  mix-blend-mode: normal;
+  font-weight: 500;
+  background: linear-gradient(to right, #ffffff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: brightness(1.5) contrast(1.8);
+  text-shadow:
+    0 0 15px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.space-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(1px 1px at 10% 15%,
+      rgba(255, 255, 255, 0.95),
+      rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 85% 25%,
+      rgba(255, 255, 255, 0.95),
+      rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 75% 85%,
+      rgba(255, 255, 255, 0.95),
+      rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 15% 75%,
+      rgba(255, 255, 255, 0.95),
+      rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 50% 25%,
+      rgba(255, 255, 255, 0.95),
+      rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 25% 50%,
+      rgba(255, 255, 255, 0.95),
+      rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 85% 65%,
+      rgba(255, 255, 255, 0.95),
+      rgba(0, 0, 0, 0));
+  animation: moveParticles1 20s linear infinite;
+  opacity: 0.45;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 2;
+}
+
+.space-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  animation: moveParticles2 18s linear infinite;
+  transform: rotate(25deg);
+  opacity: 0.55;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 3;
+}
+
+.space-button:hover {
+  transform: translateY(-1px) translateZ(0);
+  box-shadow:
+    0 6px 10px rgba(10, 10, 31, 0.6),
+    0 0 15px rgba(0, 242, 255, 0.3);
+  background: linear-gradient(45deg, #141436, #1e1e42);
+}
+
+.space-button:hover span {
+  filter: brightness(1.8) contrast(2);
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(255, 255, 255, 0.4),
+    0 0 60px rgba(255, 255, 255, 0.2);
+}
+
+.button-container:hover {
+  filter: brightness(1.1);
+  box-shadow:
+    0 0 25px rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(0, 242, 255, 0.2);
+  animation: gradientBorder 10s ease-in-out infinite;
+}
+
+.space-button:hover::before {
+  opacity: 0.65;
+}
+
+.space-button:hover::after {
+  opacity: 0.75;
+}
+
+.space-button:hover .bright-particles {
+  opacity: 1;
+  filter: blur(0);
+}
+
+@keyframes moveParticles1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  20% {
+    transform: translate(-25px, 15px) rotate(90deg);
+  }
+
+  40% {
+    transform: translate(20px, -20px) rotate(180deg);
+  }
+
+  60% {
+    transform: translate(-15px, -25px) rotate(270deg);
+  }
+
+  80% {
+    transform: translate(25px, 20px) rotate(320deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+@keyframes moveParticles2 {
+  0% {
+    transform: translate(0, 0) rotate(20deg);
+  }
+
+  25% {
+    transform: translate(20px, -15px) rotate(110deg);
+  }
+
+  50% {
+    transform: translate(-20px, 20px) rotate(200deg);
+  }
+
+  75% {
+    transform: translate(15px, 15px) rotate(290deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(380deg);
+  }
+}
+
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.space-button .bright-particles {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(2px 2px at 15% 25%,
+      rgba(255, 255, 255, 1),
+      rgba(0, 0, 0, 0)),
+    radial-gradient(1.8px 1.8px at 85% 15%,
+      rgba(255, 255, 255, 0.98),
+      rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 75% 75%,
+      rgba(255, 255, 255, 1),
+      rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 25% 85%,
+      rgba(255, 255, 255, 0.95),
+      rgba(0, 0, 0, 0)),
+    radial-gradient(2.2px 2.2px at 65% 35%,
+      rgba(255, 255, 255, 1),
+      rgba(0, 0, 0, 0));
+  animation: moveParticles4 15s linear infinite;
+  opacity: 0.85;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 4;
+  filter: blur(0.3px);
+}
+
+@keyframes moveParticles4 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  20% {
+    transform: translate(-30px, 20px) rotate(90deg);
+  }
+
+  40% {
+    transform: translate(25px, -25px) rotate(180deg);
+  }
+
+  60% {
+    transform: translate(-20px, -30px) rotate(270deg);
+  }
+
+  80% {
+    transform: translate(30px, 25px) rotate(320deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+

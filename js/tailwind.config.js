@@ -1,4 +1,5 @@
 tailwind.config = {
+    darkMode: "class",
     theme: {
         extend: {
             colors: {
@@ -14,6 +15,9 @@ tailwind.config = {
                 'outfit': ['Outfit', 'sans-serif'],
                 'space': ['Space Grotesk', 'sans-serif'],
                 'syne': ['Syne', 'sans-serif'],
+                'headline': ['Manrope', 'sans-serif'],
+                'body': ['Outfit', 'sans-serif'],
+                'label': ['Inter', 'sans-serif']
             }
         }
     }
