@@ -3,33 +3,29 @@
    Global reset and base layout styling
    ============================================ */
 
-/* Page Loader */
-#page-loader {
-  opacity: 1;
+/* FAQ Accordion & Interactivity */
+details summary::-webkit-details-marker {
+  display: none;
 }
 
-#page-loader.fade-out {
-  opacity: 0;
-  pointer-events: none;
+details[open] summary i {
+  transform: rotate(180deg);
 }
 
-#page-loader.fade-out #loader-progress {
-  width: 100% !important;
+.group[open] .group-open\:rotate-180 {
+  transform: rotate(180deg);
 }
 
-@keyframes loader-glow {
-
-  0%,
-  100% {
-    opacity: 0.2;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.4;
-    transform: scale(1.1);
-  }
+details[name="faq"][open] {
+  background: rgba(0, 242, 255, 0.08);
+  border-color: var(--xenon-color-cyan);
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
 }
+
+details[name="faq"][open] summary span {
+  color: var(--xenon-color-cyan);
+}
+
 
 * {
   margin: 0;
@@ -585,21 +581,6 @@ h6 {
     0 0 40px rgba(112, 0, 255, 0.2);
 }
 
-/* Stats Cards Hover */
-.stats-card {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, box-shadow;
-}
-
-.stats-card:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-.stats-card:hover .stats-card-inner .text {
-  color: inherit;
-  text-shadow: none;
-}
 
 /* Service Cards Enhanced */
 .service-card {
@@ -2508,11 +2489,15 @@ select:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}   STATISTICS CARDS
+}
+
+/* ============================================
+   STATISTICS CARDS (Uiverse.io by Spacious74)
    Cards with animated borders and text gradients
    ============================================ */
 .stats-card {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   height: 250px;
   border-radius: 10px;
   padding: 1px;
@@ -2520,6 +2505,7 @@ select:focus-visible {
       var(--xenon-color-white),
       var(--xenon-color-charcoal));
   position: relative;
+  margin: 0 auto;
 }
 
 .stats-card-dot {
@@ -2533,6 +2519,30 @@ select:focus-visible {
   right: 10%;
   top: 10%;
   animation: moveDot 6s linear infinite;
+}
+
+@keyframes moveDot {
+
+  0%,
+  100% {
+    top: 10%;
+    right: 10%;
+  }
+
+  25% {
+    top: 10%;
+    right: calc(100% - 35px);
+  }
+
+  50% {
+    top: calc(100% - 30px);
+    right: calc(100% - 35px);
+  }
+
+  75% {
+    top: calc(100% - 30px);
+    right: 10%;
+  }
 }
 
 .stats-card-inner {
@@ -2561,8 +2571,7 @@ select:focus-visible {
   background-color: var(--xenon-color-silver);
   opacity: 0.4;
   box-shadow: 0 0 50px var(--xenon-color-white);
-  filter: blur(6px);
-  /* Reduced from 10px (ENFORCED: Effect limitation) */
+  filter: blur(10px);
   transform-origin: 10%;
   top: 0%;
   left: 0;
@@ -2577,6 +2586,7 @@ select:focus-visible {
       var(--xenon-color-white),
       var(--xenon-color-black));
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
 }
 
@@ -2612,4 +2622,3 @@ select:focus-visible {
   width: 1px;
   height: 100%;
 }
-

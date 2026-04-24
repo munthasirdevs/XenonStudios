@@ -64,25 +64,6 @@
 
 <body id="layout" class="outfit overflow-x-hidden">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <!-- Page Loader -->
-    <div id="page-loader"
-        class="fixed inset-0 z-[10000] bg-black flex items-center justify-center transition-opacity duration-500">
-        <div class="text-center">
-            <div class="relative mb-8">
-                <img src="./images/xenonLogo/logo.png" alt="Xenon Studios" class="h-16 md:h-20 animate-pulse"
-                    decoding="async">
-                <div class="absolute inset-0 bg-[var(--xenon-color-cyan)]/20 blur-3xl rounded-full -z-10 animate-pulse">
-                </div>
-            </div>
-            <div class="w-48 md:w-64 h-1 bg-white/10 rounded-full overflow-hidden mx-auto">
-                <div id="loader-progress"
-                    class="h-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] rounded-full transition-all duration-300"
-                    style="width: 0%"></div>
-            </div>
-            <p class="text-white/50 text-sm mt-4 font-light tracking-widest uppercase">Loading Experience</p>
-        </div>
-    </div>
-
     <!-- Background Effects -->
     <div class="grid-bg" aria-hidden="true"></div>
     <div class="glow bg-[var(--xenon-color-cyan)]" aria-hidden="true"></div>
@@ -456,10 +437,8 @@
                                 <div class="stats-card-dot"></div>
                                 <div class="stats-card-inner">
                                     <div class="stats-card-ray"></div>
-                                    <div class="text-center p-4 duration-300">
-                                        <div class="text-[90px] font-extrabold text" data-count="150">0+</div>
-                                        <div class="text-lg">Projects Completed</div>
-                                    </div>
+                                    <div class="text" data-count="150">0+</div>
+                                    <div class="text-lg">Projects Completed</div>
                                     <div class="stats-card-line stats-card-line-top"></div>
                                     <div class="stats-card-line stats-card-line-left"></div>
                                     <div class="stats-card-line stats-card-line-bottom"></div>
@@ -471,10 +450,8 @@
                                 <div class="stats-card-dot"></div>
                                 <div class="stats-card-inner">
                                     <div class="stats-card-ray"></div>
-                                    <div class="text-center p-4 duration-300">
-                                        <div class="text-[90px] font-extrabold text" data-count="4">0</div>
-                                        <div class="text-lg">Years Experience</div>
-                                    </div>
+                                    <div class="text" data-count="4">0</div>
+                                    <div class="text-lg">Years Experience</div>
                                     <div class="stats-card-line stats-card-line-top"></div>
                                     <div class="stats-card-line stats-card-line-left"></div>
                                     <div class="stats-card-line stats-card-line-bottom"></div>
@@ -486,10 +463,8 @@
                                 <div class="stats-card-dot"></div>
                                 <div class="stats-card-inner">
                                     <div class="stats-card-ray"></div>
-                                    <div class="text-center p-4 duration-300">
-                                        <div class="text-[90px] font-extrabold text" data-count="5">0</div>
-                                        <div class="text-lg">Countries Served</div>
-                                    </div>
+                                    <div class="text" data-count="5">0</div>
+                                    <div class="text-lg">Countries Served</div>
                                     <div class="stats-card-line stats-card-line-top"></div>
                                     <div class="stats-card-line stats-card-line-left"></div>
                                     <div class="stats-card-line stats-card-line-bottom"></div>
@@ -501,10 +476,8 @@
                                 <div class="stats-card-dot"></div>
                                 <div class="stats-card-inner">
                                     <div class="stats-card-ray"></div>
-                                    <div class="text-center p-4 duration-300">
-                                        <div class="text-[90px] font-extrabold text" data-count="97">0%</div>
-                                        <div class="text-lg">Client Satisfaction</div>
-                                    </div>
+                                    <div class="text" data-count="97">0%</div>
+                                    <div class="text-lg">Client Satisfaction</div>
                                     <div class="stats-card-line stats-card-line-top"></div>
                                     <div class="stats-card-line stats-card-line-left"></div>
                                     <div class="stats-card-line stats-card-line-bottom"></div>
@@ -2444,7 +2417,7 @@
 
     <!-- Global App Logic -->
     <script src="./js/app.js"></script>
-    
+
     <!-- Index Page Specific UX -->
     <script src="./js/index-ux.js"></script>
 </body>

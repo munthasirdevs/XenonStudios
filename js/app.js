@@ -1,41 +1,4 @@
 // ============================================================================
-// PAGE LOADER
-// ============================================================================
-const initPageLoader = () => {
-  const loader = document.getElementById("page-loader");
-  const progressBar = document.getElementById("loader-progress");
-
-  if (!loader || !progressBar) return;
-
-  let progress = 0;
-  const interval = setInterval(() => {
-    progress += Math.random() * 15;
-    if (progress > 90) progress = 90;
-    progressBar.style.width = progress + "%";
-  }, 100);
-
-  const hideLoader = () => {
-    clearInterval(interval);
-    progressBar.style.width = "100%";
-
-    setTimeout(() => {
-      loader.classList.add("fade-out");
-      setTimeout(() => {
-        loader.style.display = "none";
-        document.body.style.overflow = "auto";
-      }, 500);
-    }, 300);
-  };
-
-  if (document.readyState === "complete") {
-    hideLoader();
-  } else {
-    window.addEventListener("load", hideLoader);
-    setTimeout(hideLoader, 3000);
-  }
-};
-
-// ============================================================================
 // SCROLL-TRIGGERED ANIMATIONS (Performance Optimized)
 // ============================================================================
 const initScrollAnimations = () => {
@@ -270,42 +233,41 @@ const initSmoothScroll = () => {
 // STATS COUNTER ANIMATION
 // ============================================================================
 const initStatsCounter = () => {
-    if (typeof gsap !== 'undefined') {
-        const counters = document.querySelectorAll("[data-count]");
-        if (!counters.length) return;
+  if (typeof gsap !== 'undefined') {
+    const counters = document.querySelectorAll("[data-count]");
+    if (!counters.length) return;
 
-        gsap.registerPlugin(ScrollTrigger);
-        counters.forEach((counter) => {
-            const target = parseFloat(counter.getAttribute("data-count"));
-            const originalText = counter.textContent;
-            const symbol = originalText.replace(/[0-9.]/g, "").trim();
+    gsap.registerPlugin(ScrollTrigger);
+    counters.forEach((counter) => {
+      const target = parseFloat(counter.getAttribute("data-count"));
+      const originalText = counter.textContent;
+      const symbol = originalText.replace(/[0-9.]/g, "").trim();
 
-            counter.textContent = "0" + symbol;
+      counter.textContent = "0" + symbol;
 
-            gsap.to(counter, {
-                scrollTrigger: {
-                    trigger: counter,
-                    start: "top 85%",
-                    once: true,
-                },
-                innerHTML: target,
-                duration: 2.5,
-                snap: { innerHTML: 1 },
-                ease: "power2.inOut",
-                onUpdate: function () {
-                    const currentValue = Math.floor(this.targets()[0].innerHTML);
-                    counter.innerHTML = currentValue + symbol;
-                },
-            });
-        });
-    }
+      gsap.to(counter, {
+        scrollTrigger: {
+          trigger: counter,
+          start: "top 85%",
+          once: true,
+        },
+        innerHTML: target,
+        duration: 2.5,
+        snap: { innerHTML: 1 },
+        ease: "power2.inOut",
+        onUpdate: function () {
+          const currentValue = Math.floor(this.targets()[0].innerHTML);
+          counter.innerHTML = currentValue + symbol;
+        },
+      });
+    });
+  }
 };
 
 // ============================================================================
 // GLOBAL INITIALIZATION
 // ============================================================================
 document.addEventListener("DOMContentLoaded", () => {
-  initPageLoader();
   initScrollAnimations();
   initWhatsappResvisibility();
   initMobileMenu();

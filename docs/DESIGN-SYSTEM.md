@@ -1,14 +1,15 @@
 # Xenon Studios Design System
 
-> **Version:** 2.2.0
-> **Last Updated:** April 21, 2026
+> **Version:** 2.3.0
+> **Last Updated:** April 24, 2026
 > **Status:** Active
-> **Applies To:** Xenon Studios Main Website (index.html, services.html)
+> **Applies To:** Xenon Studios Main Website (All Pages)
 
 ## Version History
 
 | Version | Date | Changes |
-
+| ------- | ---- | ------- |
+| 2.3.0 | April 24, 2026 | **Architectural Refactoring & Modularization.** Successfully split the monolithic `style.css` and `script.js` into targeted components (`app.css`, `buttons.css`, `index-style.css`, `responsive.css`) and scripts (`app.js`, `index-ux.js`, `contact-ux.js`). Unified all Tailwind configurations into a single `tailwind.config.js`. Consolidated global animation logic (stats counter, loaders) into `app.js` to eliminate code duplication across pages. |
 | 2.2.0 | April 21, 2026 | Comprehensive design analysis completed. Added services.html page with service-specific sections (AI Automation, Web Development), detailed pricing tiers, comparison tables, trust indicators, FAQs, and service navigation. Enhanced gradient border cards, liquid shine hover effects, glass panels, service nav buttons. Updated JavaScript architecture (page loader, mobile menu, smooth scroll, active nav tracking, stats counters, GSAP scroll animations, reduced motion support). |
 
 | 2.1.0 | April 16, 2026 | Rebuilt service card buttons with 7 animated bubble layers (btn-001 pattern) using :root accent colors (purple, blue-electric, violet-glow, blue-soft, magenta-bright, neon-mint). Restored service card 6-layer radial gradient design. Restored pricing card buttons to space-button with bright-particles effect. Added AddOn/btn/ to .gitignore. |
@@ -2521,86 +2522,6 @@ Glass cards in the contact section with icon, label, and value.
 | Gap (icon to text) | 0.75rem (gap-3)                             |
 | Hover Transform    | `translateX(6px) scale(1.02)`               |
 
-### 7.12 Page Loader
-
-A full-screen loading overlay with progress bar.
-
-#### Structure
-
-```html
-<div
-  id="page-loader"
-  class="fixed inset-0 z-[10000] bg-black flex items-center justify-center"
->
-  <div class="text-center">
-    <div class="relative mb-8">
-      <img
-        src="./images/logo.png"
-        alt="Xenon Studios"
-        class="h-16 md:h-20 animate-pulse"
-        decoding="async"
-      />
-      <div
-        class="absolute inset-0 bg-cyan/20 blur-3xl rounded-full -z-10 animate-pulse"
-      ></div>
-    </div>
-    <div
-      class="w-48 md:w-64 h-1 bg-white/10 rounded-full overflow-hidden mx-auto"
-    >
-      <div
-        id="loader-progress"
-        class="h-full bg-gradient-to-r from-cyan to-purple rounded-full"
-        style="width: 0%"
-      ></div>
-    </div>
-    <p class="text-white/50 text-sm mt-4 font-light tracking-widest uppercase">
-      Loading Experience
-    </p>
-  </div>
-</div>
-```
-
-**CSS:**
-
-```css
-#page-loader {
-  opacity: 1;
-}
-
-#page-loader.fade-out {
-  opacity: 0;
-  pointer-events: none;
-}
-
-@keyframes loader-glow {
-  0%,
-  100% {
-    opacity: 0.2;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: scale(1.1);
-  }
-}
-```
-
-| Property            | Value                                             |
-| ------------------- | ------------------------------------------------- |
-| Position            | Fixed, full viewport                              |
-| Z-index             | 10000                                             |
-| Background          | Black                                             |
-| Logo Height         | 64px (md: 80px)                                   |
-| Logo Animation      | `animate-pulse` (Tailwind)                        |
-| Glow                | Cyan/20, blur-3xl, animate-pulse                  |
-| Progress Bar Width  | 192px (md: 256px)                                 |
-| Progress Bar Height | 4px (h-1)                                         |
-| Progress Track      | White/10                                          |
-| Progress Fill       | Gradient cyan-to-purple                           |
-| Loading Text        | 14px, light, wide tracking, uppercase             |
-| Fade Out            | `.fade-out` class: opacity 0, pointer-events none |
-| Transition          | `transition-opacity duration-500`                 |
-
 ### 7.13 Comparison Table
 
 A feature comparison table with sticky header and check/x icons.
@@ -4944,23 +4865,12 @@ The following rules are enforced in code reviews and CSS authoring:
 
 ```
 css/
-├── style.css           # Main design system styles
-│   ├── Base styles & reset
-│   ├── CSS variables (design tokens)
-│   ├── Typography
-│   ├── Background effects
-│   ├── Buttons
-│   ├── Service cards
-│   ├── Stats cards
-│   ├── Pricing cards
-│   ├── FAQ accordion
-│   ├── Animations & keyframes
-│   ├── Product layer components
-│   └── Utility classes
-└── responsive.css      # Mobile and responsive overrides
-    ├── Breakpoint-specific styles
-    ├── Mobile performance overrides
-    └── Print styles
+├── app.css              # Global foundation (reset, tokens, typography, shared components)
+├── buttons.css          # Unified button system (all button variants and effects)
+├── index-style.css      # Page-specific components (service cards, stats card rays)
+├── contact-style.css    # Contact-specific layouts and components
+├── quiz-style.css       # Standalone styles for the qualification system
+└── responsive.css       # Unified source of truth for all media queries
 ```
 
 ---
@@ -4969,14 +4879,12 @@ css/
 
 ```
 js/
-├── script.js           # Main application JavaScript
-│   ├── Page loader logic
-│   ├── Mobile menu toggle
-│   ├── Smooth scrolling
-│   ├── Active nav highlighting
-│   ├── GSAP animations
-│   └── Sticky CTA bar (IntersectionObserver)
-└── [other JS files]
+├── app.js               # Global application logic (loader, menu, scroll, shared animations)
+├── index-ux.js          # GSAP ScrollTrigger animations specific to Home/Services
+├── contact-ux.js        # Form interactions and page-specific logic for Contact
+├── tailwind.config.js   # Unified theme configuration (colors, fonts, dark mode)
+├── quiz-engine.js       # Logic for the multi-step qualification quiz
+└── conversion-engine.js # Form submission and tracking logic
 ```
 
 ### External JS Libraries
@@ -5041,5 +4949,5 @@ js/
 
 _This document is maintained by the Xenon Studios design team. For questions or contributions, please refer to the project repository._
 
-**Last Updated:** April 14, 2026
-**Document Version:** 2.0.0
+**Last Updated:** April 24, 2026
+**Document Version:** 2.3.0

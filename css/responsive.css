@@ -471,6 +471,7 @@
    Reduce heavy effects on mobile
    ============================================ */
 @media (max-width: 768px) {
+
   /* Disable background image on mobile */
   .hero-bg {
     background-image: none !important;

@@ -64,25 +64,6 @@
 
 <body id="layout" class="outfit overflow-x-hidden">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <!-- Page Loader -->
-    <div id="page-loader"
-        class="fixed inset-0 z-[10000] bg-black flex items-center justify-center transition-opacity duration-500">
-        <div class="text-center">
-            <div class="relative mb-8">
-                <img src="../images/xenonLogo/logo.png" alt="Xenon Studios" class="h-16 md:h-20 animate-pulse"
-                    decoding="async">
-                <div class="absolute inset-0 bg-[var(--xenon-color-cyan)]/20 blur-3xl rounded-full -z-10 animate-pulse">
-                </div>
-            </div>
-            <div class="w-48 md:w-64 h-1 bg-white/10 rounded-full overflow-hidden mx-auto">
-                <div id="loader-progress"
-                    class="h-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] rounded-full transition-all duration-300"
-                    style="width: 0%"></div>
-            </div>
-            <p class="text-white/50 text-sm mt-4 font-light tracking-widest uppercase">Loading Experience</p>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl" aria-label="Main navigation">
         <div class="glass-card rounded-full px-8 py-4 flex items-center justify-between border-white/10">
@@ -336,38 +317,6 @@
                     </div>
                 </div>
 
-                <!-- FAQs -->
-                <div class="max-w-3xl mx-auto">
-                    <h3 class="text-2xl font-bold text-white text-center mb-6">Frequently Asked Questions</h3>
-                    <div class="space-y-3">
-                        <div class="border border-white/10 rounded-lg overflow-hidden">
-                            <button
-                                class="w-full px-5 py-4 text-left flex justify-between items-center bg-white/5 hover:bg-white/10 transition-colors">
-                                <span class="text-white font-medium text-sm">How long does it take?</span>
-                                <i class="fas fa-chevron-down text-[var(--xenon-color-cyan)] text-sm"></i>
-                            </button>
-                            <div class="hidden px-5 pb-4 text-gray-400 text-sm">2-8 weeks depending on complexity.</div>
-                        </div>
-                        <div class="border border-white/10 rounded-lg overflow-hidden">
-                            <button
-                                class="w-full px-5 py-4 text-left flex justify-between items-center bg-white/5 hover:bg-white/10 transition-colors">
-                                <span class="text-white font-medium text-sm">Do you provide hosting?</span>
-                                <i class="fas fa-chevron-down text-[var(--xenon-color-cyan)] text-sm"></i>
-                            </button>
-                            <div class="hidden px-5 pb-4 text-gray-400 text-sm">Yes, we can handle setup or guide you
-                                through it.</div>
-                        </div>
-                        <div class="border border-white/10 rounded-lg overflow-hidden">
-                            <button
-                                class="w-full px-5 py-4 text-left flex justify-between items-center bg-white/5 hover:bg-white/10 transition-colors">
-                                <span class="text-white font-medium text-sm">Can I update content?</span>
-                                <i class="fas fa-chevron-down text-[var(--xenon-color-cyan)] text-sm"></i>
-                            </button>
-                            <div class="hidden px-5 pb-4 text-gray-400 text-sm">Yes, easy CMS for non-technical updates.
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -2390,16 +2339,77 @@
                     Take our 60-second quiz and get personalized recommendations tailored to your business goals.
                 </p>
                 <a href="quiz.html"
-                    class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-black font-bold rounded-full hover:scale-105 transition-transform">
+                    class="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-black font-extrabold rounded-full hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,242,255,0.4)]">
                     <i class="fas fa-play"></i>
-                    Take the Quiz
+                    Get Your Custom Roadmap
                 </a>
+
+                <!-- Relocated FAQs (Fixed Interactivity) -->
+                <div class="max-w-3xl mx-auto mt-24 text-left">
+                    <h3 class="text-2xl font-bold text-white text-center mb-10">Frequently Asked Questions</h3>
+                    <div class="space-y-4">
+                        <details name="faq"
+                            class="group border border-white/10 rounded-xl overflow-hidden bg-white/5 transition-all duration-300 hover:bg-white/10 backdrop-blur-sm">
+                            <summary
+                                class="w-full px-6 py-5 text-left flex justify-between items-center cursor-pointer list-none outline-none">
+                                <span class="text-white font-semibold text-base">How long does it take?</span>
+                                <div
+                                    class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center transition-transform duration-300 group-open:rotate-180">
+                                    <i class="fas fa-chevron-down text-[var(--xenon-color-cyan)] text-sm"></i>
+                                </div>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed border-t border-white/5 pt-5">
+                                Our typical development cycle ranges from 2 to 8 weeks. This timeline ensures we can go
+                                from initial discovery and strategy to a fully tested, high-performance launch without
+                                cutting corners on quality or security.
+                            </div>
+                        </details>
+
+                        <details name="faq"
+                            class="group border border-white/10 rounded-xl overflow-hidden bg-white/5 transition-all duration-300 hover:bg-white/10 backdrop-blur-sm">
+                            <summary
+                                class="w-full px-6 py-5 text-left flex justify-between items-center cursor-pointer list-none outline-none">
+                                <span class="text-white font-semibold text-base">Do you provide hosting?</span>
+                                <div
+                                    class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center transition-transform duration-300 group-open:rotate-180">
+                                    <i class="fas fa-chevron-down text-[var(--xenon-color-cyan)] text-sm"></i>
+                                </div>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed border-t border-white/5 pt-5">
+                                Yes, we offer enterprise-grade cloud hosting optimized for speed and resilience. If you
+                                already have a preferred provider, we can also manage the deployment and configuration
+                                on your existing infrastructure.
+                            </div>
+                        </details>
+
+                        <details name="faq"
+                            class="group border border-white/10 rounded-xl overflow-hidden bg-white/5 transition-all duration-300 hover:bg-white/10 backdrop-blur-sm">
+                            <summary
+                                class="w-full px-6 py-5 text-left flex justify-between items-center cursor-pointer list-none outline-none">
+                                <span class="text-white font-semibold text-base">Can I update content?</span>
+                                <div
+                                    class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center transition-transform duration-300 group-open:rotate-180">
+                                    <i class="fas fa-chevron-down text-[var(--xenon-color-cyan)] text-sm"></i>
+                                </div>
+                            </summary>
+                            <div class="px-6 pb-6 text-gray-400 text-sm leading-relaxed border-t border-white/5 pt-5">
+                                Definitely. We build with intuitive Content Management Systems (CMS) that empower your
+                                team to update text, media, and marketing content in real-time without needing a
+                                developer for every small change.
+                            </div>
+                        </details>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Why Choose Us -->
-        <section class="py-24 px-8 bg-surface-container-low/50">
-            <div class="max-w-7xl mx-auto">
+        <section class="py-24 px-8 bg-xenon-dark-base/50 relative overflow-hidden">
+            <!-- Subtle background glow -->
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-xenon-cyan/5 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-xenon-purple/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
                 <div class="mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Why Choose Us</h2>
                     <div
@@ -2407,65 +2417,65 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="glass-panel rounded-xl p-8 lg:col-span-2 group">
+                    <div class="glass-card rounded-xl p-8 lg:col-span-2 group">
                         <div class="flex items-start gap-6">
                             <div
-                                class="w-12 h-12 rounded-lg bg-[var(--xenon-color-cyan)]/10 flex items-center justify-center shrink-0">
+                                class="w-12 h-12 rounded-lg bg-[var(--xenon-color-cyan)]/10 flex items-center justify-center shrink-0 group-hover:bg-[var(--xenon-color-cyan)]/20 transition-colors">
                                 <span class="material-symbols-outlined text-[var(--xenon-color-cyan)]">speed</span>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-white mb-2">Fast Delivery</h3>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-xenon-cyan transition-colors">Fast Delivery</h3>
                                 <p class="text-gray-400 text-sm leading-relaxed">We operate with aggressive timelines
                                     without compromising quality. Your AI solutions go live faster.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="glass-panel rounded-xl p-8 group hover:bg-white/10 transition-colors">
+                    <div class="glass-card rounded-xl p-8 group transition-all duration-300">
                         <div
-                            class="w-10 h-10 rounded-full bg-[var(--xenon-color-purple)]/10 flex items-center justify-center mb-4">
+                            class="w-10 h-10 rounded-full bg-[var(--xenon-color-purple)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--xenon-color-purple)]/20 transition-colors">
                             <span class="material-symbols-outlined text-[var(--xenon-color-purple)]">memory</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">AI-Powered Solutions</h3>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-xenon-purple transition-colors">AI-Powered Solutions</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Integrating tomorrow's intelligence into
                             today's workflows.</p>
                     </div>
-                    <div class="glass-panel rounded-xl p-8 group hover:bg-white/10 transition-colors">
+                    <div class="glass-card rounded-xl p-8 group transition-all duration-300">
                         <div
-                            class="w-10 h-10 rounded-full bg-[var(--xenon-color-magenta)]/10 flex items-center justify-center mb-4">
+                            class="w-10 h-10 rounded-full bg-[var(--xenon-color-magenta)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--xenon-color-magenta)]/20 transition-colors">
                             <span class="material-symbols-outlined text-[var(--xenon-color-magenta)]">trending_up</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Scalable Systems</h3>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-xenon-magenta transition-colors">Scalable Systems</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Built to handle 10x growth without breaking.
                         </p>
                     </div>
-                    <div class="glass-panel rounded-xl p-8 group hover:bg-white/10 transition-colors">
+                    <div class="glass-card rounded-xl p-8 group transition-all duration-300">
                         <div
-                            class="w-10 h-10 rounded-full bg-[var(--xenon-color-cyan)]/10 flex items-center justify-center mb-4">
+                            class="w-10 h-10 rounded-full bg-[var(--xenon-color-cyan)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--xenon-color-cyan)]/20 transition-colors">
                             <span class="material-symbols-outlined text-[var(--xenon-color-cyan)]">groups</span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Expert Team</h3>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-xenon-cyan transition-colors">Expert Team</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Specialists dedicated to distinct technical
                             domains.</p>
                     </div>
                     <div class="flex flex-col gap-6">
-                        <div class="glass-panel rounded-xl p-6 flex-1 flex items-center gap-4 group">
+                        <div class="glass-card rounded-xl p-6 flex-1 flex items-center gap-4 group transition-all duration-300">
                             <div
-                                class="w-10 h-10 rounded-full bg-[var(--xenon-color-purple)]/10 flex items-center justify-center shrink-0">
+                                class="w-10 h-10 rounded-full bg-[var(--xenon-color-purple)]/10 flex items-center justify-center shrink-0 group-hover:bg-[var(--xenon-color-purple)]/20 transition-colors">
                                 <span
                                     class="material-symbols-outlined text-[var(--xenon-color-purple)]">support_agent</span>
                             </div>
                             <div>
-                                <h3 class="text-base font-bold text-white">24/7 Support</h3>
+                                <h3 class="text-base font-bold text-white group-hover:text-xenon-purple transition-colors">24/7 Support</h3>
                             </div>
                         </div>
-                        <div class="glass-panel rounded-xl p-6 flex-1 flex items-center gap-4 group">
+                        <div class="glass-card rounded-xl p-6 flex-1 flex items-center gap-4 group transition-all duration-300">
                             <div
-                                class="w-10 h-10 rounded-full bg-[var(--xenon-color-magenta)]/10 flex items-center justify-center shrink-0">
+                                class="w-10 h-10 rounded-full bg-[var(--xenon-color-magenta)]/10 flex items-center justify-center shrink-0 group-hover:bg-[var(--xenon-color-magenta)]/20 transition-colors">
                                 <span
                                     class="material-symbols-outlined text-[var(--xenon-color-magenta)]">troubleshoot</span>
                             </div>
                             <div>
-                                <h3 class="text-base font-bold text-white">Result Driven</h3>
+                                <h3 class="text-base font-bold text-white group-hover:text-xenon-magenta transition-colors">Result Driven</h3>
                             </div>
                         </div>
                     </div>
@@ -2662,7 +2672,7 @@
 
     <!-- Global App Logic -->
     <script src="../js/app.js"></script>
-    
+
     <!-- UX Animations (Shared with Index) -->
     <script src="../js/index-ux.js"></script>
 </body>
