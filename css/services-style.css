@@ -1,0 +1,212 @@
+/* Service Sidebar Navigation */
+.service-sidebar {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .service-sidebar {
+        display: block;
+    }
+}
+
+.sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 8px;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(138, 43, 226, 0.15));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+
+.sidebar-icon:hover {
+    color: #00D9FF;
+    transform: scale(1.15);
+    background: rgba(0, 217, 255, 0.2);
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.4), inset 0 0 15px rgba(0, 217, 255, 0.1);
+}
+
+.sidebar-icon.active {
+    color: #00D9FF;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.3), rgba(138, 43, 226, 0.2));
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3), inset 0 0 10px rgba(0, 217, 255, 0.1);
+}
+
+.sidebar-icon i {
+    font-size: 16px;
+}
+
+/* Service Navigation Buttons */
+.service-nav-btn {
+    position: relative;
+    z-index: 1;
+}
+
+.service-nav-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--xenon-color-cyan), var(--xenon-color-purple));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-nav-btn:hover::before {
+    opacity: 1;
+}
+
+/* Performance Hints for Animated Elements */
+.service-card {
+    will-change: transform, box-shadow;
+}
+
+.pricing-card-popular {
+    will-change: transform, box-shadow;
+}
+
+/* Pricing Cards - Premium Hover */
+.pricing-card-popular {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, box-shadow;
+    border-radius: 0.75rem;
+}
+
+.pricing-card-popular:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+        0 20px 60px rgba(0, 242, 255, 0.3),
+        0 0 40px rgba(112, 0, 255, 0.2);
+}
+
+.pricing-card-popular::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(from var(--glow-angle),
+            transparent 0deg,
+            transparent 120deg,
+            var(--xenon-color-purple) 250deg,
+            transparent 360deg);
+    animation: borderRotate 3s linear infinite;
+    z-index: 10;
+    pointer-events: none;
+    -webkit-mask:
+        linear-gradient(var(--xenon-color-white) 0 0) content-box,
+        linear-gradient(var(--xenon-color-white) 0 0);
+    mask:
+        linear-gradient(var(--xenon-color-white) 0 0) content-box,
+        linear-gradient(var(--xenon-color-white) 0 0);
+    mask-composite: exclude;
+}
+
+/* Service Cards Enhanced */
+.service-card {
+    will-change: transform, box-shadow;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 30px var(--xenon-color-cyan-faint);
+}
+
+/* Service Card Button Focus */
+.service-card-button:focus-visible {
+    outline: 2px solid var(--xenon-color-cyan);
+    outline-offset: 3px;
+}
+
+/* Service Card Focus Visible */
+.service-card:focus-visible {
+    outline: 2px solid var(--xenon-color-cyan);
+    outline-offset: 4px;
+}
+
+/* Comparison Table Content Visibility */
+.comparison-table {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+}
+
+/* Border Rotation Animation */
+@property --glow-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes borderRotate {
+    to {
+        --glow-angle: 360deg;
+    }
+}
+
+/* Trust Indicators - Black Text on Light Background */
+.trust-indicators .avatar-initial {
+    color: var(--xenon-color-black);
+}
+
+.trust-indicators .trust-text {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.trust-indicators .trust-highlight {
+    color: var(--xenon-color-cyan);
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    .pricing-card-popular:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15);
+    }
+
+    .pricing-card-popular::after {
+        animation: none !important;
+        background: var(--xenon-color-purple);
+    }
+
+    .service-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .sidebar-icon {
+        transition: background-color 0.2s ease;
+    }
+
+    .sidebar-icon:hover {
+        transform: none;
+    }
+}

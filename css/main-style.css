@@ -568,33 +568,6 @@ h6 {
    Premium micro-interactions for all elements
    ============================================ */
 
-/* Pricing Cards - Premium Hover */
-.pricing-card-popular {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, box-shadow;
-}
-
-.pricing-card-popular:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow:
-    0 20px 60px rgba(0, 242, 255, 0.3),
-    0 0 40px rgba(112, 0, 255, 0.2);
-}
-
-
-/* Service Cards Enhanced */
-.service-card {
-  will-change: transform, box-shadow;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.service-card:hover {
-  transform: translateY(-10px);
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.5),
-    0 0 30px var(--xenon-color-cyan-faint);
-}
-
 /* FAQ Items Hover */
 details.glass-card {
   transition: all 0.3s ease;
@@ -788,15 +761,7 @@ table tr:hover td {
    PERFORMANCE: WILL-CHANGE HINTS FOR ANIMATED ELEMENTS
    Targeted overrides for frequently animated elements
    ============================================ */
-.service-card {
-  will-change: transform, box-shadow;
-}
-
 .stats-card {
-  will-change: transform, box-shadow;
-}
-
-.pricing-card-popular {
   will-change: transform, box-shadow;
 }
 
@@ -829,47 +794,6 @@ table tr:hover td {
 .animate-fade-in {
   opacity: 0;
   animation: fadeIn 0.6s ease-out forwards;
-}
-
-/* ============================================
-   HIGHLIGHTED NEON BORDER GLOW
-   ============================================ */
-@property --glow-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-.pricing-card-popular {
-  position: relative;
-  border-radius: 0.75rem;
-  /* rounded-xl */
-}
-
-.pricing-card-popular::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.5px;
-  /* Border thickness */
-  background: conic-gradient(from var(--glow-angle),
-      transparent 0deg,
-      transparent 120deg,
-      var(--xenon-color-purple) 250deg,
-      transparent 360deg);
-  animation: borderRotate 3s linear infinite;
-  z-index: 10;
-  pointer-events: none;
-
-  /* Mask to only show the padding area (the border) */
-  -webkit-mask:
-    linear-gradient(var(--xenon-color-white) 0 0) content-box,
-    linear-gradient(var(--xenon-color-white) 0 0);
-  mask:
-    linear-gradient(var(--xenon-color-white) 0 0) content-box,
-    linear-gradient(var(--xenon-color-white) 0 0);
-  mask-composite: exclude;
 }
 
 /* ============================================

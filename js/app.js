@@ -162,6 +162,40 @@ const initFooterAccordion = () => {
 };
 
 // ============================================================================
+// SERVICE SIDEBAR ACTIVE TRACKING
+// ============================================================================
+const initServiceSidebarTracking = () => {
+  const sidebarIcons = document.querySelectorAll('.sidebar-icon');
+  const sections = document.querySelectorAll('section[id]');
+
+  if (!sidebarIcons.length || !sections.length) return;
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.getAttribute('id');
+        sidebarIcons.forEach(icon => {
+          icon.classList.remove('active');
+          if (icon.getAttribute('data-section') === sectionId) {
+            icon.classList.add('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+};
+
+// ============================================================================
 // SMOOTH SCROLL & ACTIVE NAV
 // ============================================================================
 const initSmoothScroll = () => {
@@ -273,6 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initFooterAccordion();
   initSmoothScroll();
+  initServiceSidebarTracking();
   initStatsCounter();
 
   // Button Click Feedback
