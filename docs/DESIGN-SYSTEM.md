@@ -1,6 +1,6 @@
 # Xenon Studios Design System
 
-> **Version:** 2.4.2
+> **Version:** 2.5.0
 > **Last Updated:** April 30, 2026
 > **Status:** Active
 > **Applies To:** Xenon Studios Main Website (All Pages)
@@ -9,6 +9,7 @@
 
 | Version | Date | Changes |
 | ------- | ---- | ------- |
+| 2.5.0 | April 30, 2026 | **Pricing System Overhaul.** Updated all 5 service pricing tiers with market-intelligence features (pain point alignment). Added 5 synced comparison tables (AI Automation, E-commerce, Web & Funnels, Creative, Cybersecurity). Updated pricing.js to sync both pricing cards AND comparison tables on tab click. Added monthly/yearly billing toggle with 20% discount. Updated pricing feature lists with performance guarantees, AI capabilities, and compliance features. |
 | 2.4.2 | April 30, 2026 | **Service Navigation & Icon Updates.** Updated Service Navigation Buttons and Sidebar icons to match section header icons. Fixed icon mismatches across all services (Visual Designs: fa-search → fa-palette, VFX Animation: fa-shopping-cart → fa-magic, Cybersecurity: fa-mobile-alt → fa-shield-alt, Motion Graphics: fa-palette → fa-film, Video Editing: fa-pen-nib → fa-video, Digital Marketing: fa-hashtag → fa-bullhorn, E-com Scaling: fa-video → fa-shopping-cart). Reordered sidebar icons to match section order. |
 | 2.4.1 | April 30, 2026 | **Pricing Table Color Fix.** Fixed text colors in Feature Breakdown table for better visibility: Essential column changed from text-gray-300 to text-gray-400, Enterprise column from text-gray-300 to text-white. Applied to Product Listings, Store Optimization, Marketing Campaigns, and Analytics rows. Priority Support Enterprise icon changed from cyan to white with white drop-shadow filter. |
 | 2.4.0 | April 30, 2026 | **Revenue-Share & Table Updates.** Updated all services with new revenue-share pricing plans. Fixed typo: `material_symbols-outlined` → `material-symbols-outlined`. Updated comparison tables to match index.html premium format (Feature Breakdown style with glassmorphism effects, glow icons). Fixed duplicate orphan table content that caused service sections to be lost. |
@@ -70,30 +71,33 @@
    - 7.16 [Feedback States](#716-feedback-states)
    - 7.17 [Data UI Components](#717-data-ui-components)
    - 7.18 [Dashboard Components](#718-dashboard-components)
-   - 7.19 [Conversion Components](#719-conversion-components)
-8. [Background Effects](#8-background-effects)
-   - 8.1 [Grid Background](#81-grid-background)
-   - 8.2 [Glow Orbs](#82-glow-orbs)
-   - 8.3 [Particle/Bubble Layers](#83-particlebubble-layers)
+
+- 7.19 [Conversion Components](#719-conversion-components)
+  - 7.20 [Pricing System (Tabbed)](#720-pricing-system-tabbed)
+  1. [Background Effects](#8-background-effects)
+  - 8.1 [Grid Background](#81-grid-background)
+  - 8.2 [Glow Orbs](#82-glow-orbs)
+  - 8.3 [Particle/Bubble Layers](#83-particlebubble-layers)
+
 9. [Animations & Transitions](#9-animations--transitions)
    - 9.1 [Keyframe Animations](#91-keyframe-animations)
    - 9.2 [Transition Defaults](#92-transition-defaults)
    - 9.3 [Hover Micro-interactions](#93-hover-micro-interactions)
    - 9.4 [GSAP Animations](#94-gsap-animations)
    - 9.5 [Reduced Motion Support](#95-reduced-motion-support)
-10. [Scrollbar](#10-scrollbar)
-11. [Breakpoints & Responsive Design](#11-breakpoints--responsive-design)
+2. [Scrollbar](#10-scrollbar)
+3. [Breakpoints & Responsive Design](#11-breakpoints--responsive-design)
     - 11.1 [Breakpoint Scale](#111-breakpoint-scale)
     - 11.2 [Mobile Strategy](#112-mobile-strategy)
     - 11.3 [Height Overrides](#113-height-overrides)
     - 11.4 [Print Overrides](#114-print-overrides)
     - 11.5 [Mobile Performance Overrides](#115-mobile-performance-overrides)
-12. [External Dependencies](#12-external-dependencies)
-13. [Section Structure](#13-section-structure)
-14. [Accessibility](#14-accessibility)
-15. [Performance](#15-performance)
-16. [Code Patterns & Conventions](#16-code-patterns--conventions)
-17. [TODOs & Future Improvements](#17-todos--future-improvements)
+4. [External Dependencies](#12-external-dependencies)
+5. [Section Structure](#13-section-structure)
+6. [Accessibility](#14-accessibility)
+7. [Performance](#15-performance)
+8. [Code Patterns & Conventions](#16-code-patterns--conventions)
+9. [TODOs & Future Improvements](#17-todos--future-improvements)
 
 ## Appendix A: CSS File Structure
 
@@ -3489,6 +3493,217 @@ New section between `#home` and `#about` — client avatars (150+), star rating 
 </div>
 ```
 
+### 7.20 Pricing System (Tabbed)
+
+Added in v2.5.0 - A comprehensive tabbed pricing system with 5 service categories, monthly/yearly billing toggle, and synchronized comparison tables.
+
+#### Structure
+
+```html
+<!-- Pricing Section -->
+<section id="pricing" class="py-24...">
+  <div class="max-w-7xl mx-auto">
+    <!-- Hero Header with Tab Navigation -->
+    <header class="text-center mb-24">
+      <div class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-cyan/20 to-purple/20 border border-cyan/30 text-cyan text-[10px] font-bold tracking-widest uppercase mb-6">
+        Scale Your Vision
+      </div>
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8">Choose Your Plan.</h1>
+      
+      <!-- Tab Buttons (5 services) -->
+      <div class="flex flex-wrap justify-center gap-3 mt-10">
+        <button data-pricing="ai-automation" class="pricing-tab-btn...">
+          <i class="fas fa-robot"></i>AI Automation
+        </button>
+        <button data-pricing="ecommerce" class="pricing-tab-btn...">
+          <i class="fas fa-shopping-cart"></i>E-commerce Growth
+        </button>
+        <button data-pricing="webfunnels" class="pricing-tab-btn...">
+          <i class="fas fa-funnel-dollar"></i>Web & Funnels
+        </button>
+        <button data-pricing="creative" class="pricing-tab-btn...">
+          <i class="fas fa-palette"></i>Creative Content
+        </button>
+        <button data-pricing="security" class="pricing-tab-btn...">
+          <i class="fas fa-shield-alt"></i>Cybersecurity
+        </button>
+      </div>
+    </header>
+
+    <!-- Billing Toggle -->
+    <div class="flex justify-center items-center gap-4 mb-16">
+      <span id="monthly-label" class="text-sm font-medium text-white">Monthly</span>
+      <button id="billing-toggle" class="relative w-16 h-8 rounded-full bg-white/10 border border-white/20...">
+        <span id="toggle-knob" class="absolute top-1 left-1 w-6 h-6 rounded-full bg-gradient-to-r from-cyan to-purple transition-transform duration-300"></span>
+      </button>
+      <span id="yearly-label" class="text-sm font-medium text-white/50">Yearly</span>
+      <span class="ml-2 px-3 py-1 rounded-full bg-gradient-to-r from-cyan/20 to-purple/20 border border-cyan/30 text-cyan text-[10px] font-bold uppercase">Save 20%</span>
+    </div>
+
+    <!-- Pricing Cards Container -->
+    <div id="pricing-tabs-container">
+      <!-- AI Automation Pricing (default visible) -->
+      <div class="pricing-tab-content" data-tab="ai-automation">
+        <!-- Starter Plan -->
+        <div class="bg-charcoal rounded-xl p-10 flex flex-col...">
+          <h3 class="text-2xl font-bold mb-2 text-white">Starter</h3>
+          <div class="flex items-baseline gap-1">
+            <span class="price-monthly text-5xl font-extrabold text-white">$299</span>
+            <span class="price-yearly text-5xl font-extrabold text-white hidden">$239</span>
+            <span class="text-gray-400 font-medium">/Month</span>
+          </div>
+          <ul class="space-y-4 mb-10 flex-grow">
+            <li class="flex items-center gap-3 text-sm text-gray-300">
+              <span class="material-symbols-outlined text-cyan text-lg">check_circle</span>
+              AI Chatbot with ROI Tracking
+            </li>
+            <!-- ... more features -->
+          </ul>
+          <div class="button-container w-full">
+            <button class="space-button w-full"><span>Get Started</span></button>
+          </div>
+        </div>
+
+        <!-- Professional Plan (Popular) -->
+        <div class="pricing-card-popular rounded-xl p-10 flex flex-col relative overflow-hidden bg-white/10">
+          <div class="absolute top-0 right-0">
+            <div class="bg-gradient-to-r from-cyan to-purple text-white text-[10px] font-bold px-6 py-1 tracking-widest rotate-45 translate-x-6 translate-y-4 uppercase">Popular</div>
+          </div>
+          <!-- ... content -->
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="bg-charcoal rounded-xl p-10 flex flex-col...">
+          <h3 class="text-2xl font-bold mb-2 text-white">Enterprise</h3>
+          <div class="flex items-baseline gap-1">
+            <span class="text-5xl font-extrabold text-white">Custom</span>
+          </div>
+          <!-- ... content -->
+        </div>
+      </div>
+
+      <!-- E-commerce Pricing (hidden by default) -->
+      <div class="pricing-tab-content hidden" data-tab="ecommerce">
+        <!-- ... similar structure -->
+      </div>
+
+      <!-- Web & Funnels Pricing (hidden) -->
+      <div class="pricing-tab-content hidden" data-tab="webfunnels">
+        <!-- ... similar structure -->
+      </div>
+
+      <!-- Creative Pricing (hidden) -->
+      <div class="pricing-tab-content hidden" data-tab="creative">
+        <!-- ... similar structure -->
+      </div>
+
+      <!-- Security Pricing (hidden) -->
+      <div class="pricing-tab-content hidden" data-tab="security">
+        <!-- ... similar structure -->
+      </div>
+    </div>
+
+    <!-- Comparison Tables Container -->
+    <div id="comparison-tabs-container">
+      <!-- Web & Funnels Comparison (default visible) -->
+      <div class="comparison-tab-content" data-tab="webfunnels">
+        <div class="overflow-x-auto rounded-2xl border border-white/40 backdrop-blur-xl bg-black/40...">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="sticky top-0 z-20 backdrop-blur-xl bg-black/80 border-b border-white/40">
+                <th class="p-6 md:p-8 text-sm font-bold tracking-widest uppercase text-gray-400 w-1/4 border-r border-white/40">Feature</th>
+                <th class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-r border-white/25">Professional</th>
+                <th class="p-6 md:p-8 text-xl font-bold text-cyan w-1/4 text-center border-x border-white/40 bg-white/10">Enterprise</th>
+                <th class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-l border-white/25">Custom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Feature rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- AI Automation Comparison (hidden) -->
+      <div class="comparison-tab-content hidden" data-tab="ai-automation">
+        <!-- ... -->
+      </div>
+
+      <!-- E-commerce Comparison (hidden) -->
+      <div class="comparison-tab-content hidden" data-tab="ecommerce">
+        <!-- ... -->
+      </div>
+
+      <!-- Creative Comparison (hidden) -->
+      <div class="comparison-tab-content hidden" data-tab="creative">
+        <!-- ... -->
+      </div>
+
+      <!-- Security Comparison (hidden) -->
+      <div class="comparison-tab-content hidden" data-tab="security">
+        <!-- ... -->
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+#### CSS Classes
+
+| Class | Purpose |
+| ----- | -------- |
+| `.pricing-tab-btn` | Tab navigation buttons |
+| `.pricing-tab-content` | Pricing cards container (visible/hidden) |
+| `.comparison-tab-content` | Comparison table container (visible/hidden) |
+| `.pricing-card-popular` | Highlights "Popular" tier with gradient badge |
+| `.price-monthly` | Monthly price display |
+| `.price-yearly` | Yearly price display (hidden by default) |
+| `.period-monthly` | "/Month" text for monthly |
+| `.period-yearly` | "/Month" text for yearly (hidden by default) |
+| `#billing-toggle` | Monthly/yearly toggle button |
+| `#toggle-knob` | Animated toggle knob |
+
+#### JavaScript Functions (pricing.js)
+
+```javascript
+// Billing Toggle - switches between monthly and yearly prices
+const initBillingToggle = () => {
+  // Toggles .hidden on .price-monthly and .price-yearly
+  // Toggles .translate-x-8 on toggle knob
+  // Updates label text colors
+}
+
+// Tab Switching - syncs both pricing cards AND comparison tables
+const initPricingTabs = () => {
+  const tabButtons = document.querySelectorAll(".pricing-tab-btn");
+  const pricingTabContents = document.querySelectorAll(".pricing-tab-content");
+  const comparisonTabContents = document.querySelectorAll(".comparison-tab-content");
+
+  // When clicking a tab button:
+  // 1. Updates button active state (cyan border/text)
+  // 2. Shows corresponding pricing cards (data-tab match)
+  // 3. Shows corresponding comparison table (data-tab match)
+}
+```
+
+#### Pricing Tiers (v2.5.0)
+
+| Service | Starter | Professional | Enterprise |
+| ------- | -------- |--------------| ------------|
+| **AI Automation** | $299/mo ($239/yr) | $699/mo ($559/yr) | Custom |
+| **E-commerce** | $399/mo ($319/yr) | $899/mo ($719/yr) | Custom |
+| **Web & Funnels** | $499/mo ($399/yr) | $1,299/mo ($1,039/yr) | Custom |
+| **Creative** | $199/mo ($159/yr) | $499/mo ($399/yr) | Custom |
+| **Security** | $199/mo ($159/yr) | $499/mo ($399/yr) | Custom |
+
+#### Key Features Added (Aligned with Market Pain Points)
+
+- **AI Automation**: ROI tracking, compliance logs, data pipeline, revenue-share guarantee
+- **E-commerce**: Cart recovery, A/B testing, AI personalization, performance guarantee
+- **Web & Funnels**: 4-week fast launch, CWV optimization, heat maps, weekly CRO sprints
+- **Creative**: AI-assisted creation, ROI dashboard, fast turnaround
+- **Security**: CI/CD security, AI threat hunting, vendor risk, breach guarantee
+
 ---
 
 ## 8. Background Effects
@@ -4797,6 +5012,17 @@ The following rules are enforced in code reviews and CSS authoring:
 
 ## 17. TODOs & Future Improvements
 
+### Completed in v2.5.0
+
+- [x] Create tabbed pricing system with 5 service categories
+- [x] Add monthly/yearly billing toggle with 20% discount
+- [x] Sync pricing cards with comparison tables on tab click
+- [x] Add comparison tables for all 5 services (AI, E-commerce, Web, Creative, Security)
+- [x] Update pricing features based on market intelligence (Details.md)
+- [x] Add performance guarantees to pricing tiers
+- [x] Create pricing.js with initBillingToggle() and initPricingTabs() functions
+- [x] Document pricing system in design system
+
 ### Completed in v2.0.0
 
 - [x] Add `:focus-visible` styles to all interactive elements
@@ -4840,11 +5066,11 @@ The following rules are enforced in code reviews and CSS authoring:
 
 - [ ] Add dark/light mode toggle (currently dark-only)
 - [ ] Create component variants for future use
-- [ ] Document all 9 service card contents
+- [x] Document all 9 service card contents (moved to services.html)
 - [ ] Create design tokens JSON/Style Dictionary export
 - [ ] Add Figma design file reference
-- [ ] Document all pricing tier details
-- [ ] Document all comparison table features
+- [x] Document all pricing tier details (completed in v2.5.0)
+- [x] Document all comparison table features (completed in v2.5.0)
 - [ ] Document all Why Choose Us grid items
 
 #### Code Quality
@@ -4886,6 +5112,7 @@ js/
 ├── app.js               # Global application logic (loader, menu, scroll, shared animations)
 ├── index-ux.js          # GSAP ScrollTrigger animations specific to Home/Services
 ├── contact-ux.js        # Form interactions and page-specific logic for Contact
+├── pricing.js          # Pricing tab switching & billing toggle (v2.5.0+)
 ├── tailwind.config.js   # Unified theme configuration (colors, fonts, dark mode)
 ├── quiz-engine.js       # Logic for the multi-step qualification quiz
 └── conversion-engine.js # Form submission and tracking logic
@@ -4953,5 +5180,5 @@ js/
 
 _This document is maintained by the Xenon Studios design team. For questions or contributions, please refer to the project repository._
 
-**Last Updated:** April 24, 2026
-**Document Version:** 2.3.0
+**Last Updated:** April 30, 2026
+**Document Version:** 2.5.0
