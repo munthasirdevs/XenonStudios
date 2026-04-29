@@ -18,12 +18,14 @@ A high-performance, dark-mode agency website featuring GSAP-powered animations, 
 ## ✨ Key Features
 
 ### Modern UI/UX
+
 - **Premium Design System** — Advanced glassmorphism with `backdrop-filter` and neon accent palettes (Cyan, Purple, Magenta).
 - **Interactive FAQs** — Exclusive accordion behavior (powered by HTML5 `name` attribute) where only one question remains open at a time, providing a focused "radio-button" style reading experience.
 - **"Why Choose Us" Grid** — Dynamic service-driven grid with subtle background glows and hover-triggered accent transitions.
 - **Unified Animations** — Centralized GSAP 3.12 engine for scroll-triggered reveals and staggered entrance effects.
 
 ### Lead Qualification Engine
+
 - **Scoring System** — Sophisticated logic based on client profile, business maturity, and investment capacity.
 - **Dynamic Routing**:
   - **High-Ticket** (8-10 pts) → Direct Strategy Call routing.
@@ -74,12 +76,14 @@ XenonStudios/
 ## 🎨 Design System Tokens
 
 ### Color Palette
+
 - **Cyan:** `rgba(0, 242, 255, 1)` — Action primary / Links
 - **Purple:** `rgba(112, 0, 255, 1)` — Secondary accents
 - **Magenta:** `rgba(157, 23, 77, 1)` — High-contrast alerts
 - **Surface:** `rgba(20, 20, 22, 1)` — Base container color
 
 ### Typography
+
 - **Brand/Headings:** `Syne` (Bold, professional)
 - **Body/UI:** `Outfit` (Modern, readable)
 - **Data/Labels:** `Space Grotesk` (Technical precision)
@@ -89,15 +93,43 @@ XenonStudios/
 ## 🚀 Development & Deployment
 
 ### Local Setup
+
 The project is built as a highly optimized static site. No build process is required:
+
 1. Clone the repository.
 2. Open `index.html` in any modern browser.
 3. For the best experience, use a local server (e.g., Live Server) to ensure all GSAP scroll triggers initialize correctly.
 
 ### Customization
+
 - **FAQ Content**: Update the `<details>` elements in `pages/services.html`. The `name="faq"` attribute automatically handles the exclusive closing logic.
 - **Quiz Thresholds**: Modify the `scoreConfig.resultTiers` object in `js/quiz-engine.js`.
 - **Styling**: Global tokens are managed in `:root` inside `css/app.css`.
+
+---
+
+## 📝 Recent Updates (April 2026)
+
+### Revenue-Share Pricing Model
+
+All 9 services now feature new revenue-share pricing plans:
+
+| Service | Starter | Growth | Enterprise |
+|---------|---------|--------|------------|
+| AI Automation | $25k + 10% | $60k + $5k/mo + 12% | $150k + 15% |
+| Cybersecurity | $15k + 8% | $45k/yr + 10% | $120k + 12% |
+| Digital Marketing | $8k/mo + 10% | $25k/mo + 15% | $60k/mo + 20% |
+| Web Development | $48k + 8% | $90k + $12k/mo + 12% | $180k + $15k/mo + 15% |
+| VFX & Animation | $45k + 10% | $120k + 12% | $5k/mo + 8% |
+| Motion Graphics | $20k + $2k/mo + 8% | $5k/mo + 10% | $45k + 12% |
+| Video Editing | $3k/ad + 8% | $7k/mo + 10% | $500/mo + 5% |
+| Visual Design | $25k + $3k/mo + 8% | $2.5k/mo + 6% | $45k + 15% |
+| E-commerce | $25k + $5k/mo + 10% | $15k/mo + 8% | $12k + $2k/mo + 12% |
+
+### Structural Fixes
+
+- Fixed typo: `material_symbols-outlined` (line ~2278)
+- Fixed 8 comparison tables with extra/missing closing divs
 
 ---
 
