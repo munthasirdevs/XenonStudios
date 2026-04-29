@@ -110,6 +110,19 @@ The project is built as a highly optimized static site. No build process is requ
 
 ## 📝 Recent Updates (April 2026)
 
+### Service Navigation & Icon Updates
+
+Updated Service Navigation Buttons and Sidebar icons to match section header icons:
+
+- Visual Designs: fa-search → fa-palette
+- VFX Animation: fa-shopping-cart → fa-magic
+- Motion Graphics: fa-palette → fa-film
+- Cybersecurity: fa-mobile-alt → fa-shield-alt
+- Video Editing: fa-pen-nib → fa-video
+- Digital Marketing: fa-hashtag → fa-bullhorn
+- E-com Scaling: fa-video → fa-shopping-cart
+- Reordered sidebar icons to match section order
+
 ### Color Visibility Fix
 
 Fixed text colors in Feature Breakdown pricing table for better contrast and visibility:

@@ -1,6 +1,6 @@
 # Xenon Studios Design System
 
-> **Version:** 2.4.1
+> **Version:** 2.4.2
 > **Last Updated:** April 30, 2026
 > **Status:** Active
 > **Applies To:** Xenon Studios Main Website (All Pages)
@@ -9,6 +9,7 @@
 
 | Version | Date | Changes |
 | ------- | ---- | ------- |
+| 2.4.2 | April 30, 2026 | **Service Navigation & Icon Updates.** Updated Service Navigation Buttons and Sidebar icons to match section header icons. Fixed icon mismatches across all services (Visual Designs: fa-search → fa-palette, VFX Animation: fa-shopping-cart → fa-magic, Cybersecurity: fa-mobile-alt → fa-shield-alt, Motion Graphics: fa-palette → fa-film, Video Editing: fa-pen-nib → fa-video, Digital Marketing: fa-hashtag → fa-bullhorn, E-com Scaling: fa-video → fa-shopping-cart). Reordered sidebar icons to match section order. |
 | 2.4.1 | April 30, 2026 | **Pricing Table Color Fix.** Fixed text colors in Feature Breakdown table for better visibility: Essential column changed from text-gray-300 to text-gray-400, Enterprise column from text-gray-300 to text-white. Applied to Product Listings, Store Optimization, Marketing Campaigns, and Analytics rows. Priority Support Enterprise icon changed from cyan to white with white drop-shadow filter. |
 | 2.4.0 | April 30, 2026 | **Revenue-Share & Table Updates.** Updated all services with new revenue-share pricing plans. Fixed typo: `material_symbols-outlined` → `material-symbols-outlined`. Updated comparison tables to match index.html premium format (Feature Breakdown style with glassmorphism effects, glow icons). Fixed duplicate orphan table content that caused service sections to be lost. |
 | 2.3.0 | April 24, 2026 | **Architectural Refactoring & Modularization.** Successfully split the monolithic `style.css` and `script.js` into targeted components (`app.css`, `buttons.css`, `index-style.css`, `responsive.css`) and scripts (`app.js`, `index-ux.js`, `contact-ux.js`). Unified all Tailwind configurations into a single `tailwind.config.js`. Consolidated global animation logic (stats counter, loaders) into `app.js` to eliminate code duplication across pages. |
