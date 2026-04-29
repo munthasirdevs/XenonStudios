@@ -1,6 +1,6 @@
 # Xenon Studios Design System
 
-> **Version:** 2.4.0
+> **Version:** 2.4.1
 > **Last Updated:** April 30, 2026
 > **Status:** Active
 > **Applies To:** Xenon Studios Main Website (All Pages)
@@ -9,7 +9,8 @@
 
 | Version | Date | Changes |
 | ------- | ---- | ------- |
-| 2.4.0 | April 30, 2026 | **Revenue-Share Pricing & Structural Fixes.** Updated all 9 services with new revenue-share pricing plans (AI Automation, Cybersecurity, Digital Marketing, Web Development, VFX & Animation, Motion Graphics, Video Editing, Visual Design, E-commerce Scaling). Fixed typo: `material_symbols-outlined` → `material-symbols-outlined`. Fixed 8 comparison tables with extra/missing closing divs (`</div>` tag issues). Added revenue-share badges, outcome guarantees, and disclaimer notes to all pricing cards. |
+| 2.4.1 | April 30, 2026 | **Pricing Table Color Fix.** Fixed text colors in Feature Breakdown table for better visibility: Essential column changed from text-gray-300 to text-gray-400, Enterprise column from text-gray-300 to text-white. Applied to Product Listings, Store Optimization, Marketing Campaigns, and Analytics rows. Priority Support Enterprise icon changed from cyan to white with white drop-shadow filter. |
+| 2.4.0 | April 30, 2026 | **Revenue-Share & Table Updates.** Updated all services with new revenue-share pricing plans. Fixed typo: `material_symbols-outlined` → `material-symbols-outlined`. Updated comparison tables to match index.html premium format (Feature Breakdown style with glassmorphism effects, glow icons). Fixed duplicate orphan table content that caused service sections to be lost. |
 | 2.3.0 | April 24, 2026 | **Architectural Refactoring & Modularization.** Successfully split the monolithic `style.css` and `script.js` into targeted components (`app.css`, `buttons.css`, `index-style.css`, `responsive.css`) and scripts (`app.js`, `index-ux.js`, `contact-ux.js`). Unified all Tailwind configurations into a single `tailwind.config.js`. Consolidated global animation logic (stats counter, loaders) into `app.js` to eliminate code duplication across pages. |
 | 2.2.0 | April 21, 2026 | Comprehensive design analysis completed. Added services.html page with service-specific sections (AI Automation, Web Development), detailed pricing tiers, comparison tables, trust indicators, FAQs, and service navigation. Enhanced gradient border cards, liquid shine hover effects, glass panels, service nav buttons. Updated JavaScript architecture (page loader, mobile menu, smooth scroll, active nav tracking, stats counters, GSAP scroll animations, reduced motion support). |
 

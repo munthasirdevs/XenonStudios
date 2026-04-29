@@ -110,6 +110,15 @@ The project is built as a highly optimized static site. No build process is requ
 
 ## 📝 Recent Updates (April 2026)
 
+### Color Visibility Fix
+
+Fixed text colors in Feature Breakdown pricing table for better contrast and visibility:
+
+- Essential column: text-gray-300 → text-gray-400
+- Enterprise column: text-gray-300 → text-white
+- Applied to: Product Listings, Store Optimization, Marketing Campaigns, Analytics
+- Priority Support Enterprise check_circle icon: cyan → white with white drop-shadow
+
 ### Revenue-Share Pricing Model
 
 All 9 services now feature new revenue-share pricing plans:
@@ -129,7 +138,13 @@ All 9 services now feature new revenue-share pricing plans:
 ### Structural Fixes
 
 - Fixed typo: `material_symbols-outlined` (line ~2278)
-- Fixed 8 comparison tables with extra/missing closing divs
+- Updated comparison tables to match index.html premium format
+- Fixed duplicate orphan table content in some sections
+- Services use index.html's Feature Breakdown table style
+
+### Known Issues
+
+- Digital Marketing & Video Editing sections need restoration
 
 ---
 
