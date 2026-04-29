@@ -40,17 +40,19 @@ const initBillingToggle = () => {
 };
 
 // ============================================================================
-// PRICING TAB SWITCHING
+// PRICING TAB SWITCHING (Pricing Cards + Comparison Table)
 // ============================================================================
 const initPricingTabs = () => {
   const tabButtons = document.querySelectorAll(".pricing-tab-btn");
   const pricingTabContents = document.querySelectorAll(".pricing-tab-content");
+  const comparisonTabContents = document.querySelectorAll(".comparison-tab-content");
 
   if (!tabButtons.length || !pricingTabContents.length) return;
 
   const setActiveTab = (btn) => {
     const targetTab = btn.getAttribute("data-pricing");
 
+    // Update pricing tab buttons
     tabButtons.forEach((b) => {
       b.classList.remove("active", "text-[var(--xenon-color-cyan)]", "border-[var(--xenon-color-cyan)]/50");
       b.classList.add("text-white/70", "border-white/10");
@@ -58,6 +60,7 @@ const initPricingTabs = () => {
     btn.classList.remove("text-white/70", "border-white/10");
     btn.classList.add("active", "text-[var(--xenon-color-cyan)]", "border-[var(--xenon-color-cyan)]/50");
 
+    // Update pricing cards
     pricingTabContents.forEach((content) => {
       if (content.getAttribute("data-tab") === targetTab) {
         content.classList.remove("hidden");
@@ -65,12 +68,24 @@ const initPricingTabs = () => {
         content.classList.add("hidden");
       }
     });
+
+    // Update comparison tables
+    if (comparisonTabContents.length) {
+      comparisonTabContents.forEach((content) => {
+        if (content.getAttribute("data-tab") === targetTab) {
+          content.classList.remove("hidden");
+        } else {
+          content.classList.add("hidden");
+        }
+      });
+    }
   };
 
   tabButtons.forEach((btn) => {
     btn.addEventListener("click", () => setActiveTab(btn));
   });
 
+  // Initialize both pricing cards and comparison table to first tab
   setActiveTab(tabButtons[0]);
 };
 
