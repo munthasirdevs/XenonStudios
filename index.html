@@ -1623,179 +1623,587 @@
                         Transparent pricing for brands that prioritize precision and excellence. Select a plan that fits
                         your growth trajectory.
                     </p>
+                    <!-- Pricing Navigation Buttons -->
+                    <div class="flex flex-wrap justify-center gap-3 mt-10">
+                        <button data-pricing="ai-automation"
+                            class="pricing-tab-btn service-nav-btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-[var(--xenon-color-cyan)] hover:border-[var(--xenon-color-cyan)]/50 transition-all text-sm font-medium">
+                            <i class="fas fa-robot"></i>AI Automation
+                        </button>
+                        <button data-pricing="ecommerce"
+                            class="pricing-tab-btn service-nav-btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-[var(--xenon-color-cyan)] hover:border-[var(--xenon-color-cyan)]/50 transition-all text-sm font-medium">
+                            <i class="fas fa-shopping-cart"></i>E-commerce Growth
+                        </button>
+                        <button data-pricing="webfunnels"
+                            class="pricing-tab-btn service-nav-btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-[var(--xenon-color-cyan)] hover:border-[var(--xenon-color-cyan)]/50 transition-all text-sm font-medium">
+                            <i class="fas fa-funnel-dollar"></i>Web & Funnels
+                        </button>
+                        <button data-pricing="creative"
+                            class="pricing-tab-btn service-nav-btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-[var(--xenon-color-cyan)] hover:border-[var(--xenon-color-cyan)]/50 transition-all text-sm font-medium">
+                            <i class="fas fa-palette"></i>Creative Content
+                        </button>
+                        <button data-pricing="security"
+                            class="pricing-tab-btn service-nav-btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-[var(--xenon-color-cyan)] hover:border-[var(--xenon-color-cyan)]/50 transition-all text-sm font-medium">
+                            <i class="fas fa-shield-alt"></i>Cybersecurity
+                        </button>
+                    </div>
                 </header>
 
+                <!-- Billing Toggle -->
+                <div class="flex justify-center items-center gap-4 mb-16">
+                    <span id="monthly-label" class="text-sm font-medium text-white">Monthly</span>
+                    <button id="billing-toggle"
+                        class="relative w-16 h-8 rounded-full bg-white/10 border border-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--xenon-color-cyan)]"
+                        aria-label="Toggle billing cycle" role="switch" aria-checked="false">
+                        <span id="toggle-knob"
+                            class="absolute top-1 left-1 w-6 h-6 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] transition-transform duration-300 shadow-lg"></span>
+                    </button>
+                    <span id="yearly-label" class="text-sm font-medium text-white/50">Yearly</span>
+                    <span
+                        class="ml-2 px-3 py-1 rounded-full bg-gradient-to-r from-[var(--xenon-color-cyan)]/20 to-[var(--xenon-color-purple)]/20 border border-[var(--xenon-color-cyan)]/30 text-[var(--xenon-color-cyan)] text-[10px] font-bold uppercase">Save
+                        20%</span>
+                </div>
+
                 <!-- Pricing Cards Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
-                    <!-- Starter Plan -->
-                    <div
-                        class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
-                        <div class="mb-8">
-                            <h3 class="text-2xl font-bold mb-2 text-white">Essential</h3>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-5xl font-extrabold text-white">$499</span>
-                                <span class="text-gray-400 font-medium">/Month</span>
-                            </div>
-                        </div>
-                        <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                6-8 Pages Basic Website (WordPress)
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                Premium Plugins
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                High End Email Support
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                LIve Chat
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                Graphic & Animation Design
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                SEO & Social Media Marketing
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                Custom Sales Funnel
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                Full Stack Live Dashboard Access
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                Mobile Responsive
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                24/7 Support
-                            </li>
-                        </ul>
-                        <div class="button-container w-full">
-                            <button class="space-button w-full">
-                                <div class="bright-particles"></div>
-                                <span>Start Basic</span>
-                            </button>
-                        </div>
+                <div id="pricing-tabs-container">
+                    <!-- AI Automation Pricing -->
+                    <div class="pricing-tab-content grid grid-cols-1 md:grid-cols-3 gap-8 mb-32"
+                        data-tab="ai-automation">
+                        <!-- Starter -->
                         <div
-                            class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/40 to-transparent vignette-fade pointer-events-none">
+                            class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Starter</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="price-monthly text-5xl font-extrabold text-white">$299</span>
+                                    <span class="price-yearly text-5xl font-extrabold text-white hidden">$239</span>
+                                    <span class="text-gray-400 font-medium"><span
+                                            class="period-monthly">/Month</span><span
+                                            class="period-yearly hidden">/Month</span></span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Basic
+                                    AI Chatbot</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Email
+                                    Automation</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>5
+                                    Workflows</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Basic
+                                    Integrations</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Email
+                                    Support</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Get Started</span>
+                                </button></div>
+                        </div>
+                        <!-- Professional -->
+                        <div
+                            class="pricing-card-popular rounded-xl p-10 flex flex-col relative overflow-hidden bg-white/10">
+                            <div class="absolute top-0 right-0">
+                                <div
+                                    class="bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white text-[10px] font-bold px-6 py-1 tracking-widest rotate-45 translate-x-6 translate-y-4 uppercase">
+                                    Popular</div>
+                            </div>
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Professional</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span
+                                        class="price-monthly text-5xl font-extrabold text-[var(--xenon-color-cyan)]">$699</span>
+                                    <span
+                                        class="price-yearly text-5xl font-extrabold text-[var(--xenon-color-cyan)] hidden">$559</span>
+                                    <span class="text-gray-400 font-medium"><span
+                                            class="period-monthly">/Month</span><span
+                                            class="period-yearly hidden">/Month</span></span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Advanced
+                                    AI Agents</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Unlimited
+                                    Workflows</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>CRM
+                                    Integration</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Custom
+                                    Training</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Priority
+                                    Support</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Go Pro</span>
+                                </button></div>
+                        </div>
+                        <!-- Enterprise -->
+                        <div
+                            class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Enterprise</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-5xl font-extrabold text-white">Custom</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Full
+                                    AI Ecosystem</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Dedicated
+                                    AI Engineer</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Custom
+                                    LLMs</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>24/7
+                                    Support</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Contact Sales</span>
+                                </button></div>
                         </div>
                     </div>
 
-                    <!-- Most Popular Plan -->
-                    <div
-                        class="pricing-card-popular rounded-xl p-10 flex flex-col relative overflow-hidden bg-white/10">
-                        <div class="absolute top-0 right-0">
-                            <div
-                                class="bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white text-[10px] font-bold px-6 py-1 tracking-widest rotate-45 translate-x-6 translate-y-4 uppercase">
-                                Popular
+                    <!-- E-commerce Growth Pricing -->
+                    <div class="pricing-tab-content grid grid-cols-1 md:grid-cols-3 gap-8 mb-32 hidden"
+                        data-tab="ecommerce">
+                        <!-- Starter -->
+                        <div
+                            class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Starter</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="price-monthly text-5xl font-extrabold text-white">$399</span>
+                                    <span class="price-yearly text-5xl font-extrabold text-white hidden">$319</span>
+                                    <span class="text-gray-400 font-medium"><span
+                                            class="period-monthly">/Month</span><span
+                                            class="period-yearly hidden">/Month</span></span>
+                                </div>
                             </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Store
+                                    Setup</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>20
+                                    Products</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Basic
+                                    SEO</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Payment
+                                    Integration</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Email
+                                    Support</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Get Started</span>
+                                </button></div>
                         </div>
-                        <div class="mb-8">
-                            <h3 class="text-2xl font-bold mb-2 text-white">Professional</h3>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-5xl font-extrabold text-[var(--xenon-color-cyan)]">$1,299</span>
-                                <span class="text-gray-400 font-medium">/Month</span>
+                        <!-- Professional -->
+                        <div
+                            class="pricing-card-popular rounded-xl p-10 flex flex-col relative overflow-hidden bg-white/10">
+                            <div class="absolute top-0 right-0">
+                                <div
+                                    class="bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white text-[10px] font-bold px-6 py-1 tracking-widest rotate-45 translate-x-6 translate-y-4 uppercase">
+                                    Popular</div>
                             </div>
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Growth</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span
+                                        class="price-monthly text-5xl font-extrabold text-[var(--xenon-color-cyan)]">$899</span>
+                                    <span
+                                        class="price-yearly text-5xl font-extrabold text-[var(--xenon-color-cyan)] hidden">$719</span>
+                                    <span class="text-gray-400 font-medium"><span
+                                            class="period-monthly">/Month</span><span
+                                            class="period-yearly hidden">/Month</span></span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>100
+                                    Products</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Advanced
+                                    SEO</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Email
+                                    Marketing</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>FB
+                                    & IG Ads</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Analytics
+                                    Dashboard</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Go Pro</span>
+                                </button></div>
                         </div>
-                        <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex items-center gap-3 text-sm text-white">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                15 Pages Website
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-white">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                Premium Design System
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-white">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                SEO Optimization
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-white">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                Priority Support
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-white">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>
-                                Analytics Integration
-                            </li>
-                        </ul>
-                        <div class="button-container w-full">
-                            <button class="space-button w-full">
-                                <div class="bright-particles"></div>
-                                <span>Go Pro</span>
-                            </button>
+                        <!-- Enterprise -->
+                        <div
+                            class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Scale</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-5xl font-extrabold text-white">Custom</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Unlimited
+                                    Products</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Full
+                                    Marketing Suite</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>AI-Powered
+                                    Recommendations</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Dedicated
+                                    Manager</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Contact Sales</span>
+                                </button></div>
                         </div>
                     </div>
 
-                    <!-- Enterprise Plan -->
-                    <div
-                        class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
-                        <div class="mb-8">
-                            <h3 class="text-2xl font-bold mb-2 text-white">Enterprise</h3>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-5xl font-extrabold text-white">Custom</span>
-                            </div>
-                        </div>
-                        <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>
-                                Custom Solutions
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>
-                                Dedicated Team
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>
-                                AI Automation
-                            </li>
-                            <li class="flex items-center gap-3 text-sm text-gray-300">
-                                <span
-                                    class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>
-                                24/7 Support
-                            </li>
-                        </ul>
-                        <div class="button-container w-full">
-                            <button class="space-button w-full">
-                                <div class="bright-particles"></div>
-                                <span>Contact Sales</span>
-                            </button>
-                        </div>
+                    <!-- Web & Funnels Pricing -->
+                    <div class="pricing-tab-content grid grid-cols-1 md:grid-cols-3 gap-8 mb-32 hidden"
+                        data-tab="webfunnels">
+                        <!-- Professional -->
                         <div
-                            class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/40 to-transparent vignette-fade pointer-events-none">
+                            class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Professional</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="price-monthly text-5xl font-extrabold text-white">$499</span>
+                                    <span class="price-yearly text-5xl font-extrabold text-white hidden">$399</span>
+                                    <span class="text-gray-400 font-medium"><span
+                                            class="period-monthly">/Month</span><span
+                                            class="period-yearly hidden">/Month</span></span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Up
+                                    to 5 Pages</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Standard
+                                    Design</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Basic
+                                    Animations</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Mobile
+                                    Responsive</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Email
+                                    Support</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Get Started</span>
+                                </button></div>
+                        </div>
+                        <!-- Enterprise -->
+                        <div
+                            class="pricing-card-popular rounded-xl p-10 flex flex-col relative overflow-hidden bg-white/10">
+                            <div class="absolute top-0 right-0">
+                                <div
+                                    class="bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white text-[10px] font-bold px-6 py-1 tracking-widest rotate-45 translate-x-6 translate-y-4 uppercase">
+                                    Popular</div>
+                            </div>
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Enterprise</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span
+                                        class="price-monthly text-5xl font-extrabold text-[var(--xenon-color-cyan)]">$1,299</span>
+                                    <span
+                                        class="price-yearly text-5xl font-extrabold text-[var(--xenon-color-cyan)] hidden">$1,039</span>
+                                    <span class="text-gray-400 font-medium"><span
+                                            class="period-monthly">/Month</span><span
+                                            class="period-yearly hidden">/Month</span></span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Up
+                                    to 15 Pages</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Premium
+                                    Design</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Advanced
+                                    Animations</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>SEO
+                                    & Analytics</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Priority
+                                    Support</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Go Pro</span>
+                                </button></div>
+                        </div>
+                        <!-- Custom -->
+                        <div
+                            class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Custom</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-5xl font-extrabold text-white">Custom</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Unlimited
+                                    Pages</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Custom
+                                    Design Quality</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>GSAP
+                                    Full Animations</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Custom
+                                    Integrations</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>24/7
+                                    Dedicated Support</li>
+                                Web Apps</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Dedicated
+                                    Team</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Contact Sales</span>
+                                </button></div>
+                        </div>
+                    </div>
+
+                    <!-- Creative Content Pricing -->
+                    <div class="pricing-tab-content grid grid-cols-1 md:grid-cols-3 gap-8 mb-32 hidden"
+                        data-tab="creative">
+                        <!-- Starter -->
+                        <div
+                            class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Basic</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="price-monthly text-5xl font-extrabold text-white">$199</span>
+                                    <span class="price-yearly text-5xl font-extrabold text-white hidden">$159</span>
+                                    <span class="text-gray-400 font-medium"><span
+                                            class="period-monthly">/Month</span><span
+                                            class="period-yearly hidden">/Month</span></span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Logo
+                                    Design</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Brand
+                                    Guidelines</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>5
+                                    Social Posts</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Basic
+                                    Business Cards</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Get Started</span>
+                                </button></div>
+                        </div>
+                        <!-- Professional -->
+                        <div
+                            class="pricing-card-popular rounded-xl p-10 flex flex-col relative overflow-hidden bg-white/10">
+                            <div class="absolute top-0 right-0">
+                                <div
+                                    class="bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white text-[10px] font-bold px-6 py-1 tracking-widest rotate-45 translate-x-6 translate-y-4 uppercase">
+                                    Popular</div>
+                            </div>
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Professional</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span
+                                        class="price-monthly text-5xl font-extrabold text-[var(--xenon-color-cyan)]">$499</span>
+                                    <span
+                                        class="price-yearly text-5xl font-extrabold text-[var(--xenon-color-cyan)] hidden">$399</span>
+                                    <span class="text-gray-400 font-medium"><span
+                                            class="period-monthly">/Month</span><span
+                                            class="period-yearly hidden">/Month</span></span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Full
+                                    Brand Identity</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>20
+                                    Social Posts/Month</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Banner
+                                    Designs</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>UI/UX
+                                    Wireframes</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Priority
+                                    Support</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Go Pro</span>
+                                </button></div>
+                        </div>
+                        <!-- Enterprise -->
+                        <div
+                            class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Premium</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-5xl font-extrabold text-white">Custom</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Unlimited
+                                    Designs</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Motion
+                                    Graphics</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Video
+                                    Editing</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Dedicated
+                                    Designer</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Contact Sales</span>
+                                </button></div>
+                        </div>
+                    </div>
+
+                    <!-- Cybersecurity Pricing -->
+                    <div class="pricing-tab-content grid grid-cols-1 md:grid-cols-3 gap-8 mb-32 hidden"
+                        data-tab="security">
+                        <!-- Starter -->
+                        <div
+                            class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Basic</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="price-monthly text-5xl font-extrabold text-white">$199</span>
+                                    <span class="price-yearly text-5xl font-extrabold text-white hidden">$159</span>
+                                    <span class="text-gray-400 font-medium"><span
+                                            class="period-monthly">/Month</span><span
+                                            class="period-yearly hidden">/Month</span></span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Basic
+                                    Firewall</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Malware
+                                    Scanning</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>SSL
+                                    Certificate</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Monthly
+                                    Reports</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Get Started</span>
+                                </button></div>
+                        </div>
+                        <!-- Professional -->
+                        <div
+                            class="pricing-card-popular rounded-xl p-10 flex flex-col relative overflow-hidden bg-white/10">
+                            <div class="absolute top-0 right-0">
+                                <div
+                                    class="bg-gradient-to-r from-[var(--xenon-color-cyan)] to-[var(--xenon-color-purple)] text-white text-[10px] font-bold px-6 py-1 tracking-widest rotate-45 translate-x-6 translate-y-4 uppercase">
+                                    Popular</div>
+                            </div>
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Business</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span
+                                        class="price-monthly text-5xl font-extrabold text-[var(--xenon-color-cyan)]">$499</span>
+                                    <span
+                                        class="price-yearly text-5xl font-extrabold text-[var(--xenon-color-cyan)] hidden">$399</span>
+                                    <span class="text-gray-400 font-medium"><span
+                                            class="period-monthly">/Month</span><span
+                                            class="period-yearly hidden">/Month</span></span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Advanced
+                                    Firewall</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>24/7
+                                    Monitoring</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Penetration
+                                    Testing</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Data
+                                    Encryption</li>
+                                <li class="flex items-center gap-3 text-sm text-white"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-lg">check_circle</span>Incident
+                                    Response</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Go Pro</span>
+                                </button></div>
+                        </div>
+                        <!-- Enterprise -->
+                        <div
+                            class="bg-[var(--xenon-color-charcoal)] rounded-xl p-10 flex flex-col transition-all hover:bg-white/10 relative overflow-hidden group border border-white/5">
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold mb-2 text-white">Enterprise</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-5xl font-extrabold text-white">Custom</span>
+                                </div>
+                            </div>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Full
+                                    Security Suite</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Dedicated
+                                    SOC Team</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Compliance
+                                    (HIPAA, PCI)</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-purple)] text-lg">check_circle</span>Threat
+                                    Intelligence</li>
+                            </ul>
+                            <div class="button-container w-full"><button class="space-button w-full">
+                                    <div class="bright-particles"></div><span>Contact Sales</span>
+                                </button></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Detailed Comparison Table -->
-                <section class="mt-32 relative">
+                <section id="feature-breakdown" class="mt-32 relative">
 
                     <!-- Content -->
                     <div class="relative z-10">
@@ -1814,7 +2222,7 @@
                             </p>
                         </div>
 
-                        <!-- Premium Table Container -->
+                        <!-- Detailed Comparison Table -->
                         <div
                             class="overflow-x-auto rounded-2xl border border-white/40 backdrop-blur-xl bg-black/40 shadow-[0_0_60px_-12px_rgba(255,255,255,0.3)]">
                             <table class="w-full text-left border-collapse">
@@ -1825,183 +2233,675 @@
                                             Feature</th>
                                         <th
                                             class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-r border-white/25">
-                                            Essential</th>
-                                        <th
-                                            class="p-6 md:p-8 text-xl font-bold text-[var(--xenon-color-cyan)] w-1/4 text-center border-x border-white/40 bg-gradient-to-b from-white/5 to-transparent">
                                             Professional</th>
                                         <th
+                                            class="p-6 md:p-8 text-xl font-bold text-[var(--xenon-color-cyan)] w-1/4 text-center border-x border-white/40 bg-white/10">
+                                            Enterprise</th>
+                                        <th
                                             class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-l border-white/25">
-                                            Enterprise
-                                        </th>
+                                            Custom</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-white/20">
-                                    <!-- Category: Design & Build -->
+                                <tbody>
                                     <tr
-                                        class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-purple)]/25 to-transparent">
+                                        class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
                                         <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-cyan)] border-r border-white/40"
-                                            colspan="4">
-                                            <i class="fas fa-palette mr-2"></i>Design & Build
+                                            colspan="4"><i class="fas fa-layer-group mr-2"></i>Design & Build</td>
+                                    </tr>
+                                    <tr class="hover:bg-white/5 transition-colors">
+                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">Pages</td>
+                                        <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                                class="text-gray-400 text-sm">Up to 5</span></td>
+                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Up to
+                                                15</span></td>
+                                        <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Unlimited</span>
                                         </td>
                                     </tr>
                                     <tr class="hover:bg-white/5 transition-colors">
-                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
-                                            Pages</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
-                                            Up to 5</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
-                                            Up to 15</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
-                                            Unlimited</td>
-                                    </tr>
-                                    <tr class="hover:bg-white/5 transition-colors">
-                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
-                                            Design Quality
+                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">Design
+                                            Quality</td>
+                                        <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                                class="text-gray-400 text-sm">Standard</span></td>
+                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Premium</span>
                                         </td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
-                                            Standard</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
-                                            Premium</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
-                                            Custom Cinematic</td>
+                                        <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Custom</span>
+                                        </td>
                                     </tr>
                                     <tr class="hover:bg-white/5 transition-colors">
-                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">Cinematic
                                             Animations</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
-                                            Basic</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
-                                            Advanced GSAP</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
-                                            Full Custom</td>
-                                    </tr>
-
-                                    <!-- Category: Features & Integrations -->
-                                    <tr
-                                        class="bg-gradient-to-r from-[var(--xenon-color-purple)]/25 via-[var(--xenon-color-cyan)]/25 to-transparent">
-                                        <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-purple)] border-r border-white/40"
-                                            colspan="4">
-                                            <i class="fas fa-plug mr-2"></i>Features & Integrations
+                                        <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                                class="text-gray-400 text-sm">Basic</span></td>
+                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Advanced</span>
                                         </td>
+                                        <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">GSAP
+                                                Full</span></td>
                                     </tr>
                                     <tr class="hover:bg-white/5 transition-colors">
-                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
-                                            SEO
-                                            Optimization</td>
-                                        <td class="p-6 md:p-8 text-center border-r border-white/25">
-                                            <span class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">Custom
+                                            Features & Integrations</td>
+                                        <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                                class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
                                         </td>
-                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
-                                            <span
+                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10"><span
                                                 class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
-                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
+                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
                                         </td>
-                                        <td class="p-6 md:p-8 text-center border-l border-white/25">
-                                            <span
+                                        <td class="p-6 md:p-8 text-center border-l border-white/25"><span
                                                 class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
-                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
+                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
                                         </td>
                                     </tr>
-                                    <tr class="hover:bg-white/5 transition-colors">
-                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
-                                            Analytics Setup
-                                        </td>
-                                        <td class="p-6 md:p-8 text-center border-r border-white/25">
-                                            <span class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
-                                        </td>
-                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
-                                            <span
-                                                class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
-                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
-                                        </td>
-                                        <td class="p-6 md:p-8 text-center border-l border-white/25">
-                                            <span
-                                                class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
-                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
-                                        </td>
-                                    </tr>
-                                    <tr class="hover:bg-white/5 transition-colors">
-                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
-                                            AI Automation
-                                        </td>
-                                        <td class="p-6 md:p-8 text-center border-r border-white/25">
-                                            <span class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
-                                        </td>
-                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
-                                            <span class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
-                                        </td>
-                                        <td class="p-6 md:p-8 text-center border-l border-white/25">
-                                            <span
-                                                class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
-                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Category: Support & Maintenance -->
                                     <tr
                                         class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
                                         <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-magenta)] border-r border-white/40"
-                                            colspan="4">
-                                            <i class="fas fa-headset mr-2"></i>Support & Maintenance
+                                            colspan="4"><i class="fas fa-rocket mr-2"></i>Growth</td>
+                                    </tr>
+                                    <tr class="hover:bg-white/5 transition-colors">
+                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">SEO
+                                            Optimization</td>
+                                        <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                                class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                        </td>
+                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10"><span
+                                                class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                        </td>
+                                        <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                                class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
                                         </td>
                                     </tr>
                                     <tr class="hover:bg-white/5 transition-colors">
-                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
-                                            Support Level
+                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">Analytics
+                                            Setup</td>
+                                        <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                                class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
                                         </td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
-                                            Email</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
-                                            Priority</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
-                                            24/7 Dedicated</td>
+                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10"><span
+                                                class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                        </td>
+                                        <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                                class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                        </td>
                                     </tr>
                                     <tr class="hover:bg-white/5 transition-colors">
-                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
-                                            Revisions</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
-                                            2 Rounds</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
-                                            5 Rounds</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
-                                            Unlimited</td>
+                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">AI
+                                            Automation</td>
+                                        <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                                class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                        </td>
+                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10"><span
+                                                class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                        </td>
+                                        <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                                class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                        </td>
+                                    </tr>
+                                    <tr
+                                        class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
+                                        <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-cyan)] border-r border-white/40"
+                                            colspan="4"><i class="fas fa-headset mr-2"></i>Support & Maintenance</td>
                                     </tr>
                                     <tr class="hover:bg-white/5 transition-colors">
-                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
-                                            Response Time
+                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">Support
+                                            Level</td>
+                                        <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                                class="text-gray-400 text-sm">Email</span></td>
+                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Priority</span>
                                         </td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
-                                            48 hours</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
-                                            12 hours</td>
-                                        <td
-                                            class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
-                                            1 hour</td>
+                                        <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">24/7
+                                                Dedicated</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-white/5 transition-colors">
+                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">Revisions
+                                        </td>
+                                        <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                                class="text-gray-400 text-sm">2 Rounds</span></td>
+                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">5
+                                                Rounds</span></td>
+                                        <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Unlimited</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-white/5 transition-colors">
+                                        <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">Response
+                                            Time</td>
+                                        <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                                class="text-gray-400 text-sm">48 hours</span></td>
+                                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">12
+                                                hours</span></td>
+                                        <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                                class="text-[var(--xenon-color-cyan)] font-semibold text-sm">1
+                                                hour</span></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                            <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                        </td>
+                        <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                        </td>
+                        </tr>
+                        <tr
+                            class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
+                            <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-magenta)] border-r border-white/40"
+                                colspan="4"><i class="fas fa-rocket mr-2"></i>Growth</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                SEO Optimization</td>
+                            <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                    class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                            </td>
+                            <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                    style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                            </td>
+                            <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                    style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                Analytics Setup</td>
+                            <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                    class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                            </td>
+                            <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                    style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                            </td>
+                            <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                    style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">AI
+                                Automation</td>
+                            <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                    class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                            </td>
+                            <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                <span class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                            </td>
+                            <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                    class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                    style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                            </td>
+                        </tr>
+                        <tr
+                            class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
+                            <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-cyan)] border-r border-white/40"
+                                colspan="4"><i class="fas fa-headset mr-2"></i>Support & Maintenance
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                Support Level</td>
+                            <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                    class="text-gray-400 text-sm">Email</span></td>
+                            <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                <span class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Priority</span>
+                            </td>
+                            <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                    class="text-[var(--xenon-color-cyan)] font-semibold text-sm">24/7
+                                    Dedicated</span></td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                Revisions</td>
+                            <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                    class="text-gray-400 text-sm">2 Rounds</span></td>
+                            <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                <span class="text-[var(--xenon-color-cyan)] font-semibold text-sm">5
+                                    Rounds</span>
+                            </td>
+                            <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                    class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Unlimited</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition-colors">
+                            <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                Response Time</td>
+                            <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                    class="text-gray-400 text-sm">48 hours</span></td>
+                            <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                <span class="text-[var(--xenon-color-cyan)] font-semibold text-sm">12
+                                    hours</span>
+                            </td>
+                            <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                    class="text-[var(--xenon-color-cyan)] font-semibold text-sm">1
+                                    hour</span></td>
+                        </tr>
+                        </tbody>
+                        </table>
                     </div>
-                </section>
             </div>
-        </section>
+
+            <!-- Creative Content Comparison -->
+            <div class="comparison-tab-content hidden" data-tab="creative">
+                <div
+                    class="overflow-x-auto rounded-2xl border border-white/40 backdrop-blur-xl bg-black/40 shadow-[0_0_60px_-12px_rgba(255,255,255,0.3)]">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="sticky top-0 z-20 backdrop-blur-xl bg-black/80 border-b border-white/40">
+                                <th
+                                    class="p-6 md:p-8 text-sm font-bold tracking-widest uppercase text-gray-400 w-1/4 border-r border-white/40">
+                                    Feature</th>
+                                <th
+                                    class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-r border-white/25">
+                                    Basic</th>
+                                <th
+                                    class="p-6 md:p-8 text-xl font-bold text-[var(--xenon-color-cyan)] w-1/4 text-center border-x border-white/40 bg-white/10">
+                                    Professional</th>
+                                <th
+                                    class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-l border-white/25">
+                                    Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
+                                <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-cyan)] border-r border-white/40"
+                                    colspan="4"><i class="fas fa-pen-nib mr-2"></i>Design</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    Logo Design</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="text-gray-400 text-sm">1</span></td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="text-[var(--xenon-color-cyan)] font-semibold text-sm">3</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Unlimited</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    Brand Guidelines</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    UI/UX Wireframes</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="text-[var(--xenon-color-cyan)] font-semibold text-sm">5</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Unlimited</span>
+                                </td>
+                            </tr>
+                            <tr
+                                class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
+                                <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-magenta)] border-r border-white/40"
+                                    colspan="4"><i class="fas fa-images mr-2"></i>Content</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    Social Posts/Month</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="text-gray-400 text-sm">5</span></td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="text-[var(--xenon-color-cyan)] font-semibold text-sm">20</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Unlimited</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    Banner Designs</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                            </tr>
+                            <tr
+                                class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
+                                <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-cyan)] border-r border-white/40"
+                                    colspan="4"><i class="fas fa-video mr-2"></i>Video</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    Motion Graphics</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Cybersecurity Comparison -->
+            <div class="comparison-tab-content hidden" data-tab="security">
+                <div
+                    class="overflow-x-auto rounded-2xl border border-white/40 backdrop-blur-xl bg-black/40 shadow-[0_0_60px_-12px_rgba(255,255,255,0.3)]">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="sticky top-0 z-20 backdrop-blur-xl bg-black/80 border-b border-white/40">
+                                <th
+                                    class="p-6 md:p-8 text-sm font-bold tracking-widest uppercase text-gray-400 w-1/4 border-r border-white/40">
+                                    Feature</th>
+                                <th
+                                    class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-r border-white/25">
+                                    Basic</th>
+                                <th
+                                    class="p-6 md:p-8 text-xl font-bold text-[var(--xenon-color-cyan)] w-1/4 text-center border-x border-white/40 bg-white/10">
+                                    Business</th>
+                                <th
+                                    class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-l border-white/25">
+                                    Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
+                                <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-cyan)] border-r border-white/40"
+                                    colspan="4"><i class="fas fa-shield-alt mr-2"></i>Protection</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    Firewall</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="text-gray-400 text-sm">Basic</span></td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Advanced</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Full
+                                        Suite</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    Malware Protection</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="text-gray-400 text-sm">Scanning</span></td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Real-time</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="text-[var(--xenon-color-cyan)] font-semibold text-sm">Advanced
+                                        AI</span></td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    SSL Certificate</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                            </tr>
+                            <tr
+                                class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
+                                <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-magenta)] border-r border-white/40"
+                                    colspan="4"><i class="fas fa-eye mr-2"></i>Monitoring</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    24/7 Monitoring</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    Penetration Testing</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                            </tr>
+                            <tr
+                                class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
+                                <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-cyan)] border-r border-white/40"
+                                    colspan="4"><i class="fas fa-certificate mr-2"></i>Compliance</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition-colors">
+                                <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                                    HIPAA/PCI Compliance</td>
+                                <td class="p-6 md:p-8 text-center border-r border-white/25"><span
+                                        class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                                    <span class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                                </td>
+                                <td class="p-6 md:p-8 text-center border-l border-white/25"><span
+                                        class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                                        style="filter: drop-shadow(0 0 8px rgba(0,242,255,1))">check_circle</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+            <th
+                class="p-6 md:p-8 text-xl font-bold text-[var(--xenon-color-cyan)] w-1/4 text-center border-x border-white/40 bg-gradient-to-b from-white/5 to-transparent">
+                Professional</th>
+            <th class="p-6 md:p-8 text-xl font-bold text-white w-1/4 text-center border-l border-white/25">
+                Enterprise
+            </th>
+            </tr>
+            </thead>
+            <tbody class="divide-y divide-white/20">
+                <!-- Category: Design & Build -->
+                <tr
+                    class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-purple)]/25 to-transparent">
+                    <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-cyan)] border-r border-white/40"
+                        colspan="4">
+                        <i class="fas fa-palette mr-2"></i>Design & Build
+                    </td>
+                </tr>
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                        Pages</td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
+                        Up to 5</td>
+                    <td
+                        class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
+                        Up to 15</td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
+                        Unlimited</td>
+                </tr>
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                        Design Quality
+                    </td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
+                        Standard</td>
+                    <td
+                        class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
+                        Premium</td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
+                        Custom Cinematic</td>
+                </tr>
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                        Animations</td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
+                        Basic</td>
+                    <td
+                        class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
+                        Advanced GSAP</td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
+                        Full Custom</td>
+                </tr>
+
+                <!-- Category: Features & Integrations -->
+                <tr
+                    class="bg-gradient-to-r from-[var(--xenon-color-purple)]/25 via-[var(--xenon-color-cyan)]/25 to-transparent">
+                    <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-purple)] border-r border-white/40"
+                        colspan="4">
+                        <i class="fas fa-plug mr-2"></i>Features & Integrations
+                    </td>
+                </tr>
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                        SEO
+                        Optimization</td>
+                    <td class="p-6 md:p-8 text-center border-r border-white/25">
+                        <span class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                    </td>
+                    <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                        <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                            style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
+                    </td>
+                    <td class="p-6 md:p-8 text-center border-l border-white/25">
+                        <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                            style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
+                    </td>
+                </tr>
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                        Analytics Setup
+                    </td>
+                    <td class="p-6 md:p-8 text-center border-r border-white/25">
+                        <span class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                    </td>
+                    <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                        <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                            style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
+                    </td>
+                    <td class="p-6 md:p-8 text-center border-l border-white/25">
+                        <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                            style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
+                    </td>
+                </tr>
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                        AI Automation
+                    </td>
+                    <td class="p-6 md:p-8 text-center border-r border-white/25">
+                        <span class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                    </td>
+                    <td class="p-6 md:p-8 text-center border-x border-white/40 bg-white/10">
+                        <span class="material-symbols-outlined text-gray-400 text-2xl">cancel</span>
+                    </td>
+                    <td class="p-6 md:p-8 text-center border-l border-white/25">
+                        <span class="material-symbols-outlined text-[var(--xenon-color-cyan)] text-2xl"
+                            style="filter: drop-shadow(0 0 8px rgba(0,242,255,1)) drop-shadow(0 0 16px rgba(0,242,255,0.8)) ">check_circle</span>
+                    </td>
+                </tr>
+
+                <!-- Category: Support & Maintenance -->
+                <tr
+                    class="bg-gradient-to-r from-[var(--xenon-color-cyan)]/25 via-[var(--xenon-color-magenta)]/25 to-transparent">
+                    <td class="px-6 md:px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--xenon-color-magenta)] border-r border-white/40"
+                        colspan="4">
+                        <i class="fas fa-headset mr-2"></i>Support & Maintenance
+                    </td>
+                </tr>
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                        Support Level
+                    </td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
+                        Email</td>
+                    <td
+                        class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
+                        Priority</td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
+                        24/7 Dedicated</td>
+                </tr>
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                        Revisions</td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
+                        2 Rounds</td>
+                    <td
+                        class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
+                        5 Rounds</td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
+                        Unlimited</td>
+                </tr>
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="p-6 md:p-8 text-sm text-gray-300 border-r border-white/40">
+                        Response Time
+                    </td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-r border-white/25">
+                        48 hours</td>
+                    <td
+                        class="p-6 md:p-8 text-sm text-center text-[var(--xenon-color-cyan)] font-semibold border-x border-white/40 bg-white/10">
+                        12 hours</td>
+                    <td class="p-6 md:p-8 text-sm text-center text-gray-300 border-l border-white/25">
+                        1 hour</td>
+                </tr>
+            </tbody>
+            </table>
+</div>
+                    </section>
 
         <!-- Contact Section -->
         <section id="contact" class="py-24 bg-[var(--xenon-color-black)] text-white relative overflow-hidden">
@@ -2447,6 +3347,7 @@
 
     <!-- Global App Logic -->
     <script src="./js/app.js"></script>
+    <script src="./js/pricing.js"></script>
 
     <!-- Index Page Specific UX -->
     <script src="./js/index-ux.js"></script>

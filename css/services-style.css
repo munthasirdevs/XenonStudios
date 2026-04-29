@@ -82,6 +82,15 @@
     opacity: 1;
 }
 
+.service-nav-btn.active {
+    color: var(--xenon-color-cyan) !important;
+    border-color: rgba(0, 242, 255, 0.5) !important;
+}
+
+.service-nav-btn.active::before {
+    opacity: 1;
+}
+
 /* Performance Hints for Animated Elements */
 .service-card {
     will-change: transform, box-shadow;
