@@ -53,6 +53,7 @@ const initGsapAnimations = () => {
   );
 
   // Section Reveals
+  if (window.location.pathname.includes("services.html")) return;
   gsap.utils.toArray("section:not(#home)").forEach((section) => {
     gsap.from(section, {
       scrollTrigger: {

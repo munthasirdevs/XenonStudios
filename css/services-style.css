@@ -1,15 +1,29 @@
-/* Service Sidebar Navigation */
-.service-hero-section {
+/* Body with background image */
+body {
     background-image: url('../images/xenonLogo/servicePage_Background.png');
-    background-size: 100% auto;
+    background-size: 101% 101%;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 100vh;
+    background-color: #000000;
+}
+
+/* Service Hero Section - no effect */
+.service-hero-section {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Blur effect on all other sections */
+main section:not(.service-hero-section) {
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 @media (max-width: 768px) {
-    .service-hero-section {
+    body {
         background-size: 100% 100%;
     }
 }
