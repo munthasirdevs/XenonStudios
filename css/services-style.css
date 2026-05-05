@@ -1,4 +1,19 @@
 /* Service Sidebar Navigation */
+.service-hero-section {
+    background-image: url('../images/xenonLogo/servicePage_Background.png');
+    background-size: 100% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .service-hero-section {
+        background-size: 100% 100%;
+    }
+}
+
 .service-sidebar {
     position: fixed;
     left: 20px;
