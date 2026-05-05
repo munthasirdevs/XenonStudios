@@ -120,6 +120,13 @@ p {
   visibility: visible !important;
 }
 
+/* Section Blur Effect */
+.sectionBlur {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 /* ============================================
    CSS VARIABLES (DESIGN TOKENS)
    Defines the core color palette and effects

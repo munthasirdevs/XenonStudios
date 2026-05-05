@@ -51,7 +51,7 @@ A high-performance, dark-mode agency website featuring GSAP-powered animations, 
 
 ## 📁 Project Structure
 
-```
+```text
 XenonStudios/
 ├── index.html                  # Main entry point
 ├── README.md                   # Project documentation
@@ -137,7 +137,7 @@ Fixed text colors in Feature Breakdown pricing table for better contrast and vis
 All 9 services now feature new revenue-share pricing plans:
 
 | Service | Starter | Growth | Enterprise |
-|---------|---------|--------|------------|
+| ------- | ------- | ------ | ---------- |
 | AI Automation | $25k + 10% | $60k + $5k/mo + 12% | $150k + 15% |
 | Cybersecurity | $15k + 8% | $45k/yr + 10% | $120k + 12% |
 | Digital Marketing | $8k/mo + 10% | $25k/mo + 15% | $60k/mo + 20% |

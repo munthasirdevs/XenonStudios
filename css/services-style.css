@@ -15,11 +15,9 @@ body {
     -webkit-backdrop-filter: none !important;
 }
 
-/* Blur effect on all other sections */
+/* No blur on sections - keep transparent */
 main section:not(.service-hero-section) {
-    background: rgba(0, 0, 0, 0.6) !important;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: transparent !important;
 }
 
 @media (max-width: 768px) {
